@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#C26328" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-  <title>HappyPaws Adoptions | Hyderabad • Adopt • Love • Make a Difference</title>
+  <title>HappyPaws | Adopt • Love • Make a Difference</title>
   
   <!-- Google Fonts: Plus Jakarta Sans & Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -103,9 +103,9 @@
 
     .dropdown-menu {
       opacity: 0;
-      transform: translateY(-8px) scale(0.97);
+      transform: translateY(-6px) scale(0.97);
       pointer-events: none;
-      transition: opacity 0.2s ease, transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: opacity 0.18s ease, transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
       transform-origin: top right;
     }
     .dropdown-menu.open {
@@ -137,7 +137,7 @@
   <!-- Mobile App Container -->
   <div class="max-w-md mx-auto min-h-screen bg-canvas-50 shadow-2xl relative flex flex-col border-x border-stone-200/80">
 
-    <!-- STICKY HEADER WITH HAPPYPAWS LOGO & SCROLLABLE HAMBURGER MENU -->
+    <!-- CLEAN STICKY HEADER (No Hyderabad / Adoptions clutter) -->
     <header class="sticky top-0 z-30 bg-white/95 backdrop-blur-md border-b border-stone-200/70">
       <div class="px-4 py-3.5 flex items-center justify-between gap-3 relative">
         
@@ -154,15 +154,15 @@
             </svg>
           </div>
           <div class="min-w-0 flex-1">
-            <h1 class="font-display font-extrabold text-[17px] leading-tight text-stone-900 tracking-tight truncate">
-              HappyPaws <span class="text-paw-600">Adoptions</span>
+            <h1 class="font-display font-extrabold text-[18px] leading-tight text-stone-900 tracking-tight">
+              Happy<span class="text-paw-600">Paws</span>
             </h1>
             <div class="flex items-center gap-1.5 mt-0.5">
               <span class="relative flex h-2 w-2 shrink-0">
                 <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-paw-500 opacity-75"></span>
                 <span class="relative inline-flex rounded-full h-2 w-2 bg-paw-600"></span>
               </span>
-              <span class="text-[11px] font-medium text-stone-500 truncate">Hyderabad • Adopt • Love • Make a Difference</span>
+              <span class="text-[11px] font-medium text-stone-500">Adopt • Love • Make a Difference</span>
             </div>
           </div>
         </div>
@@ -173,66 +173,66 @@
             <i data-lucide="menu" class="w-5 h-5 icon-bounce"></i>
           </button>
 
-          <!-- SPACIOUS, SCROLLABLE HAMBURGER DROPDOWN MENU -->
-          <div id="navDropdown" class="dropdown-menu absolute right-0 mt-2.5 w-72 max-h-[82vh] overflow-y-auto overscroll-contain bg-white rounded-3xl shadow-2xl border border-stone-200/90 py-3 z-50">
+          <!-- COMPACT, SCROLLABLE HAMBURGER DRAWER -->
+          <div id="navDropdown" class="dropdown-menu absolute right-0 mt-2 w-64 max-h-[68vh] overflow-y-auto overscroll-contain bg-white rounded-2xl shadow-2xl border border-stone-200/90 py-2.5 z-50">
             
             <!-- Rescue Helpline Numbers Section -->
-            <div class="px-3.5 pb-3 border-b border-stone-100 space-y-1.5">
-              <p class="px-2.5 pt-0.5 text-[10px] font-bold uppercase tracking-wider text-stone-400">Rescue Helpline Numbers</p>
+            <div class="px-3 pb-2 border-b border-stone-100 space-y-1">
+              <p class="px-2 pt-0.5 text-[10px] font-bold uppercase tracking-wider text-stone-400">Rescue Helpline Numbers</p>
               
-              <a href="tel:+919704085807" onclick="closeMenu()" class="group w-full flex items-center gap-3 px-3 py-2.5 rounded-2xl bg-paw-50/70 hover:bg-paw-100/70 text-stone-800 transition">
-                <div class="w-8 h-8 rounded-xl bg-paw-600 text-white flex items-center justify-center shrink-0">
-                  <i data-lucide="phone-call" class="w-4 h-4 icon-bounce"></i>
+              <a href="tel:+919704085807" onclick="closeMenu()" class="group w-full flex items-center gap-2.5 px-2.5 py-2 rounded-xl bg-paw-50/70 hover:bg-paw-100/70 text-stone-800 transition">
+                <div class="w-7 h-7 rounded-lg bg-paw-600 text-white flex items-center justify-center shrink-0">
+                  <i data-lucide="phone-call" class="w-3.5 h-3.5 icon-bounce"></i>
                 </div>
                 <div class="min-w-0">
                   <p class="text-xs font-bold text-stone-900 whitespace-nowrap tabular-nums">+91 97040 85807</p>
-                  <p class="text-[10px] text-stone-500">Primary Helpline • Tap to call</p>
+                  <p class="text-[10px] text-stone-500 leading-tight">Primary • Tap to call</p>
                 </div>
               </a>
 
-              <a href="tel:+917416585807" onclick="closeMenu()" class="group w-full flex items-center gap-3 px-3 py-2.5 rounded-2xl bg-stone-50 hover:bg-paw-50/70 text-stone-800 transition">
-                <div class="w-8 h-8 rounded-xl bg-white border border-stone-200 text-paw-600 flex items-center justify-center shrink-0">
-                  <i data-lucide="phone" class="w-4 h-4 icon-bounce"></i>
+              <a href="tel:+917416585807" onclick="closeMenu()" class="group w-full flex items-center gap-2.5 px-2.5 py-2 rounded-xl bg-stone-50 hover:bg-paw-50/70 text-stone-800 transition">
+                <div class="w-7 h-7 rounded-lg bg-white border border-stone-200 text-paw-600 flex items-center justify-center shrink-0">
+                  <i data-lucide="phone" class="w-3.5 h-3.5 icon-bounce"></i>
                 </div>
                 <div class="min-w-0">
                   <p class="text-xs font-bold text-stone-900 whitespace-nowrap tabular-nums">+91 74165 85807</p>
-                  <p class="text-[10px] text-stone-500">Secondary Helpline • Tap to call</p>
+                  <p class="text-[10px] text-stone-500 leading-tight">Secondary • Tap to call</p>
                 </div>
               </a>
             </div>
 
-            <!-- HappyPaws Navigation Menu -->
-            <div class="px-3.5 pt-2.5 space-y-1">
-              <p class="px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-stone-400">HappyPaws Menu</p>
+            <!-- Quick Links & Team Portal -->
+            <div class="px-3 pt-2 space-y-0.5">
+              <p class="px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-stone-400">Navigation</p>
               
-              <button type="button" onclick="closeMenu(); switchTab('adopt');" class="group w-full flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-paw-50 text-stone-700 text-left text-xs font-medium transition">
-                <i data-lucide="heart" class="w-4 h-4 text-paw-600 shrink-0 icon-bounce"></i>
-                <span class="leading-snug">1. Adopt a Pet</span>
+              <button type="button" onclick="closeMenu(); switchTab('adopt');" class="group w-full flex items-center gap-2.5 px-2.5 py-2 rounded-xl hover:bg-paw-50 text-stone-700 text-left text-xs font-medium transition">
+                <i data-lucide="heart" class="w-3.5 h-3.5 text-paw-600 shrink-0 icon-bounce"></i>
+                <span>1. Adopt a Pet</span>
               </button>
 
-              <button type="button" onclick="closeMenu(); switchTab('listpet');" class="group w-full flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-paw-50 text-stone-700 text-left text-xs font-medium transition">
-                <i data-lucide="plus-circle" class="w-4 h-4 text-paw-600 shrink-0 icon-bounce"></i>
-                <span class="leading-snug">2. List Rescue / Pet for Adoption</span>
+              <button type="button" onclick="closeMenu(); switchTab('listpet');" class="group w-full flex items-center gap-2.5 px-2.5 py-2 rounded-xl hover:bg-paw-50 text-stone-700 text-left text-xs font-medium transition">
+                <i data-lucide="plus-circle" class="w-3.5 h-3.5 text-paw-600 shrink-0 icon-bounce"></i>
+                <span>2. List Rescue / Pet</span>
               </button>
 
-              <button type="button" onclick="closeMenu(); switchTab('lostfound');" class="group w-full flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-paw-50 text-stone-700 text-left text-xs font-medium transition">
-                <i data-lucide="search-check" class="w-4 h-4 text-paw-600 shrink-0 icon-bounce"></i>
-                <span class="leading-snug">3. Lost Pet / Found Rescue</span>
+              <button type="button" onclick="closeMenu(); switchTab('lostfound');" class="group w-full flex items-center gap-2.5 px-2.5 py-2 rounded-xl hover:bg-paw-50 text-stone-700 text-left text-xs font-medium transition">
+                <i data-lucide="search-check" class="w-3.5 h-3.5 text-paw-600 shrink-0 icon-bounce"></i>
+                <span>3. Lost / Found Pet</span>
               </button>
 
-              <button type="button" onclick="closeMenu(); switchTab('fostervol');" class="group w-full flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-paw-50 text-stone-700 text-left text-xs font-medium transition">
-                <i data-lucide="hand-heart" class="w-4 h-4 text-paw-600 shrink-0 icon-bounce"></i>
-                <span class="leading-snug">4. Foster or Volunteer</span>
+              <button type="button" onclick="closeMenu(); switchTab('fostervol');" class="group w-full flex items-center gap-2.5 px-2.5 py-2 rounded-xl hover:bg-paw-50 text-stone-700 text-left text-xs font-medium transition">
+                <i data-lucide="hand-heart" class="w-3.5 h-3.5 text-paw-600 shrink-0 icon-bounce"></i>
+                <span>4. Foster or Volunteer</span>
               </button>
 
-              <button type="button" onclick="closeMenu(); switchTab('donate');" class="group w-full flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-paw-50 text-stone-700 text-left text-xs font-medium transition">
-                <i data-lucide="gift" class="w-4 h-4 text-paw-600 shrink-0 icon-bounce"></i>
-                <span class="leading-snug">5. Donations, Sponsor & Partners</span>
+              <button type="button" onclick="closeMenu(); switchTab('donate');" class="group w-full flex items-center gap-2.5 px-2.5 py-2 rounded-xl hover:bg-paw-50 text-stone-700 text-left text-xs font-medium transition">
+                <i data-lucide="gift" class="w-3.5 h-3.5 text-paw-600 shrink-0 icon-bounce"></i>
+                <span>5. Donate & Partners</span>
               </button>
 
-              <div class="pt-2 mt-1 border-t border-stone-100">
-                <button type="button" onclick="closeMenu(); openPinPrompt('unlock');" class="group w-full flex items-center gap-3 px-3 py-2.5 rounded-xl bg-stone-900 hover:bg-stone-800 text-white text-left text-xs font-semibold transition">
-                  <i data-lucide="shield" class="w-4 h-4 text-paw-400 shrink-0 icon-bounce"></i>
+              <div class="pt-1.5 mt-1 border-t border-stone-100">
+                <button type="button" onclick="closeMenu(); openPinPrompt('unlock');" class="group w-full flex items-center gap-2.5 px-3 py-2.5 rounded-xl bg-stone-900 hover:bg-stone-800 text-white text-left text-xs font-semibold transition">
+                  <i data-lucide="shield" class="w-3.5 h-3.5 text-paw-400 shrink-0 icon-bounce"></i>
                   <span>Team / Coordinator Portal</span>
                 </button>
               </div>
@@ -256,7 +256,7 @@
         <div class="flex items-center justify-between gap-3">
           <div>
             <h2 id="adoptTabTitle" class="font-display font-bold text-lg text-stone-900">Adopt a Pet</h2>
-            <p id="adoptTabSub" class="text-xs text-stone-500 mt-0.5">Find your companion • HappyPaws Hyderabad</p>
+            <p id="adoptTabSub" class="text-xs text-stone-500 mt-0.5">Find your lifelong companion</p>
           </div>
           <div id="adoptCtaMount"></div>
         </div>
@@ -349,7 +349,7 @@
               <input type="text" id="lpHealth" required placeholder="e.g., Dewormed, 1st vaccine" class="w-full px-3.5 py-2.5 rounded-xl bg-canvas-50 border border-stone-200 focus:bg-white focus:border-paw-600 focus:outline-none" />
             </div>
             <div>
-              <label class="block font-semibold text-stone-700 mb-1.5">Area in Hyderabad <span class="text-rose-600">*</span></label>
+              <label class="block font-semibold text-stone-700 mb-1.5">Area / Locality <span class="text-rose-600">*</span></label>
               <input type="text" id="lpArea" required placeholder="e.g., Kondapur" class="w-full px-3.5 py-2.5 rounded-xl bg-canvas-50 border border-stone-200 focus:bg-white focus:border-paw-600 focus:outline-none" />
             </div>
           </div>
@@ -388,7 +388,7 @@
       <section id="tab-lostfound" class="tab-pane space-y-5">
         <div>
           <h2 class="font-display font-bold text-lg text-stone-900">Lost & Found Pets</h2>
-          <p class="text-xs text-stone-500 mt-0.5">Report a missing pet or a found rescue in Hyderabad</p>
+          <p class="text-xs text-stone-500 mt-0.5">Report a missing pet or a found rescue</p>
         </div>
 
         <form id="lostFoundForm" onsubmit="handleLostFoundSubmit(event)" class="bg-white p-5 rounded-3xl border border-stone-200/80 shadow-2xs space-y-4 text-xs">
@@ -429,7 +429,7 @@
         <div class="bg-white rounded-3xl border border-stone-200/80 p-5 shadow-2xs space-y-1.5">
           <h2 class="font-display font-bold text-base text-stone-900">Foster or Volunteer with HappyPaws</h2>
           <p class="text-xs text-stone-500 leading-relaxed">
-            Open your home temporarily for a recovering pup/kitten or join our Hyderabad adoption drives, home checks & transport team.
+            Open your home temporarily for a recovering pup/kitten or join our adoption drives, home checks & transport team.
           </p>
         </div>
 
@@ -448,7 +448,7 @@
             <input type="tel" id="fvPhone" required pattern="[0-9]{10}" maxlength="10" placeholder="10-digit WhatsApp *" class="w-full px-3.5 py-2.5 rounded-xl bg-canvas-50 border border-stone-200 focus:bg-white focus:border-paw-600 focus:outline-none" />
           </div>
 
-          <input type="text" id="fvArea" required placeholder="Your Locality in Hyderabad *" class="w-full px-3.5 py-2.5 rounded-xl bg-canvas-50 border border-stone-200 focus:bg-white focus:border-paw-600 focus:outline-none" />
+          <input type="text" id="fvArea" required placeholder="Your Locality / Area *" class="w-full px-3.5 py-2.5 rounded-xl bg-canvas-50 border border-stone-200 focus:bg-white focus:border-paw-600 focus:outline-none" />
           <textarea id="fvNotes" required rows="2" placeholder="Availability (weekends/weekdays), home setup, or past pet experience..." class="w-full px-3.5 py-2.5 rounded-xl bg-canvas-50 border border-stone-200 focus:bg-white focus:border-paw-600 focus:outline-none"></textarea>
 
           <button type="submit" id="fvSubmitBtn" class="btn-press w-full py-3.5 rounded-2xl bg-paw-600 hover:bg-paw-700 text-white font-display font-bold text-sm">
@@ -471,7 +471,7 @@
           <div class="flex items-center justify-between">
             <div>
               <span class="text-[10px] font-bold uppercase tracking-wider text-paw-700 bg-paw-50 px-2.5 py-1 rounded-full">Support HappyPaws</span>
-              <h3 class="font-display font-bold text-base text-stone-900 mt-2">HappyPaws Adoptions (Hyderabad)</h3>
+              <h3 class="font-display font-bold text-base text-stone-900 mt-2">HappyPaws Care Fund</h3>
               <p class="text-[11px] text-stone-500">Sponsor food, medicines, accessories or virtually adopt</p>
             </div>
             <div class="w-10 h-10 rounded-2xl bg-paw-50 text-paw-600 flex items-center justify-center shrink-0">
@@ -480,7 +480,7 @@
           </div>
 
           <div class="bg-canvas-50 border border-stone-200/70 rounded-2xl p-4 flex flex-col items-center justify-center space-y-2">
-            <img src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=upi%3A%2F%2Fpay%3Fpa%3Dhappypaws%40upi%26pn%3DHappyPaws%2520Adoptions%26cu%3DINR" alt="HappyPaws UPI QR" class="w-40 h-40 rounded-xl bg-white p-2 shadow-2xs" />
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=upi%3A%2F%2Fpay%3Fpa%3Dhappypaws%40upi%26pn%3DHappyPaws%26cu%3DINR" alt="HappyPaws UPI QR" class="w-40 h-40 rounded-xl bg-white p-2 shadow-2xs" />
             <span class="text-[11px] font-semibold text-stone-500">GPay • PhonePe • Paytm • BHIM</span>
           </div>
 
@@ -493,31 +493,38 @@
           </div>
         </div>
 
-        <!-- In-Kind Supplies & Virtual Adoption -->
-        <div class="bg-white rounded-3xl border border-stone-200/80 p-5 space-y-3.5 shadow-2xs">
-          <h3 class="font-display font-bold text-sm text-stone-900">In-Kind Donations & Virtual Adoption</h3>
-          <div class="grid grid-cols-2 gap-2.5 text-xs">
+        <!-- In-Kind Supplies & Virtual Adoption (Refined Spacing & Padding) -->
+        <div class="bg-white rounded-3xl border border-stone-200/80 p-5 space-y-4 shadow-2xs">
+          <div>
+            <h3 class="font-display font-bold text-sm text-stone-900">In-Kind Donations & Virtual Adoption</h3>
+            <p class="text-[11px] text-stone-500 mt-0.5">Directly support shelter nutrition, medical kits & monthly care</p>
+          </div>
+
+          <div class="grid grid-cols-2 gap-3 text-xs">
             <div class="p-3.5 rounded-2xl bg-canvas-50 border border-stone-100 space-y-1">
               <p class="font-bold text-stone-900">Food & Kibble</p>
-              <p class="text-[11px] text-stone-500">Puppy/kitten dry & wet food, rice, chicken</p>
+              <p class="text-[11px] text-stone-500 leading-relaxed">Puppy/kitten dry & wet food, rice, chicken</p>
             </div>
             <div class="p-3.5 rounded-2xl bg-canvas-50 border border-stone-100 space-y-1">
               <p class="font-bold text-stone-900">Medicines & Care</p>
-              <p class="text-[11px] text-stone-500">Dewormers, tick sprays, gauze, supplements</p>
+              <p class="text-[11px] text-stone-500 leading-relaxed">Dewormers, tick sprays, gauze, supplements</p>
             </div>
             <div class="p-3.5 rounded-2xl bg-canvas-50 border border-stone-100 space-y-1">
               <p class="font-bold text-stone-900">Accessories</p>
-              <p class="text-[11px] text-stone-500">Leashes, collars, bowls, carriers & bedding</p>
+              <p class="text-[11px] text-stone-500 leading-relaxed">Leashes, collars, bowls, carriers & bedding</p>
             </div>
             <div class="p-3.5 rounded-2xl bg-canvas-50 border border-stone-100 space-y-1">
               <p class="font-bold text-stone-900">Virtual Adoption</p>
-              <p class="text-[11px] text-stone-500">Sponsor monthly care & get photo updates</p>
+              <p class="text-[11px] text-stone-500 leading-relaxed">Sponsor monthly care & get photo updates</p>
             </div>
           </div>
-          <a href="https://wa.me/919704085807?text=Hi%20HappyPaws!%20I%20would%20like%20to%20donate%20supplies%20or%20virtually%20adopt%20a%20rescue." target="_blank" rel="noopener" class="btn-press w-full py-3.5 rounded-2xl bg-paw-600 hover:bg-paw-700 text-white font-display font-bold text-xs flex items-center justify-center gap-2 shadow-sm">
-            <i data-lucide="message-circle" class="w-4 h-4"></i>
-            <span>Coordinate Supply Drop / Sponsorship on WhatsApp</span>
-          </a>
+
+          <div class="pt-1">
+            <a href="https://wa.me/919704085807?text=Hi%20HappyPaws!%20I%20would%20like%20to%20donate%20supplies%20or%20virtually%20adopt%20a%20rescue." target="_blank" rel="noopener" class="btn-press w-full py-4 px-5 rounded-2xl bg-paw-600 hover:bg-paw-700 text-white font-display font-bold text-xs leading-snug text-center flex items-center justify-center gap-2.5 shadow-sm shadow-paw-600/20">
+              <i data-lucide="message-circle" class="w-4 h-4 shrink-0"></i>
+              <span>Coordinate Supply Drop / Sponsorship</span>
+            </a>
+          </div>
         </div>
 
         <!-- Active Medical Cases & Vet Bills -->
@@ -534,14 +541,14 @@
           <div class="flex items-center justify-between">
             <div>
               <h3 class="font-display font-bold text-sm text-stone-900">Partner Organizations & Brands</h3>
-              <p class="text-[11px] text-stone-500">Supporting HappyPaws Hyderabad adoptions & care</p>
+              <p class="text-[11px] text-stone-500">Supporting HappyPaws adoptions & care</p>
             </div>
             <i data-lucide="handshake" class="w-5 h-5 text-paw-600"></i>
           </div>
           <div class="space-y-2.5 text-xs">
             <div class="p-3.5 rounded-2xl bg-canvas-50 border border-stone-100 flex items-center justify-between gap-2">
               <div>
-                <p class="font-bold text-stone-900">Hyderabad Partner Vet Clinics</p>
+                <p class="font-bold text-stone-900">Partner Veterinary Clinics</p>
                 <p class="text-[11px] text-stone-500">Subsidized vaccinations, ABC sterilizations & trauma care</p>
               </div>
               <span class="text-[10px] font-bold px-2.5 py-1 rounded-full bg-paw-50 text-paw-700 border border-paw-200/70 shrink-0">Vet Partner</span>
@@ -675,7 +682,8 @@
       // ======================================================================
       const API_URL = 'https://script.google.com/macros/s/AKfycbx55JBqoDOcobV7B8ytkrDPZP8taJoYOAfvvdNh0TNvklFOBrUoQvmgc81YdSIXvN88hQ/exec';
 
-      const CACHE_KEY = '_happypaws_cache_v5';
+      const CACHE_KEY = '_happypaws_cache_v6';
+      const CACHE_TTL_MS = 25 * 1000; // 25s local read buffer to protect 30-exec Apps Script limit
       const SESSION_KEY = '_happypaws_auth_v1';
       const SESSION_TTL_MS = 45 * 60 * 1000;
       const XOR_SALT = 'HAPPYPAWS_KEY_2026';
@@ -736,15 +744,23 @@
       function readCache() {
         try {
           const raw = localStorage.getItem(CACHE_KEY);
-          return raw ? JSON.parse(raw) : null;
+          if (!raw) return null;
+          const parsed = JSON.parse(raw);
+          return parsed && parsed.data ? parsed : null;
         } catch (e) { return null; }
       }
 
       function writeCache(data) {
-        try { localStorage.setItem(CACHE_KEY, JSON.stringify(data)); } catch (e) {}
+        try {
+          localStorage.setItem(CACHE_KEY, JSON.stringify({
+            ts: Date.now(),
+            data: data
+          }));
+        } catch (e) {}
       }
 
-      async function fetchWithRetry(url, options = {}, retries = 2) {
+      // Exponential backoff + jitter retry helper for maximum concurrent resilience
+      async function fetchWithRetry(url, options = {}, retries = 3) {
         for (let attempt = 0; attempt <= retries; attempt++) {
           try {
             const res = await fetch(url, options);
@@ -752,12 +768,14 @@
             return await res.json();
           } catch (err) {
             if (attempt === retries) throw err;
-            await new Promise(r => setTimeout(r, 600 * Math.pow(2, attempt) + Math.floor(Math.random() * 250)));
+            const delay = 650 * Math.pow(2, attempt) + Math.floor(Math.random() * 400);
+            await new Promise(r => setTimeout(r, delay));
           }
         }
       }
 
-      function compressImageFile(file, maxWidth = 720, quality = 0.72) {
+      // Lighter compression (640px @ 0.68) = ~35% faster Drive uploads & shorter lock hold times
+      function compressImageFile(file, maxWidth = 640, quality = 0.68) {
         return new Promise((resolve) => {
           if (!file) return resolve(null);
           const reader = new FileReader();
@@ -784,7 +802,7 @@
       }
 
       // ======================================================================
-      // PRIORITY PARSER & SORTER (Uses Breed_Color `[P:1]` without backend edits)
+      // PRIORITY PARSER & SORTER
       // ======================================================================
       function extractPriority(animal) {
         const raw = String(animal.Breed_Color || '');
@@ -897,7 +915,7 @@
         if (role === 'PUBLIC') {
           bannerMount.innerHTML = '';
           document.getElementById('adoptTabTitle').textContent = 'Adopt a Pet';
-          document.getElementById('adoptTabSub').textContent = 'Find your companion • HappyPaws Hyderabad';
+          document.getElementById('adoptTabSub').textContent = 'Find your lifelong companion';
           document.getElementById('adoptCtaMount').innerHTML = '';
 
           if (!['adopt', 'listpet', 'lostfound', 'fostervol', 'donate'].includes(activeTab)) activeTab = 'adopt';
@@ -1013,6 +1031,10 @@
             (isMatch ? 'active text-paw-700 bg-paw-50 font-bold' : 'text-stone-500 font-semibold');
         });
 
+        if (['adopt', 'lostfound', 'fostervol', 'donate', 'ops', 'finance'].includes(tabId)) {
+          syncDatabase(false);
+        }
+
         if (!skipScroll) window.scrollTo({ top: 0, behavior: 'smooth' });
       };
 
@@ -1067,13 +1089,12 @@
           const ownerName = document.getElementById('lpOwnerName').value.trim();
           const ownerPhone = document.getElementById('lpOwnerPhone').value.trim();
 
-          // 1. Save into Animals tab with Status = 'Pending Approval' (hidden from public Adopt tab until approved!)
           const saveAnimalRes = await fetchWithRetry(API_URL, {
             method: 'POST',
             headers: { 'Content-Type': 'text/plain;charset=utf-8' },
             body: JSON.stringify({
               action: 'SAVE_ANIMAL',
-              pin: '2222', // Public submission routed to Pending Approval queue
+              pin: '2222',
               name: petName,
               species: species,
               breedColor: `[P:10] ${breed}`,
@@ -1087,9 +1108,8 @@
               rehabNotes: `Guardian Contact: ${ownerName} (+91 ${ownerPhone})`,
               photoBase64: compressedLpPhoto
             })
-          }, 2);
+          }, 3);
 
-          // 2. Also log an entry in Adoptions queue so Coordinators see it in Requests & Adoptions
           await fetchWithRetry(API_URL, {
             method: 'POST',
             headers: { 'Content-Type': 'text/plain;charset=utf-8' },
@@ -1105,7 +1125,7 @@
               housingDetails: health,
               petExperience: story
             })
-          }, 2);
+          }, 3);
 
           if (saveAnimalRes.status === 'success') {
             document.getElementById('publicListPetForm').reset();
@@ -1118,7 +1138,7 @@
             showToast(saveAnimalRes.message || 'Could not submit listing');
           }
         } catch (err) {
-          showToast('Network error — please try again');
+          showToast('High traffic — please tap Submit again');
         } finally {
           isSubmitting = false;
           btn.disabled = false;
@@ -1175,7 +1195,7 @@
               housingDetails: reportType,
               petExperience: details
             })
-          }, 2);
+          }, 3);
 
           if (res.status === 'success') {
             document.getElementById('lostFoundForm').reset();
@@ -1183,7 +1203,7 @@
             showToast(`${reportType} report #${res.appId} sent to HappyPaws!`);
           }
         } catch (err) {
-          showToast('Network error — please try again');
+          showToast('High traffic — please try again');
         } finally {
           isSubmitting = false;
           btn.disabled = false;
@@ -1216,14 +1236,14 @@
               housingDetails: roleType,
               petExperience: document.getElementById('fvNotes').value.trim()
             })
-          }, 2);
+          }, 3);
 
           if (res.status === 'success') {
             document.getElementById('fosterVolForm').reset();
             showToast(`Thank you! Registration #${res.appId} received.`);
           }
         } catch (err) {
-          showToast('Network error — please try again');
+          showToast('High traffic — please try again');
         } finally {
           isSubmitting = false;
           btn.disabled = false;
@@ -1232,7 +1252,7 @@
       };
 
       // ======================================================================
-      // RENDERING VIEWS (With Coordinator Approval Gate & Priority Sorting)
+      // RENDERING VIEWS
       // ======================================================================
       window.setAnimalFilter = function (filterVal, btnEl) {
         animalFilter = filterVal;
@@ -1264,7 +1284,6 @@
 
         const filtered = sortedAnimals.filter(a => {
           const st = String(a.Status || '').trim();
-          // Public visitors NEVER see 'Pending Approval' listings until a coordinator approves them
           if (!isTeam && st === 'Pending Approval') return false;
 
           const sp = String(a.Species || '').trim();
@@ -1303,7 +1322,7 @@
           const priorityNum = extractPriority(a);
           const status = String(a.Status || 'Available for Adoption').trim();
           const isPending = status === 'Pending Approval';
-          const locName = String(a.Current_Location_Name || 'Hyderabad').trim();
+          const locName = String(a.Current_Location_Name || 'Local').trim();
           const ageGender = String(a.Age_Gender || '').trim();
           const fallbackImg = species.toLowerCase() === 'cat'
             ? 'https://images.unsplash.com/photo-1595433707802-6b2626ef1c91?auto=format&fit=crop&w=800&q=80'
@@ -1372,7 +1391,6 @@
         lucide.createIcons();
       };
 
-      // Quick Coordinator Approval Action for Public Pet Listing Requests
       window.approvePendingAnimal = async function (animalId, name) {
         const session = getSession();
         if (!session) return showToast('Coordinator PIN required');
@@ -1387,7 +1405,7 @@
             name: name,
             status: 'Available for Adoption'
           })
-        }, 2);
+        }, 3);
         if (res.status === 'success') {
           await syncDatabase(true);
           showToast(`${name} is now live in Adopt a Pet!`);
@@ -1407,7 +1425,7 @@
               <div>
                 <span class="text-[10px] font-bold uppercase px-2 py-0.5 rounded bg-amber-100 text-amber-800">${a.Status}</span>
                 <h4 class="font-display font-bold text-sm text-stone-900 mt-1">${a.Name} (${a.Species})</h4>
-                <p class="text-xs text-stone-500">${a.Age_Gender || ''} • ${a.Current_Location_Name || 'Hyderabad'}</p>
+                <p class="text-xs text-stone-500">${a.Age_Gender || ''} • ${a.Current_Location_Name || ''}</p>
               </div>
               <button type="button" onclick="openAdoptionApplyModal('${a.Animal_ID}', '${String(a.Name).replace(/'/g, "\\'")}', 'Foster')" class="btn-press px-3.5 py-2 rounded-xl bg-paw-600 text-white font-bold text-xs shrink-0">Foster</button>
             </div>
@@ -1654,27 +1672,39 @@
       };
 
       // ======================================================================
-      // LIVE SYNC ENGINE
+      // HIGH-CONCURRENCY STALE-WHILE-REVALIDATE + JITTERED POLLING ENGINE
       // ======================================================================
       window.syncDatabase = async function (forceFresh = false) {
         if (isSubmitting && !forceFresh) return;
+
         const cached = readCache();
-        if (cached && !lastSignature) {
-          appState = { ...appState, ...cached };
+        if (cached && cached.data && !lastSignature) {
+          appState = { ...appState, ...cached.data };
           buildRoleChrome();
           renderCurrentView();
+        }
+
+        // Skip redundant network hit if fresh cache (<25s) exists on initial public boot
+        const isFreshLocal = cached && (Date.now() - cached.ts < CACHE_TTL_MS);
+        if (isFreshLocal && !forceFresh && !getSession() && lastSignature) {
+          return;
         }
 
         if (inFlightSync) return inFlightSync;
         inFlightSync = (async () => {
           try {
+            // Randomized 0–900ms jitter spreads simultaneous Instagram traffic spikes
+            if (!forceFresh && !getSession()) {
+              await new Promise(r => setTimeout(r, Math.floor(Math.random() * 900)));
+            }
+
             const session = getSession();
             const qs = new URLSearchParams();
             if (session && session.pin) qs.set('pin', session.pin);
             if (forceFresh) qs.set('fresh', '1');
             qs.set('t', Date.now());
 
-            const data = await fetchWithRetry(`${API_URL}?${qs.toString()}`, { cache: 'no-store' }, 2);
+            const data = await fetchWithRetry(`${API_URL}?${qs.toString()}`, { cache: 'no-store' }, 3);
             if (data && data.status === 'success') {
               const sig = JSON.stringify({
                 mode: data.mode,
@@ -1700,9 +1730,16 @@
         return inFlightSync;
       };
 
+      // Smart adaptive polling: only polls on live-feed tabs, pauses while user types in forms
       setInterval(() => {
+        if (document.visibilityState === 'visible' && !['listpet'].includes(activeTab)) {
+          syncDatabase(false);
+        }
+      }, 6000);
+
+      document.addEventListener('visibilitychange', () => {
         if (document.visibilityState === 'visible') syncDatabase(false);
-      }, 5000);
+      });
 
       // ======================================================================
       // MODALS (TEAM PIN + SET/UPDATE PIN, PRIORITY-ENABLED PET FORM, ETC.)
@@ -1866,12 +1903,12 @@
               <div class="space-y-3 text-xs">
                 <div class="bg-canvas-50 p-3.5 rounded-2xl border border-stone-200/70 space-y-1">
                   <p class="font-bold text-stone-900">1. Background & Story (${animal.Rescue_Date || 'Logged'})</p>
-                  <p class="text-stone-600"><strong>Area:</strong> ${animal.Rescue_Location || 'Hyderabad'}</p>
-                  <p class="text-stone-600">${animal.Rescue_Story || 'Available through HappyPaws Adoptions.'}</p>
+                  <p class="text-stone-600"><strong>Area:</strong> ${animal.Rescue_Location || ''}</p>
+                  <p class="text-stone-600">${animal.Rescue_Story || 'Available through HappyPaws.'}</p>
                 </div>
                 <div class="bg-canvas-50 p-3.5 rounded-2xl border border-stone-200/70 space-y-1">
                   <p class="font-bold text-stone-900">2. Placement & Medical Status</p>
-                  <p class="text-stone-600"><strong>Current Location:</strong> ${animal.Current_Location_Name || 'Hyderabad'}</p>
+                  <p class="text-stone-600"><strong>Current Location:</strong> ${animal.Current_Location_Name || ''}</p>
                   <p class="text-stone-600"><strong>Health Summary:</strong> ${animal.Medical_Summary || 'Vaccinated & Dewormed'}</p>
                   ${animal.Rehab_Notes ? `<p class="text-stone-600"><strong>Notes:</strong> ${animal.Rehab_Notes}</p>` : ''}
                 </div>
@@ -1894,7 +1931,7 @@
         lucide.createIcons();
       };
 
-      // ADD / EDIT ANIMAL FORM MODAL (With Display Priority Order Control & Approval Status)
+      // ADD / EDIT ANIMAL FORM MODAL
       window.openAnimalFormModal = function (editId = '') {
         const existing = editId ? (appState.animals || []).find(a => String(a.Animal_ID) === String(editId)) : null;
         const currentPriority = existing ? extractPriority(existing) : 1;
@@ -1939,7 +1976,7 @@
                     ${['Available for Adoption', 'Pending Approval', 'Urgent Foster', 'Foster-to-Adopt', 'Under Treatment', 'In Rehab', 'Lost Pet', 'Found Rescue', 'Adopted'].map(s => `<option value="${s}" ${existing && existing.Status === s ? 'selected' : ''}>${s}</option>`).join('')}
                   </select>
                   <select id="aniLocation" class="w-full px-3 py-2.5 rounded-xl bg-canvas-50 border border-stone-200">
-                    <option value="|Hyderabad">Hyderabad</option>
+                    <option value="|Main Shelter">Main Shelter</option>
                     ${locs.map(l => `<option value="${l.Location_ID}|${l.Name}" ${existing && existing.Current_Location_ID === l.Location_ID ? 'selected' : ''}>${l.Type}: ${l.Name}</option>`).join('')}
                   </select>
                 </div>
@@ -1990,7 +2027,7 @@
             rehabNotes: document.getElementById('aniRehab').value.trim(),
             photoBase64
           })
-        }, 2);
+        }, 3);
 
         if (res.status === 'success') {
           closeModal();
@@ -2072,7 +2109,7 @@
             doctorNotes: document.getElementById('vetNotes').value.trim(),
             billPhotoBase64
           })
-        }, 2);
+        }, 3);
         if (res.status === 'success') { closeModal(); await syncDatabase(true); showToast(res.message); }
       };
 
@@ -2126,7 +2163,7 @@
             phone: document.getElementById('locPhone').value.trim(),
             areaAddress: document.getElementById('locArea').value.trim()
           })
-        }, 2);
+        }, 3);
         if (res.status === 'success') { closeModal(); await syncDatabase(true); showToast('Location saved!'); }
       };
 
@@ -2188,7 +2225,7 @@
             partyName: document.getElementById('finParty').value.trim(),
             notes: document.getElementById('finNotes').value.trim()
           })
-        }, 2);
+        }, 3);
         if (res.status === 'success') { closeModal(); await syncDatabase(true); showToast(res.message); }
       };
 
@@ -2210,7 +2247,7 @@
                   <input type="tel" id="pubAppPhone" required pattern="[0-9]{10}" maxlength="10" placeholder="10-digit WhatsApp *" class="w-full px-3.5 py-2.5 rounded-xl bg-canvas-50 border border-stone-200" />
                   <input type="text" id="pubAppAgeJob" required placeholder="Age & Occupation *" class="w-full px-3.5 py-2.5 rounded-xl bg-canvas-50 border border-stone-200" />
                 </div>
-                <textarea id="pubAppAddr" required rows="2" placeholder="Complete Address & Locality in Hyderabad *" class="w-full px-3.5 py-2.5 rounded-xl bg-canvas-50 border border-stone-200"></textarea>
+                <textarea id="pubAppAddr" required rows="2" placeholder="Complete Address & Locality *" class="w-full px-3.5 py-2.5 rounded-xl bg-canvas-50 border border-stone-200"></textarea>
                 <select id="pubAppHousing" required class="w-full px-3.5 py-2.5 rounded-xl bg-canvas-50 border border-stone-200">
                   <option value="">Select Home & Balcony Safety *</option>
                   <option value="Apartment (Fully Netted)">Apartment (Fully Netted)</option>
@@ -2247,7 +2284,7 @@
             housingDetails: document.getElementById('pubAppHousing').value,
             petExperience: document.getElementById('pubAppExp').value.trim()
           })
-        }, 2);
+        }, 3);
         if (res.status === 'success') { closeModal(); showToast(res.message); }
       };
 
@@ -2301,7 +2338,7 @@
             followup30D: document.getElementById('scr30d').value,
             followup90D: document.getElementById('scr90d').value
           })
-        }, 2);
+        }, 3);
         if (res.status === 'success') { closeModal(); await syncDatabase(true); showToast('Updated!'); }
       };
 
@@ -2355,7 +2392,7 @@
             areaLocation: document.getElementById('tskArea').value.trim(),
             assignedTo: document.getElementById('tskAssignee').value.trim() || 'Open'
           })
-        }, 2);
+        }, 3);
         if (res.status === 'success') { closeModal(); await syncDatabase(true); showToast('Task assigned!'); }
       };
 
@@ -2366,7 +2403,7 @@
           method: 'POST',
           headers: { 'Content-Type': 'text/plain;charset=utf-8' },
           body: JSON.stringify({ action: 'SAVE_TASK', pin: session.pin, taskId, status: 'Completed' })
-        }, 2);
+        }, 3);
         if (res.status === 'success') { await syncDatabase(true); showToast('Task completed!'); }
       };
 
