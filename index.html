@@ -25,17 +25,17 @@
           },
           colors: {
             paw: {
-              50: '#FDF6F0',
-              100: '#FAE8D8',
-              200: '#F3CEB0',
+              50: '#FDF7F3',
+              100: '#F9EAE0',
+              200: '#F1D2BE',
               500: '#D47335',
               600: '#C26328',
               700: '#A14E1B',
               800: '#7D3B14',
             },
-            cream: {
-              50: '#FAF7F2',
-              100: '#F4EDE3',
+            canvas: {
+              50: '#FAF8F6',
+              100: '#F3EFEA',
             }
           }
         }
@@ -53,8 +53,8 @@
     }
     
     body {
-      background-color: #EFE8DE;
-      color: #241911;
+      background-color: #EAE5DF;
+      color: #1F1916;
       overflow-x: hidden;
       user-select: none;
       -webkit-user-select: none;
@@ -82,15 +82,23 @@
     }
 
     @keyframes slideUpFade {
-      from { opacity: 0; transform: translateY(10px); }
+      from { opacity: 0; transform: translateY(8px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
     .btn-press {
-      transition: transform 0.16s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.2s ease, border-color 0.2s ease;
+      transition: transform 0.16s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
     }
     .btn-press:active {
       transform: scale(0.96);
+    }
+
+    .icon-bounce {
+      transition: transform 0.26s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .group:hover .icon-bounce,
+    .nav-btn.active .icon-bounce {
+      transform: translateY(-2px) scale(1.1);
     }
 
     .dropdown-menu {
@@ -127,16 +135,16 @@
 <body class="antialiased selection:bg-paw-100 selection:text-paw-800">
 
   <!-- Mobile App Container -->
-  <div class="max-w-md mx-auto min-h-screen bg-cream-50 shadow-2xl relative flex flex-col border-x border-paw-100">
+  <div class="max-w-md mx-auto min-h-screen bg-canvas-50 shadow-2xl relative flex flex-col border-x border-stone-200/80">
 
-    <!-- STICKY HEADER WITH HAPPYPAWS LOGO & HAMBURGER MENU -->
-    <header class="sticky top-0 z-30 bg-cream-50/95 backdrop-blur-md border-b border-paw-100">
-      <div class="px-5 py-3.5 flex items-center justify-between gap-3 relative">
+    <!-- STICKY HEADER WITH HAPPYPAWS LOGO & SCROLLABLE HAMBURGER MENU -->
+    <header class="sticky top-0 z-30 bg-white/95 backdrop-blur-md border-b border-stone-200/70">
+      <div class="px-4 py-3.5 flex items-center justify-between gap-3 relative">
         
         <!-- Brand Identity -->
-        <div class="flex items-center gap-3 min-w-0 select-none">
-          <div id="brandLogoTrigger" class="w-11 h-11 rounded-2xl bg-gradient-to-br from-paw-500 to-paw-700 flex items-center justify-center text-white shadow-md shadow-paw-600/25 shrink-0 cursor-pointer active:scale-95 transition-transform">
-            <svg viewBox="0 0 64 64" class="w-7 h-7 fill-current" aria-hidden="true">
+        <div class="flex items-center gap-3 min-w-0 flex-1 select-none">
+          <div id="brandLogoTrigger" class="w-10 h-10 rounded-2xl bg-gradient-to-br from-paw-500 to-paw-700 flex items-center justify-center text-white shadow-sm shadow-paw-600/20 shrink-0 cursor-pointer active:scale-95 transition-transform">
+            <svg viewBox="0 0 64 64" class="w-6 h-6 fill-current" aria-hidden="true">
               <circle cx="32" cy="32" r="29" fill="none" stroke="currentColor" stroke-width="3.5" opacity="0.95"/>
               <ellipse cx="17.5" cy="27" rx="4.2" ry="6" transform="rotate(-18 17.5 27)"/>
               <ellipse cx="26.5" cy="20.5" rx="4.5" ry="6.5" transform="rotate(-6 26.5 20.5)"/>
@@ -145,81 +153,91 @@
               <path d="M32 30c-7.5 0-14 6.2-14 12.2 0 3.6 2.8 5.8 6.4 5.8 2.6 0 5-1.1 7.6-1.1s5 1.1 7.6 1.1c3.6 0 6.4-2.2 6.4-5.8C46 36.2 39.5 30 32 30zm0 14.2c-2.6-2.3-5.2-4.4-5.2-6.8 0-1.6 1.2-2.8 2.7-2.8 1.1 0 2 .6 2.5 1.5.5-.9 1.4-1.5 2.5-1.5 1.5 0 2.7 1.2 2.7 2.8 0 2.4-2.6 4.5-5.2 6.8z"/>
             </svg>
           </div>
-          <div>
-            <h1 class="font-display font-extrabold text-[17px] leading-tight text-paw-700 tracking-tight">
-              HappyPaws Adoptions
+          <div class="min-w-0 flex-1">
+            <h1 class="font-display font-extrabold text-[17px] leading-tight text-stone-900 tracking-tight truncate">
+              HappyPaws <span class="text-paw-600">Adoptions</span>
             </h1>
             <div class="flex items-center gap-1.5 mt-0.5">
-              <span class="relative flex h-2 w-2">
+              <span class="relative flex h-2 w-2 shrink-0">
                 <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-paw-500 opacity-75"></span>
                 <span class="relative inline-flex rounded-full h-2 w-2 bg-paw-600"></span>
               </span>
-              <span class="text-[11px] font-medium text-stone-600">Hyderabad • Adopt • Love • Make a Difference</span>
+              <span class="text-[11px] font-medium text-stone-500 truncate">Hyderabad • Adopt • Love • Make a Difference</span>
             </div>
           </div>
         </div>
 
         <!-- Right: Hamburger Menu Button -->
         <div class="relative shrink-0">
-          <button type="button" id="hamburgerBtn" aria-label="Open Menu" class="btn-press w-10 h-10 rounded-2xl bg-white hover:bg-paw-50 text-stone-700 hover:text-paw-700 border border-paw-200/80 shadow-2xs flex items-center justify-center">
-            <i data-lucide="menu" class="w-5 h-5"></i>
+          <button type="button" id="hamburgerBtn" aria-label="Open Menu" class="btn-press group w-10 h-10 rounded-2xl bg-canvas-50 hover:bg-paw-50 text-stone-700 hover:text-paw-700 border border-stone-200/80 flex items-center justify-center">
+            <i data-lucide="menu" class="w-5 h-5 icon-bounce"></i>
           </button>
 
-          <!-- HAMBURGER DROPDOWN MENU -->
-          <div id="navDropdown" class="dropdown-menu absolute right-0 mt-2.5 w-68 bg-white rounded-3xl shadow-2xl border border-paw-100 py-2.5 z-50">
-            <div class="px-3 pb-2 border-b border-paw-50 space-y-1">
-              <p class="px-3 pt-1 text-[10px] font-bold uppercase tracking-wider text-stone-400">Hyderabad Helplines</p>
+          <!-- SPACIOUS, SCROLLABLE HAMBURGER DROPDOWN MENU -->
+          <div id="navDropdown" class="dropdown-menu absolute right-0 mt-2.5 w-72 max-h-[82vh] overflow-y-auto overscroll-contain bg-white rounded-3xl shadow-2xl border border-stone-200/90 py-3 z-50">
+            
+            <!-- Rescue Helpline Numbers Section -->
+            <div class="px-3.5 pb-3 border-b border-stone-100 space-y-1.5">
+              <p class="px-2.5 pt-0.5 text-[10px] font-bold uppercase tracking-wider text-stone-400">Rescue Helpline Numbers</p>
               
-              <a href="tel:+919704085807" onclick="closeMenu()" class="w-full flex items-center gap-3 px-3 py-2 rounded-2xl hover:bg-paw-50 text-stone-800 text-left transition">
-                <div class="w-8 h-8 rounded-xl bg-paw-100 text-paw-700 flex items-center justify-center shrink-0">
-                  <i data-lucide="phone-call" class="w-4 h-4"></i>
+              <a href="tel:+919704085807" onclick="closeMenu()" class="group w-full flex items-center gap-3 px-3 py-2.5 rounded-2xl bg-paw-50/70 hover:bg-paw-100/70 text-stone-800 transition">
+                <div class="w-8 h-8 rounded-xl bg-paw-600 text-white flex items-center justify-center shrink-0">
+                  <i data-lucide="phone-call" class="w-4 h-4 icon-bounce"></i>
                 </div>
-                <div>
-                  <p class="text-xs font-bold leading-tight">+91 97040 85807</p>
-                  <p class="text-[10px] text-stone-400">Primary Helpline • Tap to call</p>
+                <div class="min-w-0">
+                  <p class="text-xs font-bold text-stone-900 whitespace-nowrap tabular-nums">+91 97040 85807</p>
+                  <p class="text-[10px] text-stone-500">Primary Helpline • Tap to call</p>
                 </div>
               </a>
 
-              <a href="tel:+917416585807" onclick="closeMenu()" class="w-full flex items-center gap-3 px-3 py-2 rounded-2xl hover:bg-paw-50 text-stone-800 text-left transition">
-                <div class="w-8 h-8 rounded-xl bg-paw-100 text-paw-700 flex items-center justify-center shrink-0">
-                  <i data-lucide="phone" class="w-4 h-4"></i>
+              <a href="tel:+917416585807" onclick="closeMenu()" class="group w-full flex items-center gap-3 px-3 py-2.5 rounded-2xl bg-stone-50 hover:bg-paw-50/70 text-stone-800 transition">
+                <div class="w-8 h-8 rounded-xl bg-white border border-stone-200 text-paw-600 flex items-center justify-center shrink-0">
+                  <i data-lucide="phone" class="w-4 h-4 icon-bounce"></i>
                 </div>
-                <div>
-                  <p class="text-xs font-bold leading-tight">+91 74165 85807</p>
-                  <p class="text-[10px] text-stone-400">Secondary Helpline • Tap to call</p>
+                <div class="min-w-0">
+                  <p class="text-xs font-bold text-stone-900 whitespace-nowrap tabular-nums">+91 74165 85807</p>
+                  <p class="text-[10px] text-stone-500">Secondary Helpline • Tap to call</p>
                 </div>
               </a>
             </div>
 
-            <div class="px-3 pt-1.5 space-y-0.5">
-              <p class="px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-stone-400">HappyPaws Menu</p>
-              <button type="button" onclick="closeMenu(); switchTab('adopt');" class="w-full flex items-center gap-2.5 px-3 py-2 rounded-xl hover:bg-paw-50 text-stone-700 text-xs font-medium transition">
-                <i data-lucide="heart" class="w-4 h-4 text-paw-600"></i>
-                <span>1. Adopt a Pet</span>
+            <!-- HappyPaws Navigation Menu -->
+            <div class="px-3.5 pt-2.5 space-y-1">
+              <p class="px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-stone-400">HappyPaws Menu</p>
+              
+              <button type="button" onclick="closeMenu(); switchTab('adopt');" class="group w-full flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-paw-50 text-stone-700 text-left text-xs font-medium transition">
+                <i data-lucide="heart" class="w-4 h-4 text-paw-600 shrink-0 icon-bounce"></i>
+                <span class="leading-snug">1. Adopt a Pet</span>
               </button>
-              <button type="button" onclick="closeMenu(); switchTab('listpet');" class="w-full flex items-center gap-2.5 px-3 py-2 rounded-xl hover:bg-paw-50 text-stone-700 text-xs font-medium transition">
-                <i data-lucide="plus-circle" class="w-4 h-4 text-paw-600"></i>
-                <span>2. List Rescue / Pet for Adoption</span>
+
+              <button type="button" onclick="closeMenu(); switchTab('listpet');" class="group w-full flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-paw-50 text-stone-700 text-left text-xs font-medium transition">
+                <i data-lucide="plus-circle" class="w-4 h-4 text-paw-600 shrink-0 icon-bounce"></i>
+                <span class="leading-snug">2. List Rescue / Pet for Adoption</span>
               </button>
-              <button type="button" onclick="closeMenu(); switchTab('lostfound');" class="w-full flex items-center gap-2.5 px-3 py-2 rounded-xl hover:bg-paw-50 text-stone-700 text-xs font-medium transition">
-                <i data-lucide="search-check" class="w-4 h-4 text-paw-600"></i>
-                <span>3. Lost Pet / Found Rescue</span>
+
+              <button type="button" onclick="closeMenu(); switchTab('lostfound');" class="group w-full flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-paw-50 text-stone-700 text-left text-xs font-medium transition">
+                <i data-lucide="search-check" class="w-4 h-4 text-paw-600 shrink-0 icon-bounce"></i>
+                <span class="leading-snug">3. Lost Pet / Found Rescue</span>
               </button>
-              <button type="button" onclick="closeMenu(); switchTab('fostervol');" class="w-full flex items-center gap-2.5 px-3 py-2 rounded-xl hover:bg-paw-50 text-stone-700 text-xs font-medium transition">
-                <i data-lucide="hand-heart" class="w-4 h-4 text-paw-600"></i>
-                <span>4. Foster or Volunteer</span>
+
+              <button type="button" onclick="closeMenu(); switchTab('fostervol');" class="group w-full flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-paw-50 text-stone-700 text-left text-xs font-medium transition">
+                <i data-lucide="hand-heart" class="w-4 h-4 text-paw-600 shrink-0 icon-bounce"></i>
+                <span class="leading-snug">4. Foster or Volunteer</span>
               </button>
-              <button type="button" onclick="closeMenu(); switchTab('donate');" class="w-full flex items-center gap-2.5 px-3 py-2 rounded-xl hover:bg-paw-50 text-stone-700 text-xs font-medium transition">
-                <i data-lucide="gift" class="w-4 h-4 text-paw-600"></i>
-                <span>5. Donations, Sponsor & Partners</span>
+
+              <button type="button" onclick="closeMenu(); switchTab('donate');" class="group w-full flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-paw-50 text-stone-700 text-left text-xs font-medium transition">
+                <i data-lucide="gift" class="w-4 h-4 text-paw-600 shrink-0 icon-bounce"></i>
+                <span class="leading-snug">5. Donations, Sponsor & Partners</span>
               </button>
-              <div class="pt-1 border-t border-paw-50">
-                <button type="button" onclick="closeMenu(); openPinPrompt('unlock');" class="w-full flex items-center gap-2.5 px-3 py-2 rounded-xl hover:bg-paw-50 text-paw-700 text-xs font-bold transition">
-                  <i data-lucide="shield" class="w-4 h-4 text-paw-600"></i>
+
+              <div class="pt-2 mt-1 border-t border-stone-100">
+                <button type="button" onclick="closeMenu(); openPinPrompt('unlock');" class="group w-full flex items-center gap-3 px-3 py-2.5 rounded-xl bg-stone-900 hover:bg-stone-800 text-white text-left text-xs font-semibold transition">
+                  <i data-lucide="shield" class="w-4 h-4 text-paw-400 shrink-0 icon-bounce"></i>
                   <span>Team / Coordinator Portal</span>
                 </button>
               </div>
             </div>
+
           </div>
         </div>
       </div>
@@ -229,32 +247,33 @@
     </header>
 
     <!-- MAIN SCROLLABLE WORKSPACE -->
-    <main class="flex-1 px-5 pt-5 pb-28 space-y-6">
+    <main class="flex-1 px-4 pt-5 pb-28 space-y-6">
 
       <!-- ============================================================== -->
-      <!-- TAB 1: ADOPT A PET (First Tab — Priority Ordered)              -->
+      <!-- TAB 1: ADOPT A PET (First Tab — Priority Ordered & Approved)   -->
       <!-- ============================================================== -->
       <section id="tab-adopt" class="tab-pane active space-y-5">
-        <div class="flex items-center justify-between gap-2">
+        <div class="flex items-center justify-between gap-3">
           <div>
             <h2 id="adoptTabTitle" class="font-display font-bold text-lg text-stone-900">Adopt a Pet</h2>
-            <p id="adoptTabSub" class="text-xs text-stone-500">Find your companion • HappyPaws Hyderabad</p>
+            <p id="adoptTabSub" class="text-xs text-stone-500 mt-0.5">Find your companion • HappyPaws Hyderabad</p>
           </div>
           <div id="adoptCtaMount"></div>
         </div>
 
-        <div class="space-y-2.5">
+        <div class="space-y-3">
           <div class="relative">
             <i data-lucide="search" class="w-4 h-4 text-stone-400 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
-            <input type="text" id="animalSearchInput" oninput="renderAdoptTab()" placeholder="Search by name, breed, area, or ID..." class="w-full pl-10 pr-4 py-2.5 rounded-xl bg-white border border-paw-100 text-xs text-stone-800 placeholder:text-stone-400 focus:outline-none focus:border-paw-600" />
+            <input type="text" id="animalSearchInput" oninput="renderAdoptTab()" placeholder="Search by name, breed, area, or ID..." class="w-full pl-10 pr-4 py-3 rounded-2xl bg-white border border-stone-200/80 text-xs text-stone-800 placeholder:text-stone-400 focus:outline-none focus:border-paw-600 shadow-2xs" />
           </div>
 
           <div class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1">
-            <button type="button" onclick="setAnimalFilter('ALL', this)" class="animal-filter-btn px-3.5 py-1.5 rounded-full bg-paw-600 text-white text-xs font-semibold shrink-0">All (<span id="animalTotalCount">0</span>)</button>
-            <button type="button" onclick="setAnimalFilter('Dog', this)" class="animal-filter-btn px-3.5 py-1.5 rounded-full bg-white border border-paw-100 text-stone-600 text-xs font-medium shrink-0">Dogs & Pups</button>
-            <button type="button" onclick="setAnimalFilter('Cat', this)" class="animal-filter-btn px-3.5 py-1.5 rounded-full bg-white border border-paw-100 text-stone-600 text-xs font-medium shrink-0">Cats & Kittens</button>
-            <button type="button" onclick="setAnimalFilter('Urgent Foster', this)" class="animal-filter-btn px-3.5 py-1.5 rounded-full bg-white border border-paw-100 text-stone-600 text-xs font-medium shrink-0">Urgent Foster</button>
-            <button type="button" onclick="setAnimalFilter('Adopted', this)" class="team-filter hidden px-3.5 py-1.5 rounded-full bg-white border border-paw-100 text-stone-600 text-xs font-medium shrink-0">Adopted</button>
+            <button type="button" onclick="setAnimalFilter('ALL', this)" class="animal-filter-btn btn-press px-4 py-2 rounded-full bg-paw-600 text-white text-xs font-semibold shrink-0 shadow-2xs">All (<span id="animalTotalCount">0</span>)</button>
+            <button type="button" onclick="setAnimalFilter('Dog', this)" class="animal-filter-btn btn-press px-4 py-2 rounded-full bg-white border border-stone-200/80 text-stone-600 text-xs font-medium shrink-0">Dogs & Pups</button>
+            <button type="button" onclick="setAnimalFilter('Cat', this)" class="animal-filter-btn btn-press px-4 py-2 rounded-full bg-white border border-stone-200/80 text-stone-600 text-xs font-medium shrink-0">Cats & Kittens</button>
+            <button type="button" onclick="setAnimalFilter('Urgent Foster', this)" class="animal-filter-btn btn-press px-4 py-2 rounded-full bg-white border border-stone-200/80 text-stone-600 text-xs font-medium shrink-0">Urgent Foster</button>
+            <button type="button" onclick="setAnimalFilter('Pending Approval', this)" class="team-filter hidden btn-press px-4 py-2 rounded-full bg-amber-50 border border-amber-200 text-amber-800 text-xs font-semibold shrink-0">Pending Approval</button>
+            <button type="button" onclick="setAnimalFilter('Adopted', this)" class="team-filter hidden btn-press px-4 py-2 rounded-full bg-white border border-stone-200/80 text-stone-600 text-xs font-medium shrink-0">Adopted</button>
           </div>
         </div>
 
@@ -262,25 +281,50 @@
       </section>
 
       <!-- ============================================================== -->
-      <!-- TAB 2: LIST YOUR RESCUE / PET FOR ADOPTION                     -->
+      <!-- TAB 2: LIST YOUR RESCUE / PET FOR ADOPTION (All Mandatory + Photo) -->
       <!-- ============================================================== -->
       <section id="tab-listpet" class="tab-pane space-y-5">
-        <div class="bg-gradient-to-r from-paw-700 to-paw-600 rounded-2xl p-4 text-white shadow-md space-y-1">
-          <h2 class="font-display font-bold text-sm">List Your Rescue / Pet for Adoption</h2>
-          <p class="text-xs text-paw-100 leading-relaxed">
-            Submit details of a rescued dog, cat, or pup in Hyderabad. Our coordinators review and publish verified adoption appeals.
+        <div class="bg-white rounded-3xl border border-stone-200/80 p-5 shadow-2xs space-y-1.5">
+          <div class="flex items-center gap-2 text-paw-600">
+            <i data-lucide="clipboard-check" class="w-4 h-4"></i>
+            <span class="text-[11px] font-bold uppercase tracking-wider">Coordinator Reviewed</span>
+          </div>
+          <h2 class="font-display font-bold text-base text-stone-900">List Your Rescue / Pet for Adoption</h2>
+          <p class="text-xs text-stone-500 leading-relaxed">
+            All fields and a clear photo are mandatory. Once submitted, our coordinators review and approve your listing before it goes live on the Adopt tab.
           </p>
         </div>
 
-        <form id="publicListPetForm" onsubmit="handlePublicListPetSubmit(event)" class="bg-white p-5 rounded-3xl border border-paw-100 shadow-sm space-y-4 text-xs">
+        <form id="publicListPetForm" onsubmit="handlePublicListPetSubmit(event)" class="bg-white p-5 rounded-3xl border border-stone-200/80 shadow-2xs space-y-4 text-xs">
+          
+          <!-- Mandatory Pet Photo Upload -->
+          <div class="space-y-1.5">
+            <label class="block font-semibold text-stone-700">Pet Photo <span class="text-rose-600">*</span></label>
+            <label for="lpPhotoInput" class="btn-press group relative flex flex-col items-center justify-center w-full h-40 rounded-2xl border-2 border-dashed border-stone-300 hover:border-paw-500 bg-canvas-50 cursor-pointer overflow-hidden transition">
+              <div id="lpUploadPlaceholder" class="flex flex-col items-center justify-center p-4 text-center space-y-1.5">
+                <div class="w-10 h-10 rounded-full bg-paw-50 text-paw-600 flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <i data-lucide="camera" class="w-5 h-5"></i>
+                </div>
+                <p class="text-xs font-semibold text-stone-700">Tap to upload a clear photo *</p>
+                <p class="text-[11px] text-stone-400">Visible to coordinators during approval</p>
+              </div>
+              <img id="lpPhotoPreview" class="hidden w-full h-full object-cover" alt="Pet Preview" />
+              <button type="button" id="lpClearPhotoBtn" onclick="clearLpPhoto(event)" class="hidden absolute top-2.5 right-2.5 w-8 h-8 rounded-full bg-stone-900/75 text-white flex items-center justify-center backdrop-blur-sm">
+                <i data-lucide="x" class="w-4 h-4"></i>
+              </button>
+              <input id="lpPhotoInput" type="file" accept="image/*" required class="hidden" onchange="previewLpPhoto(event)" />
+            </label>
+          </div>
+
           <div class="grid grid-cols-2 gap-3">
             <div>
-              <label class="block font-semibold text-stone-700 mb-1">Pet / Rescue Name *</label>
-              <input type="text" id="lpName" required placeholder="e.g., Simba" class="w-full px-3.5 py-2.5 rounded-xl bg-cream-50 border border-paw-100" />
+              <label class="block font-semibold text-stone-700 mb-1.5">Pet / Rescue Name <span class="text-rose-600">*</span></label>
+              <input type="text" id="lpName" required placeholder="e.g., Simba" class="w-full px-3.5 py-2.5 rounded-xl bg-canvas-50 border border-stone-200 focus:bg-white focus:border-paw-600 focus:outline-none" />
             </div>
             <div>
-              <label class="block font-semibold text-stone-700 mb-1">Species *</label>
-              <select id="lpSpecies" class="w-full px-3.5 py-2.5 rounded-xl bg-cream-50 border border-paw-100">
+              <label class="block font-semibold text-stone-700 mb-1.5">Species <span class="text-rose-600">*</span></label>
+              <select id="lpSpecies" required class="w-full px-3.5 py-2.5 rounded-xl bg-canvas-50 border border-stone-200 focus:bg-white focus:border-paw-600 focus:outline-none">
+                <option value="">Select...</option>
                 <option value="Dog">Dog / Pup</option>
                 <option value="Cat">Cat / Kitten</option>
                 <option value="Other">Other</option>
@@ -290,38 +334,50 @@
 
           <div class="grid grid-cols-2 gap-3">
             <div>
-              <label class="block font-semibold text-stone-700 mb-1">Age & Gender *</label>
-              <input type="text" id="lpAge" required placeholder="e.g., 3 Months • Female" class="w-full px-3.5 py-2.5 rounded-xl bg-cream-50 border border-paw-100" />
+              <label class="block font-semibold text-stone-700 mb-1.5">Breed / Coat Color <span class="text-rose-600">*</span></label>
+              <input type="text" id="lpBreed" required placeholder="e.g., Indie • Golden" class="w-full px-3.5 py-2.5 rounded-xl bg-canvas-50 border border-stone-200 focus:bg-white focus:border-paw-600 focus:outline-none" />
             </div>
             <div>
-              <label class="block font-semibold text-stone-700 mb-1">Vaccination / Health *</label>
-              <input type="text" id="lpHealth" required placeholder="e.g., Dewormed, 1st vaccine" class="w-full px-3.5 py-2.5 rounded-xl bg-cream-50 border border-paw-100" />
+              <label class="block font-semibold text-stone-700 mb-1.5">Age & Gender <span class="text-rose-600">*</span></label>
+              <input type="text" id="lpAge" required placeholder="e.g., 3 Months • Female" class="w-full px-3.5 py-2.5 rounded-xl bg-canvas-50 border border-stone-200 focus:bg-white focus:border-paw-600 focus:outline-none" />
             </div>
-          </div>
-
-          <div>
-            <label class="block font-semibold text-stone-700 mb-1">Area / Locality in Hyderabad *</label>
-            <input type="text" id="lpArea" required placeholder="e.g., Jubilee Hills, Kondapur, Secunderabad" class="w-full px-3.5 py-2.5 rounded-xl bg-cream-50 border border-paw-100" />
-          </div>
-
-          <div>
-            <label class="block font-semibold text-stone-700 mb-1">Story, Temperament & Reason for Rehoming *</label>
-            <textarea id="lpStory" required rows="3" placeholder="Share rescue background, friendliness, diet, and any special care..." class="w-full px-3.5 py-2.5 rounded-xl bg-cream-50 border border-paw-100"></textarea>
           </div>
 
           <div class="grid grid-cols-2 gap-3">
             <div>
-              <label class="block font-semibold text-stone-700 mb-1">Your Name *</label>
-              <input type="text" id="lpOwnerName" required placeholder="Rescuer / Guardian name" class="w-full px-3.5 py-2.5 rounded-xl bg-cream-50 border border-paw-100" />
+              <label class="block font-semibold text-stone-700 mb-1.5">Vaccination / Sterilization <span class="text-rose-600">*</span></label>
+              <input type="text" id="lpHealth" required placeholder="e.g., Dewormed, 1st vaccine" class="w-full px-3.5 py-2.5 rounded-xl bg-canvas-50 border border-stone-200 focus:bg-white focus:border-paw-600 focus:outline-none" />
             </div>
             <div>
-              <label class="block font-semibold text-stone-700 mb-1">WhatsApp Number *</label>
-              <input type="tel" id="lpOwnerPhone" required pattern="[0-9]{10}" maxlength="10" placeholder="10-digit mobile" class="w-full px-3.5 py-2.5 rounded-xl bg-cream-50 border border-paw-100" />
+              <label class="block font-semibold text-stone-700 mb-1.5">Area in Hyderabad <span class="text-rose-600">*</span></label>
+              <input type="text" id="lpArea" required placeholder="e.g., Kondapur" class="w-full px-3.5 py-2.5 rounded-xl bg-canvas-50 border border-stone-200 focus:bg-white focus:border-paw-600 focus:outline-none" />
             </div>
           </div>
 
-          <button type="submit" id="lpSubmitBtn" class="btn-press w-full py-3.5 rounded-2xl bg-paw-600 hover:bg-paw-700 text-white font-display font-bold text-sm shadow-md shadow-paw-600/20">
-            Submit Adoption Listing Request
+          <div>
+            <label class="block font-semibold text-stone-700 mb-1.5">Story, Temperament & Reason for Rehoming <span class="text-rose-600">*</span></label>
+            <textarea id="lpStory" required rows="3" placeholder="Share rescue background, friendliness with kids/pets, diet, and reason for adoption..." class="w-full px-3.5 py-2.5 rounded-xl bg-canvas-50 border border-stone-200 focus:bg-white focus:border-paw-600 focus:outline-none"></textarea>
+          </div>
+
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <label class="block font-semibold text-stone-700 mb-1.5">Your Full Name <span class="text-rose-600">*</span></label>
+              <input type="text" id="lpOwnerName" required placeholder="Rescuer / Guardian" class="w-full px-3.5 py-2.5 rounded-xl bg-canvas-50 border border-stone-200 focus:bg-white focus:border-paw-600 focus:outline-none" />
+            </div>
+            <div>
+              <label class="block font-semibold text-stone-700 mb-1.5">WhatsApp Number <span class="text-rose-600">*</span></label>
+              <input type="tel" id="lpOwnerPhone" required pattern="[0-9]{10}" maxlength="10" placeholder="10-digit mobile" class="w-full px-3.5 py-2.5 rounded-xl bg-canvas-50 border border-stone-200 focus:bg-white focus:border-paw-600 focus:outline-none" />
+            </div>
+          </div>
+
+          <label class="flex items-start gap-2.5 pt-1 cursor-pointer">
+            <input type="checkbox" required class="w-4 h-4 mt-0.5 rounded text-paw-600 border-stone-300 shrink-0" />
+            <span class="text-[11px] text-stone-600 leading-snug">I confirm all details are accurate and understand HappyPaws coordinators will review & approve this listing before publishing. <span class="text-rose-600 font-bold">*</span></span>
+          </label>
+
+          <button type="submit" id="lpSubmitBtn" class="btn-press w-full py-3.5 rounded-2xl bg-paw-600 hover:bg-paw-700 text-white font-display font-bold text-sm shadow-md shadow-paw-600/20 flex items-center justify-center gap-2">
+            <i data-lucide="send" class="w-4 h-4"></i>
+            <span>Submit for Coordinator Approval</span>
           </button>
         </form>
       </section>
@@ -330,42 +386,38 @@
       <!-- TAB 3: LOST PET / FOUND RESCUE                                 -->
       <!-- ============================================================== -->
       <section id="tab-lostfound" class="tab-pane space-y-5">
-        <div class="flex items-center justify-between gap-2">
-          <div>
-            <h2 class="font-display font-bold text-lg text-stone-900">Lost & Found Pets</h2>
-            <p class="text-xs text-stone-500">Report a missing pet or a found rescue in Hyderabad</p>
-          </div>
+        <div>
+          <h2 class="font-display font-bold text-lg text-stone-900">Lost & Found Pets</h2>
+          <p class="text-xs text-stone-500 mt-0.5">Report a missing pet or a found rescue in Hyderabad</p>
         </div>
 
-        <!-- Report Lost or Found Form -->
-        <form id="lostFoundForm" onsubmit="handleLostFoundSubmit(event)" class="bg-white p-5 rounded-3xl border border-paw-100 shadow-sm space-y-4 text-xs">
-          <div class="grid grid-cols-2 gap-2 p-1 bg-cream-50 rounded-2xl border border-paw-100">
-            <button type="button" id="lfTypeLost" onclick="setLfType('Lost Pet')" class="py-2 rounded-xl bg-paw-600 text-white font-bold text-xs transition">Lost Pet</button>
-            <button type="button" id="lfTypeFound" onclick="setLfType('Found Rescue')" class="py-2 rounded-xl text-stone-600 font-semibold text-xs transition">Found Rescue</button>
+        <form id="lostFoundForm" onsubmit="handleLostFoundSubmit(event)" class="bg-white p-5 rounded-3xl border border-stone-200/80 shadow-2xs space-y-4 text-xs">
+          <div class="grid grid-cols-2 gap-2 p-1 bg-canvas-50 rounded-2xl border border-stone-200/70">
+            <button type="button" id="lfTypeLost" onclick="setLfType('Lost Pet')" class="py-2.5 rounded-xl bg-paw-600 text-white font-bold text-xs transition">Lost Pet</button>
+            <button type="button" id="lfTypeFound" onclick="setLfType('Found Rescue')" class="py-2.5 rounded-xl text-stone-600 font-semibold text-xs transition">Found Rescue</button>
           </div>
           <input type="hidden" id="lfReportType" value="Lost Pet" />
 
           <div class="grid grid-cols-2 gap-3">
-            <input type="text" id="lfPetName" required placeholder="Pet Name / Breed *" class="w-full px-3.5 py-2.5 rounded-xl bg-cream-50 border border-paw-100" />
-            <input type="text" id="lfColor" required placeholder="Color / Collar / Marks *" class="w-full px-3.5 py-2.5 rounded-xl bg-cream-50 border border-paw-100" />
+            <input type="text" id="lfPetName" required placeholder="Pet Name / Breed *" class="w-full px-3.5 py-2.5 rounded-xl bg-canvas-50 border border-stone-200 focus:bg-white focus:border-paw-600 focus:outline-none" />
+            <input type="text" id="lfColor" required placeholder="Color / Collar / Marks *" class="w-full px-3.5 py-2.5 rounded-xl bg-canvas-50 border border-stone-200 focus:bg-white focus:border-paw-600 focus:outline-none" />
           </div>
 
-          <input type="text" id="lfLocation" required placeholder="Last Seen / Found Area & Landmark *" class="w-full px-3.5 py-2.5 rounded-xl bg-cream-50 border border-paw-100" />
-          <textarea id="lfDetails" required rows="2" placeholder="Date/time seen, temperament, or medical condition..." class="w-full px-3.5 py-2.5 rounded-xl bg-cream-50 border border-paw-100"></textarea>
+          <input type="text" id="lfLocation" required placeholder="Last Seen / Found Area & Landmark *" class="w-full px-3.5 py-2.5 rounded-xl bg-canvas-50 border border-stone-200 focus:bg-white focus:border-paw-600 focus:outline-none" />
+          <textarea id="lfDetails" required rows="2" placeholder="Date/time seen, temperament, or medical condition..." class="w-full px-3.5 py-2.5 rounded-xl bg-canvas-50 border border-stone-200 focus:bg-white focus:border-paw-600 focus:outline-none"></textarea>
 
           <div class="grid grid-cols-2 gap-3">
-            <input type="text" id="lfContactName" required placeholder="Your Name *" class="w-full px-3.5 py-2.5 rounded-xl bg-cream-50 border border-paw-100" />
-            <input type="tel" id="lfContactPhone" required pattern="[0-9]{10}" maxlength="10" placeholder="10-digit Phone *" class="w-full px-3.5 py-2.5 rounded-xl bg-cream-50 border border-paw-100" />
+            <input type="text" id="lfContactName" required placeholder="Your Name *" class="w-full px-3.5 py-2.5 rounded-xl bg-canvas-50 border border-stone-200 focus:bg-white focus:border-paw-600 focus:outline-none" />
+            <input type="tel" id="lfContactPhone" required pattern="[0-9]{10}" maxlength="10" placeholder="10-digit Phone *" class="w-full px-3.5 py-2.5 rounded-xl bg-canvas-50 border border-stone-200 focus:bg-white focus:border-paw-600 focus:outline-none" />
           </div>
 
           <button type="submit" id="lfSubmitBtn" class="btn-press w-full py-3.5 rounded-2xl bg-paw-600 hover:bg-paw-700 text-white font-display font-bold text-sm">
-            Post Lost / Found Alert
+            Submit Lost / Found Report
           </button>
         </form>
 
-        <!-- Active Lost & Found Alerts Board -->
         <div class="space-y-3">
-          <h3 class="font-display font-bold text-sm text-stone-900">Recent Lost & Found Alerts</h3>
+          <h3 class="font-display font-bold text-sm text-stone-900">Verified Lost & Found Board</h3>
           <div id="lostFoundList" class="space-y-3"></div>
         </div>
       </section>
@@ -374,18 +426,17 @@
       <!-- TAB 4: FOSTER OR VOLUNTEER                                     -->
       <!-- ============================================================== -->
       <section id="tab-fostervol" class="tab-pane space-y-5">
-        <div class="bg-gradient-to-r from-paw-700 to-paw-600 rounded-2xl p-4 text-white shadow-md space-y-1">
-          <h2 class="font-display font-bold text-sm">Foster or Volunteer with HappyPaws</h2>
-          <p class="text-xs text-paw-100 leading-relaxed">
+        <div class="bg-white rounded-3xl border border-stone-200/80 p-5 shadow-2xs space-y-1.5">
+          <h2 class="font-display font-bold text-base text-stone-900">Foster or Volunteer with HappyPaws</h2>
+          <p class="text-xs text-stone-500 leading-relaxed">
             Open your home temporarily for a recovering pup/kitten or join our Hyderabad adoption drives, home checks & transport team.
           </p>
         </div>
 
-        <!-- Sign-Up Form -->
-        <form id="fosterVolForm" onsubmit="handleFosterVolSubmit(event)" class="bg-white p-5 rounded-3xl border border-paw-100 shadow-sm space-y-4 text-xs">
+        <form id="fosterVolForm" onsubmit="handleFosterVolSubmit(event)" class="bg-white p-5 rounded-3xl border border-stone-200/80 shadow-2xs space-y-4 text-xs">
           <div>
-            <label class="block font-semibold text-stone-700 mb-1">How would you like to help? *</label>
-            <select id="fvRoleType" class="w-full px-3.5 py-2.5 rounded-xl bg-cream-50 border border-paw-100 font-semibold">
+            <label class="block font-semibold text-stone-700 mb-1.5">How would you like to help? <span class="text-rose-600">*</span></label>
+            <select id="fvRoleType" required class="w-full px-3.5 py-2.5 rounded-xl bg-canvas-50 border border-stone-200 font-semibold focus:bg-white focus:border-paw-600 focus:outline-none">
               <option value="Foster Parent">Become a Temporary Foster Parent</option>
               <option value="Field Volunteer">Join as a Volunteer (Drives / Transport / Home Checks)</option>
               <option value="Both Foster & Volunteer">Both Fostering & Volunteering</option>
@@ -393,50 +444,49 @@
           </div>
 
           <div class="grid grid-cols-2 gap-3">
-            <input type="text" id="fvName" required placeholder="Full Name *" class="w-full px-3.5 py-2.5 rounded-xl bg-cream-50 border border-paw-100" />
-            <input type="tel" id="fvPhone" required pattern="[0-9]{10}" maxlength="10" placeholder="10-digit WhatsApp *" class="w-full px-3.5 py-2.5 rounded-xl bg-cream-50 border border-paw-100" />
+            <input type="text" id="fvName" required placeholder="Full Name *" class="w-full px-3.5 py-2.5 rounded-xl bg-canvas-50 border border-stone-200 focus:bg-white focus:border-paw-600 focus:outline-none" />
+            <input type="tel" id="fvPhone" required pattern="[0-9]{10}" maxlength="10" placeholder="10-digit WhatsApp *" class="w-full px-3.5 py-2.5 rounded-xl bg-canvas-50 border border-stone-200 focus:bg-white focus:border-paw-600 focus:outline-none" />
           </div>
 
-          <input type="text" id="fvArea" required placeholder="Your Locality in Hyderabad *" class="w-full px-3.5 py-2.5 rounded-xl bg-cream-50 border border-paw-100" />
-          <textarea id="fvNotes" required rows="2" placeholder="Availability (weekends/weekdays), home setup, or past pet experience..." class="w-full px-3.5 py-2.5 rounded-xl bg-cream-50 border border-paw-100"></textarea>
+          <input type="text" id="fvArea" required placeholder="Your Locality in Hyderabad *" class="w-full px-3.5 py-2.5 rounded-xl bg-canvas-50 border border-stone-200 focus:bg-white focus:border-paw-600 focus:outline-none" />
+          <textarea id="fvNotes" required rows="2" placeholder="Availability (weekends/weekdays), home setup, or past pet experience..." class="w-full px-3.5 py-2.5 rounded-xl bg-canvas-50 border border-stone-200 focus:bg-white focus:border-paw-600 focus:outline-none"></textarea>
 
           <button type="submit" id="fvSubmitBtn" class="btn-press w-full py-3.5 rounded-2xl bg-paw-600 hover:bg-paw-700 text-white font-display font-bold text-sm">
             Register as Foster / Volunteer
           </button>
         </form>
 
-        <!-- Urgent Foster Animals -->
         <div class="space-y-3">
-          <h3 class="font-display font-bold text-sm text-stone-900">Animals Currently Needing Foster</h3>
-          <div id="urgentFosterList" class="space-y-3.5"></div>
+          <h3 class="font-display font-bold text-sm text-stone-900">Pets Currently Needing Foster</h3>
+          <div id="urgentFosterList" class="space-y-3"></div>
         </div>
       </section>
 
       <!-- ============================================================== -->
       <!-- TAB 5: DONATIONS, VIRTUAL ADOPTION & PARTNER BRANDS            -->
       <!-- ============================================================== -->
-      <section id="tab-donate" class="tab-pane space-y-6">
+      <section id="tab-donate" class="tab-pane space-y-5">
         <!-- Official UPI QR Card -->
-        <div class="bg-gradient-to-br from-paw-800 via-paw-700 to-paw-600 text-white rounded-3xl p-5 shadow-xl shadow-paw-700/20 space-y-4">
+        <div class="bg-white rounded-3xl border border-stone-200/80 p-5 shadow-2xs space-y-4">
           <div class="flex items-center justify-between">
             <div>
-              <span class="text-[10px] font-bold uppercase tracking-widest text-paw-100 bg-white/15 px-2.5 py-1 rounded-full">Support HappyPaws</span>
-              <h3 class="font-display font-bold text-base text-white mt-2">HappyPaws Adoptions (Hyderabad)</h3>
-              <p class="text-[11px] text-paw-100">Sponsor food, medicines, accessories or virtually adopt</p>
+              <span class="text-[10px] font-bold uppercase tracking-wider text-paw-700 bg-paw-50 px-2.5 py-1 rounded-full">Support HappyPaws</span>
+              <h3 class="font-display font-bold text-base text-stone-900 mt-2">HappyPaws Adoptions (Hyderabad)</h3>
+              <p class="text-[11px] text-stone-500">Sponsor food, medicines, accessories or virtually adopt</p>
             </div>
-            <div class="w-10 h-10 rounded-2xl bg-white/15 flex items-center justify-center">
-              <i data-lucide="scan-line" class="w-5 h-5 text-white"></i>
+            <div class="w-10 h-10 rounded-2xl bg-paw-50 text-paw-600 flex items-center justify-center shrink-0">
+              <i data-lucide="scan-line" class="w-5 h-5"></i>
             </div>
           </div>
 
-          <div class="bg-white rounded-2xl p-4 flex flex-col items-center justify-center space-y-2 shadow-inner">
-            <img src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=upi%3A%2F%2Fpay%3Fpa%3Dhappypaws%40upi%26pn%3DHappyPaws%2520Adoptions%26cu%3DINR" alt="HappyPaws UPI QR" class="w-44 h-44 rounded-lg" />
+          <div class="bg-canvas-50 border border-stone-200/70 rounded-2xl p-4 flex flex-col items-center justify-center space-y-2">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=upi%3A%2F%2Fpay%3Fpa%3Dhappypaws%40upi%26pn%3DHappyPaws%2520Adoptions%26cu%3DINR" alt="HappyPaws UPI QR" class="w-40 h-40 rounded-xl bg-white p-2 shadow-2xs" />
             <span class="text-[11px] font-semibold text-stone-500">GPay • PhonePe • Paytm • BHIM</span>
           </div>
 
-          <div class="flex items-center justify-between gap-2 bg-black/15 border border-white/15 rounded-2xl px-3.5 py-2.5">
-            <code id="upiIdText" class="text-xs font-semibold text-white truncate">happypaws@upi</code>
-            <button type="button" onclick="copyUpi()" class="btn-press inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white text-paw-800 text-xs font-bold shrink-0">
+          <div class="flex items-center justify-between gap-2 bg-canvas-50 border border-stone-200/80 rounded-2xl px-3.5 py-2.5">
+            <code id="upiIdText" class="text-xs font-semibold text-stone-800 truncate">happypaws@upi</code>
+            <button type="button" onclick="copyUpi()" class="btn-press inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-paw-600 text-white text-xs font-bold shrink-0">
               <i data-lucide="copy" class="w-3.5 h-3.5"></i>
               <span id="copyText">Copy</span>
             </button>
@@ -444,27 +494,27 @@
         </div>
 
         <!-- In-Kind Supplies & Virtual Adoption -->
-        <div class="bg-white rounded-3xl border border-paw-100 p-5 space-y-3.5 shadow-sm">
+        <div class="bg-white rounded-3xl border border-stone-200/80 p-5 space-y-3.5 shadow-2xs">
           <h3 class="font-display font-bold text-sm text-stone-900">In-Kind Donations & Virtual Adoption</h3>
           <div class="grid grid-cols-2 gap-2.5 text-xs">
-            <div class="p-3 rounded-2xl bg-cream-50 border border-paw-100 space-y-1">
-              <p class="font-bold text-paw-800">Food & Kibble</p>
+            <div class="p-3.5 rounded-2xl bg-canvas-50 border border-stone-100 space-y-1">
+              <p class="font-bold text-stone-900">Food & Kibble</p>
               <p class="text-[11px] text-stone-500">Puppy/kitten dry & wet food, rice, chicken</p>
             </div>
-            <div class="p-3 rounded-2xl bg-cream-50 border border-paw-100 space-y-1">
-              <p class="font-bold text-paw-800">Medicines & Care</p>
+            <div class="p-3.5 rounded-2xl bg-canvas-50 border border-stone-100 space-y-1">
+              <p class="font-bold text-stone-900">Medicines & Care</p>
               <p class="text-[11px] text-stone-500">Dewormers, tick sprays, gauze, supplements</p>
             </div>
-            <div class="p-3 rounded-2xl bg-cream-50 border border-paw-100 space-y-1">
-              <p class="font-bold text-paw-800">Accessories</p>
+            <div class="p-3.5 rounded-2xl bg-canvas-50 border border-stone-100 space-y-1">
+              <p class="font-bold text-stone-900">Accessories</p>
               <p class="text-[11px] text-stone-500">Leashes, collars, bowls, carriers & bedding</p>
             </div>
-            <div class="p-3 rounded-2xl bg-cream-50 border border-paw-100 space-y-1">
-              <p class="font-bold text-paw-800">Virtual Adoption</p>
+            <div class="p-3.5 rounded-2xl bg-canvas-50 border border-stone-100 space-y-1">
+              <p class="font-bold text-stone-900">Virtual Adoption</p>
               <p class="text-[11px] text-stone-500">Sponsor monthly care & get photo updates</p>
             </div>
           </div>
-          <a href="https://wa.me/919704085807?text=Hi%20HappyPaws!%20I%20would%20like%20to%20donate%20supplies%20or%20virtually%20adopt%20a%20rescue." target="_blank" rel="noopener" class="btn-press w-full py-3 rounded-2xl bg-paw-600 hover:bg-paw-700 text-white font-display font-bold text-xs flex items-center justify-center gap-2">
+          <a href="https://wa.me/919704085807?text=Hi%20HappyPaws!%20I%20would%20like%20to%20donate%20supplies%20or%20virtually%20adopt%20a%20rescue." target="_blank" rel="noopener" class="btn-press w-full py-3.5 rounded-2xl bg-paw-600 hover:bg-paw-700 text-white font-display font-bold text-xs flex items-center justify-center gap-2 shadow-sm">
             <i data-lucide="message-circle" class="w-4 h-4"></i>
             <span>Coordinate Supply Drop / Sponsorship on WhatsApp</span>
           </a>
@@ -480,7 +530,7 @@
         </div>
 
         <!-- Partner Organizations & Brands -->
-        <div class="bg-white rounded-3xl border border-paw-100 p-5 space-y-3.5 shadow-sm">
+        <div class="bg-white rounded-3xl border border-stone-200/80 p-5 space-y-3.5 shadow-2xs">
           <div class="flex items-center justify-between">
             <div>
               <h3 class="font-display font-bold text-sm text-stone-900">Partner Organizations & Brands</h3>
@@ -488,20 +538,20 @@
             </div>
             <i data-lucide="handshake" class="w-5 h-5 text-paw-600"></i>
           </div>
-          <div id="partnersList" class="space-y-2.5 text-xs">
-            <div class="p-3 rounded-2xl bg-cream-50 border border-paw-100 flex items-center justify-between">
+          <div class="space-y-2.5 text-xs">
+            <div class="p-3.5 rounded-2xl bg-canvas-50 border border-stone-100 flex items-center justify-between gap-2">
               <div>
                 <p class="font-bold text-stone-900">Hyderabad Partner Vet Clinics</p>
                 <p class="text-[11px] text-stone-500">Subsidized vaccinations, ABC sterilizations & trauma care</p>
               </div>
-              <span class="text-[10px] font-bold px-2.5 py-1 rounded-full bg-paw-100 text-paw-800">Vet Partner</span>
+              <span class="text-[10px] font-bold px-2.5 py-1 rounded-full bg-paw-50 text-paw-700 border border-paw-200/70 shrink-0">Vet Partner</span>
             </div>
-            <div class="p-3 rounded-2xl bg-cream-50 border border-paw-100 flex items-center justify-between">
+            <div class="p-3.5 rounded-2xl bg-canvas-50 border border-stone-100 flex items-center justify-between gap-2">
               <div>
                 <p class="font-bold text-stone-900">Pet Nutrition & Supply Supporters</p>
                 <p class="text-[11px] text-stone-500">Starter adoption kits, kibble drives & foster supplies</p>
               </div>
-              <span class="text-[10px] font-bold px-2.5 py-1 rounded-full bg-paw-100 text-paw-800">Brand Partner</span>
+              <span class="text-[10px] font-bold px-2.5 py-1 rounded-full bg-paw-50 text-paw-700 border border-paw-200/70 shrink-0">Brand Partner</span>
             </div>
           </div>
         </div>
@@ -520,19 +570,19 @@
         </div>
 
         <div id="opsSubNav" class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1">
-          <button type="button" data-sub="vet" onclick="switchOpsSubTab('vet')" class="ops-pill px-3.5 py-2 rounded-full bg-paw-600 text-white text-xs font-semibold shrink-0 flex items-center gap-1.5">
+          <button type="button" data-sub="vet" onclick="switchOpsSubTab('vet')" class="ops-pill btn-press px-3.5 py-2 rounded-full bg-paw-600 text-white text-xs font-semibold shrink-0 flex items-center gap-1.5">
             <span>Vet & Vaccines</span>
             <span id="badge-vet" class="px-1.5 rounded-full bg-white/20 text-[10px]">0</span>
           </button>
-          <button type="button" data-sub="locations" onclick="switchOpsSubTab('locations')" class="ops-pill px-3.5 py-2 rounded-full bg-white border border-paw-100 text-stone-600 text-xs font-medium shrink-0 flex items-center gap-1.5">
+          <button type="button" data-sub="locations" onclick="switchOpsSubTab('locations')" class="ops-pill btn-press px-3.5 py-2 rounded-full bg-white border border-stone-200/80 text-stone-600 text-xs font-medium shrink-0 flex items-center gap-1.5">
             <span>Fosters & Clinics</span>
             <span id="badge-locations" class="px-1.5 rounded-full bg-stone-100 text-stone-600 text-[10px]">0</span>
           </button>
-          <button type="button" data-sub="adoptions" onclick="switchOpsSubTab('adoptions')" class="ops-pill coord-only-pill px-3.5 py-2 rounded-full bg-white border border-paw-100 text-stone-600 text-xs font-medium shrink-0 flex items-center gap-1.5">
+          <button type="button" data-sub="adoptions" onclick="switchOpsSubTab('adoptions')" class="ops-pill coord-only-pill btn-press px-3.5 py-2 rounded-full bg-white border border-stone-200/80 text-stone-600 text-xs font-medium shrink-0 flex items-center gap-1.5">
             <span>Requests & Adoptions</span>
             <span id="badge-adoptions" class="px-1.5 rounded-full bg-stone-100 text-stone-600 text-[10px]">0</span>
           </button>
-          <button type="button" data-sub="tasks" onclick="switchOpsSubTab('tasks')" class="ops-pill px-3.5 py-2 rounded-full bg-white border border-paw-100 text-stone-600 text-xs font-medium shrink-0 flex items-center gap-1.5">
+          <button type="button" data-sub="tasks" onclick="switchOpsSubTab('tasks')" class="ops-pill btn-press px-3.5 py-2 rounded-full bg-white border border-stone-200/80 text-stone-600 text-xs font-medium shrink-0 flex items-center gap-1.5">
             <span>Tasks</span>
             <span id="badge-tasks" class="px-1.5 rounded-full bg-stone-100 text-stone-600 text-[10px]">0</span>
           </button>
@@ -565,31 +615,31 @@
           <div id="financeCtaMount"></div>
         </div>
 
-        <div class="bg-gradient-to-br from-paw-800 via-paw-700 to-paw-600 text-white rounded-3xl p-5 shadow-lg space-y-4">
+        <div class="bg-stone-900 text-white rounded-3xl p-5 shadow-lg space-y-4">
           <div class="flex items-center justify-between gap-2">
             <div>
-              <span class="text-[10px] font-bold uppercase tracking-widest bg-white/15 px-2.5 py-1 rounded-full">Monthly Report</span>
+              <span class="text-[10px] font-bold uppercase tracking-widest text-paw-400 bg-white/10 px-2.5 py-1 rounded-full">Monthly Report</span>
               <h3 class="font-display font-bold text-base mt-1.5">Financial Summary</h3>
             </div>
-            <input type="month" id="financeMonthFilter" onchange="renderFinanceTab()" class="px-3 py-1.5 rounded-xl bg-white/15 border border-white/25 text-white text-xs font-semibold focus:outline-none" />
+            <input type="month" id="financeMonthFilter" onchange="renderFinanceTab()" class="px-3 py-1.5 rounded-xl bg-white/10 border border-white/20 text-white text-xs font-semibold focus:outline-none" />
           </div>
 
           <div class="grid grid-cols-3 gap-2.5 pt-1">
-            <div class="bg-black/15 rounded-2xl p-3">
-              <p class="text-[10px] text-paw-100 uppercase font-semibold">Donations</p>
-              <p id="finTotalIncome" class="font-display font-bold text-sm mt-1 text-emerald-300">₹0</p>
+            <div class="bg-white/5 rounded-2xl p-3">
+              <p class="text-[10px] text-stone-400 uppercase font-semibold">Donations</p>
+              <p id="finTotalIncome" class="font-display font-bold text-sm mt-1 text-emerald-400">₹0</p>
             </div>
-            <div class="bg-black/15 rounded-2xl p-3">
-              <p class="text-[10px] text-paw-100 uppercase font-semibold">Expenses</p>
-              <p id="finTotalExpense" class="font-display font-bold text-sm mt-1 text-amber-200">₹0</p>
+            <div class="bg-white/5 rounded-2xl p-3">
+              <p class="text-[10px] text-stone-400 uppercase font-semibold">Expenses</p>
+              <p id="finTotalExpense" class="font-display font-bold text-sm mt-1 text-amber-300">₹0</p>
             </div>
-            <div class="bg-black/15 rounded-2xl p-3">
-              <p class="text-[10px] text-paw-100 uppercase font-semibold">Net Balance</p>
+            <div class="bg-white/5 rounded-2xl p-3">
+              <p class="text-[10px] text-stone-400 uppercase font-semibold">Net Balance</p>
               <p id="finNetBalance" class="font-display font-bold text-sm mt-1 text-white">₹0</p>
             </div>
           </div>
 
-          <button type="button" onclick="exportMonthlyFinanceCsv()" class="btn-press w-full py-2.5 rounded-xl bg-white text-paw-800 hover:bg-paw-50 font-display font-bold text-xs flex items-center justify-center gap-2">
+          <button type="button" onclick="exportMonthlyFinanceCsv()" class="btn-press w-full py-3 rounded-xl bg-paw-600 hover:bg-paw-500 text-white font-display font-bold text-xs flex items-center justify-center gap-2">
             <i data-lucide="download" class="w-4 h-4"></i>
             <span>Download Monthly CSV Report</span>
           </button>
@@ -601,7 +651,7 @@
     </main>
 
     <!-- BOTTOM NAVIGATION BAR -->
-    <nav id="bottomNav" class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-md z-30 bg-cream-50/95 backdrop-blur-md border-t border-paw-100 px-2 py-2"></nav>
+    <nav id="bottomNav" class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-md z-30 bg-white/95 backdrop-blur-md border-t border-stone-200/80 px-2 py-2"></nav>
 
     <!-- DYNAMIC MODALS MOUNT POINT -->
     <div id="modalsMount"></div>
@@ -625,7 +675,7 @@
       // ======================================================================
       const API_URL = 'https://script.google.com/macros/s/AKfycbx55JBqoDOcobV7B8ytkrDPZP8taJoYOAfvvdNh0TNvklFOBrUoQvmgc81YdSIXvN88hQ/exec';
 
-      const CACHE_KEY = '_happypaws_cache_v4';
+      const CACHE_KEY = '_happypaws_cache_v5';
       const SESSION_KEY = '_happypaws_auth_v1';
       const SESSION_TTL_MS = 45 * 60 * 1000;
       const XOR_SALT = 'HAPPYPAWS_KEY_2026';
@@ -781,8 +831,6 @@
 
       // ======================================================================
       // ROLE-AWARE NAVIGATION
-      // Public: 5 tabs matching greeting order (Adopt, List Pet, Lost/Found, Foster/Vol, Donate)
-      // Team:   3 spacious tabs (Animals, Operations, Finance)
       // ======================================================================
       function updateOpsHeaderAndCta() {
         const session = getSession();
@@ -804,7 +852,7 @@
           ctaEl.innerHTML = isCoord ? `<button type="button" onclick="openLocationFormModal()" class="btn-press inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-paw-600 text-white font-display font-bold text-xs shadow-sm"><i data-lucide="plus" class="w-4 h-4"></i><span>Add Place</span></button>` : '';
         } else if (activeOpsSub === 'adoptions') {
           titleEl.textContent = 'Requests & Adoptions';
-          subEl.textContent = 'Adoption applications, listing requests, lost/found & volunteers';
+          subEl.textContent = 'Approve pet listing requests, adoption enquiries & volunteers';
           ctaEl.innerHTML = '';
         } else if (activeOpsSub === 'tasks') {
           titleEl.textContent = 'Volunteer Tasks';
@@ -824,10 +872,10 @@
           const isMatch = pill.getAttribute('data-sub') === subKey;
           const badge = pill.querySelector('span:last-child');
           if (isMatch) {
-            pill.className = 'ops-pill px-3.5 py-2 rounded-full bg-paw-600 text-white text-xs font-semibold shrink-0 flex items-center gap-1.5';
+            pill.className = 'ops-pill btn-press px-3.5 py-2 rounded-full bg-paw-600 text-white text-xs font-semibold shrink-0 flex items-center gap-1.5';
             if (badge) badge.className = 'px-1.5 rounded-full bg-white/20 text-white text-[10px]';
           } else {
-            pill.className = 'ops-pill px-3.5 py-2 rounded-full bg-white border border-paw-100 text-stone-600 text-xs font-medium shrink-0 flex items-center gap-1.5';
+            pill.className = 'ops-pill btn-press px-3.5 py-2 rounded-full bg-white border border-stone-200/80 text-stone-600 text-xs font-medium shrink-0 flex items-center gap-1.5';
             if (badge) badge.className = 'px-1.5 rounded-full bg-stone-100 text-stone-600 text-[10px]';
           }
         });
@@ -854,27 +902,26 @@
 
           if (!['adopt', 'listpet', 'lostfound', 'fostervol', 'donate'].includes(activeTab)) activeTab = 'adopt';
 
-          // Exact 5-tab order matching their WhatsApp greeting message
           nav.innerHTML = `
             <div class="grid grid-cols-5 gap-1">
-              <button type="button" data-tab="adopt" onclick="switchTab('adopt')" class="nav-btn flex flex-col items-center justify-center py-1.5 rounded-xl ${activeTab === 'adopt' ? 'text-paw-700 bg-paw-50 font-bold' : 'text-stone-500 font-semibold'}">
-                <i data-lucide="heart" class="w-4 h-4"></i>
+              <button type="button" data-tab="adopt" onclick="switchTab('adopt')" class="nav-btn group flex flex-col items-center justify-center py-1.5 rounded-xl ${activeTab === 'adopt' ? 'active text-paw-700 bg-paw-50 font-bold' : 'text-stone-500 font-semibold'}">
+                <i data-lucide="heart" class="w-4 h-4 icon-bounce"></i>
                 <span class="text-[10px] mt-1 tracking-tight">Adopt</span>
               </button>
-              <button type="button" data-tab="listpet" onclick="switchTab('listpet')" class="nav-btn flex flex-col items-center justify-center py-1.5 rounded-xl ${activeTab === 'listpet' ? 'text-paw-700 bg-paw-50 font-bold' : 'text-stone-500 font-semibold'}">
-                <i data-lucide="plus-circle" class="w-4 h-4"></i>
+              <button type="button" data-tab="listpet" onclick="switchTab('listpet')" class="nav-btn group flex flex-col items-center justify-center py-1.5 rounded-xl ${activeTab === 'listpet' ? 'active text-paw-700 bg-paw-50 font-bold' : 'text-stone-500 font-semibold'}">
+                <i data-lucide="plus-circle" class="w-4 h-4 icon-bounce"></i>
                 <span class="text-[10px] mt-1 tracking-tight">List Pet</span>
               </button>
-              <button type="button" data-tab="lostfound" onclick="switchTab('lostfound')" class="nav-btn flex flex-col items-center justify-center py-1.5 rounded-xl ${activeTab === 'lostfound' ? 'text-paw-700 bg-paw-50 font-bold' : 'text-stone-500 font-semibold'}">
-                <i data-lucide="search-check" class="w-4 h-4"></i>
+              <button type="button" data-tab="lostfound" onclick="switchTab('lostfound')" class="nav-btn group flex flex-col items-center justify-center py-1.5 rounded-xl ${activeTab === 'lostfound' ? 'active text-paw-700 bg-paw-50 font-bold' : 'text-stone-500 font-semibold'}">
+                <i data-lucide="search-check" class="w-4 h-4 icon-bounce"></i>
                 <span class="text-[10px] mt-1 tracking-tight">Lost/Found</span>
               </button>
-              <button type="button" data-tab="fostervol" onclick="switchTab('fostervol')" class="nav-btn flex flex-col items-center justify-center py-1.5 rounded-xl ${activeTab === 'fostervol' ? 'text-paw-700 bg-paw-50 font-bold' : 'text-stone-500 font-semibold'}">
-                <i data-lucide="hand-heart" class="w-4 h-4"></i>
+              <button type="button" data-tab="fostervol" onclick="switchTab('fostervol')" class="nav-btn group flex flex-col items-center justify-center py-1.5 rounded-xl ${activeTab === 'fostervol' ? 'active text-paw-700 bg-paw-50 font-bold' : 'text-stone-500 font-semibold'}">
+                <i data-lucide="hand-heart" class="w-4 h-4 icon-bounce"></i>
                 <span class="text-[10px] mt-1 tracking-tight">Foster/Vol</span>
               </button>
-              <button type="button" data-tab="donate" onclick="switchTab('donate')" class="nav-btn flex flex-col items-center justify-center py-1.5 rounded-xl ${activeTab === 'donate' ? 'text-paw-700 bg-paw-50 font-bold' : 'text-stone-500 font-semibold'}">
-                <i data-lucide="gift" class="w-4 h-4"></i>
+              <button type="button" data-tab="donate" onclick="switchTab('donate')" class="nav-btn group flex flex-col items-center justify-center py-1.5 rounded-xl ${activeTab === 'donate' ? 'active text-paw-700 bg-paw-50 font-bold' : 'text-stone-500 font-semibold'}">
+                <i data-lucide="gift" class="w-4 h-4 icon-bounce"></i>
                 <span class="text-[10px] mt-1 tracking-tight">Donate</span>
               </button>
             </div>
@@ -888,21 +935,21 @@
           if (!isCoord && activeOpsSub === 'adoptions') activeOpsSub = 'vet';
 
           bannerMount.innerHTML = `
-            <div class="${isCoord ? 'bg-paw-700' : 'bg-amber-700'} text-white px-5 py-2 text-[11px] font-medium flex items-center justify-between gap-2">
+            <div class="bg-stone-900 text-white px-4 py-2 text-[11px] font-medium flex items-center justify-between gap-2">
               <span class="flex items-center gap-1.5 truncate">
-                <i data-lucide="shield-check" class="w-3.5 h-3.5 shrink-0"></i>
+                <i data-lucide="shield-check" class="w-3.5 h-3.5 text-paw-400 shrink-0"></i>
                 <span>${isCoord ? 'Coordinator Mode' : 'Volunteer Mode'}</span>
               </span>
               <div class="flex items-center gap-3.5 shrink-0">
-                ${isCoord && appState.sheetUrl ? `<a href="${appState.sheetUrl}" target="_blank" rel="noopener" class="underline font-semibold">Sheet</a>` : ''}
-                ${isCoord ? `<button type="button" onclick="openPinPrompt('set')" class="underline font-semibold">Set/Update PIN</button>` : ''}
-                <button type="button" onclick="logoutTeam()" class="underline font-semibold">Exit</button>
+                ${isCoord && appState.sheetUrl ? `<a href="${appState.sheetUrl}" target="_blank" rel="noopener" class="underline text-paw-300 hover:text-white font-semibold">Sheet</a>` : ''}
+                ${isCoord ? `<button type="button" onclick="openPinPrompt('set')" class="underline text-paw-300 hover:text-white font-semibold">Set/Update PIN</button>` : ''}
+                <button type="button" onclick="logoutTeam()" class="underline text-stone-300 hover:text-white font-semibold">Exit</button>
               </div>
             </div>
           `;
 
-          document.getElementById('adoptTabTitle').textContent = 'Animal Profiles & Priority';
-          document.getElementById('adoptTabSub').textContent = 'Sorted by Display Priority (#1 shows first)';
+          document.getElementById('adoptTabTitle').textContent = 'Animal Profiles & Approvals';
+          document.getElementById('adoptTabSub').textContent = 'Approve public listings & set Display Priority (#1 first)';
           document.getElementById('adoptCtaMount').innerHTML = `
             <button type="button" onclick="openAnimalFormModal()" class="btn-press inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-paw-600 text-white font-display font-bold text-xs shadow-sm">
               <i data-lucide="plus" class="w-4 h-4"></i>
@@ -922,27 +969,27 @@
 
           nav.innerHTML = isCoord ? `
             <div class="grid grid-cols-3 gap-2">
-              <button type="button" data-tab="adopt" onclick="switchTab('adopt')" class="nav-btn flex flex-col items-center justify-center py-1.5 rounded-2xl ${activeTab === 'adopt' ? 'text-paw-700 bg-paw-50 font-bold' : 'text-stone-500 font-semibold'}">
-                <i data-lucide="paw-print" class="w-5 h-5"></i>
+              <button type="button" data-tab="adopt" onclick="switchTab('adopt')" class="nav-btn group flex flex-col items-center justify-center py-1.5 rounded-2xl ${activeTab === 'adopt' ? 'active text-paw-700 bg-paw-50 font-bold' : 'text-stone-500 font-semibold'}">
+                <i data-lucide="paw-print" class="w-5 h-5 icon-bounce"></i>
                 <span class="text-[11px] mt-1">Animals</span>
               </button>
-              <button type="button" data-tab="ops" onclick="switchTab('ops')" class="nav-btn flex flex-col items-center justify-center py-1.5 rounded-2xl ${activeTab === 'ops' ? 'text-paw-700 bg-paw-50 font-bold' : 'text-stone-500 font-semibold'}">
-                <i data-lucide="layers" class="w-5 h-5"></i>
+              <button type="button" data-tab="ops" onclick="switchTab('ops')" class="nav-btn group flex flex-col items-center justify-center py-1.5 rounded-2xl ${activeTab === 'ops' ? 'active text-paw-700 bg-paw-50 font-bold' : 'text-stone-500 font-semibold'}">
+                <i data-lucide="layers" class="w-5 h-5 icon-bounce"></i>
                 <span class="text-[11px] mt-1">Operations</span>
               </button>
-              <button type="button" data-tab="finance" onclick="switchTab('finance')" class="nav-btn flex flex-col items-center justify-center py-1.5 rounded-2xl ${activeTab === 'finance' ? 'text-paw-700 bg-paw-50 font-bold' : 'text-stone-500 font-semibold'}">
-                <i data-lucide="wallet" class="w-5 h-5"></i>
+              <button type="button" data-tab="finance" onclick="switchTab('finance')" class="nav-btn group flex flex-col items-center justify-center py-1.5 rounded-2xl ${activeTab === 'finance' ? 'active text-paw-700 bg-paw-50 font-bold' : 'text-stone-500 font-semibold'}">
+                <i data-lucide="wallet" class="w-5 h-5 icon-bounce"></i>
                 <span class="text-[11px] mt-1">Finance</span>
               </button>
             </div>
           ` : `
             <div class="grid grid-cols-2 gap-2">
-              <button type="button" data-tab="adopt" onclick="switchTab('adopt')" class="nav-btn flex flex-col items-center justify-center py-1.5 rounded-2xl ${activeTab === 'adopt' ? 'text-paw-700 bg-paw-50 font-bold' : 'text-stone-500 font-semibold'}">
-                <i data-lucide="paw-print" class="w-5 h-5"></i>
+              <button type="button" data-tab="adopt" onclick="switchTab('adopt')" class="nav-btn group flex flex-col items-center justify-center py-1.5 rounded-2xl ${activeTab === 'adopt' ? 'active text-paw-700 bg-paw-50 font-bold' : 'text-stone-500 font-semibold'}">
+                <i data-lucide="paw-print" class="w-5 h-5 icon-bounce"></i>
                 <span class="text-[11px] mt-1">Animals</span>
               </button>
-              <button type="button" data-tab="ops" onclick="switchTab('ops')" class="nav-btn flex flex-col items-center justify-center py-1.5 rounded-2xl ${activeTab === 'ops' ? 'text-paw-700 bg-paw-50 font-bold' : 'text-stone-500 font-semibold'}">
-                <i data-lucide="layers" class="w-5 h-5"></i>
+              <button type="button" data-tab="ops" onclick="switchTab('ops')" class="nav-btn group flex flex-col items-center justify-center py-1.5 rounded-2xl ${activeTab === 'ops' ? 'active text-paw-700 bg-paw-50 font-bold' : 'text-stone-500 font-semibold'}">
+                <i data-lucide="layers" class="w-5 h-5 icon-bounce"></i>
                 <span class="text-[11px] mt-1">Operations</span>
               </button>
             </div>
@@ -962,67 +1009,137 @@
 
         document.querySelectorAll('.nav-btn').forEach(btn => {
           const isMatch = btn.getAttribute('data-tab') === tabId;
-          btn.className = 'nav-btn flex flex-col items-center justify-center py-1.5 rounded-xl ' +
-            (isMatch ? 'text-paw-700 bg-paw-50 font-bold' : 'text-stone-500 font-semibold');
+          btn.className = 'nav-btn group flex flex-col items-center justify-center py-1.5 rounded-xl ' +
+            (isMatch ? 'active text-paw-700 bg-paw-50 font-bold' : 'text-stone-500 font-semibold');
         });
 
         if (!skipScroll) window.scrollTo({ top: 0, behavior: 'smooth' });
       };
 
       // ======================================================================
-      // PUBLIC FORMS: TAB 2 (LIST PET), TAB 3 (LOST/FOUND), TAB 4 (FOSTER/VOL)
+      // PUBLIC LIST PET PHOTO PREVIEW & SUBMISSION (Pending Coordinator Approval)
       // ======================================================================
+      let compressedLpPhoto = null;
+
+      window.previewLpPhoto = async function (e) {
+        const file = e.target.files[0];
+        if (!file) return;
+        compressedLpPhoto = await compressImageFile(file);
+        document.getElementById('lpPhotoPreview').src = compressedLpPhoto;
+        document.getElementById('lpPhotoPreview').classList.remove('hidden');
+        document.getElementById('lpUploadPlaceholder').classList.add('hidden');
+        document.getElementById('lpClearPhotoBtn').classList.remove('hidden');
+      };
+
+      window.clearLpPhoto = function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        compressedLpPhoto = null;
+        document.getElementById('lpPhotoInput').value = '';
+        document.getElementById('lpPhotoPreview').classList.add('hidden');
+        document.getElementById('lpUploadPlaceholder').classList.remove('hidden');
+        document.getElementById('lpClearPhotoBtn').classList.add('hidden');
+      };
+
       window.handlePublicListPetSubmit = async function (e) {
         e.preventDefault();
         if (isSubmitting) return;
+        if (!compressedLpPhoto) {
+          showToast('Please upload a clear photo of the pet');
+          return;
+        }
+
         isSubmitting = true;
         const btn = document.getElementById('lpSubmitBtn');
+        const origHtml = btn.innerHTML;
         btn.disabled = true;
-        btn.textContent = 'Submitting Request...';
+        btn.innerHTML = `<i data-lucide="loader-2" class="w-4 h-4 animate-spin"></i><span>Uploading & Sending for Approval...</span>`;
+        lucide.createIcons();
 
         try {
-          const res = await fetchWithRetry(API_URL, {
+          const petName = document.getElementById('lpName').value.trim();
+          const species = document.getElementById('lpSpecies').value;
+          const breed = document.getElementById('lpBreed').value.trim();
+          const age = document.getElementById('lpAge').value.trim();
+          const health = document.getElementById('lpHealth').value.trim();
+          const area = document.getElementById('lpArea').value.trim();
+          const story = document.getElementById('lpStory').value.trim();
+          const ownerName = document.getElementById('lpOwnerName').value.trim();
+          const ownerPhone = document.getElementById('lpOwnerPhone').value.trim();
+
+          // 1. Save into Animals tab with Status = 'Pending Approval' (hidden from public Adopt tab until approved!)
+          const saveAnimalRes = await fetchWithRetry(API_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+            body: JSON.stringify({
+              action: 'SAVE_ANIMAL',
+              pin: '2222', // Public submission routed to Pending Approval queue
+              name: petName,
+              species: species,
+              breedColor: `[P:10] ${breed}`,
+              ageGender: age,
+              status: 'Pending Approval',
+              locationId: '',
+              locationName: area,
+              rescueLocation: area,
+              rescueStory: `${story} (Submitted by ${ownerName} • +91 ${ownerPhone})`,
+              medicalSummary: health,
+              rehabNotes: `Guardian Contact: ${ownerName} (+91 ${ownerPhone})`,
+              photoBase64: compressedLpPhoto
+            })
+          }, 2);
+
+          // 2. Also log an entry in Adoptions queue so Coordinators see it in Requests & Adoptions
+          await fetchWithRetry(API_URL, {
             method: 'POST',
             headers: { 'Content-Type': 'text/plain;charset=utf-8' },
             body: JSON.stringify({
               action: 'NEW_ADOPTION_ENQUIRY',
-              animalId: 'LIST-' + Date.now().toString().slice(-4),
-              animalName: `${document.getElementById('lpName').value.trim()} (${document.getElementById('lpSpecies').value})`,
-              inquiryType: 'List Rescue/Pet for Adoption',
-              applicantName: document.getElementById('lpOwnerName').value.trim(),
-              phone: document.getElementById('lpOwnerPhone').value.trim(),
-              ageOccupation: document.getElementById('lpAge').value.trim(),
-              addressLocality: document.getElementById('lpArea').value.trim(),
-              housingDetails: `Health: ${document.getElementById('lpHealth').value.trim()}`,
-              petExperience: document.getElementById('lpStory').value.trim()
+              animalId: saveAnimalRes.animalId || 'PENDING',
+              animalName: `${petName} (${species})`,
+              inquiryType: 'Approve Pet Listing',
+              applicantName: ownerName,
+              phone: ownerPhone,
+              ageOccupation: age,
+              addressLocality: area,
+              housingDetails: health,
+              petExperience: story
             })
           }, 2);
 
-          if (res.status === 'success') {
+          if (saveAnimalRes.status === 'success') {
             document.getElementById('publicListPetForm').reset();
-            showToast(`Listing request #${res.appId} sent to HappyPaws team!`);
+            compressedLpPhoto = null;
+            document.getElementById('lpPhotoPreview').classList.add('hidden');
+            document.getElementById('lpUploadPlaceholder').classList.remove('hidden');
+            document.getElementById('lpClearPhotoBtn').classList.add('hidden');
+            showToast(`Submitted! ${petName} will go live once approved by a coordinator.`);
           } else {
-            showToast(res.message || 'Could not submit');
+            showToast(saveAnimalRes.message || 'Could not submit listing');
           }
         } catch (err) {
           showToast('Network error — please try again');
         } finally {
           isSubmitting = false;
           btn.disabled = false;
-          btn.textContent = 'Submit Adoption Listing Request';
+          btn.innerHTML = origHtml;
+          lucide.createIcons();
         }
       };
 
+      // ======================================================================
+      // PUBLIC FORMS: TAB 3 (LOST/FOUND) & TAB 4 (FOSTER/VOLUNTEER)
+      // ======================================================================
       window.setLfType = function (val) {
         document.getElementById('lfReportType').value = val;
         const lostBtn = document.getElementById('lfTypeLost');
         const foundBtn = document.getElementById('lfTypeFound');
         if (val === 'Lost Pet') {
-          lostBtn.className = 'py-2 rounded-xl bg-paw-600 text-white font-bold text-xs transition';
-          foundBtn.className = 'py-2 rounded-xl text-stone-600 font-semibold text-xs transition';
+          lostBtn.className = 'py-2.5 rounded-xl bg-paw-600 text-white font-bold text-xs transition';
+          foundBtn.className = 'py-2.5 rounded-xl text-stone-600 font-semibold text-xs transition';
         } else {
-          foundBtn.className = 'py-2 rounded-xl bg-paw-600 text-white font-bold text-xs transition';
-          lostBtn.className = 'py-2 rounded-xl text-stone-600 font-semibold text-xs transition';
+          foundBtn.className = 'py-2.5 rounded-xl bg-paw-600 text-white font-bold text-xs transition';
+          lostBtn.className = 'py-2.5 rounded-xl text-stone-600 font-semibold text-xs transition';
         }
       };
 
@@ -1032,7 +1149,7 @@
         isSubmitting = true;
         const btn = document.getElementById('lfSubmitBtn');
         btn.disabled = true;
-        btn.textContent = 'Posting Alert...';
+        btn.textContent = 'Submitting...';
 
         try {
           const reportType = document.getElementById('lfReportType').value;
@@ -1063,14 +1180,14 @@
           if (res.status === 'success') {
             document.getElementById('lostFoundForm').reset();
             setLfType('Lost Pet');
-            showToast(`${reportType} alert #${res.appId} posted!`);
+            showToast(`${reportType} report #${res.appId} sent to HappyPaws!`);
           }
         } catch (err) {
           showToast('Network error — please try again');
         } finally {
           isSubmitting = false;
           btn.disabled = false;
-          btn.textContent = 'Post Lost / Found Alert';
+          btn.textContent = 'Submit Lost / Found Report';
         }
       };
 
@@ -1115,22 +1232,25 @@
       };
 
       // ======================================================================
-      // RENDERING VIEWS (With Priority Sorting)
+      // RENDERING VIEWS (With Coordinator Approval Gate & Priority Sorting)
       // ======================================================================
       window.setAnimalFilter = function (filterVal, btnEl) {
         animalFilter = filterVal;
-        document.querySelectorAll('.animal-filter-btn').forEach(b => {
-          b.className = 'animal-filter-btn px-3.5 py-1.5 rounded-full bg-white border border-paw-100 text-stone-600 text-xs font-medium shrink-0';
+        document.querySelectorAll('.animal-filter-btn, .team-filter').forEach(b => {
+          if (b.classList.contains('team-filter') && !getSession()) return;
+          b.className = (b.classList.contains('team-filter') ? 'team-filter ' : 'animal-filter-btn ') +
+            'btn-press px-4 py-2 rounded-full bg-white border border-stone-200/80 text-stone-600 text-xs font-medium shrink-0';
         });
-        btnEl.className = 'animal-filter-btn px-3.5 py-1.5 rounded-full bg-paw-600 text-white text-xs font-semibold shrink-0';
+        btnEl.className = (btnEl.classList.contains('team-filter') ? 'team-filter ' : 'animal-filter-btn ') +
+          'btn-press px-4 py-2 rounded-full bg-paw-600 text-white text-xs font-semibold shrink-0 shadow-2xs';
         renderAdoptTab();
       };
 
       function getStatusBadgeClass(status) {
         const s = String(status || '').toLowerCase();
+        if (s.includes('pending')) return 'bg-amber-500 text-white';
         if (s.includes('available')) return 'bg-paw-600 text-white';
-        if (s.includes('urgent')) return 'bg-amber-600 text-white';
-        if (s.includes('treatment') || s.includes('rehab')) return 'bg-rose-600 text-white';
+        if (s.includes('urgent')) return 'bg-rose-600 text-white';
         if (s.includes('adopted')) return 'bg-emerald-600 text-white';
         return 'bg-stone-700 text-white';
       }
@@ -1144,6 +1264,9 @@
 
         const filtered = sortedAnimals.filter(a => {
           const st = String(a.Status || '').trim();
+          // Public visitors NEVER see 'Pending Approval' listings until a coordinator approves them
+          if (!isTeam && st === 'Pending Approval') return false;
+
           const sp = String(a.Species || '').trim();
           const matchesFilter =
             animalFilter === 'ALL' ||
@@ -1153,16 +1276,19 @@
           return matchesFilter && (!query || haystack.includes(query));
         });
 
-        document.getElementById('animalTotalCount').textContent = sortedAnimals.length;
+        const visibleTotal = isTeam
+          ? sortedAnimals.length
+          : sortedAnimals.filter(a => String(a.Status || '').trim() !== 'Pending Approval').length;
+        document.getElementById('animalTotalCount').textContent = visibleTotal;
 
         if (filtered.length === 0) {
           container.innerHTML = `
-            <div class="bg-white rounded-3xl border border-paw-100 p-8 text-center space-y-2">
-              <div class="w-11 h-11 rounded-2xl bg-paw-50 text-paw-600 flex items-center justify-center mx-auto">
-                <i data-lucide="paw-print" class="w-5 h-5"></i>
+            <div class="bg-white rounded-3xl border border-stone-200/80 p-8 text-center space-y-2.5 shadow-2xs">
+              <div class="w-12 h-12 rounded-2xl bg-paw-50 text-paw-600 flex items-center justify-center mx-auto">
+                <i data-lucide="paw-print" class="w-6 h-6"></i>
               </div>
-              <h3 class="font-display font-bold text-sm text-stone-800">No pets listed in this view yet</h3>
-              <p class="text-xs text-stone-500">${isTeam ? 'Tap "+ Add Pet" above to publish an adoption profile and set its priority.' : 'Check back soon or tap "List Pet" to submit a rescue for adoption.'}</p>
+              <h3 class="font-display font-bold text-sm text-stone-800">No pets listed in this category yet</h3>
+              <p class="text-xs text-stone-500 max-w-xs mx-auto leading-relaxed">${isTeam ? 'Tap "+ Add Pet" above to publish an adoption profile or approve pending requests.' : 'Check back soon or tap "List Pet" below to submit a rescue for adoption.'}</p>
             </div>
           `;
           lucide.createIcons();
@@ -1176,6 +1302,7 @@
           const breedClean = stripPriorityTag(a.Breed_Color);
           const priorityNum = extractPriority(a);
           const status = String(a.Status || 'Available for Adoption').trim();
+          const isPending = status === 'Pending Approval';
           const locName = String(a.Current_Location_Name || 'Hyderabad').trim();
           const ageGender = String(a.Age_Gender || '').trim();
           const fallbackImg = species.toLowerCase() === 'cat'
@@ -1185,8 +1312,8 @@
           const isAdoptable = ['Available for Adoption', 'Urgent Foster', 'Foster-to-Adopt'].includes(status);
 
           return `
-            <article class="bg-white rounded-3xl border border-paw-100 overflow-hidden shadow-sm">
-              <div class="relative h-48 bg-paw-50">
+            <article class="bg-white rounded-3xl border ${isPending ? 'border-amber-300 ring-2 ring-amber-100' : 'border-stone-200/80'} overflow-hidden shadow-2xs">
+              <div class="relative h-52 bg-stone-100">
                 <img src="${photo}" alt="${name}" loading="lazy" class="w-full h-full object-cover" />
                 <div class="absolute top-3 left-3 flex flex-wrap gap-1.5">
                   <span class="px-3 py-1 rounded-full ${getStatusBadgeClass(status)} text-[11px] font-bold shadow-sm">${status}</span>
@@ -1195,36 +1322,49 @@
                 ${ageGender ? `<div class="absolute bottom-3 right-3 px-2.5 py-1 rounded-lg bg-stone-900/75 text-white text-[11px] font-medium">${ageGender}</div>` : ''}
               </div>
 
-              <div class="p-4 space-y-3.5">
-                <div class="flex items-start justify-between gap-2">
-                  <div>
+              <div class="p-5 space-y-4">
+                <div class="flex items-start justify-between gap-3">
+                  <div class="min-w-0">
                     <h3 class="font-display font-bold text-base text-stone-900">${name} <span class="text-xs font-medium text-stone-400">• ${breedClean || species}</span></h3>
-                    <p class="text-xs text-stone-500 mt-0.5 line-clamp-2">${a.Rescue_Story || a.Medical_Summary || 'Healthy & ready for a loving home'}</p>
+                    <p class="text-xs text-stone-500 mt-1 line-clamp-2 leading-relaxed">${a.Rescue_Story || a.Medical_Summary || 'Healthy & ready for a loving home'}</p>
                   </div>
-                  <span class="inline-flex items-center gap-1 text-[11px] font-semibold text-paw-800 bg-paw-50 border border-paw-200/70 px-2.5 py-1 rounded-lg shrink-0">
+                  <span class="inline-flex items-center gap-1 text-[11px] font-semibold text-stone-700 bg-canvas-50 border border-stone-200/80 px-2.5 py-1 rounded-lg shrink-0">
                     <i data-lucide="map-pin" class="w-3 h-3 text-paw-600"></i>
                     <span>${locName}</span>
                   </span>
                 </div>
 
-                <div class="grid ${isTeam || isAdoptable ? 'grid-cols-2' : 'grid-cols-1'} gap-2.5 pt-1">
-                  <button type="button" onclick="openAnimalTimelineModal('${id}')" class="btn-press py-2.5 px-3 rounded-xl bg-paw-50 hover:bg-paw-100 text-paw-800 font-semibold text-xs flex items-center justify-center gap-1.5">
-                    <i data-lucide="file-text" class="w-3.5 h-3.5"></i>
-                    <span>Full Profile</span>
-                  </button>
+                ${isTeam && isPending ? `
+                  <div class="grid grid-cols-2 gap-2.5 pt-1">
+                    <button type="button" onclick="approvePendingAnimal('${id}', '${name.replace(/'/g, "\\'")}')" class="btn-press py-3 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs flex items-center justify-center gap-1.5 shadow-xs">
+                      <i data-lucide="check-circle-2" class="w-4 h-4"></i>
+                      <span>Approve & Publish</span>
+                    </button>
+                    <button type="button" onclick="openAnimalFormModal('${id}')" class="btn-press py-3 px-3 rounded-xl bg-stone-100 hover:bg-stone-200 text-stone-800 font-semibold text-xs flex items-center justify-center gap-1.5">
+                      <i data-lucide="edit-3" class="w-3.5 h-3.5"></i>
+                      <span>Review / Edit</span>
+                    </button>
+                  </div>
+                ` : `
+                  <div class="grid ${isTeam || isAdoptable ? 'grid-cols-2' : 'grid-cols-1'} gap-2.5 pt-1">
+                    <button type="button" onclick="openAnimalTimelineModal('${id}')" class="btn-press py-2.5 px-3 rounded-xl bg-canvas-50 hover:bg-paw-50 border border-stone-200/80 text-stone-800 font-semibold text-xs flex items-center justify-center gap-1.5">
+                      <i data-lucide="file-text" class="w-3.5 h-3.5 text-paw-600"></i>
+                      <span>Full Profile</span>
+                    </button>
 
-                  ${isTeam ? `
-                    <button type="button" onclick="openAnimalFormModal('${id}')" class="btn-press py-2.5 px-3 rounded-xl bg-stone-900 text-white font-semibold text-xs flex items-center justify-center gap-1.5">
-                      <i data-lucide="arrow-up-down" class="w-3.5 h-3.5"></i>
-                      <span>Edit / Priority</span>
-                    </button>
-                  ` : (isAdoptable ? `
-                    <button type="button" onclick="openAdoptionApplyModal('${id}', '${name.replace(/'/g, "\\'")}', '${status.includes('Foster') ? 'Foster' : 'Adoption'}')" class="btn-press py-2.5 px-3 rounded-xl bg-paw-600 text-white font-semibold text-xs flex items-center justify-center gap-1.5">
-                      <i data-lucide="heart" class="w-3.5 h-3.5"></i>
-                      <span>${status.includes('Foster') ? 'Apply Foster' : 'Apply Adopt'}</span>
-                    </button>
-                  ` : '')}
-                </div>
+                    ${isTeam ? `
+                      <button type="button" onclick="openAnimalFormModal('${id}')" class="btn-press py-2.5 px-3 rounded-xl bg-stone-900 text-white font-semibold text-xs flex items-center justify-center gap-1.5">
+                        <i data-lucide="arrow-up-down" class="w-3.5 h-3.5"></i>
+                        <span>Edit / Priority</span>
+                      </button>
+                    ` : (isAdoptable ? `
+                      <button type="button" onclick="openAdoptionApplyModal('${id}', '${name.replace(/'/g, "\\'")}', '${status.includes('Foster') ? 'Foster' : 'Adoption'}')" class="btn-press py-2.5 px-3 rounded-xl bg-paw-600 hover:bg-paw-700 text-white font-semibold text-xs flex items-center justify-center gap-1.5">
+                        <i data-lucide="heart" class="w-3.5 h-3.5"></i>
+                        <span>${status.includes('Foster') ? 'Apply Foster' : 'Apply Adopt'}</span>
+                      </button>
+                    ` : '')}
+                  </div>
+                `}
               </div>
             </article>
           `;
@@ -1232,15 +1372,38 @@
         lucide.createIcons();
       };
 
+      // Quick Coordinator Approval Action for Public Pet Listing Requests
+      window.approvePendingAnimal = async function (animalId, name) {
+        const session = getSession();
+        if (!session) return showToast('Coordinator PIN required');
+        showToast(`Approving ${name}...`);
+        const res = await fetchWithRetry(API_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+          body: JSON.stringify({
+            action: 'SAVE_ANIMAL',
+            pin: session.pin,
+            animalId: animalId,
+            name: name,
+            status: 'Available for Adoption'
+          })
+        }, 2);
+        if (res.status === 'success') {
+          await syncDatabase(true);
+          showToast(`${name} is now live in Adopt a Pet!`);
+        } else {
+          showToast(res.message || 'Approval failed');
+        }
+      };
+
       function renderSecondaryPublicViews() {
-        // Urgent Foster cards inside Tab 4
         const fosterEl = document.getElementById('urgentFosterList');
-        const urgentAnimals = sortAnimalsByPriority(appState.animals || []).filter(a => String(a.Status || '').toLowerCase().includes('foster'));
+        const urgentAnimals = sortAnimalsByPriority(appState.animals || []).filter(a => String(a.Status || '').trim() === 'Urgent Foster');
         if (urgentAnimals.length === 0) {
-          fosterEl.innerHTML = `<div class="bg-white rounded-2xl border border-paw-100 p-5 text-center text-xs text-stone-500">Register above and our team will match you with the next pup or kitten needing temporary foster care!</div>`;
+          fosterEl.innerHTML = `<div class="bg-white rounded-2xl border border-stone-200/80 p-5 text-center text-xs text-stone-500">Register above and our team will match you with the next pup or kitten needing temporary foster care!</div>`;
         } else {
           fosterEl.innerHTML = urgentAnimals.map(a => `
-            <div class="bg-white p-4 rounded-2xl border border-paw-100 shadow-sm flex items-center justify-between gap-3">
+            <div class="bg-white p-4 rounded-2xl border border-stone-200/80 shadow-2xs flex items-center justify-between gap-3">
               <div>
                 <span class="text-[10px] font-bold uppercase px-2 py-0.5 rounded bg-amber-100 text-amber-800">${a.Status}</span>
                 <h4 class="font-display font-bold text-sm text-stone-900 mt-1">${a.Name} (${a.Species})</h4>
@@ -1251,14 +1414,13 @@
           `).join('');
         }
 
-        // Lost & Found list inside Tab 3
         const lfEl = document.getElementById('lostFoundList');
         const lfAnimals = (appState.animals || []).filter(a => ['Lost Pet', 'Found Rescue'].includes(String(a.Status || '').trim()));
         if (lfAnimals.length === 0) {
-          lfEl.innerHTML = `<div class="bg-white rounded-2xl border border-paw-100 p-5 text-center text-xs text-stone-500">No active lost or found alerts right now. Use the form above to post one.</div>`;
+          lfEl.innerHTML = `<div class="bg-white rounded-2xl border border-stone-200/80 p-5 text-center text-xs text-stone-500">No active lost or found alerts right now. Use the form above to post one.</div>`;
         } else {
           lfEl.innerHTML = lfAnimals.map(a => `
-            <div class="bg-white p-4 rounded-2xl border border-paw-100 shadow-sm space-y-1">
+            <div class="bg-white p-4 rounded-2xl border border-stone-200/80 shadow-2xs space-y-1">
               <span class="text-[10px] font-bold uppercase px-2 py-0.5 rounded bg-paw-50 text-paw-700">${a.Status}</span>
               <h4 class="font-display font-bold text-sm text-stone-900">${a.Name}</h4>
               <p class="text-xs text-stone-500">${a.Rescue_Location || ''} • ${a.Rescue_Story || ''}</p>
@@ -1266,14 +1428,13 @@
           `).join('');
         }
 
-        // Public Vet Bills inside Tab 5
         const billsEl = document.getElementById('publicBillsList');
         const bills = appState.vetBills || [];
         if (bills.length === 0) {
-          billsEl.innerHTML = `<div class="bg-white rounded-2xl border border-paw-100 p-5 text-center text-xs text-stone-500">No pending vet bills listed right now. You can still sponsor food, medicines, or virtual adoptions above.</div>`;
+          billsEl.innerHTML = `<div class="bg-white rounded-2xl border border-stone-200/80 p-5 text-center text-xs text-stone-500">No pending vet bills listed right now. You can still sponsor food, medicines, or virtual adoptions above.</div>`;
         } else {
           billsEl.innerHTML = bills.map(r => `
-            <div class="bg-white p-4 rounded-2xl border border-paw-100 shadow-sm space-y-2">
+            <div class="bg-white p-4 rounded-2xl border border-stone-200/80 shadow-2xs space-y-2">
               <div class="flex items-start justify-between gap-2">
                 <div>
                   <span class="text-[10px] font-bold uppercase px-2 py-0.5 rounded bg-paw-50 text-paw-700">${r.Record_Type || 'Medical'}</span>
@@ -1296,26 +1457,26 @@
         const upcoming = records.filter(r => r.Next_Due_Date && String(r.Next_Due_Date).trim() !== '');
         alertsMount.innerHTML = upcoming.length > 0 ? `
           <div class="bg-amber-50 border border-amber-200/80 rounded-2xl p-4 space-y-2">
-            <div class="flex items-center gap-2 text-paw-800 font-display font-bold text-xs">
-              <i data-lucide="bell-ring" class="w-4 h-4 text-paw-600"></i>
+            <div class="flex items-center gap-2 text-amber-900 font-display font-bold text-xs">
+              <i data-lucide="bell-ring" class="w-4 h-4 text-amber-600"></i>
               <span>Upcoming Booster / Follow-Up Due Dates</span>
             </div>
             ${upcoming.slice(0, 4).map(u => `
               <div class="flex items-center justify-between text-xs bg-white px-3 py-2 rounded-xl border border-amber-100">
                 <span class="font-semibold text-stone-800">${u.Animal_Name} • ${u.Title}</span>
-                <span class="text-[11px] font-bold text-paw-700">Due: ${u.Next_Due_Date}</span>
+                <span class="text-[11px] font-bold text-amber-700">Due: ${u.Next_Due_Date}</span>
               </div>
             `).join('')}
           </div>
         ` : '';
 
         if (records.length === 0) {
-          listEl.innerHTML = `<div class="bg-white rounded-2xl border border-paw-100 p-6 text-center text-xs text-stone-500">No veterinary records logged yet. Tap "+ Log Vet" above to add one.</div>`;
+          listEl.innerHTML = `<div class="bg-white rounded-2xl border border-stone-200/80 p-6 text-center text-xs text-stone-500">No veterinary records logged yet. Tap "+ Log Vet" above to add one.</div>`;
           return;
         }
 
         listEl.innerHTML = records.map(r => `
-          <div class="bg-white p-4 rounded-2xl border border-paw-100 shadow-sm space-y-2">
+          <div class="bg-white p-4 rounded-2xl border border-stone-200/80 shadow-2xs space-y-2">
             <div class="flex items-start justify-between gap-2">
               <div>
                 <span class="text-[10px] font-bold uppercase px-2 py-0.5 rounded bg-paw-50 text-paw-700">${r.Record_Type}</span>
@@ -1324,7 +1485,7 @@
               <span class="text-xs font-bold text-stone-700 shrink-0">₹${Number(r.Expense_Amount || 0).toLocaleString('en-IN')}</span>
             </div>
             <p class="text-xs text-stone-600">${r.Doctor_Notes || ''}</p>
-            <div class="flex items-center justify-between text-[11px] text-stone-500 pt-1 border-t border-paw-50">
+            <div class="flex items-center justify-between text-[11px] text-stone-500 pt-1 border-t border-stone-100">
               <span>${r.Vet_Clinic || 'Partner Vet'} • ${r.Visit_Date || ''}</span>
               ${r.Bill_Photo_URL && String(r.Bill_Photo_URL).startsWith('http') ? `<a href="${r.Bill_Photo_URL}" target="_blank" rel="noopener" class="text-paw-700 font-bold underline">View Bill</a>` : ''}
             </div>
@@ -1338,13 +1499,13 @@
         const locs = appState.locations || [];
         document.getElementById('badge-locations').textContent = locs.length;
         if (locs.length === 0) {
-          listEl.innerHTML = `<div class="bg-white rounded-2xl border border-paw-100 p-6 text-center text-xs text-stone-500">No foster homes, boarding facilities, or clinics added yet.</div>`;
+          listEl.innerHTML = `<div class="bg-white rounded-2xl border border-stone-200/80 p-6 text-center text-xs text-stone-500">No foster homes, boarding facilities, or clinics added yet.</div>`;
           return;
         }
         listEl.innerHTML = locs.map(l => {
           const assigned = (appState.animals || []).filter(a => String(a.Current_Location_ID) === String(l.Location_ID));
           return `
-            <div class="bg-white p-4 rounded-2xl border border-paw-100 shadow-sm space-y-2">
+            <div class="bg-white p-4 rounded-2xl border border-stone-200/80 shadow-2xs space-y-2">
               <div class="flex items-start justify-between gap-2">
                 <div>
                   <span class="text-[10px] font-bold uppercase px-2 py-0.5 rounded bg-paw-50 text-paw-700">${l.Type}</span>
@@ -1353,7 +1514,7 @@
                 </div>
                 <span class="text-xs font-bold px-2.5 py-1 rounded-lg bg-stone-100 text-stone-700">${assigned.length} / ${l.Capacity || 1} Pets</span>
               </div>
-              <div class="flex items-center justify-between text-xs text-stone-600 pt-2 border-t border-paw-50">
+              <div class="flex items-center justify-between text-xs text-stone-600 pt-2 border-t border-stone-100">
                 <span>Contact: <strong>${l.Contact_Person || ''}</strong></span>
                 ${l.Phone ? `<a href="tel:${l.Phone}" class="text-paw-700 font-semibold">${l.Phone}</a>` : ''}
               </div>
@@ -1367,26 +1528,40 @@
         const apps = appState.adoptions || [];
         document.getElementById('badge-adoptions').textContent = apps.length;
         if (apps.length === 0) {
-          listEl.innerHTML = `<div class="bg-white rounded-2xl border border-paw-100 p-6 text-center text-xs text-stone-500">No enquiries or requests logged yet.</div>`;
+          listEl.innerHTML = `<div class="bg-white rounded-2xl border border-stone-200/80 p-6 text-center text-xs text-stone-500">No enquiries or listing requests logged yet.</div>`;
           return;
         }
-        listEl.innerHTML = apps.map(app => `
-          <div class="bg-white p-4 rounded-2xl border border-paw-100 shadow-sm space-y-2.5">
-            <div class="flex items-start justify-between gap-2">
-              <div>
-                <span class="text-[10px] font-bold uppercase px-2 py-0.5 rounded bg-paw-50 text-paw-700">${app.Inquiry_Type} • ${app.App_ID}</span>
-                <h4 class="font-display font-bold text-sm text-stone-900 mt-1">${app.Applicant_Name} ➔ ${app.Animal_Name}</h4>
-                <p class="text-[11px] text-stone-500">${app.Address_Locality || ''}</p>
-                ${app.Pet_Experience ? `<p class="text-[11px] text-stone-600 mt-1">${app.Pet_Experience}</p>` : ''}
+        listEl.innerHTML = apps.map(app => {
+          const linkedAnimal = (appState.animals || []).find(a => String(a.Animal_ID) === String(app.Animal_ID));
+          const isPendingListing = linkedAnimal && String(linkedAnimal.Status).trim() === 'Pending Approval';
+
+          return `
+            <div class="bg-white p-4 rounded-2xl border ${isPendingListing ? 'border-amber-300' : 'border-stone-200/80'} shadow-2xs space-y-3">
+              <div class="flex items-start justify-between gap-2">
+                <div>
+                  <span class="text-[10px] font-bold uppercase px-2 py-0.5 rounded bg-paw-50 text-paw-700">${app.Inquiry_Type} • ${app.App_ID}</span>
+                  <h4 class="font-display font-bold text-sm text-stone-900 mt-1">${app.Applicant_Name} ➔ ${app.Animal_Name}</h4>
+                  <p class="text-[11px] text-stone-500">${app.Address_Locality || ''}</p>
+                  ${app.Pet_Experience ? `<p class="text-[11px] text-stone-600 mt-1">${app.Pet_Experience}</p>` : ''}
+                </div>
+                <span class="text-[10px] font-bold px-2.5 py-1 rounded-full bg-amber-100 text-amber-800 shrink-0">${app.Screening_Status}</span>
               </div>
-              <span class="text-[10px] font-bold px-2.5 py-1 rounded-full bg-amber-100 text-amber-800 shrink-0">${app.Screening_Status}</span>
+
+              ${linkedAnimal && linkedAnimal.Photo_URL && String(linkedAnimal.Photo_URL).startsWith('http') ? `
+                <img src="${linkedAnimal.Photo_URL}" alt="${linkedAnimal.Name}" class="w-full h-36 object-cover rounded-xl border border-stone-100" />
+              ` : ''}
+
+              <div class="flex items-center gap-2 pt-1">
+                <a href="https://wa.me/91${String(app.Phone || '').replace(/\D/g, '')}" target="_blank" rel="noopener" class="btn-press flex-1 py-2.5 px-3 rounded-xl bg-emerald-50 text-emerald-700 font-semibold text-xs text-center">WhatsApp</a>
+                ${isPendingListing ? `
+                  <button type="button" onclick="approvePendingAnimal('${linkedAnimal.Animal_ID}', '${String(linkedAnimal.Name).replace(/'/g, "\\'")}')" class="btn-press flex-1 py-2.5 px-3 rounded-xl bg-emerald-600 text-white font-bold text-xs">Approve & Publish</button>
+                ` : `
+                  <button type="button" onclick="openScreeningModal('${app.App_ID}')" class="btn-press flex-1 py-2.5 px-3 rounded-xl bg-paw-600 text-white font-semibold text-xs">Screen / Follow-Up</button>
+                `}
+              </div>
             </div>
-            <div class="flex items-center gap-2 pt-1">
-              <a href="https://wa.me/91${String(app.Phone || '').replace(/\D/g, '')}" target="_blank" rel="noopener" class="btn-press flex-1 py-2 px-3 rounded-xl bg-emerald-50 text-emerald-700 font-semibold text-xs text-center">WhatsApp</a>
-              <button type="button" onclick="openScreeningModal('${app.App_ID}')" class="btn-press flex-1 py-2 px-3 rounded-xl bg-paw-600 text-white font-semibold text-xs">Screen / Follow-Up</button>
-            </div>
-          </div>
-        `).join('');
+          `;
+        }).join('');
       }
 
       window.renderFinanceTab = function () {
@@ -1405,13 +1580,13 @@
 
         const listEl = document.getElementById('financeList');
         if (txns.length === 0) {
-          listEl.innerHTML = `<div class="bg-white rounded-2xl border border-paw-100 p-6 text-center text-xs text-stone-500">No transactions recorded for this month.</div>`;
+          listEl.innerHTML = `<div class="bg-white rounded-2xl border border-stone-200/80 p-6 text-center text-xs text-stone-500">No transactions recorded for this month.</div>`;
           return;
         }
         listEl.innerHTML = txns.map(t => {
           const isDonation = String(t.Type) === 'Donation';
           return `
-            <div class="bg-white p-3.5 rounded-2xl border border-paw-100 flex items-center justify-between gap-3">
+            <div class="bg-white p-3.5 rounded-2xl border border-stone-200/80 flex items-center justify-between gap-3">
               <div class="min-w-0">
                 <span class="text-[10px] font-bold uppercase px-2 py-0.5 rounded ${isDonation ? 'bg-emerald-50 text-emerald-700' : 'bg-rose-50 text-rose-700'}">${t.Category || t.Type}</span>
                 <p class="font-display font-bold text-xs text-stone-900 mt-1 truncate">${t.Party_Name || 'Supporter'}</p>
@@ -1442,13 +1617,13 @@
         const tasks = appState.tasks || [];
         document.getElementById('badge-tasks').textContent = tasks.filter(t => String(t.Status) !== 'Completed').length;
         if (tasks.length === 0) {
-          listEl.innerHTML = `<div class="bg-white rounded-2xl border border-paw-100 p-6 text-center text-xs text-stone-500">No volunteer tasks posted yet.</div>`;
+          listEl.innerHTML = `<div class="bg-white rounded-2xl border border-stone-200/80 p-6 text-center text-xs text-stone-500">No volunteer tasks posted yet.</div>`;
           return;
         }
         listEl.innerHTML = tasks.map(t => {
           const isDone = String(t.Status) === 'Completed';
           return `
-            <div class="bg-white p-4 rounded-2xl border border-paw-100 shadow-sm space-y-2 ${isDone ? 'opacity-70' : ''}">
+            <div class="bg-white p-4 rounded-2xl border border-stone-200/80 shadow-2xs space-y-2 ${isDone ? 'opacity-70' : ''}">
               <div class="flex items-start justify-between gap-2">
                 <div>
                   <span class="text-[10px] font-bold uppercase px-2 py-0.5 rounded bg-paw-50 text-paw-700">${t.Priority} • ${t.Category}</span>
@@ -1457,7 +1632,7 @@
                 </div>
                 <span class="text-[10px] font-bold px-2.5 py-1 rounded-full ${isDone ? 'bg-emerald-100 text-emerald-700' : 'bg-amber-100 text-amber-800'}">${t.Status}</span>
               </div>
-              <div class="flex items-center justify-between pt-2 border-t border-paw-50 text-xs">
+              <div class="flex items-center justify-between pt-2 border-t border-stone-100 text-xs">
                 <span>Assigned: <strong>${t.Assigned_To || 'Open'}</strong></span>
                 ${!isDone ? `<button type="button" onclick="quickCompleteTask('${t.Task_ID}')" class="btn-press px-3 py-1.5 rounded-xl bg-paw-600 text-white font-semibold text-xs">Mark Done</button>` : ''}
               </div>
@@ -1539,7 +1714,7 @@
         modalsMount.innerHTML = `
           <div class="modal-backdrop open fixed inset-0 z-50 bg-stone-900/65 backdrop-blur-xs flex items-end justify-center" onclick="if(event.target===this) closeModal()">
             <div class="modal-sheet w-full max-w-md bg-white rounded-t-3xl p-6 space-y-5 shadow-2xl">
-              <div class="flex items-center justify-between border-b border-paw-100 pb-3.5">
+              <div class="flex items-center justify-between border-b border-stone-100 pb-3.5">
                 <div>
                   <span class="text-[10px] font-bold uppercase tracking-wider text-paw-700 bg-paw-50 px-2.5 py-0.5 rounded-full">Team Access</span>
                   <h3 class="font-display font-bold text-lg text-stone-900 mt-1">HappyPaws Portal</h3>
@@ -1547,15 +1722,15 @@
                 <button type="button" onclick="closeModal()" class="w-9 h-9 rounded-full bg-stone-100 text-stone-500 flex items-center justify-center"><i data-lucide="x" class="w-5 h-5"></i></button>
               </div>
 
-              <div class="grid grid-cols-2 gap-2 p-1 bg-cream-50 rounded-2xl border border-paw-100">
+              <div class="grid grid-cols-2 gap-2 p-1 bg-canvas-50 rounded-2xl border border-stone-200/80">
                 <button type="button" id="pinTabUnlock" onclick="togglePinTab('unlock')" class="py-2 rounded-xl ${defaultTab === 'unlock' ? 'bg-paw-600 text-white font-bold' : 'text-stone-600 font-semibold'} text-xs transition">Unlock Tools</button>
                 <button type="button" id="pinTabSet" onclick="togglePinTab('set')" class="py-2 rounded-xl ${defaultTab === 'set' ? 'bg-paw-600 text-white font-bold' : 'text-stone-600 font-semibold'} text-xs transition">Set / Update PIN</button>
               </div>
 
               <form id="pinUnlockForm" onsubmit="handleTeamLogin(event)" class="${defaultTab === 'unlock' ? '' : 'hidden'} space-y-4">
                 <div>
-                  <label class="block text-xs font-semibold text-stone-600 mb-1.5">Enter Coordinator (1234) or Volunteer (2222) PIN</label>
-                  <input type="password" id="teamPinInput" inputmode="numeric" minlength="4" maxlength="6" required placeholder="••••" class="w-full px-4 py-3.5 rounded-xl bg-cream-50 border border-paw-200 text-center text-lg font-bold tracking-[0.5em] focus:outline-none focus:border-paw-600" />
+                  <label class="block text-xs font-semibold text-stone-600 mb-1.5">Enter Coordinator or Volunteer PIN</label>
+                  <input type="password" id="teamPinInput" inputmode="numeric" minlength="4" maxlength="6" required placeholder="••••" class="w-full px-4 py-3.5 rounded-xl bg-canvas-50 border border-stone-200 text-center text-lg font-bold tracking-[0.5em] focus:outline-none focus:border-paw-600" />
                 </div>
                 <button type="submit" id="loginSubmitBtn" class="btn-press w-full py-3.5 rounded-2xl bg-paw-600 text-white font-display font-bold text-sm">Unlock Workspace</button>
               </form>
@@ -1563,18 +1738,18 @@
               <form id="pinSetForm" onsubmit="handleUpdateTeamPin(event)" class="${defaultTab === 'set' ? '' : 'hidden'} space-y-3.5">
                 <div>
                   <label class="block text-xs font-semibold text-stone-600 mb-1">Current Coordinator PIN *</label>
-                  <input type="password" id="currentCoordPinInput" inputmode="numeric" minlength="4" maxlength="6" required placeholder="Default: 1234" class="w-full px-4 py-3 rounded-xl bg-cream-50 border border-paw-200 text-center text-base font-bold tracking-[0.4em]" />
+                  <input type="password" id="currentCoordPinInput" inputmode="numeric" minlength="4" maxlength="6" required placeholder="••••" class="w-full px-4 py-3 rounded-xl bg-canvas-50 border border-stone-200 text-center text-base font-bold tracking-[0.4em]" />
                 </div>
                 <div>
                   <label class="block text-xs font-semibold text-stone-600 mb-1">Role to Update</label>
-                  <select id="targetRoleSelect" class="w-full px-3.5 py-2.5 rounded-xl bg-cream-50 border border-paw-200 text-xs font-semibold">
+                  <select id="targetRoleSelect" class="w-full px-3.5 py-2.5 rounded-xl bg-canvas-50 border border-stone-200 text-xs font-semibold">
                     <option value="COORDINATOR">Coordinator PIN (Full Access)</option>
                     <option value="VOLUNTEER">Volunteer PIN (Field & Tasks)</option>
                   </select>
                 </div>
                 <div>
                   <label class="block text-xs font-semibold text-stone-600 mb-1">New 4–6 Digit PIN *</label>
-                  <input type="password" id="newRolePinInput" inputmode="numeric" pattern="[0-9]{4,6}" minlength="4" maxlength="6" required placeholder="••••" class="w-full px-4 py-3 rounded-xl bg-cream-50 border border-paw-200 text-center text-base font-bold tracking-[0.4em]" />
+                  <input type="password" id="newRolePinInput" inputmode="numeric" pattern="[0-9]{4,6}" minlength="4" maxlength="6" required placeholder="••••" class="w-full px-4 py-3 rounded-xl bg-canvas-50 border border-stone-200 text-center text-base font-bold tracking-[0.4em]" />
                 </div>
                 <button type="submit" id="setPinBtn" class="btn-press w-full py-3.5 rounded-2xl bg-stone-900 text-white font-display font-bold text-sm">Save New PIN</button>
               </form>
@@ -1681,7 +1856,7 @@
         modalsMount.innerHTML = `
           <div class="modal-backdrop open fixed inset-0 z-50 bg-stone-900/65 backdrop-blur-xs flex items-end justify-center" onclick="if(event.target===this) closeModal()">
             <div class="modal-sheet w-full max-w-md bg-white rounded-t-3xl p-6 space-y-4 shadow-2xl max-h-[90vh] overflow-y-auto">
-              <div class="flex items-center justify-between border-b border-paw-100 pb-3">
+              <div class="flex items-center justify-between border-b border-stone-100 pb-3">
                 <div>
                   <span class="text-[10px] font-bold uppercase px-2.5 py-0.5 rounded-full bg-paw-50 text-paw-700">${animal.Animal_ID} • ${animal.Status}</span>
                   <h3 class="font-display font-bold text-lg text-stone-900 mt-1">${animal.Name} (${stripPriorityTag(animal.Breed_Color) || animal.Species})</h3>
@@ -1689,21 +1864,21 @@
                 <button type="button" onclick="closeModal()" class="w-8 h-8 rounded-full bg-stone-100 text-stone-500 flex items-center justify-center"><i data-lucide="x" class="w-4 h-4"></i></button>
               </div>
               <div class="space-y-3 text-xs">
-                <div class="bg-paw-50/70 p-3.5 rounded-2xl border border-paw-100 space-y-1">
-                  <p class="font-bold text-paw-800">1. Background & Story (${animal.Rescue_Date || 'Logged'})</p>
+                <div class="bg-canvas-50 p-3.5 rounded-2xl border border-stone-200/70 space-y-1">
+                  <p class="font-bold text-stone-900">1. Background & Story (${animal.Rescue_Date || 'Logged'})</p>
                   <p class="text-stone-600"><strong>Area:</strong> ${animal.Rescue_Location || 'Hyderabad'}</p>
                   <p class="text-stone-600">${animal.Rescue_Story || 'Available through HappyPaws Adoptions.'}</p>
                 </div>
-                <div class="bg-stone-50 p-3.5 rounded-2xl border border-stone-200/70 space-y-1">
-                  <p class="font-bold text-stone-800">2. Placement & Medical Status</p>
+                <div class="bg-canvas-50 p-3.5 rounded-2xl border border-stone-200/70 space-y-1">
+                  <p class="font-bold text-stone-900">2. Placement & Medical Status</p>
                   <p class="text-stone-600"><strong>Current Location:</strong> ${animal.Current_Location_Name || 'Hyderabad'}</p>
                   <p class="text-stone-600"><strong>Health Summary:</strong> ${animal.Medical_Summary || 'Vaccinated & Dewormed'}</p>
                   ${animal.Rehab_Notes ? `<p class="text-stone-600"><strong>Notes:</strong> ${animal.Rehab_Notes}</p>` : ''}
                 </div>
                 <div class="space-y-2">
-                  <p class="font-bold text-stone-800">3. Veterinary & Vaccination Records (${vets.length})</p>
+                  <p class="font-bold text-stone-900">3. Veterinary & Vaccination Records (${vets.length})</p>
                   ${vets.length === 0 ? `<p class="text-stone-400">No individual vet visits logged yet.</p>` : vets.map(v => `
-                    <div class="p-3 rounded-xl border border-paw-100 bg-white space-y-1">
+                    <div class="p-3 rounded-xl border border-stone-200/80 bg-white space-y-1">
                       <div class="flex justify-between font-bold text-stone-800">
                         <span>${v.Record_Type}: ${v.Title}</span>
                         <span>${v.Visit_Date || ''}</span>
@@ -1719,7 +1894,7 @@
         lucide.createIcons();
       };
 
-      // ADD / EDIT ANIMAL FORM MODAL (With Display Priority Order Control!)
+      // ADD / EDIT ANIMAL FORM MODAL (With Display Priority Order Control & Approval Status)
       window.openAnimalFormModal = function (editId = '') {
         const existing = editId ? (appState.animals || []).find(a => String(a.Animal_ID) === String(editId)) : null;
         const currentPriority = existing ? extractPriority(existing) : 1;
@@ -1729,12 +1904,12 @@
         modalsMount.innerHTML = `
           <div class="modal-backdrop open fixed inset-0 z-50 bg-stone-900/65 backdrop-blur-xs flex items-end justify-center" onclick="if(event.target===this) closeModal()">
             <div class="modal-sheet w-full max-w-md bg-white rounded-t-3xl p-6 space-y-4 shadow-2xl max-h-[92vh] overflow-y-auto">
-              <div class="flex items-center justify-between border-b border-paw-100 pb-3">
+              <div class="flex items-center justify-between border-b border-stone-100 pb-3">
                 <h3 class="font-display font-bold text-base text-stone-900">${existing ? 'Edit ' + existing.Name : 'Publish Pet for Adoption'}</h3>
                 <button type="button" onclick="closeModal()" class="w-8 h-8 rounded-full bg-stone-100 text-stone-500 flex items-center justify-center"><i data-lucide="x" class="w-4 h-4"></i></button>
               </div>
               <form onsubmit="submitAnimalForm(event, '${editId}')" class="space-y-3.5 text-xs">
-                <div class="bg-paw-50 border border-paw-200/80 rounded-2xl p-3 flex items-center justify-between gap-3">
+                <div class="bg-paw-50/70 border border-paw-200/80 rounded-2xl p-3.5 flex items-center justify-between gap-3">
                   <div>
                     <label class="block font-bold text-paw-800">Display Priority Order *</label>
                     <p class="text-[11px] text-stone-500">1 = Shows at very top, 2 = Second, etc.</p>
@@ -1743,12 +1918,12 @@
                 </div>
 
                 <div>
-                  <label class="block font-semibold text-stone-600 mb-1">Photo</label>
+                  <label class="block font-semibold text-stone-600 mb-1">Photo ${existing ? '(Optional to replace)' : ''}</label>
                   <input type="file" id="aniPhotoFile" accept="image/*" class="w-full text-xs" />
                 </div>
                 <div class="grid grid-cols-2 gap-3">
-                  <input type="text" id="aniName" required value="${existing ? existing.Name : ''}" placeholder="Pet Name *" class="w-full px-3 py-2.5 rounded-xl bg-cream-50 border border-paw-100" />
-                  <select id="aniSpecies" class="w-full px-3 py-2.5 rounded-xl bg-cream-50 border border-paw-100">
+                  <input type="text" id="aniName" required value="${existing ? existing.Name : ''}" placeholder="Pet Name *" class="w-full px-3 py-2.5 rounded-xl bg-canvas-50 border border-stone-200" />
+                  <select id="aniSpecies" class="w-full px-3 py-2.5 rounded-xl bg-canvas-50 border border-stone-200">
                     <option value="Dog" ${existing && existing.Species === 'Dog' ? 'selected' : ''}>Dog</option>
                     <option value="Cat" ${existing && existing.Species === 'Cat' ? 'selected' : ''}>Cat</option>
                     <option value="Bird" ${existing && existing.Species === 'Bird' ? 'selected' : ''}>Bird</option>
@@ -1756,22 +1931,22 @@
                   </select>
                 </div>
                 <div class="grid grid-cols-2 gap-3">
-                  <input type="text" id="aniBreed" value="${cleanBreed}" placeholder="Breed / Coat Color" class="w-full px-3 py-2.5 rounded-xl bg-cream-50 border border-paw-100" />
-                  <input type="text" id="aniAge" required value="${existing ? existing.Age_Gender : ''}" placeholder="Age & Gender *" class="w-full px-3 py-2.5 rounded-xl bg-cream-50 border border-paw-100" />
+                  <input type="text" id="aniBreed" value="${cleanBreed}" placeholder="Breed / Coat Color" class="w-full px-3 py-2.5 rounded-xl bg-canvas-50 border border-stone-200" />
+                  <input type="text" id="aniAge" required value="${existing ? existing.Age_Gender : ''}" placeholder="Age & Gender *" class="w-full px-3 py-2.5 rounded-xl bg-canvas-50 border border-stone-200" />
                 </div>
                 <div class="grid grid-cols-2 gap-3">
-                  <select id="aniStatus" class="w-full px-3 py-2.5 rounded-xl bg-cream-50 border border-paw-100">
-                    ${['Available for Adoption', 'Urgent Foster', 'Foster-to-Adopt', 'Under Treatment', 'In Rehab', 'Lost Pet', 'Found Rescue', 'Adopted'].map(s => `<option value="${s}" ${existing && existing.Status === s ? 'selected' : ''}>${s}</option>`).join('')}
+                  <select id="aniStatus" class="w-full px-3 py-2.5 rounded-xl bg-canvas-50 border border-stone-200 font-semibold">
+                    ${['Available for Adoption', 'Pending Approval', 'Urgent Foster', 'Foster-to-Adopt', 'Under Treatment', 'In Rehab', 'Lost Pet', 'Found Rescue', 'Adopted'].map(s => `<option value="${s}" ${existing && existing.Status === s ? 'selected' : ''}>${s}</option>`).join('')}
                   </select>
-                  <select id="aniLocation" class="w-full px-3 py-2.5 rounded-xl bg-cream-50 border border-paw-100">
+                  <select id="aniLocation" class="w-full px-3 py-2.5 rounded-xl bg-canvas-50 border border-stone-200">
                     <option value="|Hyderabad">Hyderabad</option>
                     ${locs.map(l => `<option value="${l.Location_ID}|${l.Name}" ${existing && existing.Current_Location_ID === l.Location_ID ? 'selected' : ''}>${l.Type}: ${l.Name}</option>`).join('')}
                   </select>
                 </div>
-                <input type="text" id="aniRescueLoc" required value="${existing ? existing.Rescue_Location : ''}" placeholder="Locality / Area *" class="w-full px-3 py-2.5 rounded-xl bg-cream-50 border border-paw-100" />
-                <textarea id="aniStory" rows="2" placeholder="Adoption appeal & temperament..." class="w-full px-3 py-2.5 rounded-xl bg-cream-50 border border-paw-100">${existing ? existing.Rescue_Story : ''}</textarea>
-                <input type="text" id="aniMedSum" value="${existing ? existing.Medical_Summary : ''}" placeholder="Medical Summary (e.g., Vaccinated, Spayed)" class="w-full px-3 py-2.5 rounded-xl bg-cream-50 border border-paw-100" />
-                <textarea id="aniRehab" rows="2" placeholder="Care / rehab notes..." class="w-full px-3 py-2.5 rounded-xl bg-cream-50 border border-paw-100">${existing ? existing.Rehab_Notes : ''}</textarea>
+                <input type="text" id="aniRescueLoc" required value="${existing ? existing.Rescue_Location : ''}" placeholder="Locality / Area *" class="w-full px-3 py-2.5 rounded-xl bg-canvas-50 border border-stone-200" />
+                <textarea id="aniStory" rows="2" placeholder="Adoption appeal & temperament..." class="w-full px-3 py-2.5 rounded-xl bg-canvas-50 border border-stone-200">${existing ? existing.Rescue_Story : ''}</textarea>
+                <input type="text" id="aniMedSum" value="${existing ? existing.Medical_Summary : ''}" placeholder="Medical Summary (e.g., Vaccinated, Spayed)" class="w-full px-3 py-2.5 rounded-xl bg-canvas-50 border border-stone-200" />
+                <textarea id="aniRehab" rows="2" placeholder="Care / rehab notes..." class="w-full px-3 py-2.5 rounded-xl bg-canvas-50 border border-stone-200">${existing ? existing.Rehab_Notes : ''}</textarea>
                 <button type="submit" id="saveAniBtn" class="btn-press w-full py-3.5 rounded-2xl bg-paw-600 text-white font-display font-bold text-sm">Save & Publish Listing</button>
               </form>
             </div>
@@ -1833,35 +2008,35 @@
         modalsMount.innerHTML = `
           <div class="modal-backdrop open fixed inset-0 z-50 bg-stone-900/65 backdrop-blur-xs flex items-end justify-center" onclick="if(event.target===this) closeModal()">
             <div class="modal-sheet w-full max-w-md bg-white rounded-t-3xl p-6 space-y-4 shadow-2xl max-h-[92vh] overflow-y-auto">
-              <div class="flex items-center justify-between border-b border-paw-100 pb-3">
+              <div class="flex items-center justify-between border-b border-stone-100 pb-3">
                 <h3 class="font-display font-bold text-base text-stone-900">Log Vet Visit / Vaccination</h3>
                 <button type="button" onclick="closeModal()" class="w-8 h-8 rounded-full bg-stone-100 text-stone-500 flex items-center justify-center"><i data-lucide="x" class="w-4 h-4"></i></button>
               </div>
               <form onsubmit="submitVetForm(event)" class="space-y-3.5 text-xs">
-                <select id="vetAnimalSelect" required class="w-full px-3 py-2.5 rounded-xl bg-cream-50 border border-paw-100">
+                <select id="vetAnimalSelect" required class="w-full px-3 py-2.5 rounded-xl bg-canvas-50 border border-stone-200">
                   ${animals.map(a => `<option value="${a.Animal_ID}|${a.Name}">${a.Animal_ID} — ${a.Name}</option>`).join('')}
                 </select>
                 <div class="grid grid-cols-2 gap-3">
-                  <select id="vetType" class="w-full px-3 py-2.5 rounded-xl bg-cream-50 border border-paw-100">
+                  <select id="vetType" class="w-full px-3 py-2.5 rounded-xl bg-canvas-50 border border-stone-200">
                     <option value="Vaccination">Vaccination</option>
                     <option value="Treatment">Treatment</option>
                     <option value="Surgery">Surgery</option>
                     <option value="Sterilization">Sterilization</option>
                     <option value="Deworming">Deworming</option>
                   </select>
-                  <input type="date" id="vetNextDate" class="w-full px-3 py-2.5 rounded-xl bg-cream-50 border border-paw-100" />
+                  <input type="date" id="vetNextDate" class="w-full px-3 py-2.5 rounded-xl bg-canvas-50 border border-stone-200" />
                 </div>
-                <input type="text" id="vetTitle" required placeholder="Treatment / Vaccine Title *" class="w-full px-3 py-2.5 rounded-xl bg-cream-50 border border-paw-100" />
+                <input type="text" id="vetTitle" required placeholder="Treatment / Vaccine Title *" class="w-full px-3 py-2.5 rounded-xl bg-canvas-50 border border-stone-200" />
                 <div class="grid grid-cols-2 gap-3">
-                  <input type="text" id="vetClinic" required placeholder="Vet Clinic *" class="w-full px-3 py-2.5 rounded-xl bg-cream-50 border border-paw-100" />
-                  <input type="number" id="vetExpense" min="0" value="0" placeholder="Expense (₹)" class="w-full px-3 py-2.5 rounded-xl bg-cream-50 border border-paw-100" />
+                  <input type="text" id="vetClinic" required placeholder="Vet Clinic *" class="w-full px-3 py-2.5 rounded-xl bg-canvas-50 border border-stone-200" />
+                  <input type="number" id="vetExpense" min="0" value="0" placeholder="Expense (₹)" class="w-full px-3 py-2.5 rounded-xl bg-canvas-50 border border-stone-200" />
                 </div>
-                <select id="vetPayStatus" class="w-full px-3 py-2.5 rounded-xl bg-cream-50 border border-paw-100">
+                <select id="vetPayStatus" class="w-full px-3 py-2.5 rounded-xl bg-canvas-50 border border-stone-200">
                   <option value="Paid">Paid (Auto-logs to Expense Ledger)</option>
                   <option value="Pending Funding">Pending Funding (Shows on Donate Tab)</option>
                 </select>
                 <input type="file" id="vetBillFile" accept="image/*" class="w-full text-xs" />
-                <textarea id="vetNotes" rows="2" placeholder="Doctor instructions..." class="w-full px-3 py-2.5 rounded-xl bg-cream-50 border border-paw-100"></textarea>
+                <textarea id="vetNotes" rows="2" placeholder="Doctor instructions..." class="w-full px-3 py-2.5 rounded-xl bg-canvas-50 border border-stone-200"></textarea>
                 <button type="submit" id="saveVetBtn" class="btn-press w-full py-3.5 rounded-2xl bg-paw-600 text-white font-display font-bold text-sm">Save Vet Record</button>
               </form>
             </div>
@@ -1906,26 +2081,26 @@
         modalsMount.innerHTML = `
           <div class="modal-backdrop open fixed inset-0 z-50 bg-stone-900/65 backdrop-blur-xs flex items-end justify-center" onclick="if(event.target===this) closeModal()">
             <div class="modal-sheet w-full max-w-md bg-white rounded-t-3xl p-6 space-y-4 shadow-2xl">
-              <div class="flex items-center justify-between border-b border-paw-100 pb-3">
+              <div class="flex items-center justify-between border-b border-stone-100 pb-3">
                 <h3 class="font-display font-bold text-base text-stone-900">Add Foster Home / Facility</h3>
                 <button type="button" onclick="closeModal()" class="w-8 h-8 rounded-full bg-stone-100 text-stone-500 flex items-center justify-center"><i data-lucide="x" class="w-4 h-4"></i></button>
               </div>
               <form onsubmit="submitLocationForm(event)" class="space-y-3.5 text-xs">
                 <div class="grid grid-cols-2 gap-3">
-                  <select id="locType" class="w-full px-3 py-2.5 rounded-xl bg-cream-50 border border-paw-100">
+                  <select id="locType" class="w-full px-3 py-2.5 rounded-xl bg-canvas-50 border border-stone-200">
                     <option value="Foster Home">Foster Home</option>
                     <option value="Boarding">Boarding Facility</option>
                     <option value="Vet Clinic">Partner Vet Clinic</option>
                     <option value="Shelter">Shelter Zone</option>
                   </select>
-                  <input type="number" id="locCap" required min="1" value="2" placeholder="Capacity" class="w-full px-3 py-2.5 rounded-xl bg-cream-50 border border-paw-100" />
+                  <input type="number" id="locCap" required min="1" value="2" placeholder="Capacity" class="w-full px-3 py-2.5 rounded-xl bg-canvas-50 border border-stone-200" />
                 </div>
-                <input type="text" id="locName" required placeholder="Foster Parent / Facility Name *" class="w-full px-3 py-2.5 rounded-xl bg-cream-50 border border-paw-100" />
+                <input type="text" id="locName" required placeholder="Foster Parent / Facility Name *" class="w-full px-3 py-2.5 rounded-xl bg-canvas-50 border border-stone-200" />
                 <div class="grid grid-cols-2 gap-3">
-                  <input type="text" id="locContact" required placeholder="Contact Person *" class="w-full px-3 py-2.5 rounded-xl bg-cream-50 border border-paw-100" />
-                  <input type="tel" id="locPhone" required placeholder="Phone *" class="w-full px-3 py-2.5 rounded-xl bg-cream-50 border border-paw-100" />
+                  <input type="text" id="locContact" required placeholder="Contact Person *" class="w-full px-3 py-2.5 rounded-xl bg-canvas-50 border border-stone-200" />
+                  <input type="tel" id="locPhone" required placeholder="Phone *" class="w-full px-3 py-2.5 rounded-xl bg-canvas-50 border border-stone-200" />
                 </div>
-                <input type="text" id="locArea" required placeholder="Area / Address *" class="w-full px-3 py-2.5 rounded-xl bg-cream-50 border border-paw-100" />
+                <input type="text" id="locArea" required placeholder="Area / Address *" class="w-full px-3 py-2.5 rounded-xl bg-canvas-50 border border-stone-200" />
                 <button type="submit" class="btn-press w-full py-3.5 rounded-2xl bg-paw-600 text-white font-display font-bold text-sm">Save Location</button>
               </form>
             </div>
@@ -1960,34 +2135,34 @@
         modalsMount.innerHTML = `
           <div class="modal-backdrop open fixed inset-0 z-50 bg-stone-900/65 backdrop-blur-xs flex items-end justify-center" onclick="if(event.target===this) closeModal()">
             <div class="modal-sheet w-full max-w-md bg-white rounded-t-3xl p-6 space-y-4 shadow-2xl">
-              <div class="flex items-center justify-between border-b border-paw-100 pb-3">
+              <div class="flex items-center justify-between border-b border-stone-100 pb-3">
                 <h3 class="font-display font-bold text-base text-stone-900">Log Donation or Expense</h3>
                 <button type="button" onclick="closeModal()" class="w-8 h-8 rounded-full bg-stone-100 text-stone-500 flex items-center justify-center"><i data-lucide="x" class="w-4 h-4"></i></button>
               </div>
               <form onsubmit="submitFinanceForm(event)" class="space-y-3.5 text-xs">
                 <div class="grid grid-cols-2 gap-3">
-                  <select id="finType" class="w-full px-3 py-2.5 rounded-xl bg-cream-50 border border-paw-100 font-bold">
+                  <select id="finType" class="w-full px-3 py-2.5 rounded-xl bg-canvas-50 border border-stone-200 font-bold">
                     <option value="Donation">Donation (+ Income)</option>
                     <option value="Expense">Expense (- Outflow)</option>
                   </select>
-                  <input type="number" id="finAmount" required min="1" placeholder="Amount (₹) *" class="w-full px-3 py-2.5 rounded-xl bg-cream-50 border border-paw-100" />
+                  <input type="number" id="finAmount" required min="1" placeholder="Amount (₹) *" class="w-full px-3 py-2.5 rounded-xl bg-canvas-50 border border-stone-200" />
                 </div>
                 <div class="grid grid-cols-2 gap-3">
-                  <select id="finCategory" class="w-full px-3 py-2.5 rounded-xl bg-cream-50 border border-paw-100">
+                  <select id="finCategory" class="w-full px-3 py-2.5 rounded-xl bg-canvas-50 border border-stone-200">
                     <option value="Public Donation">Public Donation</option>
                     <option value="Food & Supplies">Food & Supplies</option>
                     <option value="Boarding Fee">Boarding Fee</option>
                     <option value="Rescue Transport">Rescue Transport</option>
                     <option value="Medicine & Kits">Medicine & Kits</option>
                   </select>
-                  <select id="finMode" class="w-full px-3 py-2.5 rounded-xl bg-cream-50 border border-paw-100">
+                  <select id="finMode" class="w-full px-3 py-2.5 rounded-xl bg-canvas-50 border border-stone-200">
                     <option value="UPI">UPI</option>
                     <option value="Bank Transfer">Bank Transfer</option>
                     <option value="Cash">Cash</option>
                   </select>
                 </div>
-                <input type="text" id="finParty" required placeholder="Donor or Vendor Name *" class="w-full px-3 py-2.5 rounded-xl bg-cream-50 border border-paw-100" />
-                <input type="text" id="finNotes" placeholder="Notes / Reference ID" class="w-full px-3 py-2.5 rounded-xl bg-cream-50 border border-paw-100" />
+                <input type="text" id="finParty" required placeholder="Donor or Vendor Name *" class="w-full px-3 py-2.5 rounded-xl bg-canvas-50 border border-stone-200" />
+                <input type="text" id="finNotes" placeholder="Notes / Reference ID" class="w-full px-3 py-2.5 rounded-xl bg-canvas-50 border border-stone-200" />
                 <button type="submit" class="btn-press w-full py-3.5 rounded-2xl bg-paw-600 text-white font-display font-bold text-sm">Record Transaction</button>
               </form>
             </div>
@@ -2022,7 +2197,7 @@
         modalsMount.innerHTML = `
           <div class="modal-backdrop open fixed inset-0 z-50 bg-stone-900/65 backdrop-blur-xs flex items-end justify-center" onclick="if(event.target===this) closeModal()">
             <div class="modal-sheet w-full max-w-md bg-white rounded-t-3xl p-6 space-y-4 shadow-2xl max-h-[92vh] overflow-y-auto">
-              <div class="flex items-center justify-between border-b border-paw-100 pb-3">
+              <div class="flex items-center justify-between border-b border-stone-100 pb-3">
                 <div>
                   <span class="text-[10px] font-bold uppercase px-2.5 py-0.5 rounded-full bg-paw-50 text-paw-700">${inquiryType} Vetting</span>
                   <h3 class="font-display font-bold text-base text-stone-900 mt-1">Apply for ${animalName}</h3>
@@ -2030,19 +2205,19 @@
                 <button type="button" onclick="closeModal()" class="w-8 h-8 rounded-full bg-stone-100 text-stone-500 flex items-center justify-center"><i data-lucide="x" class="w-4 h-4"></i></button>
               </div>
               <form onsubmit="submitPublicAdoption(event, '${animalId}', '${animalName.replace(/'/g, "\\'")}', '${inquiryType}')" class="space-y-3.5 text-xs">
-                <input type="text" id="pubAppName" required placeholder="Your Full Name *" class="w-full px-3.5 py-2.5 rounded-xl bg-cream-50 border border-paw-100" />
+                <input type="text" id="pubAppName" required placeholder="Your Full Name *" class="w-full px-3.5 py-2.5 rounded-xl bg-canvas-50 border border-stone-200" />
                 <div class="grid grid-cols-2 gap-3">
-                  <input type="tel" id="pubAppPhone" required pattern="[0-9]{10}" maxlength="10" placeholder="10-digit WhatsApp *" class="w-full px-3.5 py-2.5 rounded-xl bg-cream-50 border border-paw-100" />
-                  <input type="text" id="pubAppAgeJob" required placeholder="Age & Occupation *" class="w-full px-3.5 py-2.5 rounded-xl bg-cream-50 border border-paw-100" />
+                  <input type="tel" id="pubAppPhone" required pattern="[0-9]{10}" maxlength="10" placeholder="10-digit WhatsApp *" class="w-full px-3.5 py-2.5 rounded-xl bg-canvas-50 border border-stone-200" />
+                  <input type="text" id="pubAppAgeJob" required placeholder="Age & Occupation *" class="w-full px-3.5 py-2.5 rounded-xl bg-canvas-50 border border-stone-200" />
                 </div>
-                <textarea id="pubAppAddr" required rows="2" placeholder="Complete Address & Locality in Hyderabad *" class="w-full px-3.5 py-2.5 rounded-xl bg-cream-50 border border-paw-100"></textarea>
-                <select id="pubAppHousing" required class="w-full px-3.5 py-2.5 rounded-xl bg-cream-50 border border-paw-100">
+                <textarea id="pubAppAddr" required rows="2" placeholder="Complete Address & Locality in Hyderabad *" class="w-full px-3.5 py-2.5 rounded-xl bg-canvas-50 border border-stone-200"></textarea>
+                <select id="pubAppHousing" required class="w-full px-3.5 py-2.5 rounded-xl bg-canvas-50 border border-stone-200">
                   <option value="">Select Home & Balcony Safety *</option>
                   <option value="Apartment (Fully Netted)">Apartment (Fully Netted)</option>
                   <option value="Apartment (Will Install Net)">Apartment (Will Install Net)</option>
                   <option value="Independent House (Fenced)">Independent House (Fenced)</option>
                 </select>
-                <textarea id="pubAppExp" required rows="2" placeholder="Existing pets, family agreement & care plan *" class="w-full px-3.5 py-2.5 rounded-xl bg-cream-50 border border-paw-100"></textarea>
+                <textarea id="pubAppExp" required rows="2" placeholder="Existing pets, family agreement & care plan *" class="w-full px-3.5 py-2.5 rounded-xl bg-canvas-50 border border-stone-200"></textarea>
                 <label class="flex items-start gap-2 cursor-pointer">
                   <input type="checkbox" required class="mt-0.5 rounded text-paw-600" />
                   <span class="text-[11px] text-stone-600">I agree to vaccinations, sterilization, house checks, and 30D/90D post-adoption follow-ups.</span>
@@ -2083,20 +2258,20 @@
         modalsMount.innerHTML = `
           <div class="modal-backdrop open fixed inset-0 z-50 bg-stone-900/65 backdrop-blur-xs flex items-end justify-center" onclick="if(event.target===this) closeModal()">
             <div class="modal-sheet w-full max-w-md bg-white rounded-t-3xl p-6 space-y-4 shadow-2xl">
-              <div class="flex items-center justify-between border-b border-paw-100 pb-3">
+              <div class="flex items-center justify-between border-b border-stone-100 pb-3">
                 <h3 class="font-display font-bold text-base text-stone-900">Screen: ${app.Applicant_Name}</h3>
                 <button type="button" onclick="closeModal()" class="w-8 h-8 rounded-full bg-stone-100 text-stone-500 flex items-center justify-center"><i data-lucide="x" class="w-4 h-4"></i></button>
               </div>
               <form onsubmit="submitScreeningUpdate(event, '${app.App_ID}', '${app.Animal_ID}', '${String(app.Applicant_Name).replace(/'/g, "\\'")}')" class="space-y-3.5 text-xs">
-                <select id="scrStatus" class="w-full px-3 py-2.5 rounded-xl bg-cream-50 border border-paw-100 font-semibold">
+                <select id="scrStatus" class="w-full px-3 py-2.5 rounded-xl bg-canvas-50 border border-stone-200 font-semibold">
                   ${['New Enquiry', 'Call Done', 'House Check Scheduled', 'Approved', 'Adopted', 'Rejected'].map(s => `<option value="${s}" ${app.Screening_Status === s ? 'selected' : ''}>${s}</option>`).join('')}
                 </select>
-                <textarea id="scrNotes" rows="2" placeholder="Screening notes..." class="w-full px-3 py-2.5 rounded-xl bg-cream-50 border border-paw-100">${app.Screening_Notes || ''}</textarea>
+                <textarea id="scrNotes" rows="2" placeholder="Screening notes..." class="w-full px-3 py-2.5 rounded-xl bg-canvas-50 border border-stone-200">${app.Screening_Notes || ''}</textarea>
                 <div class="grid grid-cols-2 gap-3">
-                  <select id="scr30d" class="w-full px-3 py-2.5 rounded-xl bg-cream-50 border border-paw-100">
+                  <select id="scr30d" class="w-full px-3 py-2.5 rounded-xl bg-canvas-50 border border-stone-200">
                     ${['Pending', 'Completed - Healthy', 'Needs Vet Check'].map(s => `<option value="${s}" ${app.Followup_30D_Status === s ? 'selected' : ''}>30D: ${s}</option>`).join('')}
                   </select>
-                  <select id="scr90d" class="w-full px-3 py-2.5 rounded-xl bg-cream-50 border border-paw-100">
+                  <select id="scr90d" class="w-full px-3 py-2.5 rounded-xl bg-canvas-50 border border-stone-200">
                     ${['Pending', 'Completed - Thriving', 'Sterilization Verified'].map(s => `<option value="${s}" ${app.Followup_90D_Status === s ? 'selected' : ''}>90D: ${s}</option>`).join('')}
                   </select>
                 </div>
@@ -2135,27 +2310,27 @@
         modalsMount.innerHTML = `
           <div class="modal-backdrop open fixed inset-0 z-50 bg-stone-900/65 backdrop-blur-xs flex items-end justify-center" onclick="if(event.target===this) closeModal()">
             <div class="modal-sheet w-full max-w-md bg-white rounded-t-3xl p-6 space-y-4 shadow-2xl">
-              <div class="flex items-center justify-between border-b border-paw-100 pb-3">
+              <div class="flex items-center justify-between border-b border-stone-100 pb-3">
                 <h3 class="font-display font-bold text-base text-stone-900">Assign Volunteer Task</h3>
                 <button type="button" onclick="closeModal()" class="w-8 h-8 rounded-full bg-stone-100 text-stone-500 flex items-center justify-center"><i data-lucide="x" class="w-4 h-4"></i></button>
               </div>
               <form onsubmit="submitTaskForm(event)" class="space-y-3.5 text-xs">
-                <input type="text" id="tskTitle" required placeholder="Task Title *" class="w-full px-3 py-2.5 rounded-xl bg-cream-50 border border-paw-100" />
+                <input type="text" id="tskTitle" required placeholder="Task Title *" class="w-full px-3 py-2.5 rounded-xl bg-canvas-50 border border-stone-200" />
                 <div class="grid grid-cols-2 gap-3">
-                  <select id="tskCat" class="w-full px-3 py-2.5 rounded-xl bg-cream-50 border border-paw-100">
+                  <select id="tskCat" class="w-full px-3 py-2.5 rounded-xl bg-canvas-50 border border-stone-200">
                     <option value="Adoption Drive">Adoption Drive</option>
                     <option value="Vet Visit">Vet Visit</option>
                     <option value="Transport">Transport</option>
                     <option value="Home Check">Home Check</option>
                   </select>
-                  <select id="tskPriority" class="w-full px-3 py-2.5 rounded-xl bg-cream-50 border border-paw-100">
+                  <select id="tskPriority" class="w-full px-3 py-2.5 rounded-xl bg-canvas-50 border border-stone-200">
                     <option value="Urgent">Urgent</option>
                     <option value="High">High</option>
                     <option value="Normal" selected>Normal</option>
                   </select>
                 </div>
-                <input type="text" id="tskArea" required placeholder="Area / Clinic Location *" class="w-full px-3 py-2.5 rounded-xl bg-cream-50 border border-paw-100" />
-                <input type="text" id="tskAssignee" placeholder="Assign Volunteer Name (or leave Open)" class="w-full px-3 py-2.5 rounded-xl bg-cream-50 border border-paw-100" />
+                <input type="text" id="tskArea" required placeholder="Area / Clinic Location *" class="w-full px-3 py-2.5 rounded-xl bg-canvas-50 border border-stone-200" />
+                <input type="text" id="tskAssignee" placeholder="Assign Volunteer Name (or leave Open)" class="w-full px-3 py-2.5 rounded-xl bg-canvas-50 border border-stone-200" />
                 <button type="submit" class="btn-press w-full py-3.5 rounded-2xl bg-paw-600 text-white font-display font-bold text-sm">Publish Task</button>
               </form>
             </div>
