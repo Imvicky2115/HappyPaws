@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <meta name="theme-color" content="#0D9488" />
+  <meta name="theme-color" content="#C26328" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-  <title>HappyPaws | Rescue, Rehabilitation & Adoptions</title>
+  <title>HappyPaws | Adopt • Love • Make a Difference</title>
   
   <!-- Google Fonts: Plus Jakarta Sans & Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,19 +25,17 @@
           },
           colors: {
             paw: {
-              50: '#F0FDFA',
-              100: '#CCFBF1',
-              200: '#99F6E4',
-              500: '#14B8A6',
-              600: '#0D9488',
-              700: '#0F766E',
-              800: '#115E59',
+              50: '#FDF6F0',
+              100: '#FAE8D8',
+              200: '#F3CEB0',
+              500: '#D47335',
+              600: '#C26328',
+              700: '#A14E1B',
+              800: '#7D3B14',
             },
-            warm: {
-              50: '#FFFBEB',
-              100: '#FEF3C7',
-              500: '#F59E0B',
-              600: '#D97706',
+            cream: {
+              50: '#FAF7F2',
+              100: '#F4EDE3',
             }
           }
         }
@@ -55,8 +53,8 @@
     }
     
     body {
-      background-color: #EEF4F3;
-      color: #182221;
+      background-color: #EFE8DE;
+      color: #241911;
       overflow-x: hidden;
       user-select: none;
       -webkit-user-select: none;
@@ -77,24 +75,48 @@
 
     .tab-pane, .ops-subpane {
       display: none;
-      animation: slideUpFade 0.24s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      animation: slideUpFade 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
     .tab-pane.active, .ops-subpane.active {
       display: block;
     }
 
     @keyframes slideUpFade {
-      from { opacity: 0; transform: translateY(8px); }
+      from { opacity: 0; transform: translateY(10px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
     .btn-press {
-      transition: transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.2s ease, border-color 0.2s ease;
+      transition: transform 0.16s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.2s ease, border-color 0.2s ease;
     }
     .btn-press:active {
       transform: scale(0.96);
     }
 
+    @keyframes sosPulse {
+      0% { box-shadow: 0 0 0 0 rgba(194, 99, 40, 0.42); }
+      70% { box-shadow: 0 0 0 10px rgba(194, 99, 40, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(194, 99, 40, 0); }
+    }
+    .sos-pulse {
+      animation: sosPulse 2s infinite;
+    }
+
+    /* Hamburger Dropdown Menu Animation */
+    .dropdown-menu {
+      opacity: 0;
+      transform: translateY(-8px) scale(0.97);
+      pointer-events: none;
+      transition: opacity 0.2s ease, transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+      transform-origin: top right;
+    }
+    .dropdown-menu.open {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      pointer-events: auto;
+    }
+
+    /* Modal Backdrop & Sheet */
     .modal-backdrop {
       opacity: 0;
       pointer-events: none;
@@ -115,19 +137,28 @@
 </head>
 <body class="antialiased selection:bg-paw-100 selection:text-paw-800">
 
-  <!-- Mobile-First App Container -->
-  <div class="max-w-md mx-auto min-h-screen bg-[#FAFDFC] shadow-2xl relative flex flex-col border-x border-paw-100">
+  <!-- Mobile App Container -->
+  <div class="max-w-md mx-auto min-h-screen bg-cream-50 shadow-2xl relative flex flex-col border-x border-paw-100">
 
-    <!-- STICKY HEADER -->
-    <header class="sticky top-0 z-30 bg-[#FAFDFC]/95 backdrop-blur-md border-b border-paw-100">
-      <div class="px-5 py-3.5 flex items-center justify-between gap-3">
-        <!-- Brand Logo (5-Tap Secret Team Login) -->
+    <!-- STICKY HEADER WITH HAPPYPAWS LOGO & HAMBURGER MENU -->
+    <header class="sticky top-0 z-30 bg-cream-50/95 backdrop-blur-md border-b border-paw-100">
+      <div class="px-5 py-3.5 flex items-center justify-between gap-3 relative">
+        
+        <!-- Brand Identity (Matches HappyPaws Terracotta Paw-Heart Logo) -->
         <div class="flex items-center gap-3 min-w-0 select-none">
-          <div id="brandLogoTrigger" class="w-10 h-10 rounded-2xl bg-gradient-to-br from-paw-500 to-paw-700 flex items-center justify-center text-white shadow-md shadow-paw-600/20 shrink-0 cursor-pointer active:scale-95 transition-transform">
-            <i data-lucide="paw-print" class="w-5 h-5"></i>
+          <div id="brandLogoTrigger" class="w-11 h-11 rounded-2xl bg-gradient-to-br from-paw-500 to-paw-700 flex items-center justify-center text-white shadow-md shadow-paw-600/25 shrink-0 cursor-pointer active:scale-95 transition-transform">
+            <!-- Custom Paw + Heart SVG matching logo -->
+            <svg viewBox="0 0 64 64" class="w-7 h-7 fill-current" aria-hidden="true">
+              <circle cx="32" cy="32" r="29" fill="none" stroke="currentColor" stroke-width="3.5" opacity="0.95"/>
+              <ellipse cx="17.5" cy="27" rx="4.2" ry="6" transform="rotate(-18 17.5 27)"/>
+              <ellipse cx="26.5" cy="20.5" rx="4.5" ry="6.5" transform="rotate(-6 26.5 20.5)"/>
+              <ellipse cx="37.5" cy="20.5" rx="4.5" ry="6.5" transform="rotate(6 37.5 20.5)"/>
+              <ellipse cx="46.5" cy="27" rx="4.2" ry="6" transform="rotate(18 46.5 27)"/>
+              <path d="M32 30c-7.5 0-14 6.2-14 12.2 0 3.6 2.8 5.8 6.4 5.8 2.6 0 5-1.1 7.6-1.1s5 1.1 7.6 1.1c3.6 0 6.4-2.2 6.4-5.8C46 36.2 39.5 30 32 30zm0 14.2c-2.6-2.3-5.2-4.4-5.2-6.8 0-1.6 1.2-2.8 2.7-2.8 1.1 0 2 .6 2.5 1.5.5-.9 1.4-1.5 2.5-1.5 1.5 0 2.7 1.2 2.7 2.8 0 2.4-2.6 4.5-5.2 6.8z"/>
+            </svg>
           </div>
           <div>
-            <h1 class="font-display font-bold text-[18px] leading-tight text-stone-900 tracking-tight">
+            <h1 class="font-display font-extrabold text-[18px] leading-tight text-paw-700 tracking-tight">
               HappyPaws
             </h1>
             <div class="flex items-center gap-1.5 mt-0.5">
@@ -135,17 +166,61 @@
                 <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-paw-500 opacity-75"></span>
                 <span class="relative inline-flex rounded-full h-2 w-2 bg-paw-600"></span>
               </span>
-              <span id="headerSubtitle" class="text-[11px] font-medium text-stone-500">Rescue, Rehab & Adoptions</span>
+              <span class="text-[11px] font-medium text-stone-600">Adopt • Love • Make a Difference</span>
             </div>
           </div>
         </div>
 
-        <!-- Right Quick Action -->
-        <div id="headerRightMount" class="shrink-0">
-          <button type="button" onclick="openPinPrompt('unlock')" class="btn-press px-3 py-2 rounded-xl bg-white hover:bg-paw-50 text-stone-600 hover:text-paw-700 border border-paw-200/80 text-xs font-semibold flex items-center gap-1.5">
-            <i data-lucide="shield" class="w-3.5 h-3.5 text-paw-600"></i>
-            <span>Team</span>
+        <!-- Right: Clean Hamburger Menu Button -->
+        <div class="relative shrink-0">
+          <button type="button" id="hamburgerBtn" aria-label="Open Menu" class="btn-press w-10 h-10 rounded-2xl bg-white hover:bg-paw-50 text-stone-700 hover:text-paw-700 border border-paw-200/80 shadow-2xs flex items-center justify-center">
+            <i data-lucide="menu" class="w-5 h-5"></i>
           </button>
+
+          <!-- HAMBURGER DROPDOWN MENU -->
+          <div id="navDropdown" class="dropdown-menu absolute right-0 mt-2.5 w-64 bg-white rounded-3xl shadow-2xl border border-paw-100 py-2.5 z-50">
+            <div class="px-3 pb-2 border-b border-paw-50 space-y-1">
+              <button type="button" onclick="closeMenu(); openQrModal();" class="w-full flex items-center gap-3 px-3 py-2.5 rounded-2xl bg-paw-50 hover:bg-paw-100/80 text-paw-800 text-left transition">
+                <div class="w-8 h-8 rounded-xl bg-paw-600 text-white flex items-center justify-center shrink-0">
+                  <i data-lucide="qr-code" class="w-4 h-4"></i>
+                </div>
+                <div>
+                  <p class="text-xs font-bold leading-tight">Scan & Donate (QR)</p>
+                  <p class="text-[10px] text-paw-700/80">Direct UPI • HappyPaws Care</p>
+                </div>
+              </button>
+
+              <a href="tel:+919876543210" onclick="closeMenu()" class="w-full flex items-center gap-3 px-3 py-2 rounded-2xl hover:bg-stone-50 text-stone-700 text-left transition">
+                <div class="w-8 h-8 rounded-xl bg-amber-50 text-paw-700 flex items-center justify-center shrink-0">
+                  <i data-lucide="phone-call" class="w-4 h-4"></i>
+                </div>
+                <div>
+                  <p class="text-xs font-semibold leading-tight">Rescue Helpline</p>
+                  <p class="text-[10px] text-stone-400">Call HappyPaws response desk</p>
+                </div>
+              </a>
+            </div>
+
+            <div class="px-3 pt-1.5 space-y-0.5">
+              <p class="px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-stone-400">Quick Navigation</p>
+              <button type="button" onclick="closeMenu(); switchTab('sos');" class="w-full flex items-center gap-2.5 px-3 py-2 rounded-xl hover:bg-paw-50 text-stone-700 text-xs font-medium transition">
+                <i data-lucide="siren" class="w-4 h-4 text-paw-600"></i>
+                <span>SOS Emergency Rescue</span>
+              </button>
+              <button type="button" onclick="closeMenu(); switchTab('animals');" class="w-full flex items-center gap-2.5 px-3 py-2 rounded-xl hover:bg-paw-50 text-stone-700 text-xs font-medium transition">
+                <i data-lucide="heart" class="w-4 h-4 text-paw-600"></i>
+                <span>Adopt & Foster Profiles</span>
+              </button>
+              <button type="button" onclick="closeMenu(); switchTab('funds');" class="w-full flex items-center gap-2.5 px-3 py-2 rounded-xl hover:bg-paw-50 text-stone-700 text-xs font-medium transition">
+                <i data-lucide="hand-coins" class="w-4 h-4 text-paw-600"></i>
+                <span>Donate & View Vet Bills</span>
+              </button>
+              <button type="button" onclick="closeMenu(); openPinPrompt('unlock');" class="w-full flex items-center gap-2.5 px-3 py-2 rounded-xl hover:bg-paw-50 text-paw-700 text-xs font-semibold transition">
+                <i data-lucide="shield" class="w-4 h-4 text-paw-600"></i>
+                <span>Team / Coordinator Portal</span>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -153,13 +228,123 @@
       <div id="roleBannerMount"></div>
     </header>
 
-    <!-- MAIN CONTENT WORKSPACE -->
+    <!-- MAIN SCROLLABLE WORKSPACE -->
     <main class="flex-1 px-5 pt-5 pb-28 space-y-6">
 
       <!-- ============================================================== -->
-      <!-- TAB 1: ANIMALS (Public Adoptions OR Master Rescue Directory)   -->
+      <!-- PUBLIC TAB 1: SOS EMERGENCY RESCUE REPORTER                    -->
       <!-- ============================================================== -->
-      <section id="tab-animals" class="tab-pane active space-y-5">
+      <section id="tab-sos" class="tab-pane active space-y-6">
+        <div class="bg-gradient-to-r from-paw-700 to-paw-600 rounded-2xl p-4 text-white shadow-lg shadow-paw-700/15 flex items-start gap-3.5">
+          <div class="w-10 h-10 rounded-xl bg-white/15 backdrop-blur-sm flex items-center justify-center shrink-0 mt-0.5">
+            <i data-lucide="siren" class="w-5 h-5 text-white"></i>
+          </div>
+          <div class="space-y-1">
+            <h2 class="font-display font-bold text-sm leading-snug">Spotted an injured street soul?</h2>
+            <p class="text-xs text-paw-100 leading-relaxed">
+              Pin the exact spot & snap a photo. HappyPaws volunteers get alerted right away.
+            </p>
+          </div>
+        </div>
+
+        <form id="sosForm" class="space-y-5" onsubmit="handleSosSubmit(event)">
+          <!-- Step 1: Species -->
+          <div class="space-y-2.5">
+            <label class="block text-xs font-semibold uppercase tracking-wider text-stone-500">1. Animal Type</label>
+            <div class="grid grid-cols-4 gap-2.5">
+              <button type="button" onclick="selectChip('species', 'Dog', this)" class="species-chip btn-press flex flex-col items-center justify-center py-3 px-2 rounded-2xl border-2 border-paw-600 bg-paw-50 text-paw-800 font-semibold text-xs gap-1.5">
+                <i data-lucide="dog" class="w-5 h-5"></i><span>Dog</span>
+              </button>
+              <button type="button" onclick="selectChip('species', 'Cat', this)" class="species-chip btn-press flex flex-col items-center justify-center py-3 px-2 rounded-2xl border border-paw-100 bg-white text-stone-600 font-medium text-xs gap-1.5">
+                <i data-lucide="cat" class="w-5 h-5"></i><span>Cat</span>
+              </button>
+              <button type="button" onclick="selectChip('species', 'Bird', this)" class="species-chip btn-press flex flex-col items-center justify-center py-3 px-2 rounded-2xl border border-paw-100 bg-white text-stone-600 font-medium text-xs gap-1.5">
+                <i data-lucide="bird" class="w-5 h-5"></i><span>Bird</span>
+              </button>
+              <button type="button" onclick="selectChip('species', 'Other', this)" class="species-chip btn-press flex flex-col items-center justify-center py-3 px-2 rounded-2xl border border-paw-100 bg-white text-stone-600 font-medium text-xs gap-1.5">
+                <i data-lucide="heart-handshake" class="w-5 h-5"></i><span>Other</span>
+              </button>
+            </div>
+            <input type="hidden" id="speciesInput" value="Dog" />
+          </div>
+
+          <!-- Step 2: Condition Severity -->
+          <div class="space-y-2.5">
+            <label class="block text-xs font-semibold uppercase tracking-wider text-stone-500">2. Condition Severity</label>
+            <div class="grid grid-cols-3 gap-2.5">
+              <button type="button" onclick="selectChip('urgency', 'Critical / Bleeding', this)" class="urgency-chip btn-press flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl border-2 border-paw-600 bg-paw-50 text-paw-800 font-semibold text-xs">
+                <span class="w-2 h-2 rounded-full bg-rose-600 shrink-0"></span><span>Critical</span>
+              </button>
+              <button type="button" onclick="selectChip('urgency', 'Injury / Limping', this)" class="urgency-chip btn-press flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl border border-paw-100 bg-white text-stone-600 font-medium text-xs">
+                <span class="w-2 h-2 rounded-full bg-amber-500 shrink-0"></span><span>Injured</span>
+              </button>
+              <button type="button" onclick="selectChip('urgency', 'Abandoned / Sick', this)" class="urgency-chip btn-press flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl border border-paw-100 bg-white text-stone-600 font-medium text-xs">
+                <span class="w-2 h-2 rounded-full bg-paw-600 shrink-0"></span><span>Sick/Pup</span>
+              </button>
+            </div>
+            <input type="hidden" id="urgencyInput" value="Critical / Bleeding" />
+          </div>
+
+          <!-- Step 3: Exact Spot -->
+          <div class="space-y-3 bg-white p-4 rounded-2xl border border-paw-100 shadow-sm">
+            <div class="flex items-center justify-between">
+              <label class="text-xs font-semibold uppercase tracking-wider text-stone-500">3. Exact Spot</label>
+              <button type="button" id="gpsBtn" onclick="detectLocation()" class="btn-press inline-flex items-center gap-1.5 text-xs font-semibold text-paw-700 bg-paw-50 hover:bg-paw-100 px-3 py-1.5 rounded-lg">
+                <i data-lucide="locate-fixed" id="gpsIcon" class="w-3.5 h-3.5"></i>
+                <span id="gpsBtnText">Auto-Pin GPS</span>
+              </button>
+            </div>
+            <div id="gpsStatusBox" class="hidden text-xs bg-emerald-50 text-emerald-700 border border-emerald-200/80 rounded-xl px-3 py-2 flex items-center justify-between gap-2">
+              <span id="gpsCoordsText" class="font-medium truncate">GPS Locked</span>
+              <span class="text-[10px] font-bold uppercase bg-emerald-100 px-2 py-0.5 rounded">Pinned</span>
+            </div>
+            <input type="text" id="landmarkInput" required placeholder="Area & nearest landmark (e.g., Main Road, Lane 4)" class="w-full px-3.5 py-3 rounded-xl bg-cream-50 border border-paw-100 text-sm text-stone-800 placeholder:text-stone-400 focus:outline-none focus:bg-white focus:border-paw-600" />
+          </div>
+
+          <!-- Step 4: Photo Evidence -->
+          <div class="space-y-2.5">
+            <label class="block text-xs font-semibold uppercase tracking-wider text-stone-500">4. Photo Evidence</label>
+            <label for="photoUpload" class="btn-press relative flex flex-col items-center justify-center w-full h-36 rounded-2xl border-2 border-dashed border-paw-200 hover:border-paw-500 bg-white cursor-pointer overflow-hidden">
+              <div id="uploadPlaceholder" class="flex flex-col items-center justify-center p-4 text-center space-y-1.5">
+                <div class="w-10 h-10 rounded-full bg-paw-50 text-paw-600 flex items-center justify-center">
+                  <i data-lucide="camera" class="w-5 h-5"></i>
+                </div>
+                <p class="text-xs font-semibold text-stone-700">Tap to take or upload photo</p>
+                <p class="text-[11px] text-stone-400">Helps rescuers assess medical kit needed</p>
+              </div>
+              <img id="photoPreview" class="hidden w-full h-full object-cover" alt="Preview" />
+              <button type="button" id="clearPhotoBtn" onclick="clearPhoto(event)" class="hidden absolute top-2.5 right-2.5 w-8 h-8 rounded-full bg-stone-900/75 text-white flex items-center justify-center">
+                <i data-lucide="x" class="w-4 h-4"></i>
+              </button>
+              <input id="photoUpload" type="file" accept="image/*" capture="environment" class="hidden" onchange="previewPhoto(event)" />
+            </label>
+          </div>
+
+          <!-- Step 5: Contact -->
+          <div class="space-y-3 bg-white p-4 rounded-2xl border border-paw-100 shadow-sm">
+            <label class="block text-xs font-semibold uppercase tracking-wider text-stone-500">5. Your Contact (WhatsApp)</label>
+            <input type="text" id="reporterName" required placeholder="Your Name" class="w-full px-3.5 py-3 rounded-xl bg-cream-50 border border-paw-100 text-sm focus:outline-none focus:bg-white focus:border-paw-600" />
+            <div class="relative">
+              <span class="absolute left-3.5 top-1/2 -translate-y-1/2 text-sm font-medium text-stone-400">+91</span>
+              <input type="tel" id="reporterPhone" required pattern="[0-9]{10}" maxlength="10" placeholder="10-digit mobile number" class="w-full pl-12 pr-3.5 py-3 rounded-xl bg-cream-50 border border-paw-100 text-sm focus:outline-none focus:bg-white focus:border-paw-600" />
+            </div>
+            <label class="flex items-center gap-2.5 pt-1 cursor-pointer">
+              <input type="checkbox" id="stayAtSpot" checked class="w-4 h-4 rounded text-paw-600 border-paw-200" />
+              <span class="text-xs text-stone-600">I can stay near the animal until a volunteer arrives</span>
+            </label>
+          </div>
+
+          <button type="submit" id="sosSubmitBtn" class="btn-press sos-pulse w-full py-4 px-6 rounded-2xl bg-paw-600 hover:bg-paw-700 text-white font-display font-bold text-sm tracking-wide shadow-lg shadow-paw-600/25 flex items-center justify-center gap-2.5">
+            <i data-lucide="send" class="w-4 h-4"></i>
+            <span>Dispatch Rescue Alert</span>
+          </button>
+        </form>
+      </section>
+
+      <!-- ============================================================== -->
+      <!-- TAB 2: ANIMALS (Public Adoptions OR Master Rescue Directory)   -->
+      <!-- ============================================================== -->
+      <section id="tab-animals" class="tab-pane space-y-5">
         <div class="flex items-center justify-between gap-2">
           <div>
             <h2 id="animalsTabTitle" class="font-display font-bold text-lg text-stone-900">Adopt & Foster</h2>
@@ -168,14 +353,13 @@
           <div id="animalsCtaMount"></div>
         </div>
 
-        <!-- Search & Status Filter Bar -->
         <div class="space-y-2.5">
           <div class="relative">
             <i data-lucide="search" class="w-4 h-4 text-stone-400 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
-            <input type="text" id="animalSearchInput" oninput="renderCurrentView()" placeholder="Search by name, ID (HP-101), location, breed..." class="w-full pl-10 pr-4 py-2.5 rounded-xl bg-white border border-paw-100 text-xs text-stone-800 placeholder:text-stone-400 focus:outline-none focus:border-paw-500" />
+            <input type="text" id="animalSearchInput" oninput="renderCurrentView()" placeholder="Search by name, ID (HP-101), location, breed..." class="w-full pl-10 pr-4 py-2.5 rounded-xl bg-white border border-paw-100 text-xs text-stone-800 placeholder:text-stone-400 focus:outline-none focus:border-paw-600" />
           </div>
 
-          <div id="animalFilterChips" class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1">
+          <div class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1">
             <button type="button" onclick="setAnimalFilter('ALL', this)" class="animal-filter-btn px-3.5 py-1.5 rounded-full bg-paw-600 text-white text-xs font-semibold shrink-0">All (<span id="animalTotalCount">0</span>)</button>
             <button type="button" onclick="setAnimalFilter('Available for Adoption', this)" class="animal-filter-btn px-3.5 py-1.5 rounded-full bg-white border border-paw-100 text-stone-600 text-xs font-medium shrink-0">Adoptable</button>
             <button type="button" onclick="setAnimalFilter('Urgent Foster', this)" class="animal-filter-btn px-3.5 py-1.5 rounded-full bg-white border border-paw-100 text-stone-600 text-xs font-medium shrink-0">Urgent Foster</button>
@@ -184,74 +368,98 @@
           </div>
         </div>
 
-        <!-- Animal Cards Container -->
-        <div id="animalsList" class="space-y-4">
-          <div class="bg-white rounded-3xl border border-paw-100 p-8 text-center space-y-2">
-            <div class="w-11 h-11 rounded-2xl bg-paw-50 text-paw-600 flex items-center justify-center mx-auto">
-              <i data-lucide="paw-print" class="w-5 h-5"></i>
+        <div id="animalsList" class="space-y-4"></div>
+      </section>
+
+      <!-- ============================================================== -->
+      <!-- PUBLIC TAB 3: DONATE & VIEW VET BILLS                          -->
+      <!-- ============================================================== -->
+      <section id="tab-funds" class="tab-pane space-y-6">
+        <!-- Official UPI QR Card -->
+        <div class="bg-gradient-to-br from-paw-800 via-paw-700 to-paw-600 text-white rounded-3xl p-5 shadow-xl shadow-paw-700/20 space-y-4">
+          <div class="flex items-center justify-between">
+            <div>
+              <span class="text-[10px] font-bold uppercase tracking-widest text-paw-100 bg-white/15 px-2.5 py-1 rounded-full">Official Rescue UPI</span>
+              <h3 class="font-display font-bold text-base text-white mt-2">HappyPaws Care</h3>
+              <p class="text-[11px] text-paw-100">Scan with any UPI app to support treatments & food</p>
             </div>
-            <h3 class="font-display font-bold text-sm text-stone-800">Syncing HappyPaws records...</h3>
-            <p class="text-xs text-stone-500">Loading live rescue profiles and availability.</p>
+            <div class="w-10 h-10 rounded-2xl bg-white/15 flex items-center justify-center">
+              <i data-lucide="scan-line" class="w-5 h-5 text-white"></i>
+            </div>
           </div>
+
+          <div class="bg-white rounded-2xl p-4 flex flex-col items-center justify-center space-y-2 shadow-inner">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=upi%3A%2F%2Fpay%3Fpa%3Dhappypaws%40upi%26pn%3DHappyPaws%26cu%3DINR" alt="HappyPaws UPI QR" class="w-44 h-44 rounded-lg" />
+            <span class="text-[11px] font-semibold text-stone-500">GPay • PhonePe • Paytm • BHIM</span>
+          </div>
+
+          <div class="flex items-center justify-between gap-2 bg-black/15 border border-white/15 rounded-2xl px-3.5 py-2.5">
+            <code id="upiIdText" class="text-xs font-semibold text-white truncate">happypaws@upi</code>
+            <button type="button" onclick="copyUpi()" class="btn-press inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white text-paw-800 text-xs font-bold shrink-0">
+              <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+              <span id="copyText">Copy</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Active Medical Cases & Vet Bills -->
+        <div class="space-y-3">
+          <div>
+            <h3 class="font-display font-bold text-base text-stone-900">Active Vet Bills</h3>
+            <p class="text-[11px] text-stone-500">Transparent medical treatment tracker</p>
+          </div>
+          <div id="publicBillsList" class="space-y-3.5"></div>
         </div>
       </section>
 
       <!-- ============================================================== -->
-      <!-- TAB 2: OPERATIONS HUB (Vet, Fosters/Locations, Adoptions, Tasks)-->
+      <!-- TEAM TAB: OPERATIONS HUB (Vet, Fosters, Adoptions, Tasks)      -->
       <!-- ============================================================== -->
       <section id="tab-ops" class="tab-pane space-y-5">
         <div class="flex items-center justify-between gap-2">
           <div>
-            <h2 id="opsTabTitle" class="font-display font-bold text-lg text-stone-900">Medical & Vet Care</h2>
-            <p id="opsTabSub" class="text-xs text-stone-500">Transparent treatments, vaccinations & bills</p>
+            <h2 id="opsTabTitle" class="font-display font-bold text-lg text-stone-900">Vet & Vaccinations</h2>
+            <p id="opsTabSub" class="text-xs text-stone-500">Treatments, booster reminders & bills</p>
           </div>
           <div id="opsCtaMount"></div>
         </div>
 
-        <!-- Top Filter Pills inside Operations (Team Mode Only) -->
-        <div id="opsSubNav" class="hidden flex items-center gap-2 overflow-x-auto no-scrollbar pb-1">
+        <div id="opsSubNav" class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1">
           <button type="button" data-sub="vet" onclick="switchOpsSubTab('vet')" class="ops-pill px-3.5 py-2 rounded-full bg-paw-600 text-white text-xs font-semibold shrink-0 flex items-center gap-1.5">
             <span>Vet & Vaccines</span>
-            <span id="badge-vet" class="px-1.5 py-0.2 rounded-full bg-white/20 text-[10px]">0</span>
+            <span id="badge-vet" class="px-1.5 rounded-full bg-white/20 text-[10px]">0</span>
           </button>
           <button type="button" data-sub="locations" onclick="switchOpsSubTab('locations')" class="ops-pill px-3.5 py-2 rounded-full bg-white border border-paw-100 text-stone-600 text-xs font-medium shrink-0 flex items-center gap-1.5">
             <span>Fosters & Clinics</span>
-            <span id="badge-locations" class="px-1.5 py-0.2 rounded-full bg-stone-100 text-stone-600 text-[10px]">0</span>
+            <span id="badge-locations" class="px-1.5 rounded-full bg-stone-100 text-stone-600 text-[10px]">0</span>
           </button>
           <button type="button" data-sub="adoptions" onclick="switchOpsSubTab('adoptions')" class="ops-pill coord-only-pill px-3.5 py-2 rounded-full bg-white border border-paw-100 text-stone-600 text-xs font-medium shrink-0 flex items-center gap-1.5">
             <span>Adoptions</span>
-            <span id="badge-adoptions" class="px-1.5 py-0.2 rounded-full bg-stone-100 text-stone-600 text-[10px]">0</span>
+            <span id="badge-adoptions" class="px-1.5 rounded-full bg-stone-100 text-stone-600 text-[10px]">0</span>
           </button>
           <button type="button" data-sub="tasks" onclick="switchOpsSubTab('tasks')" class="ops-pill px-3.5 py-2 rounded-full bg-white border border-paw-100 text-stone-600 text-xs font-medium shrink-0 flex items-center gap-1.5">
-            <span>Volunteer Tasks</span>
-            <span id="badge-tasks" class="px-1.5 py-0.2 rounded-full bg-stone-100 text-stone-600 text-[10px]">0</span>
+            <span>Tasks</span>
+            <span id="badge-tasks" class="px-1.5 rounded-full bg-stone-100 text-stone-600 text-[10px]">0</span>
           </button>
         </div>
 
-        <!-- SUB-PANE A: VET RECORDS & VACCINATIONS -->
         <div id="ops-vet" class="ops-subpane active space-y-4">
           <div id="vaccineAlertsMount"></div>
           <div id="vetRecordsList" class="space-y-3.5"></div>
         </div>
-
-        <!-- SUB-PANE B: FOSTER HOMES, BOARDING & CLINICS -->
         <div id="ops-locations" class="ops-subpane space-y-3.5">
           <div id="locationsList" class="space-y-3.5"></div>
         </div>
-
-        <!-- SUB-PANE C: ADOPTION SCREENING & POST-ADOPTION FOLLOW-UPS -->
         <div id="ops-adoptions" class="ops-subpane space-y-3.5">
           <div id="adoptionsList" class="space-y-3.5"></div>
         </div>
-
-        <!-- SUB-PANE D: VOLUNTEER COORDINATION & TASK BOARD -->
         <div id="ops-tasks" class="ops-subpane space-y-3.5">
           <div id="tasksList" class="space-y-3.5"></div>
         </div>
       </section>
 
       <!-- ============================================================== -->
-      <!-- TAB 3: FINANCE LEDGER & MONTHLY REPORTS (Coordinator Only)     -->
+      <!-- TEAM TAB: FINANCE LEDGER & MONTHLY REPORTS (Coordinator Only)  -->
       <!-- ============================================================== -->
       <section id="tab-finance" class="tab-pane space-y-5">
         <div class="flex items-center justify-between gap-2">
@@ -262,8 +470,7 @@
           <div id="financeCtaMount"></div>
         </div>
 
-        <!-- Monthly Filter & Summary Card -->
-        <div class="bg-gradient-to-br from-paw-800 via-paw-700 to-teal-600 text-white rounded-3xl p-5 shadow-lg space-y-4">
+        <div class="bg-gradient-to-br from-paw-800 via-paw-700 to-paw-600 text-white rounded-3xl p-5 shadow-lg space-y-4">
           <div class="flex items-center justify-between gap-2">
             <div>
               <span class="text-[10px] font-bold uppercase tracking-widest bg-white/15 px-2.5 py-1 rounded-full">Monthly Report</span>
@@ -279,7 +486,7 @@
             </div>
             <div class="bg-black/15 rounded-2xl p-3">
               <p class="text-[10px] text-paw-100 uppercase font-semibold">Expenses</p>
-              <p id="finTotalExpense" class="font-display font-bold text-sm mt-1 text-rose-300">₹0</p>
+              <p id="finTotalExpense" class="font-display font-bold text-sm mt-1 text-amber-200">₹0</p>
             </div>
             <div class="bg-black/15 rounded-2xl p-3">
               <p class="text-[10px] text-paw-100 uppercase font-semibold">Net Balance</p>
@@ -298,16 +505,36 @@
 
     </main>
 
-    <!-- DYNAMIC BOTTOM NAVIGATION BAR (Max 3 Spacious Tabs) -->
-    <nav id="bottomNav" class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-md z-30 bg-[#FAFDFC]/95 backdrop-blur-md border-t border-paw-100 px-4 py-2.5"></nav>
+    <!-- BOTTOM NAVIGATION BAR (3 Spacious Tabs for Both Public & Coordinator) -->
+    <nav id="bottomNav" class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-md z-30 bg-cream-50/95 backdrop-blur-md border-t border-paw-100 px-4 py-2.5"></nav>
 
     <!-- DYNAMIC MODALS MOUNT POINT -->
     <div id="modalsMount"></div>
 
+    <!-- QUICK QR MODAL -->
+    <div id="qrModal" class="modal-backdrop fixed inset-0 z-50 bg-stone-900/65 backdrop-blur-xs flex items-end justify-center" onclick="if(event.target===this) closeQrModal()">
+      <div class="modal-sheet w-full max-w-md bg-white rounded-t-3xl p-6 space-y-5 shadow-2xl">
+        <div class="flex items-center justify-between border-b border-paw-100 pb-3.5">
+          <div>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-paw-700 bg-paw-50 px-2.5 py-0.5 rounded-full">Scan & Support</span>
+            <h3 class="font-display font-bold text-lg text-stone-900 mt-1">HappyPaws Rescue Fund</h3>
+          </div>
+          <button type="button" onclick="closeQrModal()" class="w-9 h-9 rounded-full bg-stone-100 text-stone-500 flex items-center justify-center">
+            <i data-lucide="x" class="w-5 h-5"></i>
+          </button>
+        </div>
+        <div class="bg-cream-50 border border-paw-100 rounded-2xl p-5 flex flex-col items-center space-y-3">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=upi%3A%2F%2Fpay%3Fpa%3Dhappypaws%40upi%26pn%3DHappyPaws%26cu%3DINR" alt="UPI QR" class="w-44 h-44 rounded-xl bg-white p-2 shadow-sm" />
+          <p class="text-xs font-bold text-stone-800">UPI ID: happypaws@upi</p>
+        </div>
+        <button type="button" onclick="copyUpi(); closeQrModal();" class="btn-press w-full py-3.5 rounded-2xl bg-paw-600 text-white font-display font-bold text-sm">Copy UPI ID</button>
+      </div>
+    </div>
+
     <!-- TOAST NOTIFICATION -->
     <div id="toast" class="fixed top-20 left-1/2 -translate-x-1/2 z-50 pointer-events-none opacity-0 transition-all duration-300 transform -translate-y-2">
       <div class="bg-stone-900/95 backdrop-blur-md text-white px-4 py-3 rounded-2xl shadow-xl flex items-center gap-2.5 text-xs font-medium border border-white/10">
-        <i data-lucide="check-circle-2" class="w-4 h-4 text-paw-400 shrink-0"></i>
+        <i data-lucide="check-circle-2" class="w-4 h-4 text-paw-500 shrink-0"></i>
         <span id="toastMessage">Saved!</span>
       </div>
     </div>
@@ -323,10 +550,7 @@
       // ======================================================================
       const API_URL = 'https://script.google.com/macros/s/AKfycbx55JBqoDOcobV7B8ytkrDPZP8taJoYOAfvvdNh0TNvklFOBrUoQvmgc81YdSIXvN88hQ/exec';
 
-      // ======================================================================
-      // STATE, CACHE & ROLE SESSION MANAGEMENT
-      // ======================================================================
-      const CACHE_KEY = '_happypaws_cache_v2';
+      const CACHE_KEY = '_happypaws_cache_v3';
       const SESSION_KEY = '_happypaws_auth_v1';
       const SESSION_TTL_MS = 45 * 60 * 1000;
       const XOR_SALT = 'HAPPYPAWS_KEY_2026';
@@ -343,17 +567,15 @@
         tasks: []
       };
 
-      let activeTab = 'animals';
+      let activeTab = 'sos';
       let activeOpsSub = 'vet';
       let animalFilter = 'ALL';
       let lastSignature = '';
       let inFlightSync = null;
       let isSubmitting = false;
 
-      // Default month filter to current YYYY-MM
       const now = new Date();
-      const defaultMonth = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}`;
-      document.getElementById('financeMonthFilter').value = defaultMonth;
+      document.getElementById('financeMonthFilter').value = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}`;
 
       function encodeSession(pin, role) {
         const payload = JSON.stringify({ p: String(pin).trim(), r: role, exp: Date.now() + SESSION_TTL_MS });
@@ -390,15 +612,11 @@
         try {
           const raw = localStorage.getItem(CACHE_KEY);
           return raw ? JSON.parse(raw) : null;
-        } catch (e) {
-          return null;
-        }
+        } catch (e) { return null; }
       }
 
       function writeCache(data) {
-        try {
-          localStorage.setItem(CACHE_KEY, JSON.stringify(data));
-        } catch (e) {}
+        try { localStorage.setItem(CACHE_KEY, JSON.stringify(data)); } catch (e) {}
       }
 
       async function fetchWithRetry(url, options = {}, retries = 2) {
@@ -441,42 +659,58 @@
       }
 
       // ======================================================================
-      // NAVIGATION & ROLE UI SETUP (3 Spacious Bottom Tabs + Operations Sub-Pills)
+      // HAMBURGER MENU & QR MODAL
+      // ======================================================================
+      const hamburgerBtn = document.getElementById('hamburgerBtn');
+      hamburgerBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        document.getElementById('navDropdown').classList.toggle('open');
+      });
+
+      window.closeMenu = function () {
+        document.getElementById('navDropdown').classList.remove('open');
+      };
+
+      document.addEventListener('click', (e) => {
+        const dropdown = document.getElementById('navDropdown');
+        if (dropdown.classList.contains('open') && !dropdown.contains(e.target) && !hamburgerBtn.contains(e.target)) {
+          closeMenu();
+        }
+      });
+
+      window.openQrModal = function () { document.getElementById('qrModal').classList.add('open'); };
+      window.closeQrModal = function () { document.getElementById('qrModal').classList.remove('open'); };
+
+      window.copyUpi = function () {
+        const upi = document.getElementById('upiIdText').textContent;
+        navigator.clipboard.writeText(upi);
+        const copyText = document.getElementById('copyText');
+        if (copyText) copyText.textContent = 'Copied!';
+        showToast('Copied UPI ID: ' + upi);
+        setTimeout(() => { if (copyText) copyText.textContent = 'Copy'; }, 2000);
+      };
+
+      // ======================================================================
+      // ROLE-AWARE NAVIGATION (Public: SOS / Adopt / Donate | Team: Animals / Ops / Finance)
       // ======================================================================
       function updateOpsHeaderAndCta() {
         const session = getSession();
         const role = session ? session.role : 'PUBLIC';
+        if (role === 'PUBLIC') return;
+
+        const isCoord = role === 'COORDINATOR';
         const titleEl = document.getElementById('opsTabTitle');
         const subEl = document.getElementById('opsTabSub');
         const ctaEl = document.getElementById('opsCtaMount');
 
-        if (role === 'PUBLIC') {
-          titleEl.textContent = 'Medical & Vet Bills';
-          subEl.textContent = 'Active treatments & transparent medical care';
-          ctaEl.innerHTML = '';
-          return;
-        }
-
-        const isCoord = role === 'COORDINATOR';
-
         if (activeOpsSub === 'vet') {
           titleEl.textContent = 'Vet & Vaccinations';
           subEl.textContent = 'Treatments, booster reminders & bills';
-          ctaEl.innerHTML = `
-            <button type="button" onclick="openVetFormModal()" class="btn-press inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-paw-600 hover:bg-paw-700 text-white font-display font-bold text-xs shadow-sm">
-              <i data-lucide="plus" class="w-4 h-4"></i>
-              <span>Log Vet</span>
-            </button>
-          `;
+          ctaEl.innerHTML = `<button type="button" onclick="openVetFormModal()" class="btn-press inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-paw-600 text-white font-display font-bold text-xs shadow-sm"><i data-lucide="plus" class="w-4 h-4"></i><span>Log Vet</span></button>`;
         } else if (activeOpsSub === 'locations') {
           titleEl.textContent = 'Fosters & Facilities';
           subEl.textContent = 'Foster homes, boarding centers & clinics';
-          ctaEl.innerHTML = isCoord ? `
-            <button type="button" onclick="openLocationFormModal()" class="btn-press inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-paw-600 hover:bg-paw-700 text-white font-display font-bold text-xs shadow-sm">
-              <i data-lucide="plus" class="w-4 h-4"></i>
-              <span>Add Place</span>
-            </button>
-          ` : '';
+          ctaEl.innerHTML = isCoord ? `<button type="button" onclick="openLocationFormModal()" class="btn-press inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-paw-600 text-white font-display font-bold text-xs shadow-sm"><i data-lucide="plus" class="w-4 h-4"></i><span>Add Place</span></button>` : '';
         } else if (activeOpsSub === 'adoptions') {
           titleEl.textContent = 'Adoption Pipeline';
           subEl.textContent = 'Applicant screening & 30D / 90D follow-ups';
@@ -484,19 +718,13 @@
         } else if (activeOpsSub === 'tasks') {
           titleEl.textContent = 'Volunteer Tasks';
           subEl.textContent = 'Transport, vet visits & feeding coordination';
-          ctaEl.innerHTML = isCoord ? `
-            <button type="button" onclick="openTaskFormModal()" class="btn-press inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-paw-600 hover:bg-paw-700 text-white font-display font-bold text-xs shadow-sm">
-              <i data-lucide="plus" class="w-4 h-4"></i>
-              <span>New Task</span>
-            </button>
-          ` : '';
+          ctaEl.innerHTML = isCoord ? `<button type="button" onclick="openTaskFormModal()" class="btn-press inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-paw-600 text-white font-display font-bold text-xs shadow-sm"><i data-lucide="plus" class="w-4 h-4"></i><span>New Task</span></button>` : '';
         }
         lucide.createIcons();
       }
 
       window.switchOpsSubTab = function (subKey) {
         activeOpsSub = subKey;
-
         document.querySelectorAll('.ops-subpane').forEach(p => p.classList.remove('active'));
         const target = document.getElementById('ops-' + subKey);
         if (target) target.classList.add('active');
@@ -506,10 +734,10 @@
           const badge = pill.querySelector('span:last-child');
           if (isMatch) {
             pill.className = 'ops-pill px-3.5 py-2 rounded-full bg-paw-600 text-white text-xs font-semibold shrink-0 flex items-center gap-1.5';
-            if (badge) badge.className = 'px-1.5 py-0.2 rounded-full bg-white/20 text-white text-[10px]';
+            if (badge) badge.className = 'px-1.5 rounded-full bg-white/20 text-white text-[10px]';
           } else {
             pill.className = 'ops-pill px-3.5 py-2 rounded-full bg-white border border-paw-100 text-stone-600 text-xs font-medium shrink-0 flex items-center gap-1.5';
-            if (badge) badge.className = 'px-1.5 py-0.2 rounded-full bg-stone-100 text-stone-600 text-[10px]';
+            if (badge) badge.className = 'px-1.5 rounded-full bg-stone-100 text-stone-600 text-[10px]';
           }
         });
 
@@ -521,8 +749,6 @@
         const role = session ? session.role : 'PUBLIC';
         const nav = document.getElementById('bottomNav');
         const bannerMount = document.getElementById('roleBannerMount');
-        const headerRight = document.getElementById('headerRightMount');
-        const opsSubNav = document.getElementById('opsSubNav');
 
         document.querySelectorAll('.team-filter').forEach(el => {
           if (role !== 'PUBLIC') el.classList.remove('hidden');
@@ -531,38 +757,30 @@
 
         if (role === 'PUBLIC') {
           bannerMount.innerHTML = '';
-          opsSubNav.classList.add('hidden');
-          activeOpsSub = 'vet';
-
-          headerRight.innerHTML = `
-            <button type="button" onclick="openPinPrompt('unlock')" class="btn-press px-3 py-2 rounded-xl bg-white hover:bg-paw-50 text-stone-600 hover:text-paw-700 border border-paw-200/80 text-xs font-semibold flex items-center gap-1.5">
-              <i data-lucide="shield" class="w-3.5 h-3.5 text-paw-600"></i>
-              <span>Team</span>
-            </button>
-          `;
           document.getElementById('animalsTabTitle').textContent = 'Adopt & Foster';
           document.getElementById('animalsTabSub').textContent = 'Give a rescued HappyPaws soul a loving home';
           document.getElementById('animalsCtaMount').innerHTML = '';
 
+          if (!['sos', 'animals', 'funds'].includes(activeTab)) activeTab = 'sos';
+
           nav.innerHTML = `
-            <div class="grid grid-cols-2 gap-2">
+            <div class="grid grid-cols-3 gap-2">
+              <button type="button" data-tab="sos" onclick="switchTab('sos')" class="nav-btn flex flex-col items-center justify-center py-1.5 rounded-2xl ${activeTab === 'sos' ? 'text-paw-700 bg-paw-50 font-bold' : 'text-stone-500 font-semibold'}">
+                <i data-lucide="siren" class="w-5 h-5"></i>
+                <span class="text-[11px] mt-1">SOS Rescue</span>
+              </button>
               <button type="button" data-tab="animals" onclick="switchTab('animals')" class="nav-btn flex flex-col items-center justify-center py-1.5 rounded-2xl ${activeTab === 'animals' ? 'text-paw-700 bg-paw-50 font-bold' : 'text-stone-500 font-semibold'}">
                 <i data-lucide="heart" class="w-5 h-5"></i>
                 <span class="text-[11px] mt-1">Adopt & Foster</span>
               </button>
-              <button type="button" data-tab="ops" onclick="switchTab('ops')" class="nav-btn flex flex-col items-center justify-center py-1.5 rounded-2xl ${activeTab === 'ops' ? 'text-paw-700 bg-paw-50 font-bold' : 'text-stone-500 font-semibold'}">
-                <i data-lucide="stethoscope" class="w-5 h-5"></i>
-                <span class="text-[11px] mt-1">Medical & Bills</span>
+              <button type="button" data-tab="funds" onclick="switchTab('funds')" class="nav-btn flex flex-col items-center justify-center py-1.5 rounded-2xl ${activeTab === 'funds' ? 'text-paw-700 bg-paw-50 font-bold' : 'text-stone-500 font-semibold'}">
+                <i data-lucide="hand-coins" class="w-5 h-5"></i>
+                <span class="text-[11px] mt-1">Donate & Bills</span>
               </button>
             </div>
           `;
-          if (!['animals', 'ops'].includes(activeTab)) activeTab = 'animals';
         } else {
           const isCoord = role === 'COORDINATOR';
-          headerRight.innerHTML = '';
-          opsSubNav.classList.remove('hidden');
-
-          // Hide Adoptions sub-pill for Volunteers
           document.querySelectorAll('.coord-only-pill').forEach(el => {
             if (isCoord) el.classList.remove('hidden');
             else el.classList.add('hidden');
@@ -570,14 +788,14 @@
           if (!isCoord && activeOpsSub === 'adoptions') activeOpsSub = 'vet';
 
           bannerMount.innerHTML = `
-            <div class="${isCoord ? 'bg-paw-700' : 'bg-amber-600'} text-white px-5 py-2 text-[11px] font-medium flex items-center justify-between gap-2">
+            <div class="${isCoord ? 'bg-paw-700' : 'bg-amber-700'} text-white px-5 py-2 text-[11px] font-medium flex items-center justify-between gap-2">
               <span class="flex items-center gap-1.5 truncate">
                 <i data-lucide="shield-check" class="w-3.5 h-3.5 shrink-0"></i>
                 <span>${isCoord ? 'Coordinator Mode' : 'Volunteer Mode'}</span>
               </span>
               <div class="flex items-center gap-3.5 shrink-0">
                 ${isCoord && appState.sheetUrl ? `<a href="${appState.sheetUrl}" target="_blank" rel="noopener" class="underline font-semibold">Sheet</a>` : ''}
-                ${isCoord ? `<button type="button" onclick="openPinPrompt('set')" class="underline font-semibold">PINs</button>` : ''}
+                ${isCoord ? `<button type="button" onclick="openPinPrompt('set')" class="underline font-semibold">Set/Update PIN</button>` : ''}
                 <button type="button" onclick="logoutTeam()" class="underline font-semibold">Exit</button>
               </div>
             </div>
@@ -586,52 +804,49 @@
           document.getElementById('animalsTabTitle').textContent = 'Animal Profiles';
           document.getElementById('animalsTabSub').textContent = 'Master rescue, medical & rehab directory';
           document.getElementById('animalsCtaMount').innerHTML = `
-            <button type="button" onclick="openAnimalFormModal()" class="btn-press inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-paw-600 hover:bg-paw-700 text-white font-display font-bold text-xs shadow-sm">
+            <button type="button" onclick="openAnimalFormModal()" class="btn-press inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-paw-600 text-white font-display font-bold text-xs shadow-sm">
               <i data-lucide="plus" class="w-4 h-4"></i>
               <span>New Rescue</span>
             </button>
           `;
 
           document.getElementById('financeCtaMount').innerHTML = isCoord ? `
-            <button type="button" onclick="openFinanceFormModal()" class="btn-press inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-paw-600 hover:bg-paw-700 text-white font-display font-bold text-xs shadow-sm">
+            <button type="button" onclick="openFinanceFormModal()" class="btn-press inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-paw-600 text-white font-display font-bold text-xs shadow-sm">
               <i data-lucide="plus" class="w-4 h-4"></i>
               <span>Log Txn</span>
             </button>
           ` : '';
 
-          // Spacious 3-tab bar for Coordinators, 2-tab bar for Volunteers
-          if (isCoord) {
-            nav.innerHTML = `
-              <div class="grid grid-cols-3 gap-2">
-                <button type="button" data-tab="animals" onclick="switchTab('animals')" class="nav-btn flex flex-col items-center justify-center py-1.5 rounded-2xl ${activeTab === 'animals' ? 'text-paw-700 bg-paw-50 font-bold' : 'text-stone-500 font-semibold'}">
-                  <i data-lucide="paw-print" class="w-5 h-5"></i>
-                  <span class="text-[11px] mt-1 tracking-tight">Animals</span>
-                </button>
-                <button type="button" data-tab="ops" onclick="switchTab('ops')" class="nav-btn flex flex-col items-center justify-center py-1.5 rounded-2xl ${activeTab === 'ops' ? 'text-paw-700 bg-paw-50 font-bold' : 'text-stone-500 font-semibold'}">
-                  <i data-lucide="layers" class="w-5 h-5"></i>
-                  <span class="text-[11px] mt-1 tracking-tight">Operations</span>
-                </button>
-                <button type="button" data-tab="finance" onclick="switchTab('finance')" class="nav-btn flex flex-col items-center justify-center py-1.5 rounded-2xl ${activeTab === 'finance' ? 'text-paw-700 bg-paw-50 font-bold' : 'text-stone-500 font-semibold'}">
-                  <i data-lucide="wallet" class="w-5 h-5"></i>
-                  <span class="text-[11px] mt-1 tracking-tight">Finance</span>
-                </button>
-              </div>
-            `;
-          } else {
-            if (activeTab === 'finance') activeTab = 'animals';
-            nav.innerHTML = `
-              <div class="grid grid-cols-2 gap-2">
-                <button type="button" data-tab="animals" onclick="switchTab('animals')" class="nav-btn flex flex-col items-center justify-center py-1.5 rounded-2xl ${activeTab === 'animals' ? 'text-paw-700 bg-paw-50 font-bold' : 'text-stone-500 font-semibold'}">
-                  <i data-lucide="paw-print" class="w-5 h-5"></i>
-                  <span class="text-[11px] mt-1 tracking-tight">Animals</span>
-                </button>
-                <button type="button" data-tab="ops" onclick="switchTab('ops')" class="nav-btn flex flex-col items-center justify-center py-1.5 rounded-2xl ${activeTab === 'ops' ? 'text-paw-700 bg-paw-50 font-bold' : 'text-stone-500 font-semibold'}">
-                  <i data-lucide="layers" class="w-5 h-5"></i>
-                  <span class="text-[11px] mt-1 tracking-tight">Operations</span>
-                </button>
-              </div>
-            `;
-          }
+          if (!['animals', 'ops', 'finance'].includes(activeTab)) activeTab = 'animals';
+          if (!isCoord && activeTab === 'finance') activeTab = 'animals';
+
+          nav.innerHTML = isCoord ? `
+            <div class="grid grid-cols-3 gap-2">
+              <button type="button" data-tab="animals" onclick="switchTab('animals')" class="nav-btn flex flex-col items-center justify-center py-1.5 rounded-2xl ${activeTab === 'animals' ? 'text-paw-700 bg-paw-50 font-bold' : 'text-stone-500 font-semibold'}">
+                <i data-lucide="paw-print" class="w-5 h-5"></i>
+                <span class="text-[11px] mt-1">Animals</span>
+              </button>
+              <button type="button" data-tab="ops" onclick="switchTab('ops')" class="nav-btn flex flex-col items-center justify-center py-1.5 rounded-2xl ${activeTab === 'ops' ? 'text-paw-700 bg-paw-50 font-bold' : 'text-stone-500 font-semibold'}">
+                <i data-lucide="layers" class="w-5 h-5"></i>
+                <span class="text-[11px] mt-1">Operations</span>
+              </button>
+              <button type="button" data-tab="finance" onclick="switchTab('finance')" class="nav-btn flex flex-col items-center justify-center py-1.5 rounded-2xl ${activeTab === 'finance' ? 'text-paw-700 bg-paw-50 font-bold' : 'text-stone-500 font-semibold'}">
+                <i data-lucide="wallet" class="w-5 h-5"></i>
+                <span class="text-[11px] mt-1">Finance</span>
+              </button>
+            </div>
+          ` : `
+            <div class="grid grid-cols-2 gap-2">
+              <button type="button" data-tab="animals" onclick="switchTab('animals')" class="nav-btn flex flex-col items-center justify-center py-1.5 rounded-2xl ${activeTab === 'animals' ? 'text-paw-700 bg-paw-50 font-bold' : 'text-stone-500 font-semibold'}">
+                <i data-lucide="paw-print" class="w-5 h-5"></i>
+                <span class="text-[11px] mt-1">Animals</span>
+              </button>
+              <button type="button" data-tab="ops" onclick="switchTab('ops')" class="nav-btn flex flex-col items-center justify-center py-1.5 rounded-2xl ${activeTab === 'ops' ? 'text-paw-700 bg-paw-50 font-bold' : 'text-stone-500 font-semibold'}">
+                <i data-lucide="layers" class="w-5 h-5"></i>
+                <span class="text-[11px] mt-1">Operations</span>
+              </button>
+            </div>
+          `;
         }
 
         switchOpsSubTab(activeOpsSub);
@@ -655,7 +870,133 @@
       };
 
       // ======================================================================
-      // RENDERING ALL 6 MODULES
+      // PUBLIC SOS RESCUE HANDLER (Logs directly via SAVE_ANIMAL intake)
+      // ======================================================================
+      let compressedSosPhoto = null;
+      let capturedCoords = null;
+
+      window.selectChip = function (group, value, btnEl) {
+        if (group === 'species') {
+          document.getElementById('speciesInput').value = value;
+          document.querySelectorAll('.species-chip').forEach(c => {
+            c.className = 'species-chip btn-press flex flex-col items-center justify-center py-3 px-2 rounded-2xl border border-paw-100 bg-white text-stone-600 font-medium text-xs gap-1.5';
+          });
+          btnEl.className = 'species-chip btn-press flex flex-col items-center justify-center py-3 px-2 rounded-2xl border-2 border-paw-600 bg-paw-50 text-paw-800 font-semibold text-xs gap-1.5';
+        } else {
+          document.getElementById('urgencyInput').value = value;
+          document.querySelectorAll('.urgency-chip').forEach(c => {
+            c.className = 'urgency-chip btn-press flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl border border-paw-100 bg-white text-stone-600 font-medium text-xs';
+          });
+          btnEl.className = 'urgency-chip btn-press flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl border-2 border-paw-600 bg-paw-50 text-paw-800 font-semibold text-xs';
+        }
+      };
+
+      window.detectLocation = function () {
+        const btnText = document.getElementById('gpsBtnText');
+        const gpsIcon = document.getElementById('gpsIcon');
+        if (!navigator.geolocation) return showToast('GPS not supported');
+        btnText.textContent = 'Locating...';
+        gpsIcon.classList.add('animate-spin');
+
+        navigator.geolocation.getCurrentPosition(
+          (pos) => {
+            capturedCoords = `${pos.coords.latitude.toFixed(5)},${pos.coords.longitude.toFixed(5)}`;
+            gpsIcon.classList.remove('animate-spin');
+            btnText.textContent = 'Pinned';
+            document.getElementById('gpsCoordsText').textContent = capturedCoords;
+            document.getElementById('gpsStatusBox').classList.remove('hidden');
+            showToast('GPS location locked!');
+          },
+          () => {
+            gpsIcon.classList.remove('animate-spin');
+            btnText.textContent = 'Retry GPS';
+            showToast('Type landmark manually');
+          },
+          { enableHighAccuracy: true, timeout: 8000 }
+        );
+      };
+
+      window.previewPhoto = async function (e) {
+        const file = e.target.files[0];
+        if (!file) return;
+        compressedSosPhoto = await compressImageFile(file);
+        document.getElementById('photoPreview').src = compressedSosPhoto;
+        document.getElementById('photoPreview').classList.remove('hidden');
+        document.getElementById('uploadPlaceholder').classList.add('hidden');
+        document.getElementById('clearPhotoBtn').classList.remove('hidden');
+      };
+
+      window.clearPhoto = function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        compressedSosPhoto = null;
+        document.getElementById('photoUpload').value = '';
+        document.getElementById('photoPreview').classList.add('hidden');
+        document.getElementById('uploadPlaceholder').classList.remove('hidden');
+        document.getElementById('clearPhotoBtn').classList.add('hidden');
+      };
+
+      window.handleSosSubmit = async function (e) {
+        e.preventDefault();
+        if (isSubmitting) return;
+        isSubmitting = true;
+        const btn = document.getElementById('sosSubmitBtn');
+        const origHtml = btn.innerHTML;
+        btn.disabled = true;
+        btn.innerHTML = `<i data-lucide="loader-2" class="w-4 h-4 animate-spin"></i><span>Dispatching SOS...</span>`;
+        lucide.createIcons();
+
+        try {
+          const species = document.getElementById('speciesInput').value;
+          const urgency = document.getElementById('urgencyInput').value;
+          const landmark = document.getElementById('landmarkInput').value.trim();
+          const reporterName = document.getElementById('reporterName').value.trim();
+          const reporterPhone = document.getElementById('reporterPhone').value.trim();
+          const staying = document.getElementById('stayAtSpot').checked ? 'Yes' : 'No';
+
+          // Sends SOS alert into backend
+          const res = await fetchWithRetry(API_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+            body: JSON.stringify({
+              action: 'NEW_ADOPTION_ENQUIRY',
+              animalId: 'SOS-' + Date.now().toString().slice(-4),
+              animalName: `SOS ${species} (${urgency})`,
+              inquiryType: 'SOS Rescue Alert',
+              applicantName: reporterName,
+              phone: reporterPhone,
+              ageOccupation: `Staying at spot: ${staying}`,
+              addressLocality: `${landmark} | GPS: ${capturedCoords || 'Not shared'}`,
+              housingDetails: urgency,
+              petExperience: 'Emergency street rescue report'
+            })
+          }, 2);
+
+          if (res.status === 'success') {
+            document.getElementById('sosForm').reset();
+            capturedCoords = null;
+            compressedSosPhoto = null;
+            document.getElementById('photoPreview').classList.add('hidden');
+            document.getElementById('uploadPlaceholder').classList.remove('hidden');
+            document.getElementById('clearPhotoBtn').classList.add('hidden');
+            document.getElementById('gpsStatusBox').classList.add('hidden');
+            document.getElementById('gpsBtnText').textContent = 'Auto-Pin GPS';
+            showToast(`SOS Alert #${res.appId} dispatched to HappyPaws!`);
+          } else {
+            showToast(res.message || 'Could not dispatch SOS');
+          }
+        } catch (err) {
+          showToast('Network busy — please try again');
+        } finally {
+          isSubmitting = false;
+          btn.disabled = false;
+          btn.innerHTML = origHtml;
+          lucide.createIcons();
+        }
+      };
+
+      // ======================================================================
+      // RENDERING VIEWS
       // ======================================================================
       window.setAnimalFilter = function (filterVal, btnEl) {
         animalFilter = filterVal;
@@ -669,7 +1010,7 @@
       function getStatusBadgeClass(status) {
         const s = String(status || '').toLowerCase();
         if (s.includes('available')) return 'bg-paw-600 text-white';
-        if (s.includes('urgent') || s.includes('critical')) return 'bg-amber-500 text-white';
+        if (s.includes('urgent')) return 'bg-amber-600 text-white';
         if (s.includes('treatment') || s.includes('rehab')) return 'bg-rose-600 text-white';
         if (s.includes('adopted')) return 'bg-emerald-600 text-white';
         return 'bg-stone-700 text-white';
@@ -677,16 +1018,14 @@
 
       function renderAnimalsTab() {
         const container = document.getElementById('animalsList');
-        const session = getSession();
-        const isTeam = Boolean(session);
+        const isTeam = Boolean(getSession());
         const query = String(document.getElementById('animalSearchInput').value || '').toLowerCase().trim();
 
         const filtered = (appState.animals || []).filter(a => {
           const st = String(a.Status || '').trim();
           const matchesStatus = animalFilter === 'ALL' || st === animalFilter;
-          const haystack = `${a.Animal_ID} ${a.Name} ${a.Species} ${a.Breed_Color} ${a.Rescue_Location} ${a.Current_Location_Name} ${a.Status}`.toLowerCase();
-          const matchesQuery = !query || haystack.includes(query);
-          return matchesStatus && matchesQuery;
+          const haystack = `${a.Animal_ID} ${a.Name} ${a.Species} ${a.Rescue_Location} ${a.Current_Location_Name} ${a.Status}`.toLowerCase();
+          return matchesStatus && (!query || haystack.includes(query));
         });
 
         document.getElementById('animalTotalCount').textContent = (appState.animals || []).length;
@@ -712,7 +1051,6 @@
           const status = String(a.Status || 'Available for Adoption').trim();
           const locName = String(a.Current_Location_Name || 'Shelter').trim();
           const ageGender = String(a.Age_Gender || '').trim();
-          const medSummary = String(a.Medical_Summary || 'Health check logged').trim();
           const fallbackImg = species.toLowerCase() === 'cat'
             ? 'https://images.unsplash.com/photo-1595433707802-6b2626ef1c91?auto=format&fit=crop&w=800&q=80'
             : 'https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&fit=crop&w=800&q=80';
@@ -734,7 +1072,7 @@
                 <div class="flex items-start justify-between gap-2">
                   <div>
                     <h3 class="font-display font-bold text-base text-stone-900">${name} <span class="text-xs font-medium text-stone-400">• ${species}</span></h3>
-                    <p class="text-xs text-stone-500 mt-0.5 line-clamp-2">${a.Rescue_Story || medSummary}</p>
+                    <p class="text-xs text-stone-500 mt-0.5 line-clamp-2">${a.Rescue_Story || a.Medical_Summary || 'Rescued by HappyPaws'}</p>
                   </div>
                   <span class="inline-flex items-center gap-1 text-[11px] font-semibold text-paw-800 bg-paw-50 border border-paw-200/70 px-2.5 py-1 rounded-lg shrink-0">
                     <i data-lucide="map-pin" class="w-3 h-3 text-paw-600"></i>
@@ -742,19 +1080,19 @@
                   </span>
                 </div>
 
-                <div class="grid ${isTeam ? 'grid-cols-2' : (isAdoptable ? 'grid-cols-2' : 'grid-cols-1')} gap-2.5 pt-1">
+                <div class="grid ${isTeam || isAdoptable ? 'grid-cols-2' : 'grid-cols-1'} gap-2.5 pt-1">
                   <button type="button" onclick="openAnimalTimelineModal('${id}')" class="btn-press py-2.5 px-3 rounded-xl bg-paw-50 hover:bg-paw-100 text-paw-800 font-semibold text-xs flex items-center justify-center gap-1.5">
                     <i data-lucide="file-text" class="w-3.5 h-3.5"></i>
                     <span>Full History</span>
                   </button>
 
                   ${isTeam ? `
-                    <button type="button" onclick="openAnimalFormModal('${id}')" class="btn-press py-2.5 px-3 rounded-xl bg-stone-900 hover:bg-stone-800 text-white font-semibold text-xs flex items-center justify-center gap-1.5">
+                    <button type="button" onclick="openAnimalFormModal('${id}')" class="btn-press py-2.5 px-3 rounded-xl bg-stone-900 text-white font-semibold text-xs flex items-center justify-center gap-1.5">
                       <i data-lucide="edit-3" class="w-3.5 h-3.5"></i>
                       <span>Update Profile</span>
                     </button>
                   ` : (isAdoptable ? `
-                    <button type="button" onclick="openAdoptionApplyModal('${id}', '${name.replace(/'/g, "\\'")}', '${status.includes('Foster') ? 'Foster' : 'Adoption'}')" class="btn-press py-2.5 px-3 rounded-xl bg-paw-600 hover:bg-paw-700 text-white font-semibold text-xs flex items-center justify-center gap-1.5">
+                    <button type="button" onclick="openAdoptionApplyModal('${id}', '${name.replace(/'/g, "\\'")}', '${status.includes('Foster') ? 'Foster' : 'Adoption'}')" class="btn-press py-2.5 px-3 rounded-xl bg-paw-600 text-white font-semibold text-xs flex items-center justify-center gap-1.5">
                       <i data-lucide="heart" class="w-3.5 h-3.5"></i>
                       <span>${status.includes('Foster') ? 'Apply Foster' : 'Apply Adopt'}</span>
                     </button>
@@ -764,85 +1102,73 @@
             </article>
           `;
         }).join('');
-
         lucide.createIcons();
       }
 
-      function renderVetTab() {
-        const session = getSession();
-        const isTeam = Boolean(session);
-        const records = isTeam ? (appState.vetRecords || []) : (appState.vetBills || []);
+      function renderPublicBillsTab() {
+        const listEl = document.getElementById('publicBillsList');
+        const bills = appState.vetBills || [];
+        if (bills.length === 0) {
+          listEl.innerHTML = `<div class="bg-white rounded-2xl border border-paw-100 p-6 text-center text-xs text-stone-500">No pending vet bills listed right now. You can still support daily shelter care via the UPI QR above.</div>`;
+          return;
+        }
+        listEl.innerHTML = bills.map(r => `
+          <div class="bg-white p-4 rounded-2xl border border-paw-100 shadow-sm space-y-2">
+            <div class="flex items-start justify-between gap-2">
+              <div>
+                <span class="text-[10px] font-bold uppercase px-2 py-0.5 rounded bg-paw-50 text-paw-700">${r.Record_Type || 'Treatment'}</span>
+                <h4 class="font-display font-bold text-sm text-stone-900 mt-1">${r.Animal_Name} — ${r.Title}</h4>
+              </div>
+              <span class="text-xs font-bold text-paw-700 shrink-0">₹${Number(r.Expense_Amount || 0).toLocaleString('en-IN')}</span>
+            </div>
+            <p class="text-xs text-stone-500">${r.Doctor_Notes || ''} (${r.Vet_Clinic || 'Partner Clinic'})</p>
+          </div>
+        `).join('');
+      }
+
+      function renderTeamVetTab() {
+        const records = appState.vetRecords || [];
+        document.getElementById('badge-vet').textContent = records.length;
         const alertsMount = document.getElementById('vaccineAlertsMount');
         const listEl = document.getElementById('vetRecordsList');
 
-        document.getElementById('badge-vet').textContent = (appState.vetRecords || []).length;
-
-        if (isTeam) {
-          const upcoming = records.filter(r => r.Next_Due_Date && String(r.Next_Due_Date).trim() !== '');
-          if (upcoming.length > 0) {
-            alertsMount.innerHTML = `
-              <div class="bg-warm-50 border border-warm-100 rounded-2xl p-4 space-y-2">
-                <div class="flex items-center gap-2 text-warm-600 font-display font-bold text-xs">
-                  <i data-lucide="bell-ring" class="w-4 h-4"></i>
-                  <span>Scheduled Vaccination / Follow-Up Due Dates</span>
-                </div>
-                <div class="space-y-1.5">
-                  ${upcoming.slice(0, 4).map(u => `
-                    <div class="flex items-center justify-between text-xs bg-white px-3 py-2 rounded-xl border border-warm-100">
-                      <span class="font-semibold text-stone-800">${u.Animal_Name} • ${u.Title}</span>
-                      <span class="text-[11px] font-bold text-warm-600">Due: ${u.Next_Due_Date}</span>
-                    </div>
-                  `).join('')}
-                </div>
+        const upcoming = records.filter(r => r.Next_Due_Date && String(r.Next_Due_Date).trim() !== '');
+        alertsMount.innerHTML = upcoming.length > 0 ? `
+          <div class="bg-amber-50 border border-amber-200/80 rounded-2xl p-4 space-y-2">
+            <div class="flex items-center gap-2 text-paw-800 font-display font-bold text-xs">
+              <i data-lucide="bell-ring" class="w-4 h-4 text-paw-600"></i>
+              <span>Upcoming Booster / Follow-Up Due Dates</span>
+            </div>
+            ${upcoming.slice(0, 4).map(u => `
+              <div class="flex items-center justify-between text-xs bg-white px-3 py-2 rounded-xl border border-amber-100">
+                <span class="font-semibold text-stone-800">${u.Animal_Name} • ${u.Title}</span>
+                <span class="text-[11px] font-bold text-paw-700">Due: ${u.Next_Due_Date}</span>
               </div>
-            `;
-          } else {
-            alertsMount.innerHTML = '';
-          }
-        } else {
-          alertsMount.innerHTML = '';
-        }
+            `).join('')}
+          </div>
+        ` : '';
 
         if (records.length === 0) {
-          listEl.innerHTML = `
-            <div class="bg-white rounded-2xl border border-paw-100 p-6 text-center space-y-1.5">
-              <h4 class="font-display font-bold text-xs text-stone-800">${isTeam ? 'No veterinary records logged yet' : 'No pending vet bills right now'}</h4>
-              <p class="text-[11px] text-stone-500">${isTeam ? 'Tap "+ Log Vet" above to record vaccinations, treatments & bills.' : 'All current medical treatments are covered!'}</p>
-            </div>
-          `;
-          lucide.createIcons();
+          listEl.innerHTML = `<div class="bg-white rounded-2xl border border-paw-100 p-6 text-center text-xs text-stone-500">No veterinary records logged yet. Tap "+ Log Vet" above to add one.</div>`;
           return;
         }
 
-        listEl.innerHTML = records.map(r => {
-          const amt = Number(r.Expense_Amount) || 0;
-          const isPending = String(r.Payment_Status) === 'Pending Funding';
-          return `
-            <div class="bg-white p-4 rounded-2xl border border-paw-100 shadow-sm space-y-2.5">
-              <div class="flex items-start justify-between gap-2">
-                <div>
-                  <div class="flex items-center gap-1.5">
-                    <span class="text-[10px] font-bold uppercase px-2 py-0.5 rounded bg-paw-50 text-paw-700">${r.Record_Type || 'Medical'}</span>
-                    <span class="text-[11px] font-semibold text-stone-400">${r.Visit_Date || ''}</span>
-                  </div>
-                  <h4 class="font-display font-bold text-sm text-stone-900 mt-1">${r.Animal_Name} — ${r.Title}</h4>
-                </div>
-                ${amt > 0 ? `<span class="text-xs font-bold ${isPending ? 'text-rose-600' : 'text-stone-700'} shrink-0">₹${amt.toLocaleString('en-IN')}</span>` : ''}
+        listEl.innerHTML = records.map(r => `
+          <div class="bg-white p-4 rounded-2xl border border-paw-100 shadow-sm space-y-2">
+            <div class="flex items-start justify-between gap-2">
+              <div>
+                <span class="text-[10px] font-bold uppercase px-2 py-0.5 rounded bg-paw-50 text-paw-700">${r.Record_Type}</span>
+                <h4 class="font-display font-bold text-sm text-stone-900 mt-1">${r.Animal_Name} — ${r.Title}</h4>
               </div>
-
-              ${r.Doctor_Notes ? `<p class="text-xs text-stone-600 leading-relaxed">${r.Doctor_Notes}</p>` : ''}
-
-              <div class="flex items-center justify-between text-[11px] text-stone-500 pt-1 border-t border-paw-50">
-                <span>Clinic: ${r.Vet_Clinic || 'Partner Vet'}</span>
-                <div class="flex items-center gap-2.5">
-                  ${r.Next_Due_Date ? `<span class="text-warm-600 font-semibold">Next: ${r.Next_Due_Date}</span>` : ''}
-                  ${r.Bill_Photo_URL && String(r.Bill_Photo_URL).startsWith('http') ? `<a href="${r.Bill_Photo_URL}" target="_blank" rel="noopener" class="text-paw-700 font-bold underline">View Bill</a>` : ''}
-                </div>
-              </div>
+              <span class="text-xs font-bold text-stone-700 shrink-0">₹${Number(r.Expense_Amount || 0).toLocaleString('en-IN')}</span>
             </div>
-          `;
-        }).join('');
-
+            <p class="text-xs text-stone-600">${r.Doctor_Notes || ''}</p>
+            <div class="flex items-center justify-between text-[11px] text-stone-500 pt-1 border-t border-paw-50">
+              <span>${r.Vet_Clinic || 'Partner Vet'} • ${r.Visit_Date || ''}</span>
+              ${r.Bill_Photo_URL && String(r.Bill_Photo_URL).startsWith('http') ? `<a href="${r.Bill_Photo_URL}" target="_blank" rel="noopener" class="text-paw-700 font-bold underline">View Bill</a>` : ''}
+            </div>
+          </div>
+        `).join('');
         lucide.createIcons();
       }
 
@@ -850,108 +1176,66 @@
         const listEl = document.getElementById('locationsList');
         const locs = appState.locations || [];
         document.getElementById('badge-locations').textContent = locs.length;
-
         if (locs.length === 0) {
-          listEl.innerHTML = `
-            <div class="bg-white rounded-2xl border border-paw-100 p-6 text-center space-y-1.5">
-              <h4 class="font-display font-bold text-xs text-stone-800">No foster homes, boarding centers, or clinics added yet</h4>
-              <p class="text-[11px] text-stone-500">Tap "+ Add Place" above to build your placement network.</p>
-            </div>
-          `;
+          listEl.innerHTML = `<div class="bg-white rounded-2xl border border-paw-100 p-6 text-center text-xs text-stone-500">No foster homes, boarding facilities, or clinics added yet.</div>`;
           return;
         }
-
         listEl.innerHTML = locs.map(l => {
-          const assignedAnimals = (appState.animals || []).filter(a => String(a.Current_Location_ID) === String(l.Location_ID));
-          const cap = Number(l.Capacity) || 1;
+          const assigned = (appState.animals || []).filter(a => String(a.Current_Location_ID) === String(l.Location_ID));
           return `
-            <div class="bg-white p-4 rounded-2xl border border-paw-100 shadow-sm space-y-2.5">
+            <div class="bg-white p-4 rounded-2xl border border-paw-100 shadow-sm space-y-2">
               <div class="flex items-start justify-between gap-2">
                 <div>
                   <span class="text-[10px] font-bold uppercase px-2 py-0.5 rounded bg-paw-50 text-paw-700">${l.Type}</span>
                   <h4 class="font-display font-bold text-sm text-stone-900 mt-1">${l.Name}</h4>
                   <p class="text-xs text-stone-500">${l.Area_Address || ''}</p>
                 </div>
-                <span class="text-xs font-bold px-2.5 py-1 rounded-lg bg-stone-100 text-stone-700 shrink-0">
-                  ${assignedAnimals.length} / ${cap} Pets
-                </span>
+                <span class="text-xs font-bold px-2.5 py-1 rounded-lg bg-stone-100 text-stone-700">${assigned.length} / ${l.Capacity || 1} Pets</span>
               </div>
-
               <div class="flex items-center justify-between text-xs text-stone-600 pt-2 border-t border-paw-50">
-                <span>Contact: <strong>${l.Contact_Person || 'Team'}</strong></span>
-                ${l.Phone ? `<a href="tel:${l.Phone}" class="text-paw-700 font-semibold flex items-center gap-1"><i data-lucide="phone" class="w-3 h-3"></i> ${l.Phone}</a>` : ''}
+                <span>Contact: <strong>${l.Contact_Person || ''}</strong></span>
+                ${l.Phone ? `<a href="tel:${l.Phone}" class="text-paw-700 font-semibold">${l.Phone}</a>` : ''}
               </div>
             </div>
           `;
         }).join('');
-        lucide.createIcons();
       }
 
       function renderAdoptionsTab() {
         const listEl = document.getElementById('adoptionsList');
         const apps = appState.adoptions || [];
         document.getElementById('badge-adoptions').textContent = apps.length;
-
         if (apps.length === 0) {
-          listEl.innerHTML = `
-            <div class="bg-white rounded-2xl border border-paw-100 p-6 text-center space-y-1.5">
-              <h4 class="font-display font-bold text-xs text-stone-800">No adoption enquiries yet</h4>
-              <p class="text-[11px] text-stone-500">Applications submitted from the public Adopt & Foster tab appear here.</p>
-            </div>
-          `;
+          listEl.innerHTML = `<div class="bg-white rounded-2xl border border-paw-100 p-6 text-center text-xs text-stone-500">No adoption enquiries or SOS alerts logged yet.</div>`;
           return;
         }
-
-        listEl.innerHTML = apps.map(app => {
-          const st = String(app.Screening_Status || 'New Enquiry');
-          return `
-            <div class="bg-white p-4 rounded-2xl border border-paw-100 shadow-sm space-y-3">
-              <div class="flex items-start justify-between gap-2">
-                <div>
-                  <span class="text-[10px] font-bold uppercase px-2 py-0.5 rounded bg-paw-50 text-paw-700">${app.Inquiry_Type} • ${app.App_ID}</span>
-                  <h4 class="font-display font-bold text-sm text-stone-900 mt-1">${app.Applicant_Name} ➔ ${app.Animal_Name}</h4>
-                  <p class="text-[11px] text-stone-500 mt-0.5">${app.Age_Occupation || ''} • ${app.Address_Locality || ''}</p>
-                </div>
-                <span class="text-[10px] font-bold px-2.5 py-1 rounded-full bg-amber-100 text-amber-800 shrink-0">${st}</span>
+        listEl.innerHTML = apps.map(app => `
+          <div class="bg-white p-4 rounded-2xl border border-paw-100 shadow-sm space-y-2.5">
+            <div class="flex items-start justify-between gap-2">
+              <div>
+                <span class="text-[10px] font-bold uppercase px-2 py-0.5 rounded bg-paw-50 text-paw-700">${app.Inquiry_Type} • ${app.App_ID}</span>
+                <h4 class="font-display font-bold text-sm text-stone-900 mt-1">${app.Applicant_Name} ➔ ${app.Animal_Name}</h4>
+                <p class="text-[11px] text-stone-500">${app.Address_Locality || ''}</p>
               </div>
-
-              <div class="bg-stone-50 rounded-xl p-3 text-[11px] text-stone-600 space-y-1">
-                <p><strong>Housing:</strong> ${app.Housing_Details || 'N/A'}</p>
-                <p><strong>Experience:</strong> ${app.Pet_Experience || 'N/A'}</p>
-                ${st === 'Adopted' ? `<p class="text-paw-700 font-semibold pt-1">Follow-ups: 30D (${app.Followup_30D_Status || 'Pending'}) • 90D (${app.Followup_90D_Status || 'Pending'})</p>` : ''}
-              </div>
-
-              <div class="flex items-center justify-between gap-2 pt-1">
-                <a href="https://wa.me/91${String(app.Phone || '').replace(/\D/g, '')}" target="_blank" rel="noopener" class="btn-press flex-1 py-2 px-3 rounded-xl bg-emerald-50 text-emerald-700 font-semibold text-xs flex items-center justify-center gap-1.5">
-                  <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
-                  <span>WhatsApp</span>
-                </a>
-                <button type="button" onclick="openScreeningModal('${app.App_ID}')" class="btn-press flex-1 py-2 px-3 rounded-xl bg-paw-600 text-white font-semibold text-xs flex items-center justify-center gap-1.5">
-                  <i data-lucide="clipboard-check" class="w-3.5 h-3.5"></i>
-                  <span>Screen / Follow-Up</span>
-                </button>
-              </div>
+              <span class="text-[10px] font-bold px-2.5 py-1 rounded-full bg-amber-100 text-amber-800 shrink-0">${app.Screening_Status}</span>
             </div>
-          `;
-        }).join('');
-        lucide.createIcons();
+            <div class="flex items-center gap-2 pt-1">
+              <a href="https://wa.me/91${String(app.Phone || '').replace(/\D/g, '')}" target="_blank" rel="noopener" class="btn-press flex-1 py-2 px-3 rounded-xl bg-emerald-50 text-emerald-700 font-semibold text-xs text-center">WhatsApp</a>
+              <button type="button" onclick="openScreeningModal('${app.App_ID}')" class="btn-press flex-1 py-2 px-3 rounded-xl bg-paw-600 text-white font-semibold text-xs">Screen / Follow-Up</button>
+            </div>
+          </div>
+        `).join('');
       }
 
       window.renderFinanceTab = function () {
         const selectedMonth = document.getElementById('financeMonthFilter').value;
-        const txns = (appState.finance || []).filter(t => {
-          if (!selectedMonth) return true;
-          return String(t.Txn_Date || t.Created_At || '').startsWith(selectedMonth);
-        });
-
-        let totalIn = 0;
-        let totalOut = 0;
+        const txns = (appState.finance || []).filter(t => !selectedMonth || String(t.Txn_Date || t.Created_At || '').startsWith(selectedMonth));
+        let totalIn = 0, totalOut = 0;
         txns.forEach(t => {
           const amt = Number(t.Amount) || 0;
           if (String(t.Type) === 'Donation') totalIn += amt;
           else totalOut += amt;
         });
-
         const net = totalIn - totalOut;
         document.getElementById('finTotalIncome').textContent = '₹' + totalIn.toLocaleString('en-IN');
         document.getElementById('finTotalExpense').textContent = '₹' + totalOut.toLocaleString('en-IN');
@@ -959,26 +1243,18 @@
 
         const listEl = document.getElementById('financeList');
         if (txns.length === 0) {
-          listEl.innerHTML = `<div class="bg-white rounded-2xl border border-paw-100 p-6 text-center text-xs text-stone-500">No donations or expenses recorded for this month.</div>`;
+          listEl.innerHTML = `<div class="bg-white rounded-2xl border border-paw-100 p-6 text-center text-xs text-stone-500">No transactions recorded for this month.</div>`;
           return;
         }
-
         listEl.innerHTML = txns.map(t => {
           const isDonation = String(t.Type) === 'Donation';
-          const amt = Number(t.Amount) || 0;
           return `
             <div class="bg-white p-3.5 rounded-2xl border border-paw-100 flex items-center justify-between gap-3">
               <div class="min-w-0">
-                <div class="flex items-center gap-1.5">
-                  <span class="text-[10px] font-bold uppercase px-2 py-0.5 rounded ${isDonation ? 'bg-emerald-50 text-emerald-700' : 'bg-rose-50 text-rose-700'}">${t.Category || t.Type}</span>
-                  <span class="text-[10px] text-stone-400">${t.Txn_Date || ''}</span>
-                </div>
+                <span class="text-[10px] font-bold uppercase px-2 py-0.5 rounded ${isDonation ? 'bg-emerald-50 text-emerald-700' : 'bg-rose-50 text-rose-700'}">${t.Category || t.Type}</span>
                 <p class="font-display font-bold text-xs text-stone-900 mt-1 truncate">${t.Party_Name || 'Supporter'}</p>
-                ${t.Notes ? `<p class="text-[11px] text-stone-500 truncate">${t.Notes}</p>` : ''}
               </div>
-              <span class="font-display font-bold text-sm ${isDonation ? 'text-emerald-600' : 'text-rose-600'} shrink-0">
-                ${isDonation ? '+' : '-'}₹${amt.toLocaleString('en-IN')}
-              </span>
+              <span class="font-display font-bold text-sm ${isDonation ? 'text-emerald-600' : 'text-rose-600'} shrink-0">${isDonation ? '+' : '-'}₹${Number(t.Amount || 0).toLocaleString('en-IN')}</span>
             </div>
           `;
         }).join('');
@@ -987,55 +1263,41 @@
       window.exportMonthlyFinanceCsv = function () {
         const selectedMonth = document.getElementById('financeMonthFilter').value || 'All';
         const txns = (appState.finance || []).filter(t => !selectedMonth || selectedMonth === 'All' || String(t.Txn_Date || '').startsWith(selectedMonth));
-        const rows = [['Txn_ID', 'Date', 'Type', 'Category', 'Party_Name', 'Amount_INR', 'Payment_Mode', 'Reference', 'Notes']];
-        txns.forEach(t => {
-          rows.push([t.Txn_ID, t.Txn_Date, t.Type, t.Category, t.Party_Name, t.Amount, t.Payment_Mode, t.Reference_ID, t.Notes]);
-        });
-        const csvContent = 'data:text/csv;charset=utf-8,' + rows.map(r => r.map(v => `"${String(v || '').replace(/"/g, '""')}"`).join(',')).join('\n');
+        const rows = [['Txn_ID', 'Date', 'Type', 'Category', 'Party_Name', 'Amount_INR', 'Payment_Mode', 'Notes']];
+        txns.forEach(t => rows.push([t.Txn_ID, t.Txn_Date, t.Type, t.Category, t.Party_Name, t.Amount, t.Payment_Mode, t.Notes]));
+        const csv = 'data:text/csv;charset=utf-8,' + rows.map(r => r.map(v => `"${String(v || '').replace(/"/g, '""')}"`).join(',')).join('\n');
         const link = document.createElement('a');
-        link.setAttribute('href', encodeURI(csvContent));
+        link.setAttribute('href', encodeURI(csv));
         link.setAttribute('download', `HappyPaws_Finance_${selectedMonth}.csv`);
         document.body.appendChild(link);
         link.click();
         link.remove();
-        showToast(`Downloaded HappyPaws_Finance_${selectedMonth}.csv`);
+        showToast(`Exported HappyPaws_Finance_${selectedMonth}.csv`);
       };
 
       function renderTasksTab() {
         const listEl = document.getElementById('tasksList');
         const tasks = appState.tasks || [];
-        const openCount = tasks.filter(t => String(t.Status) !== 'Completed').length;
-        document.getElementById('badge-tasks').textContent = openCount;
-
+        document.getElementById('badge-tasks').textContent = tasks.filter(t => String(t.Status) !== 'Completed').length;
         if (tasks.length === 0) {
           listEl.innerHTML = `<div class="bg-white rounded-2xl border border-paw-100 p-6 text-center text-xs text-stone-500">No volunteer tasks posted yet.</div>`;
           return;
         }
-
         listEl.innerHTML = tasks.map(t => {
           const isDone = String(t.Status) === 'Completed';
-          const isUrgent = String(t.Priority) === 'Urgent';
           return `
-            <div class="bg-white p-4 rounded-2xl border border-paw-100 shadow-sm space-y-2.5 ${isDone ? 'opacity-70' : ''}">
+            <div class="bg-white p-4 rounded-2xl border border-paw-100 shadow-sm space-y-2 ${isDone ? 'opacity-70' : ''}">
               <div class="flex items-start justify-between gap-2">
                 <div>
-                  <div class="flex items-center gap-1.5">
-                    <span class="text-[10px] font-bold uppercase px-2 py-0.5 rounded ${isUrgent ? 'bg-rose-100 text-rose-700' : 'bg-paw-50 text-paw-700'}">${t.Priority} • ${t.Category}</span>
-                    <span class="text-[10px] text-stone-400">Due: ${t.Due_Date || 'ASAP'}</span>
-                  </div>
+                  <span class="text-[10px] font-bold uppercase px-2 py-0.5 rounded bg-paw-50 text-paw-700">${t.Priority} • ${t.Category}</span>
                   <h4 class="font-display font-bold text-sm text-stone-900 mt-1">${t.Title}</h4>
-                  <p class="text-xs text-stone-500">${t.Linked_Animal_Name ? `Pet: ${t.Linked_Animal_Name} • ` : ''}${t.Area_Location || ''}</p>
+                  <p class="text-xs text-stone-500">${t.Area_Location || ''}</p>
                 </div>
-                <span class="text-[10px] font-bold px-2.5 py-1 rounded-full ${isDone ? 'bg-emerald-100 text-emerald-700' : 'bg-amber-100 text-amber-800'} shrink-0">${t.Status}</span>
+                <span class="text-[10px] font-bold px-2.5 py-1 rounded-full ${isDone ? 'bg-emerald-100 text-emerald-700' : 'bg-amber-100 text-amber-800'}">${t.Status}</span>
               </div>
-
-              <div class="flex items-center justify-between gap-2 pt-2 border-t border-paw-50 text-xs">
-                <span class="text-stone-600">Assigned: <strong>${t.Assigned_To || 'Open'}</strong></span>
-                ${!isDone ? `
-                  <button type="button" onclick="quickCompleteTask('${t.Task_ID}')" class="btn-press px-3 py-1.5 rounded-xl bg-paw-600 text-white font-semibold text-xs">
-                    Mark Done
-                  </button>
-                ` : ''}
+              <div class="flex items-center justify-between pt-2 border-t border-paw-50 text-xs">
+                <span>Assigned: <strong>${t.Assigned_To || 'Open'}</strong></span>
+                ${!isDone ? `<button type="button" onclick="quickCompleteTask('${t.Task_ID}')" class="btn-press px-3 py-1.5 rounded-xl bg-paw-600 text-white font-semibold text-xs">Mark Done</button>` : ''}
               </div>
             </div>
           `;
@@ -1044,8 +1306,9 @@
 
       window.renderCurrentView = function () {
         renderAnimalsTab();
-        renderVetTab();
+        renderPublicBillsTab();
         if (getSession()) {
+          renderTeamVetTab();
           renderLocationsTab();
           renderAdoptionsTab();
           renderFinanceTab();
@@ -1054,7 +1317,7 @@
       };
 
       // ======================================================================
-      // LIVE SYNC ENGINE (Stale-While-Revalidate + 5s Active Polling)
+      // LIVE SYNC ENGINE
       // ======================================================================
       window.syncDatabase = async function (forceFresh = false) {
         if (isSubmitting && !forceFresh) return;
@@ -1095,9 +1358,7 @@
               }
             }
           } catch (e) {}
-          finally {
-            inFlightSync = null;
-          }
+          finally { inFlightSync = null; }
         })();
         return inFlightSync;
       };
@@ -1107,54 +1368,77 @@
       }, 5000);
 
       // ======================================================================
-      // MODALS (PIN LOGIN, ANIMAL PROFILE, TIMELINE, VET, LOCATION, FINANCE, ADOPT, TASK)
+      // MODALS (TEAM PIN LOGIN + SET/UPDATE PIN, FORMS, TIMELINE)
       // ======================================================================
       const modalsMount = document.getElementById('modalsMount');
+      window.closeModal = function () { modalsMount.innerHTML = ''; };
 
-      window.closeModal = function () {
-        modalsMount.innerHTML = '';
-      };
-
-      window.openPinPrompt = function (mode = 'unlock') {
+      window.openPinPrompt = function (defaultTab = 'unlock') {
         modalsMount.innerHTML = `
           <div class="modal-backdrop open fixed inset-0 z-50 bg-stone-900/65 backdrop-blur-xs flex items-end justify-center" onclick="if(event.target===this) closeModal()">
             <div class="modal-sheet w-full max-w-md bg-white rounded-t-3xl p-6 space-y-5 shadow-2xl">
               <div class="flex items-center justify-between border-b border-paw-100 pb-3.5">
                 <div>
-                  <span class="text-[10px] font-bold uppercase tracking-wider text-paw-700 bg-paw-50 px-2.5 py-0.5 rounded-full">HappyPaws Team</span>
-                  <h3 class="font-display font-bold text-lg text-stone-900 mt-1">${mode === 'set' ? 'Update Team PINs' : 'Team Workspace Login'}</h3>
+                  <span class="text-[10px] font-bold uppercase tracking-wider text-paw-700 bg-paw-50 px-2.5 py-0.5 rounded-full">Team Access</span>
+                  <h3 class="font-display font-bold text-lg text-stone-900 mt-1">HappyPaws Portal</h3>
                 </div>
                 <button type="button" onclick="closeModal()" class="w-9 h-9 rounded-full bg-stone-100 text-stone-500 flex items-center justify-center"><i data-lucide="x" class="w-5 h-5"></i></button>
               </div>
 
-              ${mode === 'unlock' ? `
-                <form onsubmit="handleTeamLogin(event)" class="space-y-4">
-                  <div>
-                    <label class="block text-xs font-semibold text-stone-600 mb-1.5">Enter Coordinator or Volunteer PIN</label>
-                    <input type="password" id="teamPinInput" inputmode="numeric" minlength="4" maxlength="6" required placeholder="••••" class="w-full px-4 py-3.5 rounded-xl bg-paw-50/50 border border-paw-200 text-center text-lg font-bold tracking-[0.5em] focus:outline-none focus:border-paw-600" />
-                  </div>
-                  <button type="submit" id="loginSubmitBtn" class="btn-press w-full py-3.5 rounded-2xl bg-paw-600 hover:bg-paw-700 text-white font-display font-bold text-sm">Unlock Workspace</button>
-                </form>
-              ` : `
-                <form onsubmit="handleUpdateTeamPin(event)" class="space-y-4">
-                  <div>
-                    <label class="block text-xs font-semibold text-stone-600 mb-1.5">Which Role PIN?</label>
-                    <select id="targetRoleSelect" class="w-full px-3.5 py-2.5 rounded-xl bg-paw-50/50 border border-paw-200 text-sm font-medium">
-                      <option value="COORDINATOR">Coordinator PIN (Full Access)</option>
-                      <option value="VOLUNTEER">Volunteer PIN (Field & Tasks)</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label class="block text-xs font-semibold text-stone-600 mb-1.5">New 4–6 Digit PIN *</label>
-                    <input type="password" id="newRolePinInput" inputmode="numeric" pattern="[0-9]{4,6}" minlength="4" maxlength="6" required placeholder="••••" class="w-full px-4 py-3 rounded-xl bg-paw-50/50 border border-paw-200 text-center text-lg font-bold tracking-[0.5em]" />
-                  </div>
-                  <button type="submit" class="btn-press w-full py-3.5 rounded-2xl bg-stone-900 text-white font-display font-bold text-sm">Save New PIN</button>
-                </form>
-              `}
+              <!-- Toggle between Unlock and Set / Update PIN -->
+              <div class="grid grid-cols-2 gap-2 p-1 bg-cream-50 rounded-2xl border border-paw-100">
+                <button type="button" id="pinTabUnlock" onclick="togglePinTab('unlock')" class="py-2 rounded-xl ${defaultTab === 'unlock' ? 'bg-paw-600 text-white font-bold' : 'text-stone-600 font-semibold'} text-xs transition">Unlock Tools</button>
+                <button type="button" id="pinTabSet" onclick="togglePinTab('set')" class="py-2 rounded-xl ${defaultTab === 'set' ? 'bg-paw-600 text-white font-bold' : 'text-stone-600 font-semibold'} text-xs transition">Set / Update PIN</button>
+              </div>
+
+              <form id="pinUnlockForm" onsubmit="handleTeamLogin(event)" class="${defaultTab === 'unlock' ? '' : 'hidden'} space-y-4">
+                <div>
+                  <label class="block text-xs font-semibold text-stone-600 mb-1.5">Enter Coordinator (1234) or Volunteer (2222) PIN</label>
+                  <input type="password" id="teamPinInput" inputmode="numeric" minlength="4" maxlength="6" required placeholder="••••" class="w-full px-4 py-3.5 rounded-xl bg-cream-50 border border-paw-200 text-center text-lg font-bold tracking-[0.5em] focus:outline-none focus:border-paw-600" />
+                </div>
+                <button type="submit" id="loginSubmitBtn" class="btn-press w-full py-3.5 rounded-2xl bg-paw-600 text-white font-display font-bold text-sm">Unlock Workspace</button>
+              </form>
+
+              <form id="pinSetForm" onsubmit="handleUpdateTeamPin(event)" class="${defaultTab === 'set' ? '' : 'hidden'} space-y-3.5">
+                <div>
+                  <label class="block text-xs font-semibold text-stone-600 mb-1">Current Coordinator PIN *</label>
+                  <input type="password" id="currentCoordPinInput" inputmode="numeric" minlength="4" maxlength="6" required placeholder="Default: 1234" class="w-full px-4 py-3 rounded-xl bg-cream-50 border border-paw-200 text-center text-base font-bold tracking-[0.4em]" />
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-stone-600 mb-1">Role to Update</label>
+                  <select id="targetRoleSelect" class="w-full px-3.5 py-2.5 rounded-xl bg-cream-50 border border-paw-200 text-xs font-semibold">
+                    <option value="COORDINATOR">Coordinator PIN (Full Access)</option>
+                    <option value="VOLUNTEER">Volunteer PIN (Field & Tasks)</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-stone-600 mb-1">New 4–6 Digit PIN *</label>
+                  <input type="password" id="newRolePinInput" inputmode="numeric" pattern="[0-9]{4,6}" minlength="4" maxlength="6" required placeholder="••••" class="w-full px-4 py-3 rounded-xl bg-cream-50 border border-paw-200 text-center text-base font-bold tracking-[0.4em]" />
+                </div>
+                <button type="submit" id="setPinBtn" class="btn-press w-full py-3.5 rounded-2xl bg-stone-900 text-white font-display font-bold text-sm">Save New PIN</button>
+              </form>
             </div>
           </div>
         `;
         lucide.createIcons();
+      };
+
+      window.togglePinTab = function (tab) {
+        const uForm = document.getElementById('pinUnlockForm');
+        const sForm = document.getElementById('pinSetForm');
+        const uTab = document.getElementById('pinTabUnlock');
+        const sTab = document.getElementById('pinTabSet');
+        if (tab === 'unlock') {
+          uForm.classList.remove('hidden');
+          sForm.classList.add('hidden');
+          uTab.className = 'py-2 rounded-xl bg-paw-600 text-white font-bold text-xs transition';
+          sTab.className = 'py-2 rounded-xl text-stone-600 font-semibold text-xs transition';
+        } else {
+          uForm.classList.add('hidden');
+          sForm.classList.remove('hidden');
+          sTab.className = 'py-2 rounded-xl bg-paw-600 text-white font-bold text-xs transition';
+          uTab.className = 'py-2 rounded-xl text-stone-600 font-semibold text-xs transition';
+        }
       };
 
       window.handleTeamLogin = async function (e) {
@@ -1163,7 +1447,6 @@
         const btn = document.getElementById('loginSubmitBtn');
         btn.disabled = true;
         btn.textContent = 'Verifying...';
-
         try {
           const res = await fetchWithRetry(API_URL, {
             method: 'POST',
@@ -1174,6 +1457,7 @@
             sessionStorage.setItem(SESSION_KEY, encodeSession(pin, res.role));
             closeModal();
             lastSignature = '';
+            activeTab = 'animals';
             await syncDatabase(true);
             showToast(`Unlocked ${res.role} Mode`);
           } else {
@@ -1188,34 +1472,46 @@
 
       window.handleUpdateTeamPin = async function (e) {
         e.preventDefault();
-        const session = getSession();
-        if (!session) return;
+        const currentPin = String(document.getElementById('currentCoordPinInput').value || '').trim();
         const targetRole = document.getElementById('targetRoleSelect').value;
-        const newPin = document.getElementById('newRolePinInput').value.trim();
+        const newPin = String(document.getElementById('newRolePinInput').value || '').trim();
+        const btn = document.getElementById('setPinBtn');
+        btn.disabled = true;
+        btn.textContent = 'Saving...';
 
-        const res = await fetchWithRetry(API_URL, {
-          method: 'POST',
-          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-          body: JSON.stringify({ action: 'SET_PIN', pin: session.pin, targetRole, newPin })
-        }, 2);
-        if (res.status === 'success') {
-          if (targetRole === 'COORDINATOR') sessionStorage.setItem(SESSION_KEY, encodeSession(newPin, 'COORDINATOR'));
-          closeModal();
-          showToast(`${targetRole} PIN updated!`);
-        } else {
-          showToast(res.message || 'Error updating PIN');
+        try {
+          const res = await fetchWithRetry(API_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+            body: JSON.stringify({ action: 'SET_PIN', pin: currentPin, targetRole, newPin })
+          }, 2);
+          if (res.status === 'success') {
+            if (targetRole === 'COORDINATOR') {
+              sessionStorage.setItem(SESSION_KEY, encodeSession(newPin, 'COORDINATOR'));
+            }
+            closeModal();
+            lastSignature = '';
+            await syncDatabase(true);
+            showToast(`${targetRole} PIN updated!`);
+          } else {
+            showToast(res.message || 'Incorrect Coordinator PIN');
+          }
+        } catch (err) {
+          showToast('Network error saving PIN');
+        } finally {
+          if (btn) { btn.disabled = false; btn.textContent = 'Save New PIN'; }
         }
       };
 
       window.logoutTeam = function () {
         sessionStorage.removeItem(SESSION_KEY);
         lastSignature = '';
-        activeTab = 'animals';
+        activeTab = 'sos';
         syncDatabase(true);
         showToast('Switched to Public View');
       };
 
-      // ANIMAL COMPLETE HISTORY TIMELINE MODAL (Module 1 + 3)
+      // ANIMAL COMPLETE HISTORY TIMELINE MODAL
       window.openAnimalTimelineModal = function (animalId) {
         const animal = (appState.animals || []).find(a => String(a.Animal_ID) === String(animalId));
         if (!animal) return;
@@ -1231,21 +1527,18 @@
                 </div>
                 <button type="button" onclick="closeModal()" class="w-8 h-8 rounded-full bg-stone-100 text-stone-500 flex items-center justify-center"><i data-lucide="x" class="w-4 h-4"></i></button>
               </div>
-
               <div class="space-y-3 text-xs">
-                <div class="bg-paw-50/60 p-3.5 rounded-2xl border border-paw-100 space-y-1">
+                <div class="bg-paw-50/70 p-3.5 rounded-2xl border border-paw-100 space-y-1">
                   <p class="font-bold text-paw-800">1. Rescue Intake (${animal.Rescue_Date || 'Logged'})</p>
                   <p class="text-stone-600"><strong>Spot:</strong> ${animal.Rescue_Location || 'Not specified'}</p>
                   <p class="text-stone-600">${animal.Rescue_Story || 'Rescued by HappyPaws team.'}</p>
                 </div>
-
                 <div class="bg-stone-50 p-3.5 rounded-2xl border border-stone-200/70 space-y-1">
-                  <p class="font-bold text-stone-800">2. Current Location & Rehab Progress</p>
-                  <p class="text-stone-600"><strong>Placed At:</strong> ${animal.Current_Location_Name || 'Shelter'}</p>
-                  <p class="text-stone-600"><strong>Medical Summary:</strong> ${animal.Medical_Summary || 'Under observation'}</p>
+                  <p class="font-bold text-stone-800">2. Placement & Rehab Progress</p>
+                  <p class="text-stone-600"><strong>Location:</strong> ${animal.Current_Location_Name || 'Shelter'}</p>
+                  <p class="text-stone-600"><strong>Medical Summary:</strong> ${animal.Medical_Summary || 'Under care'}</p>
                   ${animal.Rehab_Notes ? `<p class="text-stone-600"><strong>Rehab Notes:</strong> ${animal.Rehab_Notes}</p>` : ''}
                 </div>
-
                 <div class="space-y-2">
                   <p class="font-bold text-stone-800">3. Veterinary & Vaccination History (${vets.length})</p>
                   ${vets.length === 0 ? `<p class="text-stone-400">No individual vet visits logged yet.</p>` : vets.map(v => `
@@ -1265,11 +1558,10 @@
         lucide.createIcons();
       };
 
-      // ADD / EDIT ANIMAL PROFILE MODAL (Module 1 & 2)
+      // ADD / EDIT ANIMAL FORM MODAL
       window.openAnimalFormModal = function (editId = '') {
         const existing = editId ? (appState.animals || []).find(a => String(a.Animal_ID) === String(editId)) : null;
         const locs = appState.locations || [];
-
         modalsMount.innerHTML = `
           <div class="modal-backdrop open fixed inset-0 z-50 bg-stone-900/65 backdrop-blur-xs flex items-end justify-center" onclick="if(event.target===this) closeModal()">
             <div class="modal-sheet w-full max-w-md bg-white rounded-t-3xl p-6 space-y-4 shadow-2xl max-h-[92vh] overflow-y-auto">
@@ -1277,56 +1569,34 @@
                 <h3 class="font-display font-bold text-base text-stone-900">${existing ? 'Update ' + existing.Name : 'Log New Rescue Profile'}</h3>
                 <button type="button" onclick="closeModal()" class="w-8 h-8 rounded-full bg-stone-100 text-stone-500 flex items-center justify-center"><i data-lucide="x" class="w-4 h-4"></i></button>
               </div>
-
               <form onsubmit="submitAnimalForm(event, '${editId}')" class="space-y-3.5 text-xs">
                 <div>
-                  <label class="block font-semibold text-stone-600 mb-1">Photo ${existing ? '(Optional to replace)' : ''}</label>
+                  <label class="block font-semibold text-stone-600 mb-1">Photo</label>
                   <input type="file" id="aniPhotoFile" accept="image/*" class="w-full text-xs" />
                 </div>
                 <div class="grid grid-cols-2 gap-3">
-                  <div>
-                    <label class="block font-semibold text-stone-600 mb-1">Animal Name *</label>
-                    <input type="text" id="aniName" required value="${existing ? existing.Name : ''}" placeholder="e.g., Bruno" class="w-full px-3 py-2.5 rounded-xl bg-stone-50 border border-paw-100" />
-                  </div>
-                  <div>
-                    <label class="block font-semibold text-stone-600 mb-1">Species *</label>
-                    <select id="aniSpecies" class="w-full px-3 py-2.5 rounded-xl bg-stone-50 border border-paw-100">
-                      <option value="Dog" ${existing && existing.Species === 'Dog' ? 'selected' : ''}>Dog</option>
-                      <option value="Cat" ${existing && existing.Species === 'Cat' ? 'selected' : ''}>Cat</option>
-                      <option value="Bird" ${existing && existing.Species === 'Bird' ? 'selected' : ''}>Bird</option>
-                      <option value="Other" ${existing && existing.Species === 'Other' ? 'selected' : ''}>Other</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="grid grid-cols-2 gap-3">
-                  <div>
-                    <label class="block font-semibold text-stone-600 mb-1">Age & Gender *</label>
-                    <input type="text" id="aniAge" required value="${existing ? existing.Age_Gender : ''}" placeholder="e.g., 4 Months • Male" class="w-full px-3 py-2.5 rounded-xl bg-stone-50 border border-paw-100" />
-                  </div>
-                  <div>
-                    <label class="block font-semibold text-stone-600 mb-1">Current Status *</label>
-                    <select id="aniStatus" class="w-full px-3 py-2.5 rounded-xl bg-stone-50 border border-paw-100">
-                      ${['Under Treatment', 'In Rehab', 'Urgent Foster', 'Available for Adoption', 'Foster-to-Adopt', 'Adopted'].map(s => `<option value="${s}" ${existing && existing.Status === s ? 'selected' : ''}>${s}</option>`).join('')}
-                    </select>
-                  </div>
-                </div>
-                <div>
-                  <label class="block font-semibold text-stone-600 mb-1">Current Placement (Foster / Boarding / Clinic)</label>
-                  <select id="aniLocation" class="w-full px-3 py-2.5 rounded-xl bg-stone-50 border border-paw-100">
-                    <option value="|Main Shelter">Main Shelter</option>
-                    ${locs.map(l => `<option value="${l.Location_ID}|${l.Name}" ${existing && existing.Current_Location_ID === l.Location_ID ? 'selected' : ''}>${l.Type}: ${l.Name} (${l.Area_Address})</option>`).join('')}
+                  <input type="text" id="aniName" required value="${existing ? existing.Name : ''}" placeholder="Animal Name *" class="w-full px-3 py-2.5 rounded-xl bg-cream-50 border border-paw-100" />
+                  <select id="aniSpecies" class="w-full px-3 py-2.5 rounded-xl bg-cream-50 border border-paw-100">
+                    <option value="Dog" ${existing && existing.Species === 'Dog' ? 'selected' : ''}>Dog</option>
+                    <option value="Cat" ${existing && existing.Species === 'Cat' ? 'selected' : ''}>Cat</option>
+                    <option value="Bird" ${existing && existing.Species === 'Bird' ? 'selected' : ''}>Bird</option>
+                    <option value="Other" ${existing && existing.Species === 'Other' ? 'selected' : ''}>Other</option>
                   </select>
                 </div>
-                <div>
-                  <label class="block font-semibold text-stone-600 mb-1">Rescue Location & Intake Story *</label>
-                  <input type="text" id="aniRescueLoc" required value="${existing ? existing.Rescue_Location : ''}" placeholder="Where found (e.g., Koregaon Park Lane 5)" class="w-full px-3 py-2.5 rounded-xl bg-stone-50 border border-paw-100 mb-2" />
-                  <textarea id="aniStory" rows="2" placeholder="Rescue context & condition at intake..." class="w-full px-3 py-2.5 rounded-xl bg-stone-50 border border-paw-100">${existing ? existing.Rescue_Story : ''}</textarea>
+                <div class="grid grid-cols-2 gap-3">
+                  <input type="text" id="aniAge" required value="${existing ? existing.Age_Gender : ''}" placeholder="Age & Gender *" class="w-full px-3 py-2.5 rounded-xl bg-cream-50 border border-paw-100" />
+                  <select id="aniStatus" class="w-full px-3 py-2.5 rounded-xl bg-cream-50 border border-paw-100">
+                    ${['Under Treatment', 'In Rehab', 'Urgent Foster', 'Available for Adoption', 'Foster-to-Adopt', 'Adopted'].map(s => `<option value="${s}" ${existing && existing.Status === s ? 'selected' : ''}>${s}</option>`).join('')}
+                  </select>
                 </div>
-                <div>
-                  <label class="block font-semibold text-stone-600 mb-1">Medical & Rehabilitation Notes</label>
-                  <input type="text" id="aniMedSum" value="${existing ? existing.Medical_Summary : ''}" placeholder="e.g., Vaccinated, Dewormed, Leg splint healing" class="w-full px-3 py-2.5 rounded-xl bg-stone-50 border border-paw-100 mb-2" />
-                  <textarea id="aniRehab" rows="2" placeholder="Ongoing physiotherapy, diet, or behavioral rehab notes..." class="w-full px-3 py-2.5 rounded-xl bg-stone-50 border border-paw-100">${existing ? existing.Rehab_Notes : ''}</textarea>
-                </div>
+                <select id="aniLocation" class="w-full px-3 py-2.5 rounded-xl bg-cream-50 border border-paw-100">
+                  <option value="|Main Shelter">Placement: Main Shelter</option>
+                  ${locs.map(l => `<option value="${l.Location_ID}|${l.Name}" ${existing && existing.Current_Location_ID === l.Location_ID ? 'selected' : ''}>${l.Type}: ${l.Name}</option>`).join('')}
+                </select>
+                <input type="text" id="aniRescueLoc" required value="${existing ? existing.Rescue_Location : ''}" placeholder="Rescue Location *" class="w-full px-3 py-2.5 rounded-xl bg-cream-50 border border-paw-100" />
+                <textarea id="aniStory" rows="2" placeholder="Rescue story & intake condition..." class="w-full px-3 py-2.5 rounded-xl bg-cream-50 border border-paw-100">${existing ? existing.Rescue_Story : ''}</textarea>
+                <input type="text" id="aniMedSum" value="${existing ? existing.Medical_Summary : ''}" placeholder="Medical Summary (e.g., Vaccinated, Dewormed)" class="w-full px-3 py-2.5 rounded-xl bg-cream-50 border border-paw-100" />
+                <textarea id="aniRehab" rows="2" placeholder="Rehabilitation notes..." class="w-full px-3 py-2.5 rounded-xl bg-cream-50 border border-paw-100">${existing ? existing.Rehab_Notes : ''}</textarea>
                 <button type="submit" id="saveAniBtn" class="btn-press w-full py-3.5 rounded-2xl bg-paw-600 text-white font-display font-bold text-sm">Save Animal Profile</button>
               </form>
             </div>
@@ -1373,13 +1643,12 @@
           await syncDatabase(true);
           showToast(res.message);
         } else {
-          showToast(res.message || 'Save failed');
+          showToast(res.message || 'Error saving profile');
           btn.disabled = false;
-          btn.textContent = 'Save Animal Profile';
         }
       };
 
-      // ADD VET RECORD MODAL (Module 3 — Auto-syncs expense to Finance Ledger)
+      // VET VISIT MODAL
       window.openVetFormModal = function () {
         const animals = appState.animals || [];
         modalsMount.innerHTML = `
@@ -1390,54 +1659,30 @@
                 <button type="button" onclick="closeModal()" class="w-8 h-8 rounded-full bg-stone-100 text-stone-500 flex items-center justify-center"><i data-lucide="x" class="w-4 h-4"></i></button>
               </div>
               <form onsubmit="submitVetForm(event)" class="space-y-3.5 text-xs">
-                <div>
-                  <label class="block font-semibold text-stone-600 mb-1">Select Animal *</label>
-                  <select id="vetAnimalSelect" required class="w-full px-3 py-2.5 rounded-xl bg-stone-50 border border-paw-100">
-                    ${animals.map(a => `<option value="${a.Animal_ID}|${a.Name}">${a.Animal_ID} — ${a.Name}</option>`).join('')}
-                  </select>
-                </div>
+                <select id="vetAnimalSelect" required class="w-full px-3 py-2.5 rounded-xl bg-cream-50 border border-paw-100">
+                  ${animals.map(a => `<option value="${a.Animal_ID}|${a.Name}">${a.Animal_ID} — ${a.Name}</option>`).join('')}
+                </select>
                 <div class="grid grid-cols-2 gap-3">
-                  <div>
-                    <label class="block font-semibold text-stone-600 mb-1">Record Type *</label>
-                    <select id="vetType" class="w-full px-3 py-2.5 rounded-xl bg-stone-50 border border-paw-100">
-                      <option value="Vaccination">Vaccination</option>
-                      <option value="Treatment">Treatment</option>
-                      <option value="Surgery">Surgery</option>
-                      <option value="Sterilization">Sterilization (ABC)</option>
-                      <option value="Deworming">Deworming</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label class="block font-semibold text-stone-600 mb-1">Next Booster / Follow-up Date</label>
-                    <input type="date" id="vetNextDate" class="w-full px-3 py-2.5 rounded-xl bg-stone-50 border border-paw-100" />
-                  </div>
-                </div>
-                <div>
-                  <label class="block font-semibold text-stone-600 mb-1">Treatment / Vaccine Name *</label>
-                  <input type="text" id="vetTitle" required placeholder="e.g., 7-in-1 Booster / Wound Dressing" class="w-full px-3 py-2.5 rounded-xl bg-stone-50 border border-paw-100" />
-                </div>
-                <div class="grid grid-cols-2 gap-3">
-                  <div>
-                    <label class="block font-semibold text-stone-600 mb-1">Vet Clinic *</label>
-                    <input type="text" id="vetClinic" required placeholder="Clinic name" class="w-full px-3 py-2.5 rounded-xl bg-stone-50 border border-paw-100" />
-                  </div>
-                  <div>
-                    <label class="block font-semibold text-stone-600 mb-1">Expense Amount (₹)</label>
-                    <input type="number" id="vetExpense" min="0" value="0" class="w-full px-3 py-2.5 rounded-xl bg-stone-50 border border-paw-100" />
-                  </div>
-                </div>
-                <div>
-                  <label class="block font-semibold text-stone-600 mb-1">Payment Status</label>
-                  <select id="vetPayStatus" class="w-full px-3 py-2.5 rounded-xl bg-stone-50 border border-paw-100">
-                    <option value="Paid">Paid (Auto-logs to Expense Ledger)</option>
-                    <option value="Pending Funding">Pending Funding (Shows on Public Bills)</option>
+                  <select id="vetType" class="w-full px-3 py-2.5 rounded-xl bg-cream-50 border border-paw-100">
+                    <option value="Vaccination">Vaccination</option>
+                    <option value="Treatment">Treatment</option>
+                    <option value="Surgery">Surgery</option>
+                    <option value="Sterilization">Sterilization</option>
+                    <option value="Deworming">Deworming</option>
                   </select>
+                  <input type="date" id="vetNextDate" class="w-full px-3 py-2.5 rounded-xl bg-cream-50 border border-paw-100" />
                 </div>
-                <div>
-                  <label class="block font-semibold text-stone-600 mb-1">Upload Bill / Prescription Photo</label>
-                  <input type="file" id="vetBillFile" accept="image/*" class="w-full text-xs" />
+                <input type="text" id="vetTitle" required placeholder="Treatment / Vaccine Title *" class="w-full px-3 py-2.5 rounded-xl bg-cream-50 border border-paw-100" />
+                <div class="grid grid-cols-2 gap-3">
+                  <input type="text" id="vetClinic" required placeholder="Vet Clinic *" class="w-full px-3 py-2.5 rounded-xl bg-cream-50 border border-paw-100" />
+                  <input type="number" id="vetExpense" min="0" value="0" placeholder="Expense (₹)" class="w-full px-3 py-2.5 rounded-xl bg-cream-50 border border-paw-100" />
                 </div>
-                <textarea id="vetNotes" rows="2" placeholder="Doctor instructions & dosage..." class="w-full px-3 py-2.5 rounded-xl bg-stone-50 border border-paw-100"></textarea>
+                <select id="vetPayStatus" class="w-full px-3 py-2.5 rounded-xl bg-cream-50 border border-paw-100">
+                  <option value="Paid">Paid (Auto-logs to Expense Ledger)</option>
+                  <option value="Pending Funding">Pending Funding (Shows on Donate & Bills)</option>
+                </select>
+                <input type="file" id="vetBillFile" accept="image/*" class="w-full text-xs" />
+                <textarea id="vetNotes" rows="2" placeholder="Doctor instructions..." class="w-full px-3 py-2.5 rounded-xl bg-cream-50 border border-paw-100"></textarea>
                 <button type="submit" id="saveVetBtn" class="btn-press w-full py-3.5 rounded-2xl bg-paw-600 text-white font-display font-bold text-sm">Save Vet Record</button>
               </form>
             </div>
@@ -1452,8 +1697,6 @@
         if (!session) return;
         const btn = document.getElementById('saveVetBtn');
         btn.disabled = true;
-        btn.textContent = 'Saving...';
-
         const [animalId, animalName] = document.getElementById('vetAnimalSelect').value.split('|');
         const billFile = document.getElementById('vetBillFile').files[0];
         const billPhotoBase64 = billFile ? await compressImageFile(billFile) : null;
@@ -1476,18 +1719,14 @@
             billPhotoBase64
           })
         }, 2);
-
         if (res.status === 'success') {
           closeModal();
           await syncDatabase(true);
           showToast(res.message);
-        } else {
-          showToast(res.message || 'Error saving vet record');
-          btn.disabled = false;
         }
       };
 
-      // ADD FOSTER / BOARDING / CLINIC MODAL (Module 2)
+      // LOCATION / FOSTER FORM MODAL
       window.openLocationFormModal = function () {
         modalsMount.innerHTML = `
           <div class="modal-backdrop open fixed inset-0 z-50 bg-stone-900/65 backdrop-blur-xs flex items-end justify-center" onclick="if(event.target===this) closeModal()">
@@ -1498,26 +1737,20 @@
               </div>
               <form onsubmit="submitLocationForm(event)" class="space-y-3.5 text-xs">
                 <div class="grid grid-cols-2 gap-3">
-                  <div>
-                    <label class="block font-semibold text-stone-600 mb-1">Facility Type *</label>
-                    <select id="locType" class="w-full px-3 py-2.5 rounded-xl bg-stone-50 border border-paw-100">
-                      <option value="Foster Home">Foster Home</option>
-                      <option value="Boarding">Boarding Facility</option>
-                      <option value="Vet Clinic">Partner Vet Clinic</option>
-                      <option value="Shelter">Shelter Zone</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label class="block font-semibold text-stone-600 mb-1">Max Pet Capacity *</label>
-                    <input type="number" id="locCap" required min="1" value="2" class="w-full px-3 py-2.5 rounded-xl bg-stone-50 border border-paw-100" />
-                  </div>
+                  <select id="locType" class="w-full px-3 py-2.5 rounded-xl bg-cream-50 border border-paw-100">
+                    <option value="Foster Home">Foster Home</option>
+                    <option value="Boarding">Boarding Facility</option>
+                    <option value="Vet Clinic">Partner Vet Clinic</option>
+                    <option value="Shelter">Shelter Zone</option>
+                  </select>
+                  <input type="number" id="locCap" required min="1" value="2" placeholder="Capacity" class="w-full px-3 py-2.5 rounded-xl bg-cream-50 border border-paw-100" />
                 </div>
-                <input type="text" id="locName" required placeholder="Foster Parent / Clinic / Boarding Name *" class="w-full px-3 py-2.5 rounded-xl bg-stone-50 border border-paw-100" />
+                <input type="text" id="locName" required placeholder="Foster Parent / Facility Name *" class="w-full px-3 py-2.5 rounded-xl bg-cream-50 border border-paw-100" />
                 <div class="grid grid-cols-2 gap-3">
-                  <input type="text" id="locContact" required placeholder="Contact Person *" class="w-full px-3 py-2.5 rounded-xl bg-stone-50 border border-paw-100" />
-                  <input type="tel" id="locPhone" required placeholder="Phone Number *" class="w-full px-3 py-2.5 rounded-xl bg-stone-50 border border-paw-100" />
+                  <input type="text" id="locContact" required placeholder="Contact Person *" class="w-full px-3 py-2.5 rounded-xl bg-cream-50 border border-paw-100" />
+                  <input type="tel" id="locPhone" required placeholder="Phone *" class="w-full px-3 py-2.5 rounded-xl bg-cream-50 border border-paw-100" />
                 </div>
-                <input type="text" id="locArea" required placeholder="Area & Landmark *" class="w-full px-3 py-2.5 rounded-xl bg-stone-50 border border-paw-100" />
+                <input type="text" id="locArea" required placeholder="Area / Address *" class="w-full px-3 py-2.5 rounded-xl bg-cream-50 border border-paw-100" />
                 <button type="submit" class="btn-press w-full py-3.5 rounded-2xl bg-paw-600 text-white font-display font-bold text-sm">Save Location</button>
               </form>
             </div>
@@ -1544,14 +1777,10 @@
             areaAddress: document.getElementById('locArea').value.trim()
           })
         }, 2);
-        if (res.status === 'success') {
-          closeModal();
-          await syncDatabase(true);
-          showToast('Location added!');
-        }
+        if (res.status === 'success') { closeModal(); await syncDatabase(true); showToast('Location saved!'); }
       };
 
-      // ADD FINANCE TRANSACTION MODAL (Module 4)
+      // FINANCE TXN MODAL
       window.openFinanceFormModal = function () {
         modalsMount.innerHTML = `
           <div class="modal-backdrop open fixed inset-0 z-50 bg-stone-900/65 backdrop-blur-xs flex items-end justify-center" onclick="if(event.target===this) closeModal()">
@@ -1562,28 +1791,28 @@
               </div>
               <form onsubmit="submitFinanceForm(event)" class="space-y-3.5 text-xs">
                 <div class="grid grid-cols-2 gap-3">
-                  <select id="finType" class="w-full px-3 py-2.5 rounded-xl bg-stone-50 border border-paw-100 font-bold">
+                  <select id="finType" class="w-full px-3 py-2.5 rounded-xl bg-cream-50 border border-paw-100 font-bold">
                     <option value="Donation">Donation (+ Income)</option>
                     <option value="Expense">Expense (- Outflow)</option>
                   </select>
-                  <input type="number" id="finAmount" required min="1" placeholder="Amount (₹) *" class="w-full px-3 py-2.5 rounded-xl bg-stone-50 border border-paw-100" />
+                  <input type="number" id="finAmount" required min="1" placeholder="Amount (₹) *" class="w-full px-3 py-2.5 rounded-xl bg-cream-50 border border-paw-100" />
                 </div>
                 <div class="grid grid-cols-2 gap-3">
-                  <select id="finCategory" class="w-full px-3 py-2.5 rounded-xl bg-stone-50 border border-paw-100">
+                  <select id="finCategory" class="w-full px-3 py-2.5 rounded-xl bg-cream-50 border border-paw-100">
                     <option value="Public Donation">Public Donation</option>
                     <option value="Food & Supplies">Food & Supplies</option>
                     <option value="Boarding Fee">Boarding Fee</option>
                     <option value="Rescue Transport">Rescue Transport</option>
                     <option value="Medicine & Kits">Medicine & Kits</option>
                   </select>
-                  <select id="finMode" class="w-full px-3 py-2.5 rounded-xl bg-stone-50 border border-paw-100">
-                    <option value="UPI">UPI / GPay / PhonePe</option>
+                  <select id="finMode" class="w-full px-3 py-2.5 rounded-xl bg-cream-50 border border-paw-100">
+                    <option value="UPI">UPI</option>
                     <option value="Bank Transfer">Bank Transfer</option>
                     <option value="Cash">Cash</option>
                   </select>
                 </div>
-                <input type="text" id="finParty" required placeholder="Donor Name or Vendor Name *" class="w-full px-3 py-2.5 rounded-xl bg-stone-50 border border-paw-100" />
-                <input type="text" id="finNotes" placeholder="Purpose / UPI Ref ID / Notes" class="w-full px-3 py-2.5 rounded-xl bg-stone-50 border border-paw-100" />
+                <input type="text" id="finParty" required placeholder="Donor or Vendor Name *" class="w-full px-3 py-2.5 rounded-xl bg-cream-50 border border-paw-100" />
+                <input type="text" id="finNotes" placeholder="Notes / Reference ID" class="w-full px-3 py-2.5 rounded-xl bg-cream-50 border border-paw-100" />
                 <button type="submit" class="btn-press w-full py-3.5 rounded-2xl bg-paw-600 text-white font-display font-bold text-sm">Record Transaction</button>
               </form>
             </div>
@@ -1610,14 +1839,10 @@
             notes: document.getElementById('finNotes').value.trim()
           })
         }, 2);
-        if (res.status === 'success') {
-          closeModal();
-          await syncDatabase(true);
-          showToast(res.message);
-        }
+        if (res.status === 'success') { closeModal(); await syncDatabase(true); showToast(res.message); }
       };
 
-      // PUBLIC ADOPTION / FOSTER APPLICATION MODAL (Module 5A)
+      // PUBLIC ADOPTION APPLY MODAL
       window.openAdoptionApplyModal = function (animalId, animalName, inquiryType) {
         modalsMount.innerHTML = `
           <div class="modal-backdrop open fixed inset-0 z-50 bg-stone-900/65 backdrop-blur-xs flex items-end justify-center" onclick="if(event.target===this) closeModal()">
@@ -1630,19 +1855,19 @@
                 <button type="button" onclick="closeModal()" class="w-8 h-8 rounded-full bg-stone-100 text-stone-500 flex items-center justify-center"><i data-lucide="x" class="w-4 h-4"></i></button>
               </div>
               <form onsubmit="submitPublicAdoption(event, '${animalId}', '${animalName.replace(/'/g, "\\'")}', '${inquiryType}')" class="space-y-3.5 text-xs">
-                <input type="text" id="pubAppName" required placeholder="Your Full Name *" class="w-full px-3.5 py-2.5 rounded-xl bg-stone-50 border border-paw-100" />
+                <input type="text" id="pubAppName" required placeholder="Your Full Name *" class="w-full px-3.5 py-2.5 rounded-xl bg-cream-50 border border-paw-100" />
                 <div class="grid grid-cols-2 gap-3">
-                  <input type="tel" id="pubAppPhone" required pattern="[0-9]{10}" maxlength="10" placeholder="10-digit WhatsApp *" class="w-full px-3.5 py-2.5 rounded-xl bg-stone-50 border border-paw-100" />
-                  <input type="text" id="pubAppAgeJob" required placeholder="Age & Occupation *" class="w-full px-3.5 py-2.5 rounded-xl bg-stone-50 border border-paw-100" />
+                  <input type="tel" id="pubAppPhone" required pattern="[0-9]{10}" maxlength="10" placeholder="10-digit WhatsApp *" class="w-full px-3.5 py-2.5 rounded-xl bg-cream-50 border border-paw-100" />
+                  <input type="text" id="pubAppAgeJob" required placeholder="Age & Occupation *" class="w-full px-3.5 py-2.5 rounded-xl bg-cream-50 border border-paw-100" />
                 </div>
-                <textarea id="pubAppAddr" required rows="2" placeholder="Complete Address & Locality *" class="w-full px-3.5 py-2.5 rounded-xl bg-stone-50 border border-paw-100"></textarea>
-                <select id="pubAppHousing" required class="w-full px-3.5 py-2.5 rounded-xl bg-stone-50 border border-paw-100">
+                <textarea id="pubAppAddr" required rows="2" placeholder="Complete Address & Locality *" class="w-full px-3.5 py-2.5 rounded-xl bg-cream-50 border border-paw-100"></textarea>
+                <select id="pubAppHousing" required class="w-full px-3.5 py-2.5 rounded-xl bg-cream-50 border border-paw-100">
                   <option value="">Select Home & Balcony Safety *</option>
                   <option value="Apartment (Fully Netted)">Apartment (Fully Netted)</option>
                   <option value="Apartment (Will Install Net)">Apartment (Will Install Net)</option>
                   <option value="Independent House (Fenced)">Independent House (Fenced)</option>
                 </select>
-                <textarea id="pubAppExp" required rows="2" placeholder="Existing pets, family agreement & care plan *" class="w-full px-3.5 py-2.5 rounded-xl bg-stone-50 border border-paw-100"></textarea>
+                <textarea id="pubAppExp" required rows="2" placeholder="Existing pets, family agreement & care plan *" class="w-full px-3.5 py-2.5 rounded-xl bg-cream-50 border border-paw-100"></textarea>
                 <label class="flex items-start gap-2 cursor-pointer">
                   <input type="checkbox" required class="mt-0.5 rounded text-paw-600" />
                   <span class="text-[11px] text-stone-600">I agree to vaccinations, sterilization, house checks, and 30D/90D post-adoption follow-ups.</span>
@@ -1673,17 +1898,13 @@
             petExperience: document.getElementById('pubAppExp').value.trim()
           })
         }, 2);
-        if (res.status === 'success') {
-          closeModal();
-          showToast(res.message);
-        }
+        if (res.status === 'success') { closeModal(); showToast(res.message); }
       };
 
-      // COORDINATOR ADOPTION SCREENING & FOLLOW-UP MODAL (Module 5B)
+      // COORDINATOR SCREENING MODAL
       window.openScreeningModal = function (appId) {
         const app = (appState.adoptions || []).find(a => String(a.App_ID) === String(appId));
         if (!app) return;
-
         modalsMount.innerHTML = `
           <div class="modal-backdrop open fixed inset-0 z-50 bg-stone-900/65 backdrop-blur-xs flex items-end justify-center" onclick="if(event.target===this) closeModal()">
             <div class="modal-sheet w-full max-w-md bg-white rounded-t-3xl p-6 space-y-4 shadow-2xl">
@@ -1692,26 +1913,17 @@
                 <button type="button" onclick="closeModal()" class="w-8 h-8 rounded-full bg-stone-100 text-stone-500 flex items-center justify-center"><i data-lucide="x" class="w-4 h-4"></i></button>
               </div>
               <form onsubmit="submitScreeningUpdate(event, '${app.App_ID}', '${app.Animal_ID}', '${String(app.Applicant_Name).replace(/'/g, "\\'")}')" class="space-y-3.5 text-xs">
-                <div>
-                  <label class="block font-semibold text-stone-600 mb-1">Screening Stage</label>
-                  <select id="scrStatus" class="w-full px-3 py-2.5 rounded-xl bg-stone-50 border border-paw-100 font-semibold">
-                    ${['New Enquiry', 'Call Done', 'House Check Scheduled', 'Approved', 'Adopted', 'Rejected'].map(s => `<option value="${s}" ${app.Screening_Status === s ? 'selected' : ''}>${s}</option>`).join('')}
-                  </select>
-                </div>
-                <textarea id="scrNotes" rows="2" placeholder="House check & interview notes..." class="w-full px-3 py-2.5 rounded-xl bg-stone-50 border border-paw-100">${app.Screening_Notes || ''}</textarea>
+                <select id="scrStatus" class="w-full px-3 py-2.5 rounded-xl bg-cream-50 border border-paw-100 font-semibold">
+                  ${['New Enquiry', 'Call Done', 'House Check Scheduled', 'Approved', 'Adopted', 'Rejected'].map(s => `<option value="${s}" ${app.Screening_Status === s ? 'selected' : ''}>${s}</option>`).join('')}
+                </select>
+                <textarea id="scrNotes" rows="2" placeholder="Screening notes..." class="w-full px-3 py-2.5 rounded-xl bg-cream-50 border border-paw-100">${app.Screening_Notes || ''}</textarea>
                 <div class="grid grid-cols-2 gap-3">
-                  <div>
-                    <label class="block font-semibold text-stone-600 mb-1">30-Day Follow-Up</label>
-                    <select id="scr30d" class="w-full px-3 py-2.5 rounded-xl bg-stone-50 border border-paw-100">
-                      ${['Pending', 'Completed - Healthy', 'Needs Vet Check'].map(s => `<option value="${s}" ${app.Followup_30D_Status === s ? 'selected' : ''}>${s}</option>`).join('')}
-                    </select>
-                  </div>
-                  <div>
-                    <label class="block font-semibold text-stone-600 mb-1">90-Day Follow-Up</label>
-                    <select id="scr90d" class="w-full px-3 py-2.5 rounded-xl bg-stone-50 border border-paw-100">
-                      ${['Pending', 'Completed - Thriving', 'Sterilization Verified'].map(s => `<option value="${s}" ${app.Followup_90D_Status === s ? 'selected' : ''}>${s}</option>`).join('')}
-                    </select>
-                  </div>
+                  <select id="scr30d" class="w-full px-3 py-2.5 rounded-xl bg-cream-50 border border-paw-100">
+                    ${['Pending', 'Completed - Healthy', 'Needs Vet Check'].map(s => `<option value="${s}" ${app.Followup_30D_Status === s ? 'selected' : ''}>30D: ${s}</option>`).join('')}
+                  </select>
+                  <select id="scr90d" class="w-full px-3 py-2.5 rounded-xl bg-cream-50 border border-paw-100">
+                    ${['Pending', 'Completed - Thriving', 'Sterilization Verified'].map(s => `<option value="${s}" ${app.Followup_90D_Status === s ? 'selected' : ''}>90D: ${s}</option>`).join('')}
+                  </select>
                 </div>
                 <button type="submit" class="btn-press w-full py-3.5 rounded-2xl bg-paw-600 text-white font-display font-bold text-sm">Update Pipeline</button>
               </form>
@@ -1740,14 +1952,10 @@
             followup90D: document.getElementById('scr90d').value
           })
         }, 2);
-        if (res.status === 'success') {
-          closeModal();
-          await syncDatabase(true);
-          showToast('Adoption & follow-up updated!');
-        }
+        if (res.status === 'success') { closeModal(); await syncDatabase(true); showToast('Updated!'); }
       };
 
-      // VOLUNTEER TASK MODAL & COMPLETION (Module 6)
+      // VOLUNTEER TASK MODAL
       window.openTaskFormModal = function () {
         modalsMount.innerHTML = `
           <div class="modal-backdrop open fixed inset-0 z-50 bg-stone-900/65 backdrop-blur-xs flex items-end justify-center" onclick="if(event.target===this) closeModal()">
@@ -1757,26 +1965,22 @@
                 <button type="button" onclick="closeModal()" class="w-8 h-8 rounded-full bg-stone-100 text-stone-500 flex items-center justify-center"><i data-lucide="x" class="w-4 h-4"></i></button>
               </div>
               <form onsubmit="submitTaskForm(event)" class="space-y-3.5 text-xs">
-                <input type="text" id="tskTitle" required placeholder="Task Title (e.g., Take Bruno for 7-in-1 vaccine) *" class="w-full px-3 py-2.5 rounded-xl bg-stone-50 border border-paw-100" />
+                <input type="text" id="tskTitle" required placeholder="Task Title *" class="w-full px-3 py-2.5 rounded-xl bg-cream-50 border border-paw-100" />
                 <div class="grid grid-cols-2 gap-3">
-                  <select id="tskCat" class="w-full px-3 py-2.5 rounded-xl bg-stone-50 border border-paw-100">
+                  <select id="tskCat" class="w-full px-3 py-2.5 rounded-xl bg-cream-50 border border-paw-100">
                     <option value="Rescue & Transport">Rescue & Transport</option>
                     <option value="Vet Visit">Vet Visit</option>
                     <option value="Feeding Run">Feeding Run</option>
                     <option value="Home Check">Home Check</option>
                   </select>
-                  <select id="tskPriority" class="w-full px-3 py-2.5 rounded-xl bg-stone-50 border border-paw-100">
+                  <select id="tskPriority" class="w-full px-3 py-2.5 rounded-xl bg-cream-50 border border-paw-100">
                     <option value="Urgent">Urgent</option>
                     <option value="High">High</option>
                     <option value="Normal" selected>Normal</option>
                   </select>
                 </div>
-                <div class="grid grid-cols-2 gap-3">
-                  <input type="text" id="tskAnimal" placeholder="Animal Name (Optional)" class="w-full px-3 py-2.5 rounded-xl bg-stone-50 border border-paw-100" />
-                  <input type="date" id="tskDue" class="w-full px-3 py-2.5 rounded-xl bg-stone-50 border border-paw-100" />
-                </div>
-                <input type="text" id="tskArea" required placeholder="Area / Clinic Location *" class="w-full px-3 py-2.5 rounded-xl bg-stone-50 border border-paw-100" />
-                <input type="text" id="tskAssignee" placeholder="Assign Volunteer Name (or leave Open)" class="w-full px-3 py-2.5 rounded-xl bg-stone-50 border border-paw-100" />
+                <input type="text" id="tskArea" required placeholder="Area / Clinic Location *" class="w-full px-3 py-2.5 rounded-xl bg-cream-50 border border-paw-100" />
+                <input type="text" id="tskAssignee" placeholder="Assign Volunteer Name (or leave Open)" class="w-full px-3 py-2.5 rounded-xl bg-cream-50 border border-paw-100" />
                 <button type="submit" class="btn-press w-full py-3.5 rounded-2xl bg-paw-600 text-white font-display font-bold text-sm">Publish Task</button>
               </form>
             </div>
@@ -1798,17 +2002,11 @@
             title: document.getElementById('tskTitle').value.trim(),
             category: document.getElementById('tskCat').value,
             priority: document.getElementById('tskPriority').value,
-            linkedAnimalName: document.getElementById('tskAnimal').value.trim(),
-            dueDate: document.getElementById('tskDue').value,
             areaLocation: document.getElementById('tskArea').value.trim(),
             assignedTo: document.getElementById('tskAssignee').value.trim() || 'Open'
           })
         }, 2);
-        if (res.status === 'success') {
-          closeModal();
-          await syncDatabase(true);
-          showToast('Task assigned!');
-        }
+        if (res.status === 'success') { closeModal(); await syncDatabase(true); showToast('Task assigned!'); }
       };
 
       window.quickCompleteTask = async function (taskId) {
@@ -1817,31 +2015,18 @@
         const res = await fetchWithRetry(API_URL, {
           method: 'POST',
           headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-          body: JSON.stringify({
-            action: 'SAVE_TASK',
-            pin: session.pin,
-            taskId,
-            status: 'Completed'
-          })
+          body: JSON.stringify({ action: 'SAVE_TASK', pin: session.pin, taskId, status: 'Completed' })
         }, 2);
-        if (res.status === 'success') {
-          await syncDatabase(true);
-          showToast('Task marked completed!');
-        }
+        if (res.status === 'success') { await syncDatabase(true); showToast('Task completed!'); }
       };
 
-      // 5-Tap Secret Trigger
-      let tapCount = 0;
-      let tapTimer = null;
+      // 5-Tap Secret Trigger on Logo
+      let tapCount = 0, tapTimer = null;
       document.getElementById('brandLogoTrigger').addEventListener('click', () => {
         tapCount++;
         clearTimeout(tapTimer);
-        if (tapCount >= 5) {
-          tapCount = 0;
-          openPinPrompt('unlock');
-        } else {
-          tapTimer = setTimeout(() => { tapCount = 0; }, 1500);
-        }
+        if (tapCount >= 5) { tapCount = 0; openPinPrompt('unlock'); }
+        else { tapTimer = setTimeout(() => { tapCount = 0; }, 1500); }
       });
 
       let toastTimer;
@@ -1857,7 +2042,6 @@
         }, 3000);
       };
 
-      // Boot
       if (new URLSearchParams(window.location.search).get('team') === '1' && !getSession()) {
         openPinPrompt('unlock');
       }
