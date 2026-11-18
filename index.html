@@ -154,10 +154,10 @@
             </svg>
           </button>
 
-          <!-- HAMBURGER DRAWER (5 Guides + Enquiries + Instagram & Facebook + Team Login) -->
+          <!-- HAMBURGER DRAWER -->
           <div id="navDropdown" class="dropdown-menu absolute right-0 mt-2 w-72 max-h-[78vh] overflow-y-auto overscroll-contain bg-white rounded-2xl shadow-2xl border border-stone-200/90 py-3 z-50">
             
-            <!-- 1. MENU (5 Information Guides — No Duplicate Bottom Tabs) -->
+            <!-- 1. MENU (5 Information Guides) -->
             <div class="px-3.5 pb-2.5 border-b border-stone-100 space-y-0.5">
               <p class="px-2 pb-1 text-[10px] font-bold uppercase tracking-wider text-stone-400">Menu</p>
               
@@ -318,27 +318,35 @@
       </section>
 
       <!-- ============================================================== -->
-      <!-- TAB 2: LIST YOUR RESCUE / PET FOR ADOPTION                     -->
+      <!-- TAB 2: LIST YOUR RESCUE / PET FOR ADOPTION (Full Disclaimers & All Mandatory Fields) -->
       <!-- ============================================================== -->
       <section id="tab-listpet" class="tab-pane space-y-5">
-        <div class="bg-white rounded-3xl border border-stone-200/80 p-5 shadow-2xs space-y-1.5">
-          <span class="text-[11px] font-bold uppercase tracking-wider text-paw-600">Coordinator Reviewed</span>
-          <h2 class="font-display font-bold text-base text-stone-900">List Your Rescue / Pet for Adoption</h2>
-          <p class="text-xs text-stone-500 leading-relaxed">
-            All fields and a clear photo are mandatory. Once submitted, our coordinators review and approve your listing before it goes live on the Adopt tab.
+        
+        <!-- Intro & Crucial Notes Banner (Matches Screenshot) -->
+        <div class="bg-white rounded-3xl border border-stone-200/80 p-5 shadow-2xs space-y-3">
+          <h2 class="font-display font-extrabold text-xl text-stone-900 leading-tight">List Your Rescue/Pet</h2>
+          <p class="text-xs text-stone-600 leading-relaxed">
+            Please read the terms and conditions carefully, before sharing the details to list your rescued or pet animal with us for adoption.
           </p>
+          <div class="bg-rose-50/80 border border-rose-200/80 rounded-2xl p-3.5 space-y-1.5 text-xs">
+            <p class="font-bold text-rose-800">NOTE: We do not take rescue requests.</p>
+            <p class="font-bold text-stone-800">NOTE: Listing request can be submitted only by individuals more than 25 years.</p>
+          </div>
         </div>
 
+        <!-- Complete Mandatory Listing Form -->
         <form id="publicListPetForm" onsubmit="handlePublicListPetSubmit(event)" class="bg-white p-5 rounded-3xl border border-stone-200/80 shadow-2xs space-y-4 text-xs">
+          
+          <!-- Mandatory Pet Photo -->
           <div class="space-y-1.5">
-            <label class="block font-semibold text-stone-700">Pet Photo <span class="text-rose-600">*</span></label>
+            <label class="block font-semibold text-stone-700">Pet / Rescue Photo <span class="text-rose-600">*</span></label>
             <label for="lpPhotoInput" class="btn-press relative flex flex-col items-center justify-center w-full h-40 rounded-2xl border-2 border-dashed border-stone-300 hover:border-paw-500 bg-canvas-50 cursor-pointer overflow-hidden transition">
               <div id="lpUploadPlaceholder" class="flex flex-col items-center justify-center p-4 text-center space-y-1.5">
                 <div class="w-10 h-10 rounded-full bg-paw-50 text-paw-600 flex items-center justify-center">
                   <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
                 </div>
                 <p class="text-xs font-semibold text-stone-700">Tap to upload a clear photo *</p>
-                <p class="text-[11px] text-stone-400">Visible to coordinators during approval</p>
+                <p class="text-[11px] text-stone-400">Visible to coordinators during review</p>
               </div>
               <img id="lpPhotoPreview" class="hidden w-full h-full object-cover" alt="Pet Preview" />
               <button type="button" id="lpClearPhotoBtn" onclick="clearLpPhoto(event)" class="hidden absolute top-2.5 right-2.5 w-8 h-8 rounded-full bg-stone-900/75 text-white flex items-center justify-center text-xs font-bold">✕</button>
@@ -369,40 +377,130 @@
             </div>
             <div>
               <label class="block font-semibold text-stone-700 mb-1.5">Age & Gender <span class="text-rose-600">*</span></label>
-              <input type="text" id="lpAge" required placeholder="e.g., 3 Months • Female" class="w-full px-3.5 py-2.5 rounded-xl bg-canvas-50 border border-stone-200 focus:bg-white focus:border-paw-600 focus:outline-none" />
-            </div>
-          </div>
-
-          <div class="grid grid-cols-2 gap-3">
-            <div>
-              <label class="block font-semibold text-stone-700 mb-1.5">Vaccination / Sterilization <span class="text-rose-600">*</span></label>
-              <input type="text" id="lpHealth" required placeholder="e.g., Dewormed, 1st vaccine" class="w-full px-3.5 py-2.5 rounded-xl bg-canvas-50 border border-stone-200 focus:bg-white focus:border-paw-600 focus:outline-none" />
-            </div>
-            <div>
-              <label class="block font-semibold text-stone-700 mb-1.5">Area / Locality <span class="text-rose-600">*</span></label>
-              <input type="text" id="lpArea" required placeholder="e.g., Kondapur" class="w-full px-3.5 py-2.5 rounded-xl bg-canvas-50 border border-stone-200 focus:bg-white focus:border-paw-600 focus:outline-none" />
+              <input type="text" id="lpAge" required placeholder="e.g., 5 Months • Male" class="w-full px-3.5 py-2.5 rounded-xl bg-canvas-50 border border-stone-200 focus:bg-white focus:border-paw-600 focus:outline-none" />
             </div>
           </div>
 
           <div>
-            <label class="block font-semibold text-stone-700 mb-1.5">Story, Temperament & Reason for Rehoming <span class="text-rose-600">*</span></label>
-            <textarea id="lpStory" required rows="3" placeholder="Share rescue background, friendliness with kids/pets, diet, and reason for adoption..." class="w-full px-3.5 py-2.5 rounded-xl bg-canvas-50 border border-stone-200 focus:bg-white focus:border-paw-600 focus:outline-none"></textarea>
+            <label class="block font-semibold text-stone-700 mb-1.5">Area / Locality <span class="text-rose-600">*</span></label>
+            <input type="text" id="lpArea" required placeholder="e.g., Kondapur, Hyderabad" class="w-full px-3.5 py-2.5 rounded-xl bg-canvas-50 border border-stone-200 focus:bg-white focus:border-paw-600 focus:outline-none" />
           </div>
 
+          <!-- Mandatory Training & Sterilization Questions -->
           <div class="grid grid-cols-2 gap-3">
             <div>
-              <label class="block font-semibold text-stone-700 mb-1.5">Your Full Name <span class="text-rose-600">*</span></label>
-              <input type="text" id="lpOwnerName" required placeholder="Rescuer / Guardian" class="w-full px-3.5 py-2.5 rounded-xl bg-canvas-50 border border-stone-200 focus:bg-white focus:border-paw-600 focus:outline-none" />
+              <label class="block font-semibold text-stone-700 mb-1.5">Neutered / Spayed? <span class="text-rose-600">*</span></label>
+              <select id="lpNeutered" required class="w-full px-3.5 py-2.5 rounded-xl bg-canvas-50 border border-stone-200 focus:bg-white focus:border-paw-600 focus:outline-none">
+                <option value="">Select Yes / No</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select>
             </div>
             <div>
-              <label class="block font-semibold text-stone-700 mb-1.5">WhatsApp Number <span class="text-rose-600">*</span></label>
-              <input type="tel" id="lpOwnerPhone" required pattern="[0-9]{10}" maxlength="10" placeholder="10-digit mobile" class="w-full px-3.5 py-2.5 rounded-xl bg-canvas-50 border border-stone-200 focus:bg-white focus:border-paw-600 focus:outline-none" />
+              <label class="block font-semibold text-stone-700 mb-1.5">Leash Trained? <span class="text-rose-600">*</span></label>
+              <select id="lpLeash" required class="w-full px-3.5 py-2.5 rounded-xl bg-canvas-50 border border-stone-200 focus:bg-white focus:border-paw-600 focus:outline-none">
+                <option value="">Select Yes / No</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label class="block font-semibold text-stone-700 mb-1.5">House Trained / Litter Trained / Pee-Potty Trained? <span class="text-rose-600">*</span></label>
+            <select id="lpHouseTrained" required class="w-full px-3.5 py-2.5 rounded-xl bg-canvas-50 border border-stone-200 focus:bg-white focus:border-paw-600 focus:outline-none">
+              <option value="">Select Yes / No</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block font-semibold text-stone-700 mb-1.5">Past & Current Health Status + Vaccination Disclosure <span class="text-rose-600">*</span></label>
+            <input type="text" id="lpHealth" required placeholder="Disclose vaccinations completed, misses, or past/current health issues..." class="w-full px-3.5 py-2.5 rounded-xl bg-canvas-50 border border-stone-200 focus:bg-white focus:border-paw-600 focus:outline-none" />
+          </div>
+
+          <div>
+            <label class="block font-semibold text-stone-700 mb-1.5">Nature / Behaviour (Friendly or Not?) <span class="text-rose-600">*</span></label>
+            <input type="text" id="lpNature" required placeholder="e.g., Very friendly with humans, kids & other dogs/cats; playful/shy..." class="w-full px-3.5 py-2.5 rounded-xl bg-canvas-50 border border-stone-200 focus:bg-white focus:border-paw-600 focus:outline-none" />
+          </div>
+
+          <div>
+            <label class="block font-semibold text-stone-700 mb-1.5">Food (What does he/she eat?) <span class="text-rose-600">*</span></label>
+            <input type="text" id="lpFood" required placeholder="e.g., Pedigree/Royal Canin kibble, curd rice, boiled chicken/egg..." class="w-full px-3.5 py-2.5 rounded-xl bg-canvas-50 border border-stone-200 focus:bg-white focus:border-paw-600 focus:outline-none" />
+          </div>
+
+          <div>
+            <label class="block font-semibold text-stone-700 mb-1.5">Reason for Adoption / Rescue Story <span class="text-rose-600">*</span></label>
+            <textarea id="lpStory" required rows="3" placeholder="Share complete rescue story or genuine reason for putting up for adoption..." class="w-full px-3.5 py-2.5 rounded-xl bg-canvas-50 border border-stone-200 focus:bg-white focus:border-paw-600 focus:outline-none"></textarea>
+          </div>
+
+          <div>
+            <label class="block font-semibold text-stone-700 mb-1.5">Any Special Request / Needs <span class="text-rose-600">*</span></label>
+            <textarea id="lpSpecialNeeds" required rows="2" placeholder="Specify any special home requirements, medical care, or write 'None'..." class="w-full px-3.5 py-2.5 rounded-xl bg-canvas-50 border border-stone-200 focus:bg-white focus:border-paw-600 focus:outline-none"></textarea>
+          </div>
+
+          <div>
+            <label class="block font-semibold text-stone-700 mb-1.5">Listed on Any Other Adoption Platforms? <span class="text-rose-600">*</span></label>
+            <input type="text" id="lpOtherPlatforms" required placeholder="e.g., No / Yes (specify Instagram, WhatsApp groups, etc.)" class="w-full px-3.5 py-2.5 rounded-xl bg-canvas-50 border border-stone-200 focus:bg-white focus:border-paw-600 focus:outline-none" />
+          </div>
+
+          <div>
+            <label class="block font-semibold text-stone-700 mb-1.5">Adoption Handling Preference <span class="text-rose-600">*</span></label>
+            <select id="lpHandling" required class="w-full px-3.5 py-2.5 rounded-xl bg-canvas-50 border border-stone-200 focus:bg-white focus:border-paw-600 focus:outline-none font-medium">
+              <option value="">Choose how you want leads handled...</option>
+              <option value="HappyPaws Team Assistance (Filter & verify leads)">Opt for HappyPaws Team Assistance (Filter & verify leads)</option>
+              <option value="Handle Adoption Myself">Handle Adoption Myself</option>
+            </select>
+          </div>
+
+          <!-- Guardian Details (Mandatory 25+ Age) -->
+          <div class="grid grid-cols-3 gap-2.5">
+            <div class="col-span-2">
+              <label class="block font-semibold text-stone-700 mb-1.5">Your Full Name <span class="text-rose-600">*</span></label>
+              <input type="text" id="lpOwnerName" required placeholder="Full Name" class="w-full px-3.5 py-2.5 rounded-xl bg-canvas-50 border border-stone-200 focus:bg-white focus:border-paw-600 focus:outline-none" />
+            </div>
+            <div>
+              <label class="block font-semibold text-stone-700 mb-1.5">Age (25+) <span class="text-rose-600">*</span></label>
+              <input type="number" id="lpOwnerAge" required min="25" max="100" placeholder="25+" class="w-full px-3 py-2.5 rounded-xl bg-canvas-50 border border-stone-200 focus:bg-white focus:border-paw-600 focus:outline-none" />
+            </div>
+          </div>
+
+          <div>
+            <label class="block font-semibold text-stone-700 mb-1.5">Your WhatsApp Number <span class="text-rose-600">*</span></label>
+            <input type="tel" id="lpOwnerPhone" required pattern="[0-9]{10}" maxlength="10" placeholder="10-digit mobile number" class="w-full px-3.5 py-2.5 rounded-xl bg-canvas-50 border border-stone-200 focus:bg-white focus:border-paw-600 focus:outline-none" />
+          </div>
+
+          <!-- Full Mandatory Terms & Conditions Box -->
+          <div class="bg-canvas-50 border border-stone-200 rounded-2xl p-4 space-y-3 text-[11px] text-stone-700 leading-relaxed max-h-64 overflow-y-auto">
+            <div class="space-y-1.5">
+              <p class="font-display font-bold text-xs text-paw-800 uppercase tracking-wide">Please INFORM us:</p>
+              <ul class="list-disc pl-4 space-y-1 text-stone-600">
+                <li>Once your pet/rescue gets adopted (through any source) kindly update us mandatorily. Until then our team will be continuously working to get them adopted which can take months.</li>
+                <li>If you are not looking to get your pet adopted anymore.</li>
+                <li>If your pet is listed on any other adoption platforms.</li>
+                <li>If you like to handle the adoption yourself or would like our team’s assistance in filtering and verifying the leads, and facilitating the adoption so that your pet goes to a safe and loving home.</li>
+                <li>In case you choose to handle it yourself, we cannot take responsibility of any breeder or student or fraudsters approaching you and taking possession of your pet.</li>
+                <li>If you choose to opt for our assistance, kindly be respectful of the experience we hold and abide by our processes.</li>
+              </ul>
+            </div>
+
+            <div class="space-y-1.5 pt-2 border-t border-stone-200/80">
+              <p class="font-display font-bold text-xs text-paw-800 uppercase tracking-wide">Please NOTE:</p>
+              <ul class="list-disc pl-4 space-y-1 text-stone-600">
+                <li>We do not take any responsibility (financial or otherwise) of your rescue or pet until he/she gets adopted.</li>
+                <li>Please honestly disclose about any past and current health status and misses in vaccinations, etc.</li>
+                <li>Please take a well thought out decision before your pet is handed over for adoption or trial (if successful, the pet continues at the same home and adoption formalities are completed to finalize the adoption).</li>
+                <li>Dropping out of a trial or completed handover will not be possible.</li>
+                <li>We shall be archiving/closing the adoption appeal in case you are unresponsive to our text/call regarding status or leads, or do not have clear responses for more than 3 iterations.</li>
+                <li>You can list your foreign breed dog/cat at a nominal charge of ₹100/pet. This amount goes into sponsoring medical/nutrition/transportation/foster care of our rescues until adoption.</li>
+              </ul>
             </div>
           </div>
 
           <label class="flex items-start gap-2.5 pt-1 cursor-pointer">
             <input type="checkbox" required class="w-4 h-4 mt-0.5 rounded text-paw-600 border-stone-300 shrink-0" />
-            <span class="text-[11px] text-stone-600 leading-snug">I confirm all details are accurate and understand HappyPaws coordinators will review & approve this listing before publishing. <span class="text-rose-600 font-bold">*</span></span>
+            <span class="text-[11px] font-medium text-stone-700 leading-snug">I am 25+ years old, have read all <strong>Please INFORM us</strong> & <strong>Please NOTE</strong> terms carefully, and agree to abide by HappyPaws processes. <span class="text-rose-600 font-bold">*</span></span>
           </label>
 
           <button type="submit" id="lpSubmitBtn" class="btn-press w-full py-3.5 rounded-2xl bg-paw-600 hover:bg-paw-700 text-white font-display font-bold text-sm shadow-md shadow-paw-600/20">
@@ -412,7 +510,7 @@
       </section>
 
       <!-- ============================================================== -->
-      <!-- TAB 3: LOST PET / FOUND RESCUE (All Mandatory + Photo + Maps + Date/Time + 2 Phones) -->
+      <!-- TAB 3: LOST PET / FOUND RESCUE (Photo + Maps + Date/Time + 2 Phones + Optional Medical) -->
       <!-- ============================================================== -->
       <section id="tab-lostfound" class="tab-pane space-y-5">
         <div>
@@ -421,7 +519,6 @@
         </div>
 
         <form id="lostFoundForm" onsubmit="handleLostFoundSubmit(event)" class="bg-white p-5 rounded-3xl border border-stone-200/80 shadow-2xs space-y-4 text-xs">
-          <!-- Report Type Toggle -->
           <div class="grid grid-cols-2 gap-2 p-1 bg-canvas-50 rounded-2xl border border-stone-200/70">
             <button type="button" id="lfTypeLost" onclick="setLfType('Lost Pet')" class="py-2.5 rounded-xl bg-paw-600 text-white font-bold text-xs transition">Lost Pet</button>
             <button type="button" id="lfTypeFound" onclick="setLfType('Found Rescue')" class="py-2.5 rounded-xl text-stone-600 font-semibold text-xs transition">Found Rescue</button>
@@ -430,7 +527,7 @@
 
           <!-- Mandatory Picture Upload -->
           <div class="space-y-1.5">
-            <label class="block font-semibold text-stone-700">Pet / Rescue Photo <span class="text-rose-600">*</span></label>
+            <label class="block font-semibold text-stone-700">Pet / Rescue Picture <span class="text-rose-600">*</span></label>
             <label for="lfPhotoInput" class="btn-press relative flex flex-col items-center justify-center w-full h-36 rounded-2xl border-2 border-dashed border-stone-300 hover:border-paw-500 bg-canvas-50 cursor-pointer overflow-hidden transition">
               <div id="lfUploadPlaceholder" class="flex flex-col items-center justify-center p-4 text-center space-y-1">
                 <div class="w-9 h-9 rounded-full bg-paw-50 text-paw-600 flex items-center justify-center">
@@ -456,7 +553,6 @@
             </div>
           </div>
 
-          <!-- Separate Date & Time Inputs -->
           <div class="grid grid-cols-2 gap-3">
             <div>
               <label class="block font-semibold text-stone-700 mb-1.5">Date Seen / Lost <span class="text-rose-600">*</span></label>
@@ -473,10 +569,9 @@
             <input type="text" id="lfLocation" required placeholder="e.g., Gachibowli Circle, near DLF Gate 2" class="w-full px-3.5 py-2.5 rounded-xl bg-canvas-50 border border-stone-200 focus:bg-white focus:border-paw-600 focus:outline-none" />
           </div>
 
-          <!-- Mandatory Google Maps Link -->
           <div>
             <label class="block font-semibold text-stone-700 mb-1.5">Google Maps Location Link <span class="text-rose-600">*</span></label>
-            <input type="url" id="lfMapsLink" required placeholder="Paste Google Maps pin link (https://maps.google.com/...)" class="w-full px-3.5 py-2.5 rounded-xl bg-canvas-50 border border-stone-200 focus:bg-white focus:border-paw-600 focus:outline-none" />
+            <input type="url" id="lfMapsLink" required placeholder="Paste Google Maps link (https://maps.google.com/...)" class="w-full px-3.5 py-2.5 rounded-xl bg-canvas-50 border border-stone-200 focus:bg-white focus:border-paw-600 focus:outline-none" />
           </div>
 
           <div>
@@ -484,7 +579,6 @@
             <textarea id="lfDetails" required rows="2" placeholder="Friendly or shy, responds to name, last direction headed..." class="w-full px-3.5 py-2.5 rounded-xl bg-canvas-50 border border-stone-200 focus:bg-white focus:border-paw-600 focus:outline-none"></textarea>
           </div>
 
-          <!-- Optional Medical Condition -->
           <div>
             <label class="block font-semibold text-stone-700 mb-1.5">Medical Condition <span class="text-stone-400 font-normal">(Optional)</span></label>
             <input type="text" id="lfMedical" placeholder="e.g., Limping, on daily medication, post-op..." class="w-full px-3.5 py-2.5 rounded-xl bg-canvas-50 border border-stone-200 focus:bg-white focus:border-paw-600 focus:outline-none" />
@@ -495,7 +589,6 @@
             <input type="text" id="lfContactName" required placeholder="Guardian / Finder Name" class="w-full px-3.5 py-2.5 rounded-xl bg-canvas-50 border border-stone-200 focus:bg-white focus:border-paw-600 focus:outline-none" />
           </div>
 
-          <!-- 2 Mandatory Mobile Numbers -->
           <div class="grid grid-cols-2 gap-3">
             <div>
               <label class="block font-semibold text-stone-700 mb-1.5">Mobile Number 1 <span class="text-rose-600">*</span></label>
@@ -741,7 +834,30 @@
     </main>
 
     <!-- BOTTOM NAVIGATION BAR -->
-    <nav id="bottomNav" class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-md z-30 bg-white/95 backdrop-blur-md border-t border-stone-200/80 px-2 py-2"></nav>
+    <nav id="bottomNav" class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-md z-30 bg-white/95 backdrop-blur-md border-t border-stone-200/80 px-2 py-2">
+      <div class="grid grid-cols-5 gap-1">
+        <button type="button" data-tab="adopt" onclick="switchTab('adopt')" class="nav-btn active group flex flex-col items-center justify-center py-1.5 rounded-xl text-paw-700 bg-paw-50 font-bold">
+          <svg class="w-4 h-4 icon-bounce" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+          <span class="text-[10px] mt-1 tracking-tight">Adopt</span>
+        </button>
+        <button type="button" data-tab="listpet" onclick="switchTab('listpet')" class="nav-btn group flex flex-col items-center justify-center py-1.5 rounded-xl text-stone-500 font-semibold">
+          <svg class="w-4 h-4 icon-bounce" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/><path d="M12 8v8"/></svg>
+          <span class="text-[10px] mt-1 tracking-tight">List Pet</span>
+        </button>
+        <button type="button" data-tab="lostfound" onclick="switchTab('lostfound')" class="nav-btn group flex flex-col items-center justify-center py-1.5 rounded-xl text-stone-500 font-semibold">
+          <svg class="w-4 h-4 icon-bounce" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          <span class="text-[10px] mt-1 tracking-tight">Lost/Found</span>
+        </button>
+        <button type="button" data-tab="fostervol" onclick="switchTab('fostervol')" class="nav-btn group flex flex-col items-center justify-center py-1.5 rounded-xl text-stone-500 font-semibold">
+          <svg class="w-4 h-4 icon-bounce" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M11 14h2a2 2 0 1 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 16"/><path d="m7 20 1.6-1.4c.3-.4.8-.6 1.4-.6h4c1.1 0 2.1-.4 2.8-1.2l4.6-4.4a2 2 0 0 0-2.75-2.91l-4.2 3.9"/><path d="m2 15 6 6"/></svg>
+          <span class="text-[10px] mt-1 tracking-tight">Foster/Vol</span>
+        </button>
+        <button type="button" data-tab="donate" onclick="switchTab('donate')" class="nav-btn group flex flex-col items-center justify-center py-1.5 rounded-xl text-stone-500 font-semibold">
+          <svg class="w-4 h-4 icon-bounce" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13"/><path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"/><path d="M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5"/></svg>
+          <span class="text-[10px] mt-1 tracking-tight">Donate</span>
+        </button>
+      </div>
+    </nav>
 
     <!-- DYNAMIC MODALS MOUNT POINT -->
     <div id="modalsMount"></div>
@@ -765,7 +881,7 @@
       // ======================================================================
       const API_URL = 'https://script.google.com/macros/s/AKfycbx55JBqoDOcobV7B8ytkrDPZP8taJoYOAfvvdNh0TNvklFOBrUoQvmgc81YdSIXvN88hQ/exec';
 
-      const CACHE_KEY = '_happypaws_cache_v9';
+      const CACHE_KEY = '_happypaws_cache_v10';
       const CACHE_TTL_MS = 25 * 1000;
       const SESSION_KEY = '_happypaws_auth_v1';
       const SESSION_TTL_MS = 45 * 60 * 1000;
@@ -940,7 +1056,7 @@
         emergency: {
           badge: '5. Emergency & Vets',
           title: 'Local Emergency Clinics & Helplines',
-          body: 'For urgent adoption, lost/found, or rescue coordination, reach our enquiry desk at +91 97040 85807 or +91 74165 85807, or email indiahappypaws@gmail.com. Keep injured animals in a safe, shaded spot away from traffic while contacting your nearest 24/7 veterinary clinic.'
+          body: 'For urgent adoption, lost/found, or general enquiries, reach our team at +91 97040 85807 or +91 74165 85807, or email indiahappypaws@gmail.com. Keep injured animals in a safe, shaded spot away from traffic while contacting your nearest 24/7 veterinary clinic.'
         }
       };
 
@@ -1168,7 +1284,7 @@
       };
 
       // ======================================================================
-      // PUBLIC LIST PET PHOTO PREVIEW & SUBMISSION
+      // PUBLIC LIST PET PHOTO PREVIEW & SUBMISSION (All Mandatory + Full Terms)
       // ======================================================================
       let compressedLpPhoto = null;
 
@@ -1200,6 +1316,12 @@
           return;
         }
 
+        const ownerAge = parseInt(document.getElementById('lpOwnerAge').value, 10);
+        if (isNaN(ownerAge) || ownerAge < 25) {
+          showToast('Listing requests can only be submitted by individuals 25+ years');
+          return;
+        }
+
         isSubmitting = true;
         const btn = document.getElementById('lpSubmitBtn');
         const origText = btn.textContent;
@@ -1211,11 +1333,22 @@
           const species = document.getElementById('lpSpecies').value;
           const breed = document.getElementById('lpBreed').value.trim();
           const age = document.getElementById('lpAge').value.trim();
-          const health = document.getElementById('lpHealth').value.trim();
           const area = document.getElementById('lpArea').value.trim();
+          const neutered = document.getElementById('lpNeutered').value;
+          const leash = document.getElementById('lpLeash').value;
+          const houseTrained = document.getElementById('lpHouseTrained').value;
+          const health = document.getElementById('lpHealth').value.trim();
+          const nature = document.getElementById('lpNature').value.trim();
+          const food = document.getElementById('lpFood').value.trim();
           const story = document.getElementById('lpStory').value.trim();
+          const specialNeeds = document.getElementById('lpSpecialNeeds').value.trim();
+          const otherPlatforms = document.getElementById('lpOtherPlatforms').value.trim();
+          const handling = document.getElementById('lpHandling').value;
           const ownerName = document.getElementById('lpOwnerName').value.trim();
           const ownerPhone = document.getElementById('lpOwnerPhone').value.trim();
+
+          const fullMedicalSummary = `Neutered: ${neutered} | House/Potty Trained: ${houseTrained} | Leash Trained: ${leash} | Health/Vaccines: ${health}`;
+          const fullRehabNotes = `Nature: ${nature} | Diet: ${food} | Special Needs: ${specialNeeds} | Other Platforms: ${otherPlatforms} | Handling: ${handling} | Guardian: ${ownerName} (Age ${ownerAge}, +91 ${ownerPhone})`;
 
           const saveAnimalRes = await fetchWithRetry(API_URL, {
             method: 'POST',
@@ -1231,9 +1364,9 @@
               locationId: '',
               locationName: area,
               rescueLocation: area,
-              rescueStory: `${story} (Submitted by ${ownerName} • +91 ${ownerPhone})`,
-              medicalSummary: health,
-              rehabNotes: `Guardian Contact: ${ownerName} (+91 ${ownerPhone})`,
+              rescueStory: story,
+              medicalSummary: fullMedicalSummary,
+              rehabNotes: fullRehabNotes,
               photoBase64: compressedLpPhoto
             })
           }, 3);
@@ -1244,14 +1377,14 @@
             body: JSON.stringify({
               action: 'NEW_ADOPTION_ENQUIRY',
               animalId: saveAnimalRes.animalId || 'PENDING',
-              animalName: `${petName} (${species})`,
+              animalName: `${petName} (${species} • ${breed})`,
               inquiryType: 'Approve Pet Listing',
-              applicantName: ownerName,
+              applicantName: `${ownerName} (Age ${ownerAge})`,
               phone: ownerPhone,
-              ageOccupation: age,
+              ageOccupation: `${age} • Neutered: ${neutered}`,
               addressLocality: area,
-              housingDetails: health,
-              petExperience: story
+              housingDetails: `Potty Trained: ${houseTrained} | Leash: ${leash} | Handling: ${handling}`,
+              petExperience: `Story: ${story} | Health: ${health} | Nature: ${nature} | Food: ${food} | Special Needs: ${specialNeeds} | Other Platforms: ${otherPlatforms}`
             })
           }, 3);
 
@@ -1275,7 +1408,7 @@
       };
 
       // ======================================================================
-      // LOST & FOUND (Photo + Google Maps Link + Separate Date & Time + 2 Phones)
+      // LOST & FOUND (Photo + Google Maps Link + Separate Date & Time + 2 Phones + Optional Medical)
       // ======================================================================
       let compressedLfPhoto = null;
 
@@ -1341,7 +1474,6 @@
 
           const combinedStory = `${details} | Date: ${dateVal} at ${timeVal} | Map: ${mapsLink} | Contact: ${cName} (+91 ${phone1} / +91 ${phone2})`;
 
-          // 1. Save with Photo into Animals tab (Pending Approval until coordinator publishes)
           const saveAnimalRes = await fetchWithRetry(API_URL, {
             method: 'POST',
             headers: { 'Content-Type': 'text/plain;charset=utf-8' },
@@ -1363,7 +1495,6 @@
             })
           }, 3);
 
-          // 2. Log into Coordinator Requests & Adoptions queue
           const res = await fetchWithRetry(API_URL, {
             method: 'POST',
             headers: { 'Content-Type': 'text/plain;charset=utf-8' },
@@ -1742,6 +1873,7 @@
                   <span class="text-[10px] font-bold uppercase px-2 py-0.5 rounded bg-paw-50 text-paw-700">${app.Inquiry_Type} • ${app.App_ID}</span>
                   <h4 class="font-display font-bold text-sm text-stone-900 mt-1">${app.Applicant_Name} ➔ ${app.Animal_Name}</h4>
                   <p class="text-[11px] text-stone-500">${app.Address_Locality || ''}</p>
+                  ${app.Housing_Details ? `<p class="text-[11px] font-medium text-stone-700 mt-1">${app.Housing_Details}</p>` : ''}
                   ${app.Pet_Experience ? `<p class="text-[11px] text-stone-600 mt-1">${app.Pet_Experience}</p>` : ''}
                 </div>
                 <span class="text-[10px] font-bold px-2.5 py-1 rounded-full bg-amber-100 text-amber-800 shrink-0">${app.Screening_Status}</span>
@@ -2083,10 +2215,10 @@
                   <p class="text-stone-600">${animal.Rescue_Story || 'Available through HappyPaws.'}</p>
                 </div>
                 <div class="bg-canvas-50 p-3.5 rounded-2xl border border-stone-200/70 space-y-1">
-                  <p class="font-bold text-stone-900">2. Placement & Medical Status</p>
+                  <p class="font-bold text-stone-900">2. Training, Health & Care Profile</p>
                   <p class="text-stone-600"><strong>Current Location:</strong> ${animal.Current_Location_Name || ''}</p>
-                  <p class="text-stone-600"><strong>Health Summary:</strong> ${animal.Medical_Summary || 'Vaccinated & Dewormed'}</p>
-                  ${animal.Rehab_Notes ? `<p class="text-stone-600"><strong>Notes:</strong> ${animal.Rehab_Notes}</p>` : ''}
+                  <p class="text-stone-600"><strong>Health & Training:</strong> ${animal.Medical_Summary || 'Vaccinated & Dewormed'}</p>
+                  ${animal.Rehab_Notes ? `<p class="text-stone-600"><strong>Behaviour & Diet:</strong> ${animal.Rehab_Notes}</p>` : ''}
                 </div>
                 <div class="space-y-2">
                   <p class="font-bold text-stone-900">3. Veterinary & Vaccination Records (${vets.length})</p>
@@ -2156,8 +2288,8 @@
                 </div>
                 <input type="text" id="aniRescueLoc" required value="${existing ? existing.Rescue_Location : ''}" placeholder="Locality / Area *" class="w-full px-3 py-2.5 rounded-xl bg-canvas-50 border border-stone-200" />
                 <textarea id="aniStory" rows="2" placeholder="Adoption appeal & temperament..." class="w-full px-3 py-2.5 rounded-xl bg-canvas-50 border border-stone-200">${existing ? existing.Rescue_Story : ''}</textarea>
-                <input type="text" id="aniMedSum" value="${existing ? existing.Medical_Summary : ''}" placeholder="Medical Summary (e.g., Vaccinated, Spayed)" class="w-full px-3 py-2.5 rounded-xl bg-canvas-50 border border-stone-200" />
-                <textarea id="aniRehab" rows="2" placeholder="Care / rehab notes..." class="w-full px-3 py-2.5 rounded-xl bg-canvas-50 border border-stone-200">${existing ? existing.Rehab_Notes : ''}</textarea>
+                <input type="text" id="aniMedSum" value="${existing ? existing.Medical_Summary : ''}" placeholder="Medical & Training Summary" class="w-full px-3 py-2.5 rounded-xl bg-canvas-50 border border-stone-200" />
+                <textarea id="aniRehab" rows="2" placeholder="Behaviour, diet & special notes..." class="w-full px-3 py-2.5 rounded-xl bg-canvas-50 border border-stone-200">${existing ? existing.Rehab_Notes : ''}</textarea>
                 <button type="submit" id="saveAniBtn" class="btn-press w-full py-3.5 rounded-2xl bg-paw-600 text-white font-display font-bold text-sm">Save & Publish Listing</button>
               </form>
             </div>
@@ -2355,6 +2487,7 @@
                 <div class="grid grid-cols-2 gap-3">
                   <select id="finCategory" class="w-full px-3 py-2.5 rounded-xl bg-canvas-50 border border-stone-200">
                     <option value="Public Donation">Public Donation</option>
+                    <option value="Foreign Breed Listing Fee (₹100)">Foreign Breed Listing Fee (₹100)</option>
                     <option value="Food & Supplies">Food & Supplies</option>
                     <option value="Boarding Fee">Boarding Fee</option>
                     <option value="Rescue Transport">Rescue Transport</option>
