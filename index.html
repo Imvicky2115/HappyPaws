@@ -171,19 +171,20 @@
       transform: translateY(-5px) rotate(-45deg);
     }
 
-    /* Hamburger Dropdown */
+    /* Clean, Aligned Hamburger Dropdown */
     .dropdown-menu {
       position: absolute;
       right: 0;
-      top: 48px;
-      width: 284px;
-      max-height: 82vh;
+      top: 50px;
+      width: 296px;
+      max-height: calc(100vh - 148px);
       overflow-y: auto;
+      overscroll-behavior: contain;
       background: #fff;
       border: 1px solid var(--stone-200);
-      border-radius: 20px;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.16);
-      padding: 12px;
+      border-radius: 22px;
+      box-shadow: 0 22px 44px rgba(28, 25, 23, 0.18);
+      padding: 16px;
       z-index: 50;
       opacity: 0;
       transform: translateY(-6px) scale(0.97);
@@ -198,8 +199,8 @@
     }
 
     .menu-section {
-      padding-bottom: 10px;
-      margin-bottom: 10px;
+      padding-bottom: 12px;
+      margin-bottom: 12px;
       border-bottom: 1px solid var(--stone-100);
     }
     .menu-section:last-child {
@@ -209,20 +210,22 @@
     }
 
     .menu-label {
-      margin: 0 0 6px 8px;
+      margin: 0 0 8px 2px;
       font-size: 10px;
-      font-weight: 700;
+      font-weight: 800;
       text-transform: uppercase;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.08em;
       color: var(--stone-400);
     }
 
     .menu-item {
       width: 100%;
-      display: flex;
-      align-items: flex-start;
-      gap: 9px;
+      display: grid;
+      grid-template-columns: 18px minmax(0, 1fr);
+      align-items: start;
+      gap: 8px;
       padding: 8px 10px;
+      margin-bottom: 2px;
       border: none;
       background: transparent;
       border-radius: 12px;
@@ -232,32 +235,55 @@
       color: inherit;
       transition: background 0.15s ease, transform 0.15s ease;
     }
+    .menu-item:last-child { margin-bottom: 0; }
     .menu-item:hover {
       background: var(--paw-50);
       transform: translateX(2px);
     }
-    .menu-item-num { font-size: 12px; font-weight: 800; color: var(--paw-600); }
-    .menu-item-title { margin: 0; font-size: 12px; font-weight: 700; color: var(--stone-900); line-height: 1.25; }
-    .menu-item-sub { margin: 2px 0 0; font-size: 10.5px; color: var(--stone-500); line-height: 1.3; }
+    .menu-item-num {
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--paw-600);
+      line-height: 1.3;
+    }
+    .menu-item-title {
+      margin: 0;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--stone-900);
+      line-height: 1.3;
+    }
+    .menu-item-sub {
+      margin: 2px 0 0;
+      font-size: 10.5px;
+      color: var(--stone-500);
+      line-height: 1.35;
+    }
 
     .contact-card {
       display: flex;
       align-items: center;
-      gap: 10px;
-      padding: 9px 10px;
-      border-radius: 12px;
+      gap: 11px;
+      padding: 10px 12px;
+      border-radius: 14px;
       text-decoration: none;
-      margin-bottom: 6px;
+      margin-bottom: 8px;
       background: var(--stone-50);
+      border: 1px solid var(--stone-200);
       color: var(--stone-900);
       transition: transform 0.15s ease, background 0.15s ease;
     }
+    .contact-card:last-child { margin-bottom: 0; }
     .contact-card:hover { transform: translateX(2px); }
-    .contact-card.whatsapp { background: #ECFDF5; color: #064E3B; }
+    .contact-card.whatsapp {
+      background: #ECFDF5;
+      border-color: #D1FAE5;
+      color: #064E3B;
+    }
     .contact-icon {
-      width: 28px;
-      height: 28px;
-      border-radius: 9px;
+      width: 32px;
+      height: 32px;
+      border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -268,22 +294,26 @@
       transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
     .contact-card:hover .contact-icon {
-      transform: scale(1.1) rotate(-4deg);
+      transform: scale(1.08) rotate(-4deg);
     }
-    .contact-card.whatsapp .contact-icon { background: #059669; border: none; color: #fff; }
+    .contact-card.whatsapp .contact-icon {
+      background: #059669;
+      border: none;
+      color: #fff;
+    }
 
     .social-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 8px;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
     .social-btn {
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 6px;
-      padding: 8px;
+      padding: 9px 10px;
       border-radius: 12px;
       font-size: 12px;
       font-weight: 700;
@@ -567,13 +597,29 @@
       cursor: pointer;
     }
 
-    /* Improved Terms & Conditions Presentation */
+    /* Scrollable Terms & Conditions Box */
+    .terms-wrap {
+      margin-bottom: 16px;
+    }
+    .terms-head-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 6px;
+    }
+    .terms-hint {
+      font-size: 10.5px;
+      font-weight: 600;
+      color: var(--paw-700);
+    }
     .terms-container {
       background: var(--canvas-50);
       border: 1px solid var(--stone-200);
       border-radius: 18px;
-      padding: 16px;
-      margin-bottom: 16px;
+      padding: 15px 16px;
+      max-height: 220px;
+      overflow-y: auto;
+      overscroll-behavior: contain;
     }
     .terms-block {
       border-left: 3px solid var(--paw-600);
@@ -809,17 +855,17 @@
               <p class="menu-label">Enquiries</p>
               <a href="https://wa.me/919704085807?text=Hi%20HappyPaws!%20I%20have%20a%20quick%20question." target="_blank" rel="noopener" onclick="closeMenu()" class="contact-card whatsapp">
                 <div class="contact-icon">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
                 </div>
-                <div><p class="menu-item-title" style="color:#065F46;">WhatsApp Enquiry</p><p class="menu-item-sub" style="color:#047857;">Quick chat for questions</p></div>
+                <div style="min-width:0;"><p class="menu-item-title" style="color:#065F46;">WhatsApp Enquiry</p><p class="menu-item-sub" style="color:#047857;">Quick chat for questions</p></div>
               </a>
 
-              <a href="mailto:indiahappypaws@gmail.com" onclick="closeMenu()" class="contact-card" style="margin-bottom:0;">
+              <a href="mailto:indiahappypaws@gmail.com" onclick="closeMenu()" class="contact-card">
                 <div class="contact-icon">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
                 </div>
                 <div style="min-width:0;">
-                  <p class="menu-item-title" style="font-size:11px;overflow:hidden;text-overflow:ellipsis;">indiahappypaws@gmail.com</p>
+                  <p class="menu-item-title" style="font-size:11.5px;overflow:hidden;text-overflow:ellipsis;">indiahappypaws@gmail.com</p>
                   <p class="menu-item-sub">Email Enquiry • Tap to mail</p>
                 </div>
               </a>
@@ -831,7 +877,7 @@
                 <a href="https://www.instagram.com/happypaws_adoptions?avpt=MW1tdnZyZnJsM2lraw==" target="_blank" rel="noopener" onclick="closeMenu()" class="social-btn social-ig">Instagram</a>
                 <a href="https://www.facebook.com/share/1A1RQJPYV6/?mibextid=wwXIfr" target="_blank" rel="noopener" onclick="closeMenu()" class="social-btn social-fb">Facebook</a>
               </div>
-              <button type="button" onclick="closeMenu(); openPinPrompt('unlock');" class="btn-primary" style="background:var(--stone-900);padding:11px;font-size:12px;box-shadow:none;">
+              <button type="button" onclick="closeMenu(); openPinPrompt('unlock');" class="btn-primary" style="background:var(--stone-900);padding:12px;font-size:12.5px;border-radius:14px;box-shadow:none;">
                 HappyPaws Team Login
               </button>
             </div>
@@ -1012,7 +1058,6 @@
             </select>
           </div>
 
-          <!-- Guardian Name, Age (25+ Years) & WhatsApp -->
           <div class="form-row-2">
             <div>
               <label class="form-label">Your Full Name <span class="req">*</span></label>
@@ -1029,30 +1074,36 @@
             <input type="tel" id="lpOwnerPhone" required pattern="[0-9]{10}" maxlength="10" placeholder="10-digit mobile number" class="input-ctrl" />
           </div>
 
-          <!-- Improved Terms & Conditions Presentation -->
-          <div class="terms-container">
-            <div class="terms-block">
-              <h4>Please INFORM us</h4>
-              <ul class="terms-list">
-                <li>Once your pet gets adopted (through any source), kindly update us mandatorily. Until then, our team will continuously work to get them adopted, which can take months.</li>
-                <li>If you are no longer looking to get your pet adopted.</li>
-                <li>If your pet is listed on any other adoption platforms.</li>
-                <li>Whether you prefer to handle the adoption yourself or opt for our team’s assistance in filtering and verifying leads so your pet goes to a safe, loving home.</li>
-                <li>If you handle it yourself, HappyPaws cannot take responsibility for any breeders, students, or fraudsters approaching you.</li>
-                <li>If you opt for our assistance, kindly respect our team’s experience and abide by our verification processes.</li>
-              </ul>
+          <!-- Scrollable Terms & Conditions Box -->
+          <div class="terms-wrap">
+            <div class="terms-head-bar">
+              <span class="form-label" style="margin:0;">Terms &amp; Conditions <span class="req">*</span></span>
+              <span class="terms-hint">Scroll to read all ↕</span>
             </div>
+            <div class="terms-container">
+              <div class="terms-block">
+                <h4>Please INFORM us</h4>
+                <ul class="terms-list">
+                  <li>Once your pet gets adopted (through any source), kindly update us mandatorily. Until then, our team will continuously work to get them adopted, which can take months.</li>
+                  <li>If you are no longer looking to get your pet adopted.</li>
+                  <li>If your pet is listed on any other adoption platforms.</li>
+                  <li>Whether you prefer to handle the adoption yourself or opt for our team’s assistance in filtering and verifying leads so your pet goes to a safe, loving home.</li>
+                  <li>If you handle it yourself, HappyPaws cannot take responsibility for any breeders, students, or fraudsters approaching you.</li>
+                  <li>If you opt for our assistance, kindly respect our team’s experience and abide by our verification processes.</li>
+                </ul>
+              </div>
 
-            <div class="terms-block">
-              <h4>Please NOTE</h4>
-              <ul class="terms-list">
-                <li>We do not take any responsibility (financial or otherwise) for your pet until adoption is completed.</li>
-                <li>Please honestly disclose all past and current health conditions as well as any missed vaccinations.</li>
-                <li>Please make a well-thought-out decision before handing over your pet for adoption or trial (if successful, the pet continues in the same home and adoption formalities are finalized).</li>
-                <li>Dropping out of an ongoing trial or completed handover will not be possible.</li>
-                <li>We will archive/close the appeal if you remain unresponsive to calls/messages regarding leads or status for more than 3 follow-ups.</li>
-                <li>Foreign breed dogs/cats can be listed at a nominal charge of ₹100/pet, which goes directly toward sponsoring medical, nutrition, transport, and foster care until adoption.</li>
-              </ul>
+              <div class="terms-block">
+                <h4>Please NOTE</h4>
+                <ul class="terms-list">
+                  <li>We do not take any responsibility (financial or otherwise) for your pet until adoption is completed.</li>
+                  <li>Please honestly disclose all past and current health conditions as well as any missed vaccinations.</li>
+                  <li>Please make a well-thought-out decision before handing over your pet for adoption or trial (if successful, the pet continues in the same home and adoption formalities are finalized).</li>
+                  <li>Dropping out of an ongoing trial or completed handover will not be possible.</li>
+                  <li>We will archive/close the appeal if you remain unresponsive to calls/messages regarding leads or status for more than 3 follow-ups.</li>
+                  <li>Foreign breed dogs/cats can be listed at a nominal charge of ₹100/pet, which goes directly toward sponsoring medical, nutrition, transport, and foster care until adoption.</li>
+                </ul>
+              </div>
             </div>
           </div>
 
@@ -1270,7 +1321,7 @@
       </section>
 
       <!-- ============================================================== -->
-      <!-- TAB 5: DONATE & PARTNERS (Dogato Pet Hospital Added)           -->
+      <!-- TAB 5: DONATE & PARTNERS                                       -->
       <!-- ============================================================== -->
       <section id="tab-donate" class="tab-pane">
         <div class="card">
@@ -1324,7 +1375,6 @@
           <h3 style="margin:0 0 4px;font-size:15px;font-weight:800;">Partner Organizations & Brands</h3>
           <p style="margin:0 0 12px;font-size:11.5px;color:var(--stone-500);">Supporting HappyPaws adoptions & care</p>
           
-          <!-- Dogato Pet Hospital Vet Partner Card -->
           <div style="background:var(--canvas-50);padding:13px;border-radius:14px;border:1px solid var(--stone-200);margin-bottom:10px;">
             <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:4px;">
               <p style="margin:0;font-size:13px;font-weight:800;color:var(--stone-900);">Dogato Pet Hospital</p>
@@ -1454,7 +1504,7 @@
 
       const API_URL = 'https://script.google.com/macros/s/AKfycbx55JBqoDOcobV7B8ytkrDPZP8taJoYOAfvvdNh0TNvklFOBrUoQvmgc81YdSIXvN88hQ/exec';
 
-      const CACHE_KEY = '_happypaws_cache_v13';
+      const CACHE_KEY = '_happypaws_cache_v14';
       const CACHE_TTL_MS = 25 * 1000;
       const SESSION_KEY = '_happypaws_auth_v1';
       const SESSION_TTL_MS = 45 * 60 * 1000;
@@ -1488,11 +1538,8 @@
       function isAbsurdText(val, minChars = 2) {
         const s = String(val || '').trim();
         if (s.length < minChars) return true;
-        // Must contain at least one letter or digit (blocks "---", "...", "@@@", "???")
         if (!/[a-zA-Z0-9\u0900-\u097F]/.test(s)) return true;
-        // Blocks 5+ identical consecutive characters (e.g., "aaaaa", "11111", "xxxxx")
         if (/(.)\1{4,}/i.test(s)) return true;
-        // Blocks keyboard-mash alternating 2-char repeats (e.g., "ababab", "121212")
         if (/^(.{1,2})\1{3,}$/i.test(s)) return true;
         return false;
       }
@@ -1510,7 +1557,6 @@
       function isValidIndianMobile(phone) {
         const clean = String(phone || '').trim();
         if (!/^[6-9]\d{9}$/.test(clean)) return false;
-        // Reject repeated digits like 9999999999
         if (/^(\d)\1{9}$/.test(clean)) return false;
         return true;
       }
@@ -1833,7 +1879,7 @@
       };
 
       // ======================================================================
-      // LIST PET FORM (With Age 25+ & Anti-Absurd Validation)
+      // LIST PET FORM
       // ======================================================================
       let compressedLpPhoto = null;
 
@@ -1974,7 +2020,7 @@
       };
 
       // ======================================================================
-      // LOST & FOUND FORM (Optional Alternate Phone + No Duplicate Allowed + Anti-Absurd)
+      // LOST & FOUND FORM
       // ======================================================================
       let compressedLfPhoto = null;
 
@@ -2111,7 +2157,7 @@
       };
 
       // ======================================================================
-      // SEPARATE FOSTER & VOLUNTEER FORMS (With Anti-Absurd Validation)
+      // SEPARATE FOSTER & VOLUNTEER FORMS
       // ======================================================================
       window.switchFvForm = function (which) {
         const fosterForm = document.getElementById('fosterOnlyForm');
