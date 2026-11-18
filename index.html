@@ -52,6 +52,17 @@
       font-family: inherit;
     }
 
+    /* Hide all native scrollbars cleanly across Chrome, Safari, Edge & Firefox */
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+      width: 0;
+      height: 0;
+    }
+
     .app-shell {
       max-width: 448px;
       margin: 0 auto;
@@ -103,9 +114,20 @@
       box-shadow: 0 4px 12px rgba(194, 99, 40, 0.25);
       cursor: pointer;
       flex-shrink: 0;
-      transition: transform 0.15s ease;
+      transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
-    .brand-badge:active { transform: scale(0.94); }
+    .brand-badge:hover svg {
+      animation: pawWiggle 0.55s ease;
+    }
+    .brand-badge:active {
+      transform: scale(0.92);
+    }
+
+    @keyframes pawWiggle {
+      0%, 100% { transform: rotate(0deg) scale(1); }
+      25% { transform: rotate(-10deg) scale(1.06); }
+      60% { transform: rotate(8deg) scale(1.06); }
+    }
 
     .brand-title {
       margin: 0;
@@ -127,17 +149,36 @@
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      transition: transform 0.14s ease, background 0.18s ease;
+      transition: transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.18s ease, border-color 0.18s ease;
     }
-    .icon-btn:active { transform: scale(0.95); }
+    .icon-btn:hover {
+      background: var(--paw-50);
+      border-color: var(--paw-200);
+      color: var(--paw-700);
+    }
+    .icon-btn:active { transform: scale(0.93); }
+    .icon-btn svg line {
+      transition: transform 0.24s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.2s ease;
+      transform-origin: center;
+    }
+    .icon-btn.is-open svg line:nth-child(1) {
+      transform: translateY(5px) rotate(45deg);
+    }
+    .icon-btn.is-open svg line:nth-child(2) {
+      opacity: 0;
+      transform: scaleX(0);
+    }
+    .icon-btn.is-open svg line:nth-child(3) {
+      transform: translateY(-5px) rotate(-45deg);
+    }
 
-    /* Hamburger Dropdown */
+    /* Hamburger Dropdown (No Scrollbar) */
     .dropdown-menu {
       position: absolute;
       right: 0;
       top: 48px;
-      width: 288px;
-      max-height: 78vh;
+      width: 284px;
+      max-height: 82vh;
       overflow-y: auto;
       background: #fff;
       border: 1px solid var(--stone-200);
@@ -148,7 +189,7 @@
       opacity: 0;
       transform: translateY(-6px) scale(0.97);
       pointer-events: none;
-      transition: opacity 0.16s ease, transform 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: opacity 0.18s ease, transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
       transform-origin: top right;
     }
     .dropdown-menu.open {
@@ -190,9 +231,12 @@
       cursor: pointer;
       text-decoration: none;
       color: inherit;
-      transition: background 0.15s ease;
+      transition: background 0.15s ease, transform 0.15s ease;
     }
-    .menu-item:hover { background: var(--paw-50); }
+    .menu-item:hover {
+      background: var(--paw-50);
+      transform: translateX(2px);
+    }
     .menu-item-num { font-size: 12px; font-weight: 800; color: var(--paw-600); }
     .menu-item-title { margin: 0; font-size: 12px; font-weight: 700; color: var(--stone-900); line-height: 1.25; }
     .menu-item-sub { margin: 2px 0 0; font-size: 10.5px; color: var(--stone-500); line-height: 1.3; }
@@ -201,14 +245,15 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      padding: 8px 10px;
+      padding: 9px 10px;
       border-radius: 12px;
       text-decoration: none;
       margin-bottom: 6px;
       background: var(--stone-50);
       color: var(--stone-900);
+      transition: transform 0.15s ease, background 0.15s ease;
     }
-    .contact-card.primary { background: var(--paw-50); }
+    .contact-card:hover { transform: translateX(2px); }
     .contact-card.whatsapp { background: #ECFDF5; color: #064E3B; }
     .contact-icon {
       width: 28px;
@@ -221,8 +266,11 @@
       background: #fff;
       border: 1px solid var(--stone-200);
       color: var(--paw-600);
+      transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
-    .contact-card.primary .contact-icon { background: var(--paw-600); border: none; color: #fff; }
+    .contact-card:hover .contact-icon {
+      transform: scale(1.1) rotate(-4deg);
+    }
     .contact-card.whatsapp .contact-icon { background: #059669; border: none; color: #fff; }
 
     .social-grid {
@@ -241,7 +289,9 @@
       font-size: 12px;
       font-weight: 700;
       text-decoration: none;
+      transition: transform 0.15s ease;
     }
+    .social-btn:active { transform: scale(0.96); }
     .social-ig { background: #FDF2F8; color: #BE185D; }
     .social-fb { background: #EFF6FF; color: #1D4ED8; }
 
@@ -281,40 +331,48 @@
       margin-bottom: 18px;
     }
 
-    /* Forms & Clean Spacing */
-    .form-group { margin-bottom: 18px; }
+    /* Uniform Form Spacing & Alignment Across All Tabs */
+    .form-group { margin-bottom: 16px; }
     .form-group:last-child { margin-bottom: 0; }
     .form-row-2 {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 12px;
-      margin-bottom: 18px;
+      align-items: end;
+      margin-bottom: 16px;
     }
     .form-label {
       display: block;
       font-size: 12px;
       font-weight: 600;
       color: var(--stone-700);
-      margin-bottom: 7px;
-      line-height: 1.35;
+      margin-bottom: 6px;
+      line-height: 1.3;
     }
     .req { color: #E11D48; font-weight: 700; }
     .opt { color: var(--stone-400); font-weight: 400; }
 
     .input-ctrl {
       width: 100%;
+      min-height: 44px;
       padding: 11px 13px;
       border-radius: 13px;
       background: var(--canvas-50);
       border: 1px solid var(--stone-200);
       font-size: 13px;
+      line-height: 1.35;
       color: var(--stone-900);
       outline: none;
-      transition: border-color 0.15s ease, background 0.15s ease;
+      transition: border-color 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+    }
+    textarea.input-ctrl {
+      min-height: 76px;
+      resize: vertical;
     }
     .input-ctrl:focus {
       background: #fff;
       border-color: var(--paw-600);
+      box-shadow: 0 0 0 3px rgba(194, 99, 40, 0.1);
     }
 
     .upload-box {
@@ -324,7 +382,7 @@
       align-items: center;
       justify-content: center;
       width: 100%;
-      height: 152px;
+      height: 148px;
       border-radius: 16px;
       border: 2px dashed var(--stone-300);
       background: var(--canvas-50);
@@ -332,8 +390,18 @@
       overflow: hidden;
       text-align: center;
       padding: 16px;
+      transition: border-color 0.18s ease, background 0.18s ease;
     }
-    .upload-box:hover { border-color: var(--paw-500); }
+    .upload-box:hover {
+      border-color: var(--paw-500);
+      background: var(--paw-50);
+    }
+    .upload-box svg {
+      transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .upload-box:hover svg {
+      transform: translateY(-2px) scale(1.08);
+    }
     .upload-preview {
       width: 100%;
       height: 100%;
@@ -388,13 +456,15 @@
       font-size: 12px;
       font-weight: 700;
       cursor: pointer;
+      transition: transform 0.14s ease;
     }
+    .btn-sm:active { transform: scale(0.95); }
 
     .pill-row {
       display: flex;
       gap: 8px;
       overflow-x: auto;
-      padding-bottom: 4px;
+      padding: 2px 0 4px;
       margin-bottom: 16px;
     }
     .pill {
@@ -408,7 +478,9 @@
       white-space: nowrap;
       cursor: pointer;
       flex-shrink: 0;
+      transition: transform 0.14s ease, background 0.16s ease, color 0.16s ease;
     }
+    .pill:active { transform: scale(0.96); }
     .pill.active {
       background: var(--paw-600);
       border-color: var(--paw-600);
@@ -434,6 +506,7 @@
       font-size: 12px;
       font-weight: 600;
       cursor: pointer;
+      transition: background 0.16s ease, color 0.16s ease;
     }
     .seg-btn.active {
       background: var(--paw-600);
@@ -518,7 +591,7 @@
     .terms-box ul { margin: 0 0 12px; padding-left: 18px; }
     .terms-box li { margin-bottom: 5px; }
 
-    /* Bottom Navigation Bar (Full Visible Labels) */
+    /* Bottom Navigation Bar + Crisp Icon Micro-Animations */
     .bottom-nav {
       position: fixed;
       bottom: 0;
@@ -561,16 +634,23 @@
       color: var(--stone-500);
       cursor: pointer;
       min-width: 0;
+      transition: background 0.18s ease, color 0.18s ease;
     }
+    .nav-btn:active { transform: scale(0.94); }
     .nav-btn.active {
       background: var(--paw-50);
       color: var(--paw-700);
     }
     .nav-btn svg {
-      transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+      transition: transform 0.24s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
     .nav-btn.active svg {
-      transform: translateY(-2px) scale(1.08);
+      animation: iconPop 0.36s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    }
+    @keyframes iconPop {
+      0% { transform: scale(0.88) translateY(0); }
+      55% { transform: scale(1.16) translateY(-3px); }
+      100% { transform: scale(1.06) translateY(-1px); }
     }
     .nav-label {
       font-size: 9.5px;
@@ -664,8 +744,8 @@
             </svg>
           </button>
 
-          <!-- HAMBURGER MENU -->
-          <div id="navDropdown" class="dropdown-menu">
+          <!-- HAMBURGER MENU (No Scrollbar, WhatsApp & Email Only under Enquiries) -->
+          <div id="navDropdown" class="dropdown-menu no-scrollbar">
             <div class="menu-section">
               <p class="menu-label">Menu</p>
               <button type="button" class="menu-item" onclick="closeMenu(); openInfoGuide('about');">
@@ -692,20 +772,6 @@
 
             <div class="menu-section">
               <p class="menu-label">Enquiries</p>
-              <a href="tel:+919704085807" onclick="closeMenu()" class="contact-card primary">
-                <div class="contact-icon">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                </div>
-                <div><p class="menu-item-title">+91 97040 85807</p><p class="menu-item-sub">Primary Enquiry • Tap to call</p></div>
-              </a>
-
-              <a href="tel:+917416585807" onclick="closeMenu()" class="contact-card">
-                <div class="contact-icon">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                </div>
-                <div><p class="menu-item-title">+91 74165 85807</p><p class="menu-item-sub">Secondary Enquiry • Tap to call</p></div>
-              </a>
-
               <a href="https://wa.me/919704085807?text=Hi%20HappyPaws!%20I%20have%20a%20quick%20question." target="_blank" rel="noopener" onclick="closeMenu()" class="contact-card whatsapp">
                 <div class="contact-icon">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
@@ -773,7 +839,7 @@
       </section>
 
       <!-- ============================================================== -->
-      <!-- TAB 2: LIST YOUR PET FOR ADOPTION (Clean Spacing, Age in Months, Separate Gender) -->
+      <!-- TAB 2: LIST YOUR PET FOR ADOPTION                              -->
       <!-- ============================================================== -->
       <section id="tab-listpet" class="tab-pane">
         <div class="card">
@@ -788,11 +854,11 @@
 
         <form id="publicListPetForm" onsubmit="handlePublicListPetSubmit(event)" class="card">
           
-          <!-- Mandatory Pet Photo -->
           <div class="form-group">
             <label class="form-label">Pet Photo <span class="req">*</span></label>
             <label for="lpPhotoInput" class="upload-box">
               <div id="lpUploadPlaceholder">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--paw-600)" stroke-width="2" style="margin-bottom:6px;"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
                 <p style="margin:0;font-size:13px;font-weight:700;color:var(--stone-800);">Tap to upload a clear photo *</p>
                 <p style="margin:4px 0 0;font-size:11px;color:var(--stone-400);">Helps adopters & coordinators review your pet</p>
               </div>
@@ -802,7 +868,6 @@
             </label>
           </div>
 
-          <!-- Pet Name & Species -->
           <div class="form-row-2">
             <div>
               <label class="form-label">Pet Name <span class="req">*</span></label>
@@ -819,7 +884,6 @@
             </div>
           </div>
 
-          <!-- Separate Age (in Months) & Gender -->
           <div class="form-row-2">
             <div>
               <label class="form-label">Age (in Months) <span class="req">*</span></label>
@@ -835,7 +899,6 @@
             </div>
           </div>
 
-          <!-- Breed & Locality -->
           <div class="form-row-2">
             <div>
               <label class="form-label">Breed / Coat Color <span class="req">*</span></label>
@@ -847,7 +910,6 @@
             </div>
           </div>
 
-          <!-- Neutered & Leash Trained -->
           <div class="form-row-2">
             <div>
               <label class="form-label">Neutered / Spayed? <span class="req">*</span></label>
@@ -867,7 +929,6 @@
             </div>
           </div>
 
-          <!-- House / Litter / Pee-Potty Trained -->
           <div class="form-group">
             <label class="form-label">House Trained / Litter Trained / Pee-Potty Trained? <span class="req">*</span></label>
             <select id="lpHouseTrained" required class="input-ctrl">
@@ -877,43 +938,36 @@
             </select>
           </div>
 
-          <!-- Health & Vaccination Disclosure -->
           <div class="form-group">
             <label class="form-label">Past & Current Health Status + Vaccination Disclosure <span class="req">*</span></label>
-            <input type="text" id="lpHealth" required placeholder="Disclose vaccinations completed, misses, or past/current health issues..." class="input-ctrl" />
+            <input type="text" id="lpHealth" required placeholder="Disclose vaccinations completed, misses, or health issues..." class="input-ctrl" />
           </div>
 
-          <!-- Nature / Behaviour -->
           <div class="form-group">
             <label class="form-label">Nature / Behaviour (Friendly or Not?) <span class="req">*</span></label>
-            <input type="text" id="lpNature" required placeholder="e.g., Friendly with people, kids & other pets; playful or shy..." class="input-ctrl" />
+            <input type="text" id="lpNature" required placeholder="e.g., Friendly with people, kids & other pets; playful/shy..." class="input-ctrl" />
           </div>
 
-          <!-- Food -->
           <div class="form-group">
             <label class="form-label">Food (What does he/she eat?) <span class="req">*</span></label>
             <input type="text" id="lpFood" required placeholder="e.g., Dry kibble, curd rice, boiled chicken/egg..." class="input-ctrl" />
           </div>
 
-          <!-- Reason for Adoption / Story -->
           <div class="form-group">
             <label class="form-label">Reason for Adoption / Pet Story <span class="req">*</span></label>
-            <textarea id="lpStory" required rows="3" placeholder="Share complete background and genuine reason for putting up for adoption..." class="input-ctrl"></textarea>
+            <textarea id="lpStory" required rows="3" placeholder="Share complete background and genuine reason for adoption..." class="input-ctrl"></textarea>
           </div>
 
-          <!-- Special Request / Needs -->
           <div class="form-group">
             <label class="form-label">Any Special Request / Needs <span class="req">*</span></label>
             <textarea id="lpSpecialNeeds" required rows="2" placeholder="Specify any special home requirements, care needs, or write 'None'..." class="input-ctrl"></textarea>
           </div>
 
-          <!-- Listed on Other Platforms -->
           <div class="form-group">
             <label class="form-label">Listed on Any Other Adoption Platforms? <span class="req">*</span></label>
             <input type="text" id="lpOtherPlatforms" required placeholder="e.g., No / Yes (specify Instagram, WhatsApp groups, etc.)" class="input-ctrl" />
           </div>
 
-          <!-- Handling Preference -->
           <div class="form-group">
             <label class="form-label">Adoption Handling Preference <span class="req">*</span></label>
             <select id="lpHandling" required class="input-ctrl">
@@ -923,7 +977,6 @@
             </select>
           </div>
 
-          <!-- Guardian Name & WhatsApp -->
           <div class="form-row-2">
             <div>
               <label class="form-label">Your Full Name <span class="req">*</span></label>
@@ -935,8 +988,7 @@
             </div>
           </div>
 
-          <!-- Terms & Conditions -->
-          <div class="terms-box">
+          <div class="terms-box no-scrollbar">
             <h4>Please INFORM us:</h4>
             <ul>
               <li>Once your pet gets adopted (through any source) kindly update us mandatorily. Until then our team will be continuously working to get them adopted which can take months.</li>
@@ -968,13 +1020,13 @@
       </section>
 
       <!-- ============================================================== -->
-      <!-- TAB 3: LOST PET / FOUND RESCUE                                 -->
+      <!-- TAB 3: LOST PET / FOUND ANIMAL (Aligned & Cleanly Spaced)      -->
       <!-- ============================================================== -->
       <section id="tab-lostfound" class="tab-pane">
         <div class="section-head">
           <div>
             <h2 class="section-title">Lost & Found Pets</h2>
-            <p class="section-sub">Report a missing pet or a found animal with photo & exact location</p>
+            <p class="section-sub">Report a missing pet or a found animal with photo & location</p>
           </div>
         </div>
 
@@ -987,8 +1039,9 @@
 
           <div class="form-group">
             <label class="form-label">Picture <span class="req">*</span></label>
-            <label for="lfPhotoInput" class="upload-box" style="height:140px;">
+            <label for="lfPhotoInput" class="upload-box" style="height:142px;">
               <div id="lfUploadPlaceholder">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--paw-600)" stroke-width="2" style="margin-bottom:6px;"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
                 <p style="margin:0;font-size:13px;font-weight:700;color:var(--stone-800);">Tap to upload picture *</p>
                 <p style="margin:4px 0 0;font-size:11px;color:var(--stone-400);">Helps identify collar, coat & markings</p>
               </div>
@@ -1064,7 +1117,7 @@
       </section>
 
       <!-- ============================================================== -->
-      <!-- TAB 4: FOSTER OR VOLUNTEER (Two Separate Dedicated Forms)      -->
+      <!-- TAB 4: FOSTER OR VOLUNTEER (Separate Cleanly Aligned Forms)    -->
       <!-- ============================================================== -->
       <section id="tab-fostervol" class="tab-pane">
         <div class="section-head">
@@ -1074,16 +1127,14 @@
           </div>
         </div>
 
-        <!-- Switcher between Separate Foster Form and Separate Volunteer Form -->
         <div class="seg-toggle">
           <button type="button" id="fvSwitchFoster" onclick="switchFvForm('foster')" class="seg-btn active">Foster Form</button>
           <button type="button" id="fvSwitchVolunteer" onclick="switchFvForm('volunteer')" class="seg-btn">Volunteer Form</button>
         </div>
 
-        <!-- SEPARATE FORM A: FOSTER PARENT REGISTRATION -->
         <form id="fosterOnlyForm" onsubmit="handleSeparateFosterSubmit(event)" class="card">
           <h3 style="margin:0 0 4px;font-size:15px;font-weight:800;">Become a Temporary Foster Parent</h3>
-          <p style="margin:0 0 16px;font-size:12px;color:var(--stone-500);">Provide a safe, loving temporary home until permanent adoption.</p>
+          <p style="margin:0 0 18px;font-size:12px;color:var(--stone-500);">Provide a safe, loving temporary home until permanent adoption.</p>
 
           <div class="form-row-2">
             <div>
@@ -1129,10 +1180,9 @@
           <button type="submit" id="fostSubmitBtn" class="btn-primary">Submit Foster Application</button>
         </form>
 
-        <!-- SEPARATE FORM B: VOLUNTEER REGISTRATION -->
         <form id="volunteerOnlyForm" onsubmit="handleSeparateVolunteerSubmit(event)" class="card hidden">
           <h3 style="margin:0 0 4px;font-size:15px;font-weight:800;">Join as a HappyPaws Volunteer</h3>
-          <p style="margin:0 0 16px;font-size:12px;color:var(--stone-500);">Help with adoption drives, home checks, transport & content.</p>
+          <p style="margin:0 0 18px;font-size:12px;color:var(--stone-500);">Help with adoption drives, home checks, transport & content.</p>
 
           <div class="form-row-2">
             <div>
@@ -1197,7 +1247,7 @@
           <h3 style="margin:0 0 4px;font-size:15px;font-weight:800;">In-Kind Donations & Virtual Adoption</h3>
           <p style="margin:0 0 14px;font-size:11.5px;color:var(--stone-500);">Directly support nutrition, medical kits & monthly care</p>
 
-          <div class="form-row-2" style="margin-bottom:16px;">
+          <div class="form-row-2" style="margin-bottom:16px;align-items:stretch;">
             <div style="background:var(--canvas-50);padding:12px;border-radius:14px;border:1px solid var(--stone-100);">
               <p style="margin:0 0 4px;font-size:12px;font-weight:700;">Food & Kibble</p>
               <p style="margin:0;font-size:11px;color:var(--stone-500);">Dry & wet food, rice, chicken</p>
@@ -1310,7 +1360,7 @@
 
     </main>
 
-    <!-- BOTTOM NAVIGATION BAR (Zero-clipping 5-column grid) -->
+    <!-- BOTTOM NAVIGATION BAR -->
     <nav id="bottomNav" class="bottom-nav">
       <div class="nav-grid-5">
         <button type="button" data-tab="adopt" onclick="switchTab('adopt')" class="nav-btn active">
@@ -1347,7 +1397,7 @@
 
       const API_URL = 'https://script.google.com/macros/s/AKfycbx55JBqoDOcobV7B8ytkrDPZP8taJoYOAfvvdNh0TNvklFOBrUoQvmgc81YdSIXvN88hQ/exec';
 
-      const CACHE_KEY = '_happypaws_cache_v11';
+      const CACHE_KEY = '_happypaws_cache_v12';
       const CACHE_TTL_MS = 25 * 1000;
       const SESSION_KEY = '_happypaws_auth_v1';
       const SESSION_TTL_MS = 45 * 60 * 1000;
@@ -1475,10 +1525,14 @@
       const hamburgerBtn = document.getElementById('hamburgerBtn');
       hamburgerBtn.addEventListener('click', (e) => {
         e.stopPropagation();
-        document.getElementById('navDropdown').classList.toggle('open');
+        const isOpen = document.getElementById('navDropdown').classList.toggle('open');
+        hamburgerBtn.classList.toggle('is-open', isOpen);
       });
 
-      window.closeMenu = function () { document.getElementById('navDropdown').classList.remove('open'); };
+      window.closeMenu = function () {
+        document.getElementById('navDropdown').classList.remove('open');
+        hamburgerBtn.classList.remove('is-open');
+      };
 
       document.addEventListener('click', (e) => {
         const dropdown = document.getElementById('navDropdown');
@@ -1511,7 +1565,7 @@
         emergency: {
           badge: '5. Emergency & Vets',
           title: 'Local Emergency Clinics & Helplines',
-          body: 'For urgent adoption, lost/found, or general enquiries, reach our team at +91 97040 85807 or +91 74165 85807, or email indiahappypaws@gmail.com. Keep injured animals in a safe, shaded spot away from traffic while contacting your nearest 24/7 veterinary clinic.'
+          body: 'For urgent adoption, lost/found, or general enquiries, reach our team on WhatsApp or email indiahappypaws@gmail.com. Keep injured animals in a safe, shaded spot away from traffic while contacting your nearest 24/7 veterinary clinic.'
         }
       };
 
@@ -1689,7 +1743,7 @@
       };
 
       // ======================================================================
-      // LIST PET FORM (Age in Months + Separate Gender + Full Terms)
+      // LIST PET FORM
       // ======================================================================
       let compressedLpPhoto = null;
 
