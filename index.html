@@ -52,7 +52,6 @@
       font-family: inherit;
     }
 
-    /* Hide all native scrollbars cleanly across Chrome, Safari, Edge & Firefox */
     .no-scrollbar {
       -ms-overflow-style: none;
       scrollbar-width: none;
@@ -172,7 +171,7 @@
       transform: translateY(-5px) rotate(-45deg);
     }
 
-    /* Hamburger Dropdown (No Scrollbar) */
+    /* Hamburger Dropdown */
     .dropdown-menu {
       position: absolute;
       right: 0;
@@ -331,7 +330,7 @@
       margin-bottom: 18px;
     }
 
-    /* Uniform Form Spacing & Alignment Across All Tabs */
+    /* Uniform Form Spacing & Alignment */
     .form-group { margin-bottom: 16px; }
     .form-group:last-child { margin-bottom: 0; }
     .form-row-2 {
@@ -568,30 +567,66 @@
       cursor: pointer;
     }
 
-    /* Terms Box */
-    .terms-box {
+    /* Improved Terms & Conditions Presentation */
+    .terms-container {
       background: var(--canvas-50);
       border: 1px solid var(--stone-200);
-      border-radius: 16px;
-      padding: 15px;
-      max-height: 230px;
-      overflow-y: auto;
-      font-size: 11.5px;
-      color: var(--stone-600);
-      line-height: 1.5;
+      border-radius: 18px;
+      padding: 16px;
       margin-bottom: 16px;
     }
-    .terms-box h4 {
-      margin: 0 0 6px;
-      font-size: 12px;
+    .terms-block {
+      border-left: 3px solid var(--paw-600);
+      padding-left: 12px;
+      margin-bottom: 14px;
+    }
+    .terms-block:last-child {
+      margin-bottom: 0;
+    }
+    .terms-block h4 {
+      margin: 0 0 8px;
+      font-size: 11.5px;
       font-weight: 800;
       color: var(--paw-800);
       text-transform: uppercase;
+      letter-spacing: 0.04em;
     }
-    .terms-box ul { margin: 0 0 12px; padding-left: 18px; }
-    .terms-box li { margin-bottom: 5px; }
+    .terms-list {
+      margin: 0;
+      padding-left: 16px;
+      font-size: 11.5px;
+      color: var(--stone-600);
+      line-height: 1.5;
+    }
+    .terms-list li {
+      margin-bottom: 7px;
+    }
+    .terms-list li:last-child {
+      margin-bottom: 0;
+    }
+    .agree-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 11px;
+      padding: 12px 14px;
+      background: var(--paw-50);
+      border: 1px solid var(--paw-200);
+      border-radius: 14px;
+      margin-bottom: 18px;
+      cursor: pointer;
+      font-size: 12px;
+      line-height: 1.45;
+      color: var(--stone-800);
+    }
+    .agree-row input[type="checkbox"] {
+      width: 17px;
+      height: 17px;
+      margin-top: 2px;
+      flex-shrink: 0;
+      accent-color: var(--paw-600);
+    }
 
-    /* Bottom Navigation Bar + Crisp Icon Micro-Animations */
+    /* Bottom Navigation Bar */
     .bottom-nav {
       position: fixed;
       bottom: 0;
@@ -744,7 +779,7 @@
             </svg>
           </button>
 
-          <!-- HAMBURGER MENU (No Scrollbar, WhatsApp & Email Only under Enquiries) -->
+          <!-- HAMBURGER MENU -->
           <div id="navDropdown" class="dropdown-menu no-scrollbar">
             <div class="menu-section">
               <p class="menu-label">Menu</p>
@@ -977,42 +1012,53 @@
             </select>
           </div>
 
+          <!-- Guardian Name, Age (25+ Years) & WhatsApp -->
           <div class="form-row-2">
             <div>
               <label class="form-label">Your Full Name <span class="req">*</span></label>
               <input type="text" id="lpOwnerName" required placeholder="Full Name" class="input-ctrl" />
             </div>
             <div>
-              <label class="form-label">WhatsApp Number <span class="req">*</span></label>
-              <input type="tel" id="lpOwnerPhone" required pattern="[0-9]{10}" maxlength="10" placeholder="10-digit mobile" class="input-ctrl" />
+              <label class="form-label">Your Age (25+ Years) <span class="req">*</span></label>
+              <input type="number" id="lpOwnerAge" required min="25" max="100" placeholder="25+" class="input-ctrl" />
             </div>
           </div>
 
-          <div class="terms-box no-scrollbar">
-            <h4>Please INFORM us:</h4>
-            <ul>
-              <li>Once your pet gets adopted (through any source) kindly update us mandatorily. Until then our team will be continuously working to get them adopted which can take months.</li>
-              <li>If you are not looking to get your pet adopted anymore.</li>
-              <li>If your pet is listed on any other adoption platforms.</li>
-              <li>If you like to handle the adoption yourself or would like our team’s assistance in filtering and verifying the leads, and facilitating the adoption so that your pet goes to a safe and loving home.</li>
-              <li>In case you choose to handle it yourself, we cannot take responsibility of any breeder or student or fraudsters approaching you and taking possession of your pet.</li>
-              <li>If you choose to opt for our assistance, kindly be respectful of the experience we hold and abide by our processes.</li>
-            </ul>
-
-            <h4>Please NOTE:</h4>
-            <ul style="margin-bottom:0;">
-              <li>We do not take any responsibility (financial or otherwise) of your pet until he/she gets adopted.</li>
-              <li>Please honestly disclose about any past and current health status and misses in vaccinations, etc.</li>
-              <li>Please take a well thought out decision before your pet is handed over for adoption or trial (if successful, the pet continues at the same home and adoption formalities are completed to finalize the adoption).</li>
-              <li>Dropping out of a trial or completed handover will not be possible.</li>
-              <li>We shall be archiving/closing the adoption appeal in case you are unresponsive to our text/call regarding status or leads, or do not have clear responses for more than 3 iterations.</li>
-              <li>You can list your foreign breed dog/cat at a nominal charge of ₹100/pet. This amount goes into sponsoring medical/nutrition/transportation/foster care of our pets until adoption.</li>
-            </ul>
+          <div class="form-group">
+            <label class="form-label">Your WhatsApp Number <span class="req">*</span></label>
+            <input type="tel" id="lpOwnerPhone" required pattern="[0-9]{10}" maxlength="10" placeholder="10-digit mobile number" class="input-ctrl" />
           </div>
 
-          <label style="display:flex;align-items:flex-start;gap:10px;margin-bottom:18px;cursor:pointer;font-size:12px;color:var(--stone-700);">
-            <input type="checkbox" required style="margin-top:3px;" />
-            <span>I have read all <strong>Please INFORM us</strong> & <strong>Please NOTE</strong> terms carefully and agree to abide by HappyPaws processes. <span class="req">*</span></span>
+          <!-- Improved Terms & Conditions Presentation -->
+          <div class="terms-container">
+            <div class="terms-block">
+              <h4>Please INFORM us</h4>
+              <ul class="terms-list">
+                <li>Once your pet gets adopted (through any source), kindly update us mandatorily. Until then, our team will continuously work to get them adopted, which can take months.</li>
+                <li>If you are no longer looking to get your pet adopted.</li>
+                <li>If your pet is listed on any other adoption platforms.</li>
+                <li>Whether you prefer to handle the adoption yourself or opt for our team’s assistance in filtering and verifying leads so your pet goes to a safe, loving home.</li>
+                <li>If you handle it yourself, HappyPaws cannot take responsibility for any breeders, students, or fraudsters approaching you.</li>
+                <li>If you opt for our assistance, kindly respect our team’s experience and abide by our verification processes.</li>
+              </ul>
+            </div>
+
+            <div class="terms-block">
+              <h4>Please NOTE</h4>
+              <ul class="terms-list">
+                <li>We do not take any responsibility (financial or otherwise) for your pet until adoption is completed.</li>
+                <li>Please honestly disclose all past and current health conditions as well as any missed vaccinations.</li>
+                <li>Please make a well-thought-out decision before handing over your pet for adoption or trial (if successful, the pet continues in the same home and adoption formalities are finalized).</li>
+                <li>Dropping out of an ongoing trial or completed handover will not be possible.</li>
+                <li>We will archive/close the appeal if you remain unresponsive to calls/messages regarding leads or status for more than 3 follow-ups.</li>
+                <li>Foreign breed dogs/cats can be listed at a nominal charge of ₹100/pet, which goes directly toward sponsoring medical, nutrition, transport, and foster care until adoption.</li>
+              </ul>
+            </div>
+          </div>
+
+          <label class="agree-row">
+            <input type="checkbox" required />
+            <span>I am 25+ years old, have read all <strong>Please INFORM us</strong> &amp; <strong>Please NOTE</strong> terms carefully, and agree to abide by HappyPaws processes. <span class="req">*</span></span>
           </label>
 
           <button type="submit" id="lpSubmitBtn" class="btn-primary">Submit</button>
@@ -1020,7 +1066,7 @@
       </section>
 
       <!-- ============================================================== -->
-      <!-- TAB 3: LOST PET / FOUND ANIMAL (Aligned & Cleanly Spaced)      -->
+      <!-- TAB 3: LOST PET / FOUND ANIMAL                                 -->
       <!-- ============================================================== -->
       <section id="tab-lostfound" class="tab-pane">
         <div class="section-head">
@@ -1100,12 +1146,12 @@
 
           <div class="form-row-2">
             <div>
-              <label class="form-label">Mobile Number 1 <span class="req">*</span></label>
+              <label class="form-label">Primary Mobile <span class="req">*</span></label>
               <input type="tel" id="lfContactPhone1" required pattern="[0-9]{10}" maxlength="10" placeholder="10-digit mobile" class="input-ctrl" />
             </div>
             <div>
-              <label class="form-label">Mobile Number 2 <span class="req">*</span></label>
-              <input type="tel" id="lfContactPhone2" required pattern="[0-9]{10}" maxlength="10" placeholder="Alternate 10-digit" class="input-ctrl" />
+              <label class="form-label">Alternate Mobile <span class="opt">(Optional)</span></label>
+              <input type="tel" id="lfContactPhone2" pattern="[0-9]{10}" maxlength="10" placeholder="Different 10-digit" class="input-ctrl" />
             </div>
           </div>
 
@@ -1117,7 +1163,7 @@
       </section>
 
       <!-- ============================================================== -->
-      <!-- TAB 4: FOSTER OR VOLUNTEER (Separate Cleanly Aligned Forms)    -->
+      <!-- TAB 4: FOSTER OR VOLUNTEER                                     -->
       <!-- ============================================================== -->
       <section id="tab-fostervol" class="tab-pane">
         <div class="section-head">
@@ -1224,7 +1270,7 @@
       </section>
 
       <!-- ============================================================== -->
-      <!-- TAB 5: DONATE & PARTNERS                                       -->
+      <!-- TAB 5: DONATE & PARTNERS (Dogato Pet Hospital Added)           -->
       <!-- ============================================================== -->
       <section id="tab-donate" class="tab-pane">
         <div class="card">
@@ -1277,10 +1323,21 @@
         <div class="card">
           <h3 style="margin:0 0 4px;font-size:15px;font-weight:800;">Partner Organizations & Brands</h3>
           <p style="margin:0 0 12px;font-size:11.5px;color:var(--stone-500);">Supporting HappyPaws adoptions & care</p>
-          <div style="background:var(--canvas-50);padding:12px;border-radius:14px;border:1px solid var(--stone-100);margin-bottom:8px;">
-            <p style="margin:0 0 2px;font-size:12px;font-weight:700;">Partner Veterinary Clinics</p>
-            <p style="margin:0;font-size:11px;color:var(--stone-500);">Subsidized vaccinations, ABC sterilizations & care</p>
+          
+          <!-- Dogato Pet Hospital Vet Partner Card -->
+          <div style="background:var(--canvas-50);padding:13px;border-radius:14px;border:1px solid var(--stone-200);margin-bottom:10px;">
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:4px;">
+              <p style="margin:0;font-size:13px;font-weight:800;color:var(--stone-900);">Dogato Pet Hospital</p>
+              <span style="font-size:10px;font-weight:700;padding:3px 8px;border-radius:999px;background:var(--paw-50);color:var(--paw-700);border:1px solid var(--paw-200);white-space:nowrap;">Vet Partner • 4.8★</span>
+            </div>
+            <p style="margin:0 0 8px;font-size:11px;color:var(--stone-500);line-height:1.4;">
+              Emergency Veterinarian Service • Plot No 37, SPF Academy Road, opp. Dhruv Valley Hills, Suraksha Colony, Bandam Kommu, Ameenpur, Hyderabad 502033
+            </p>
+            <a href="https://maps.app.goo.gl/mVA6oGgqkYZsi3kK9?g_st=ic" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;font-size:11.5px;font-weight:700;color:var(--paw-700);text-decoration:none;">
+              <span>📍 Open Location in Google Maps ➔</span>
+            </a>
           </div>
+
           <div style="background:var(--canvas-50);padding:12px;border-radius:14px;border:1px solid var(--stone-100);">
             <p style="margin:0 0 2px;font-size:12px;font-weight:700;">Pet Nutrition & Supply Supporters</p>
             <p style="margin:0;font-size:11px;color:var(--stone-500);">Starter adoption kits, kibble drives & foster supplies</p>
@@ -1397,7 +1454,7 @@
 
       const API_URL = 'https://script.google.com/macros/s/AKfycbx55JBqoDOcobV7B8ytkrDPZP8taJoYOAfvvdNh0TNvklFOBrUoQvmgc81YdSIXvN88hQ/exec';
 
-      const CACHE_KEY = '_happypaws_cache_v12';
+      const CACHE_KEY = '_happypaws_cache_v13';
       const CACHE_TTL_MS = 25 * 1000;
       const SESSION_KEY = '_happypaws_auth_v1';
       const SESSION_TTL_MS = 45 * 60 * 1000;
@@ -1424,6 +1481,39 @@
 
       const now = new Date();
       document.getElementById('financeMonthFilter').value = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}`;
+
+      // ======================================================================
+      // ANTI-ABSURD / ANTI-GIBBERISH INPUT VALIDATORS
+      // ======================================================================
+      function isAbsurdText(val, minChars = 2) {
+        const s = String(val || '').trim();
+        if (s.length < minChars) return true;
+        // Must contain at least one letter or digit (blocks "---", "...", "@@@", "???")
+        if (!/[a-zA-Z0-9\u0900-\u097F]/.test(s)) return true;
+        // Blocks 5+ identical consecutive characters (e.g., "aaaaa", "11111", "xxxxx")
+        if (/(.)\1{4,}/i.test(s)) return true;
+        // Blocks keyboard-mash alternating 2-char repeats (e.g., "ababab", "121212")
+        if (/^(.{1,2})\1{3,}$/i.test(s)) return true;
+        return false;
+      }
+
+      function validateMandatoryFields(fields) {
+        for (const [label, value, minLen] of fields) {
+          if (isAbsurdText(value, minLen || 2)) {
+            showToast(`Please enter a valid ${label}`);
+            return false;
+          }
+        }
+        return true;
+      }
+
+      function isValidIndianMobile(phone) {
+        const clean = String(phone || '').trim();
+        if (!/^[6-9]\d{9}$/.test(clean)) return false;
+        // Reject repeated digits like 9999999999
+        if (/^(\d)\1{9}$/.test(clean)) return false;
+        return true;
+      }
 
       function encodeSession(pin, role) {
         const payload = JSON.stringify({ p: String(pin).trim(), r: role, exp: Date.now() + SESSION_TTL_MS });
@@ -1565,7 +1655,7 @@
         emergency: {
           badge: '5. Emergency & Vets',
           title: 'Local Emergency Clinics & Helplines',
-          body: 'For urgent adoption, lost/found, or general enquiries, reach our team on WhatsApp or email indiahappypaws@gmail.com. Keep injured animals in a safe, shaded spot away from traffic while contacting your nearest 24/7 veterinary clinic.'
+          body: 'Our partner emergency veterinary hospital is Dogato Pet Hospital (Ameenpur, Hyderabad — 4.8★ Emergency Veterinarian Service). For general adoption or lost/found enquiries, message our team on WhatsApp or email indiahappypaws@gmail.com.'
         }
       };
 
@@ -1743,7 +1833,7 @@
       };
 
       // ======================================================================
-      // LIST PET FORM
+      // LIST PET FORM (With Age 25+ & Anti-Absurd Validation)
       // ======================================================================
       let compressedLpPhoto = null;
 
@@ -1772,34 +1862,59 @@
         if (isSubmitting) return;
         if (!compressedLpPhoto) return showToast('Please upload a clear photo of the pet');
 
+        const petName = document.getElementById('lpName').value.trim();
+        const species = document.getElementById('lpSpecies').value;
+        const ageMonths = parseInt(document.getElementById('lpAgeMonths').value, 10);
+        const gender = document.getElementById('lpGender').value;
+        const breed = document.getElementById('lpBreed').value.trim();
+        const area = document.getElementById('lpArea').value.trim();
+        const neutered = document.getElementById('lpNeutered').value;
+        const leash = document.getElementById('lpLeash').value;
+        const houseTrained = document.getElementById('lpHouseTrained').value;
+        const health = document.getElementById('lpHealth').value.trim();
+        const nature = document.getElementById('lpNature').value.trim();
+        const food = document.getElementById('lpFood').value.trim();
+        const story = document.getElementById('lpStory').value.trim();
+        const specialNeeds = document.getElementById('lpSpecialNeeds').value.trim();
+        const otherPlatforms = document.getElementById('lpOtherPlatforms').value.trim();
+        const handling = document.getElementById('lpHandling').value;
+        const ownerName = document.getElementById('lpOwnerName').value.trim();
+        const ownerAge = parseInt(document.getElementById('lpOwnerAge').value, 10);
+        const ownerPhone = document.getElementById('lpOwnerPhone').value.trim();
+
+        if (isNaN(ageMonths) || ageMonths < 0 || ageMonths > 240) {
+          return showToast('Please enter a valid pet age in months (0–240)');
+        }
+        if (isNaN(ownerAge) || ownerAge < 25 || ownerAge > 100) {
+          return showToast('Guardian age must be 25 years or older');
+        }
+        if (!isValidIndianMobile(ownerPhone)) {
+          return showToast('Please enter a valid 10-digit WhatsApp number');
+        }
+
+        const isClean = validateMandatoryFields([
+          ['Pet Name', petName, 2],
+          ['Breed / Coat Color', breed, 2],
+          ['Area / Locality', area, 3],
+          ['Health & Vaccination Disclosure', health, 3],
+          ['Nature / Behaviour', nature, 3],
+          ['Food Details', food, 3],
+          ['Reason for Adoption / Pet Story', story, 6],
+          ['Special Request / Needs', specialNeeds, 2],
+          ['Other Adoption Platforms', otherPlatforms, 2],
+          ['Your Full Name', ownerName, 2]
+        ]);
+        if (!isClean) return;
+
         isSubmitting = true;
         const btn = document.getElementById('lpSubmitBtn');
         btn.disabled = true;
         btn.textContent = 'Submitting...';
 
         try {
-          const petName = document.getElementById('lpName').value.trim();
-          const species = document.getElementById('lpSpecies').value;
-          const ageMonths = document.getElementById('lpAgeMonths').value.trim();
-          const gender = document.getElementById('lpGender').value;
           const ageGenderCombined = `${ageMonths} Months • ${gender}`;
-          const breed = document.getElementById('lpBreed').value.trim();
-          const area = document.getElementById('lpArea').value.trim();
-          const neutered = document.getElementById('lpNeutered').value;
-          const leash = document.getElementById('lpLeash').value;
-          const houseTrained = document.getElementById('lpHouseTrained').value;
-          const health = document.getElementById('lpHealth').value.trim();
-          const nature = document.getElementById('lpNature').value.trim();
-          const food = document.getElementById('lpFood').value.trim();
-          const story = document.getElementById('lpStory').value.trim();
-          const specialNeeds = document.getElementById('lpSpecialNeeds').value.trim();
-          const otherPlatforms = document.getElementById('lpOtherPlatforms').value.trim();
-          const handling = document.getElementById('lpHandling').value;
-          const ownerName = document.getElementById('lpOwnerName').value.trim();
-          const ownerPhone = document.getElementById('lpOwnerPhone').value.trim();
-
           const fullMedicalSummary = `Neutered: ${neutered} | House/Potty Trained: ${houseTrained} | Leash Trained: ${leash} | Health/Vaccines: ${health}`;
-          const fullRehabNotes = `Nature: ${nature} | Diet: ${food} | Special Needs: ${specialNeeds} | Other Platforms: ${otherPlatforms} | Handling: ${handling} | Guardian: ${ownerName} (+91 ${ownerPhone})`;
+          const fullRehabNotes = `Nature: ${nature} | Diet: ${food} | Special Needs: ${specialNeeds} | Other Platforms: ${otherPlatforms} | Handling: ${handling} | Guardian: ${ownerName} (Age ${ownerAge}, +91 ${ownerPhone})`;
 
           const saveAnimalRes = await fetchWithRetry(API_URL, {
             method: 'POST',
@@ -1830,7 +1945,7 @@
               animalId: saveAnimalRes.animalId || 'PENDING',
               animalName: `${petName} (${species} • ${breed})`,
               inquiryType: 'Approve Pet Listing',
-              applicantName: ownerName,
+              applicantName: `${ownerName} (Age ${ownerAge})`,
               phone: ownerPhone,
               ageOccupation: `${ageGenderCombined} • Neutered: ${neutered}`,
               addressLocality: area,
@@ -1859,7 +1974,7 @@
       };
 
       // ======================================================================
-      // LOST & FOUND FORM
+      // LOST & FOUND FORM (Optional Alternate Phone + No Duplicate Allowed + Anti-Absurd)
       // ======================================================================
       let compressedLfPhoto = null;
 
@@ -1894,24 +2009,50 @@
         if (isSubmitting) return;
         if (!compressedLfPhoto) return showToast('Please upload a picture first');
 
+        const reportType = document.getElementById('lfReportType').value;
+        const petName = document.getElementById('lfPetName').value.trim();
+        const color = document.getElementById('lfColor').value.trim();
+        const dateVal = document.getElementById('lfDate').value;
+        const timeVal = document.getElementById('lfTime').value;
+        const loc = document.getElementById('lfLocation').value.trim();
+        const mapsLink = document.getElementById('lfMapsLink').value.trim();
+        const details = document.getElementById('lfDetails').value.trim();
+        const medCond = document.getElementById('lfMedical').value.trim();
+        const cName = document.getElementById('lfContactName').value.trim();
+        const phone1 = document.getElementById('lfContactPhone1').value.trim();
+        const phone2 = document.getElementById('lfContactPhone2').value.trim();
+
+        const isClean = validateMandatoryFields([
+          ['Pet Name / Breed', petName, 2],
+          ['Color / Collar / Marks', color, 2],
+          ['Area & Nearest Landmark', loc, 3],
+          ['Identification & Temperament Details', details, 4],
+          ['Your Full Name', cName, 2]
+        ]);
+        if (!isClean) return;
+
+        if (medCond && isAbsurdText(medCond, 2)) {
+          return showToast('Please enter a valid Medical Condition or leave it blank');
+        }
+        if (!isValidIndianMobile(phone1)) {
+          return showToast('Please enter a valid 10-digit Primary Mobile number');
+        }
+        if (phone2) {
+          if (!isValidIndianMobile(phone2)) {
+            return showToast('Please enter a valid 10-digit Alternate Mobile number');
+          }
+          if (phone1 === phone2) {
+            return showToast('Alternate mobile number cannot be the same as Primary mobile');
+          }
+        }
+
         isSubmitting = true;
         const btn = document.getElementById('lfSubmitBtn');
         btn.disabled = true;
         btn.textContent = 'Submitting...';
 
         try {
-          const reportType = document.getElementById('lfReportType').value;
-          const petName = document.getElementById('lfPetName').value.trim();
-          const color = document.getElementById('lfColor').value.trim();
-          const dateVal = document.getElementById('lfDate').value;
-          const timeVal = document.getElementById('lfTime').value;
-          const loc = document.getElementById('lfLocation').value.trim();
-          const mapsLink = document.getElementById('lfMapsLink').value.trim();
-          const details = document.getElementById('lfDetails').value.trim();
-          const medCond = document.getElementById('lfMedical').value.trim();
-          const cName = document.getElementById('lfContactName').value.trim();
-          const phone1 = document.getElementById('lfContactPhone1').value.trim();
-          const phone2 = document.getElementById('lfContactPhone2').value.trim();
+          const phoneSummary = phone2 ? `+91 ${phone1} / +91 ${phone2}` : `+91 ${phone1}`;
 
           const saveAnimalRes = await fetchWithRetry(API_URL, {
             method: 'POST',
@@ -1927,9 +2068,9 @@
               locationId: '',
               locationName: loc,
               rescueLocation: `${loc} • ${mapsLink}`,
-              rescueStory: `${details} | Date: ${dateVal} at ${timeVal} | Map: ${mapsLink} | Contact: ${cName} (+91 ${phone1} / +91 ${phone2})`,
+              rescueStory: `${details} | Date: ${dateVal} at ${timeVal} | Map: ${mapsLink} | Contact: ${cName} (${phoneSummary})`,
               medicalSummary: medCond || 'None reported',
-              rehabNotes: `Phones: +91 ${phone1}, +91 ${phone2}`,
+              rehabNotes: `Phones: ${phoneSummary}`,
               photoBase64: compressedLfPhoto
             })
           }, 3);
@@ -1942,7 +2083,7 @@
               animalId: saveAnimalRes.animalId || ('LF-' + Date.now().toString().slice(-4)),
               animalName: `${petName} (${color})`,
               inquiryType: reportType,
-              applicantName: `${cName} (+91 ${phone1} / +91 ${phone2})`,
+              applicantName: `${cName} (${phoneSummary})`,
               phone: phone1,
               ageOccupation: `${dateVal} ${timeVal}`,
               addressLocality: `${loc} | ${mapsLink}`,
@@ -1970,7 +2111,7 @@
       };
 
       // ======================================================================
-      // SEPARATE FOSTER & VOLUNTEER FORMS
+      // SEPARATE FOSTER & VOLUNTEER FORMS (With Anti-Absurd Validation)
       // ======================================================================
       window.switchFvForm = function (which) {
         const fosterForm = document.getElementById('fosterOnlyForm');
@@ -1993,6 +2134,15 @@
       window.handleSeparateFosterSubmit = async function (e) {
         e.preventDefault();
         if (isSubmitting) return;
+
+        const name = document.getElementById('fostName').value.trim();
+        const phone = document.getElementById('fostPhone').value.trim();
+        const area = document.getElementById('fostArea').value.trim();
+        const notes = document.getElementById('fostNotes').value.trim();
+
+        if (!validateMandatoryFields([['Full Name', name, 2], ['Locality / Area', area, 3], ['Fostering Duration & Experience', notes, 4]])) return;
+        if (!isValidIndianMobile(phone)) return showToast('Please enter a valid 10-digit WhatsApp number');
+
         isSubmitting = true;
         const btn = document.getElementById('fostSubmitBtn');
         btn.disabled = true;
@@ -2007,12 +2157,12 @@
               animalId: 'FOST-' + Date.now().toString().slice(-4),
               animalName: `Foster Parent (${document.getElementById('fostPetType').value})`,
               inquiryType: 'Foster Parent Application',
-              applicantName: document.getElementById('fostName').value.trim(),
-              phone: document.getElementById('fostPhone').value.trim(),
+              applicantName: name,
+              phone: phone,
               ageOccupation: document.getElementById('fostPetType').value,
-              addressLocality: document.getElementById('fostArea').value.trim(),
+              addressLocality: area,
               housingDetails: document.getElementById('fostHousing').value,
-              petExperience: document.getElementById('fostNotes').value.trim()
+              petExperience: notes
             })
           }, 3);
           if (res.status === 'success') {
@@ -2031,6 +2181,15 @@
       window.handleSeparateVolunteerSubmit = async function (e) {
         e.preventDefault();
         if (isSubmitting) return;
+
+        const name = document.getElementById('volName').value.trim();
+        const phone = document.getElementById('volPhone').value.trim();
+        const area = document.getElementById('volArea').value.trim();
+        const notes = document.getElementById('volNotes').value.trim();
+
+        if (!validateMandatoryFields([['Full Name', name, 2], ['Locality / Area', area, 3], ['Availability & Vehicle Access', notes, 4]])) return;
+        if (!isValidIndianMobile(phone)) return showToast('Please enter a valid 10-digit WhatsApp number');
+
         isSubmitting = true;
         const btn = document.getElementById('volSubmitBtn');
         btn.disabled = true;
@@ -2046,12 +2205,12 @@
               animalId: 'VOL-' + Date.now().toString().slice(-4),
               animalName: `Volunteer (${role})`,
               inquiryType: 'Volunteer Application',
-              applicantName: document.getElementById('volName').value.trim(),
-              phone: document.getElementById('volPhone').value.trim(),
+              applicantName: name,
+              phone: phone,
               ageOccupation: role,
-              addressLocality: document.getElementById('volArea').value.trim(),
+              addressLocality: area,
               housingDetails: role,
-              petExperience: document.getElementById('volNotes').value.trim()
+              petExperience: notes
             })
           }, 3);
           if (res.status === 'success') {
@@ -2806,7 +2965,7 @@
                 <div class="form-group"><textarea id="pubAppAddr" required rows="2" placeholder="Complete Address & Locality *" class="input-ctrl"></textarea></div>
                 <div class="form-group"><select id="pubAppHousing" required class="input-ctrl"><option value="">Select Home & Balcony Safety *</option><option value="Apartment (Fully Netted)">Apartment (Fully Netted)</option><option value="Apartment (Will Install Net)">Apartment (Will Install Net)</option><option value="Independent House (Fenced)">Independent House (Fenced)</option></select></div>
                 <div class="form-group"><textarea id="pubAppExp" required rows="2" placeholder="Existing pets, family agreement & care plan *" class="input-ctrl"></textarea></div>
-                <label style="display:flex;gap:8px;font-size:11.5px;margin-bottom:14px;"><input type="checkbox" required /><span>I agree to vaccinations, sterilization, house checks, and 30D/90D post-adoption follow-ups.</span></label>
+                <label class="agree-row" style="margin-bottom:14px;"><input type="checkbox" required /><span>I agree to vaccinations, sterilization, house checks, and 30D/90D post-adoption follow-ups.</span></label>
                 <button type="submit" class="btn-primary">Submit</button>
               </form>
             </div>
@@ -2816,14 +2975,23 @@
 
       window.submitPublicAdoption = async function (e, animalId, animalName, inquiryType) {
         e.preventDefault();
+        const appName = document.getElementById('pubAppName').value.trim();
+        const appPhone = document.getElementById('pubAppPhone').value.trim();
+        const ageJob = document.getElementById('pubAppAgeJob').value.trim();
+        const addr = document.getElementById('pubAppAddr').value.trim();
+        const exp = document.getElementById('pubAppExp').value.trim();
+
+        if (!validateMandatoryFields([['Full Name', appName, 2], ['Age & Occupation', ageJob, 3], ['Complete Address', addr, 5], ['Care Plan & Experience', exp, 4]])) return;
+        if (!isValidIndianMobile(appPhone)) return showToast('Please enter a valid 10-digit WhatsApp number');
+
         const res = await fetchWithRetry(API_URL, {
           method: 'POST',
           headers: { 'Content-Type': 'text/plain;charset=utf-8' },
           body: JSON.stringify({
             action: 'NEW_ADOPTION_ENQUIRY', animalId, animalName, inquiryType,
-            applicantName: document.getElementById('pubAppName').value.trim(), phone: document.getElementById('pubAppPhone').value.trim(),
-            ageOccupation: document.getElementById('pubAppAgeJob').value.trim(), addressLocality: document.getElementById('pubAppAddr').value.trim(),
-            housingDetails: document.getElementById('pubAppHousing').value, petExperience: document.getElementById('pubAppExp').value.trim()
+            applicantName: appName, phone: appPhone,
+            ageOccupation: ageJob, addressLocality: addr,
+            housingDetails: document.getElementById('pubAppHousing').value, petExperience: exp
           })
         }, 3);
         if (res.status === 'success') { closeModal(); showToast(res.message); }
