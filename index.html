@@ -123,7 +123,7 @@
 
   <div class="max-w-md mx-auto min-h-screen bg-canvas-50 shadow-2xl relative flex flex-col border-x border-stone-200/80">
 
-    <!-- CLEAN STICKY HEADER (Zero external icon dependencies) -->
+    <!-- STICKY HEADER -->
     <header class="sticky top-0 z-30 bg-white/95 backdrop-blur-md border-b border-stone-200/70">
       <div class="px-4 py-3.5 flex items-center justify-between gap-3 relative">
         
@@ -154,14 +154,59 @@
             </svg>
           </button>
 
-          <!-- HAMBURGER DRAWER (Enquiries + Email + Navigation + Team Login) -->
-          <div id="navDropdown" class="dropdown-menu absolute right-0 mt-2 w-72 max-h-[76vh] overflow-y-auto overscroll-contain bg-white rounded-2xl shadow-2xl border border-stone-200/90 py-3 z-50">
+          <!-- HAMBURGER DRAWER (5 Guides + Enquiries + Instagram & Facebook + Team Login) -->
+          <div id="navDropdown" class="dropdown-menu absolute right-0 mt-2 w-72 max-h-[78vh] overflow-y-auto overscroll-contain bg-white rounded-2xl shadow-2xl border border-stone-200/90 py-3 z-50">
             
-            <!-- Enquiries Section -->
-            <div class="px-3.5 pb-2.5 border-b border-stone-100 space-y-1.5">
-              <p class="px-2 pt-0.5 text-[10px] font-bold uppercase tracking-wider text-stone-400">Enquiries</p>
+            <!-- 1. MENU (5 Information Guides — No Duplicate Bottom Tabs) -->
+            <div class="px-3.5 pb-2.5 border-b border-stone-100 space-y-0.5">
+              <p class="px-2 pb-1 text-[10px] font-bold uppercase tracking-wider text-stone-400">Menu</p>
               
-              <a href="tel:+919704085807" onclick="closeMenu()" class="group w-full flex items-center gap-2.5 px-2.5 py-2 rounded-xl bg-paw-50/80 hover:bg-paw-100/80 text-stone-800 transition">
+              <button type="button" onclick="closeMenu(); openInfoGuide('about');" class="w-full flex items-start gap-2.5 px-2.5 py-2 rounded-xl hover:bg-paw-50 text-stone-700 text-left transition">
+                <span class="text-xs font-bold text-paw-600 shrink-0">1.</span>
+                <div class="min-w-0">
+                  <p class="text-xs font-bold text-stone-900 leading-tight">About HappyPaws</p>
+                  <p class="text-[10px] text-stone-500 leading-snug">Mission, team & rescue impact</p>
+                </div>
+              </button>
+
+              <button type="button" onclick="closeMenu(); openInfoGuide('faqs');" class="w-full flex items-start gap-2.5 px-2.5 py-2 rounded-xl hover:bg-paw-50 text-stone-700 text-left transition">
+                <span class="text-xs font-bold text-paw-600 shrink-0">2.</span>
+                <div class="min-w-0">
+                  <p class="text-xs font-bold text-stone-900 leading-tight">How It Works & FAQs</p>
+                  <p class="text-[10px] text-stone-500 leading-snug">Adoption rules & screening process</p>
+                </div>
+              </button>
+
+              <button type="button" onclick="closeMenu(); openInfoGuide('care');" class="w-full flex items-start gap-2.5 px-2.5 py-2 rounded-xl hover:bg-paw-50 text-stone-700 text-left transition">
+                <span class="text-xs font-bold text-paw-600 shrink-0">3.</span>
+                <div class="min-w-0">
+                  <p class="text-xs font-bold text-stone-900 leading-tight">Pet Care & Guides</p>
+                  <p class="text-[10px] text-stone-500 leading-snug">Vaccination schedules & nutrition</p>
+                </div>
+              </button>
+
+              <button type="button" onclick="closeMenu(); openInfoGuide('stories');" class="w-full flex items-start gap-2.5 px-2.5 py-2 rounded-xl hover:bg-paw-50 text-stone-700 text-left transition">
+                <span class="text-xs font-bold text-paw-600 shrink-0">4.</span>
+                <div class="min-w-0">
+                  <p class="text-xs font-bold text-stone-900 leading-tight">Adoption Stories</p>
+                  <p class="text-[10px] text-stone-500 leading-snug">Past rescues & happy families</p>
+                </div>
+              </button>
+
+              <button type="button" onclick="closeMenu(); openInfoGuide('emergency');" class="w-full flex items-start gap-2.5 px-2.5 py-2 rounded-xl hover:bg-paw-50 text-stone-700 text-left transition">
+                <span class="text-xs font-bold text-paw-600 shrink-0">5.</span>
+                <div class="min-w-0">
+                  <p class="text-xs font-bold text-stone-900 leading-tight">Emergency & Vets</p>
+                  <p class="text-[10px] text-stone-500 leading-snug">Local clinics & stray helplines</p>
+                </div>
+              </button>
+            </div>
+
+            <!-- 2. ENQUIRIES (Contact Cards) -->
+            <div class="px-3.5 py-2.5 border-b border-stone-100 space-y-1.5">
+              <p class="px-2 text-[10px] font-bold uppercase tracking-wider text-stone-400">Enquiries</p>
+              
+              <a href="tel:+919704085807" onclick="closeMenu()" class="w-full flex items-center gap-2.5 px-2.5 py-2 rounded-xl bg-paw-50/80 hover:bg-paw-100/80 text-stone-800 transition">
                 <div class="w-7 h-7 rounded-lg bg-paw-600 text-white flex items-center justify-center shrink-0">
                   <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                 </div>
@@ -171,7 +216,7 @@
                 </div>
               </a>
 
-              <a href="tel:+917416585807" onclick="closeMenu()" class="group w-full flex items-center gap-2.5 px-2.5 py-2 rounded-xl bg-stone-50 hover:bg-paw-50/70 text-stone-800 transition">
+              <a href="tel:+917416585807" onclick="closeMenu()" class="w-full flex items-center gap-2.5 px-2.5 py-2 rounded-xl bg-stone-50 hover:bg-paw-50/70 text-stone-800 transition">
                 <div class="w-7 h-7 rounded-lg bg-white border border-stone-200 text-paw-600 flex items-center justify-center shrink-0">
                   <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                 </div>
@@ -181,7 +226,17 @@
                 </div>
               </a>
 
-              <a href="mailto:indiahappypaws@gmail.com" onclick="closeMenu()" class="group w-full flex items-center gap-2.5 px-2.5 py-2 rounded-xl bg-stone-50 hover:bg-paw-50/70 text-stone-800 transition">
+              <a href="https://wa.me/919704085807?text=Hi%20HappyPaws!%20I%20have%20a%20quick%20question." target="_blank" rel="noopener" onclick="closeMenu()" class="w-full flex items-center gap-2.5 px-2.5 py-2 rounded-xl bg-emerald-50/70 hover:bg-emerald-100/70 text-stone-800 transition">
+                <div class="w-7 h-7 rounded-lg bg-emerald-600 text-white flex items-center justify-center shrink-0">
+                  <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                </div>
+                <div class="min-w-0">
+                  <p class="text-xs font-bold text-emerald-900 leading-tight">WhatsApp Enquiry</p>
+                  <p class="text-[10px] text-emerald-700 leading-tight">Quick chat for questions</p>
+                </div>
+              </a>
+
+              <a href="mailto:indiahappypaws@gmail.com" onclick="closeMenu()" class="w-full flex items-center gap-2.5 px-2.5 py-2 rounded-xl bg-stone-50 hover:bg-paw-50/70 text-stone-800 transition">
                 <div class="w-7 h-7 rounded-lg bg-white border border-stone-200 text-paw-600 flex items-center justify-center shrink-0">
                   <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
                 </div>
@@ -192,41 +247,24 @@
               </a>
             </div>
 
-            <!-- Quick Navigation -->
-            <div class="px-3.5 pt-2 space-y-0.5">
-              <p class="px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-stone-400">Menu</p>
-              
-              <button type="button" onclick="closeMenu(); switchTab('adopt');" class="w-full flex items-center gap-2.5 px-2.5 py-2 rounded-xl hover:bg-paw-50 text-stone-700 text-left text-xs font-medium transition">
-                <span class="text-paw-600 font-bold">1.</span>
-                <span>Adopt a Pet</span>
-              </button>
-
-              <button type="button" onclick="closeMenu(); switchTab('listpet');" class="w-full flex items-center gap-2.5 px-2.5 py-2 rounded-xl hover:bg-paw-50 text-stone-700 text-left text-xs font-medium transition">
-                <span class="text-paw-600 font-bold">2.</span>
-                <span>List Rescue / Pet</span>
-              </button>
-
-              <button type="button" onclick="closeMenu(); switchTab('lostfound');" class="w-full flex items-center gap-2.5 px-2.5 py-2 rounded-xl hover:bg-paw-50 text-stone-700 text-left text-xs font-medium transition">
-                <span class="text-paw-600 font-bold">3.</span>
-                <span>Lost / Found Pet</span>
-              </button>
-
-              <button type="button" onclick="closeMenu(); switchTab('fostervol');" class="w-full flex items-center gap-2.5 px-2.5 py-2 rounded-xl hover:bg-paw-50 text-stone-700 text-left text-xs font-medium transition">
-                <span class="text-paw-600 font-bold">4.</span>
-                <span>Foster or Volunteer</span>
-              </button>
-
-              <button type="button" onclick="closeMenu(); switchTab('donate');" class="w-full flex items-center gap-2.5 px-2.5 py-2 rounded-xl hover:bg-paw-50 text-stone-700 text-left text-xs font-medium transition">
-                <span class="text-paw-600 font-bold">5.</span>
-                <span>Donate & Partners</span>
-              </button>
-
-              <div class="pt-1.5 mt-1 border-t border-stone-100">
-                <button type="button" onclick="closeMenu(); openPinPrompt('unlock');" class="w-full flex items-center justify-center gap-2 px-3 py-2.5 rounded-xl bg-stone-900 hover:bg-stone-800 text-white text-xs font-semibold transition">
-                  <svg class="w-3.5 h-3.5 text-paw-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                  <span>HappyPaws Team Login</span>
-                </button>
+            <!-- 3. SOCIAL LINKS & TEAM LOGIN -->
+            <div class="px-3.5 pt-2.5 space-y-2">
+              <p class="px-2 text-[10px] font-bold uppercase tracking-wider text-stone-400">Follow HappyPaws</p>
+              <div class="grid grid-cols-2 gap-2">
+                <a href="https://www.instagram.com/happypaws_adoptions?avpt=MW1tdnZyZnJsM2lraw==" target="_blank" rel="noopener" onclick="closeMenu()" class="flex items-center justify-center gap-1.5 py-2 px-2.5 rounded-xl bg-pink-50 hover:bg-pink-100 text-pink-700 text-xs font-bold transition">
+                  <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                  <span>Instagram</span>
+                </a>
+                <a href="https://www.facebook.com/share/1A1RQJPYV6/?mibextid=wwXIfr" target="_blank" rel="noopener" onclick="closeMenu()" class="flex items-center justify-center gap-1.5 py-2 px-2.5 rounded-xl bg-blue-50 hover:bg-blue-100 text-blue-700 text-xs font-bold transition">
+                  <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                  <span>Facebook</span>
+                </a>
               </div>
+
+              <button type="button" onclick="closeMenu(); openPinPrompt('unlock');" class="w-full flex items-center justify-center gap-2 px-3 py-2.5 rounded-xl bg-stone-900 hover:bg-stone-800 text-white text-xs font-semibold transition">
+                <svg class="w-3.5 h-3.5 text-paw-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                <span>HappyPaws Team Login</span>
+              </button>
             </div>
 
           </div>
@@ -374,35 +412,102 @@
       </section>
 
       <!-- ============================================================== -->
-      <!-- TAB 3: LOST PET / FOUND RESCUE                                 -->
+      <!-- TAB 3: LOST PET / FOUND RESCUE (All Mandatory + Photo + Maps + Date/Time + 2 Phones) -->
       <!-- ============================================================== -->
       <section id="tab-lostfound" class="tab-pane space-y-5">
         <div>
           <h2 class="font-display font-bold text-lg text-stone-900">Lost & Found Pets</h2>
-          <p class="text-xs text-stone-500 mt-0.5">Report a missing pet or a found rescue</p>
+          <p class="text-xs text-stone-500 mt-0.5">Report a missing pet or a found rescue with photo & exact location</p>
         </div>
 
         <form id="lostFoundForm" onsubmit="handleLostFoundSubmit(event)" class="bg-white p-5 rounded-3xl border border-stone-200/80 shadow-2xs space-y-4 text-xs">
+          <!-- Report Type Toggle -->
           <div class="grid grid-cols-2 gap-2 p-1 bg-canvas-50 rounded-2xl border border-stone-200/70">
             <button type="button" id="lfTypeLost" onclick="setLfType('Lost Pet')" class="py-2.5 rounded-xl bg-paw-600 text-white font-bold text-xs transition">Lost Pet</button>
             <button type="button" id="lfTypeFound" onclick="setLfType('Found Rescue')" class="py-2.5 rounded-xl text-stone-600 font-semibold text-xs transition">Found Rescue</button>
           </div>
           <input type="hidden" id="lfReportType" value="Lost Pet" />
 
-          <div class="grid grid-cols-2 gap-3">
-            <input type="text" id="lfPetName" required placeholder="Pet Name / Breed *" class="w-full px-3.5 py-2.5 rounded-xl bg-canvas-50 border border-stone-200 focus:bg-white focus:border-paw-600 focus:outline-none" />
-            <input type="text" id="lfColor" required placeholder="Color / Collar / Marks *" class="w-full px-3.5 py-2.5 rounded-xl bg-canvas-50 border border-stone-200 focus:bg-white focus:border-paw-600 focus:outline-none" />
+          <!-- Mandatory Picture Upload -->
+          <div class="space-y-1.5">
+            <label class="block font-semibold text-stone-700">Pet / Rescue Photo <span class="text-rose-600">*</span></label>
+            <label for="lfPhotoInput" class="btn-press relative flex flex-col items-center justify-center w-full h-36 rounded-2xl border-2 border-dashed border-stone-300 hover:border-paw-500 bg-canvas-50 cursor-pointer overflow-hidden transition">
+              <div id="lfUploadPlaceholder" class="flex flex-col items-center justify-center p-4 text-center space-y-1">
+                <div class="w-9 h-9 rounded-full bg-paw-50 text-paw-600 flex items-center justify-center">
+                  <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
+                </div>
+                <p class="text-xs font-semibold text-stone-700">Tap to upload picture *</p>
+                <p class="text-[10px] text-stone-400">Helps identify collar, coat & markings</p>
+              </div>
+              <img id="lfPhotoPreview" class="hidden w-full h-full object-cover" alt="Lost/Found Preview" />
+              <button type="button" id="lfClearPhotoBtn" onclick="clearLfPhoto(event)" class="hidden absolute top-2.5 right-2.5 w-8 h-8 rounded-full bg-stone-900/75 text-white flex items-center justify-center text-xs font-bold">✕</button>
+              <input id="lfPhotoInput" type="file" accept="image/*" required class="hidden" onchange="previewLfPhoto(event)" />
+            </label>
           </div>
 
-          <input type="text" id="lfLocation" required placeholder="Last Seen / Found Area & Landmark *" class="w-full px-3.5 py-2.5 rounded-xl bg-canvas-50 border border-stone-200 focus:bg-white focus:border-paw-600 focus:outline-none" />
-          <textarea id="lfDetails" required rows="2" placeholder="Date/time seen, temperament, or medical condition..." class="w-full px-3.5 py-2.5 rounded-xl bg-canvas-50 border border-stone-200 focus:bg-white focus:border-paw-600 focus:outline-none"></textarea>
-
           <div class="grid grid-cols-2 gap-3">
-            <input type="text" id="lfContactName" required placeholder="Your Name *" class="w-full px-3.5 py-2.5 rounded-xl bg-canvas-50 border border-stone-200 focus:bg-white focus:border-paw-600 focus:outline-none" />
-            <input type="tel" id="lfContactPhone" required pattern="[0-9]{10}" maxlength="10" placeholder="10-digit Phone *" class="w-full px-3.5 py-2.5 rounded-xl bg-canvas-50 border border-stone-200 focus:bg-white focus:border-paw-600 focus:outline-none" />
+            <div>
+              <label class="block font-semibold text-stone-700 mb-1.5">Pet Name / Breed <span class="text-rose-600">*</span></label>
+              <input type="text" id="lfPetName" required placeholder="e.g., Rocky / Indie" class="w-full px-3.5 py-2.5 rounded-xl bg-canvas-50 border border-stone-200 focus:bg-white focus:border-paw-600 focus:outline-none" />
+            </div>
+            <div>
+              <label class="block font-semibold text-stone-700 mb-1.5">Color / Collar / Marks <span class="text-rose-600">*</span></label>
+              <input type="text" id="lfColor" required placeholder="e.g., Brown, Red collar" class="w-full px-3.5 py-2.5 rounded-xl bg-canvas-50 border border-stone-200 focus:bg-white focus:border-paw-600 focus:outline-none" />
+            </div>
           </div>
 
-          <button type="submit" id="lfSubmitBtn" class="btn-press w-full py-3.5 rounded-2xl bg-paw-600 hover:bg-paw-700 text-white font-display font-bold text-sm">
+          <!-- Separate Date & Time Inputs -->
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <label class="block font-semibold text-stone-700 mb-1.5">Date Seen / Lost <span class="text-rose-600">*</span></label>
+              <input type="date" id="lfDate" required class="w-full px-3.5 py-2.5 rounded-xl bg-canvas-50 border border-stone-200 focus:bg-white focus:border-paw-600 focus:outline-none" />
+            </div>
+            <div>
+              <label class="block font-semibold text-stone-700 mb-1.5">Approximate Time <span class="text-rose-600">*</span></label>
+              <input type="time" id="lfTime" required class="w-full px-3.5 py-2.5 rounded-xl bg-canvas-50 border border-stone-200 focus:bg-white focus:border-paw-600 focus:outline-none" />
+            </div>
+          </div>
+
+          <div>
+            <label class="block font-semibold text-stone-700 mb-1.5">Area & Nearest Landmark <span class="text-rose-600">*</span></label>
+            <input type="text" id="lfLocation" required placeholder="e.g., Gachibowli Circle, near DLF Gate 2" class="w-full px-3.5 py-2.5 rounded-xl bg-canvas-50 border border-stone-200 focus:bg-white focus:border-paw-600 focus:outline-none" />
+          </div>
+
+          <!-- Mandatory Google Maps Link -->
+          <div>
+            <label class="block font-semibold text-stone-700 mb-1.5">Google Maps Location Link <span class="text-rose-600">*</span></label>
+            <input type="url" id="lfMapsLink" required placeholder="Paste Google Maps pin link (https://maps.google.com/...)" class="w-full px-3.5 py-2.5 rounded-xl bg-canvas-50 border border-stone-200 focus:bg-white focus:border-paw-600 focus:outline-none" />
+          </div>
+
+          <div>
+            <label class="block font-semibold text-stone-700 mb-1.5">Identification & Temperament Details <span class="text-rose-600">*</span></label>
+            <textarea id="lfDetails" required rows="2" placeholder="Friendly or shy, responds to name, last direction headed..." class="w-full px-3.5 py-2.5 rounded-xl bg-canvas-50 border border-stone-200 focus:bg-white focus:border-paw-600 focus:outline-none"></textarea>
+          </div>
+
+          <!-- Optional Medical Condition -->
+          <div>
+            <label class="block font-semibold text-stone-700 mb-1.5">Medical Condition <span class="text-stone-400 font-normal">(Optional)</span></label>
+            <input type="text" id="lfMedical" placeholder="e.g., Limping, on daily medication, post-op..." class="w-full px-3.5 py-2.5 rounded-xl bg-canvas-50 border border-stone-200 focus:bg-white focus:border-paw-600 focus:outline-none" />
+          </div>
+
+          <div>
+            <label class="block font-semibold text-stone-700 mb-1.5">Your Full Name <span class="text-rose-600">*</span></label>
+            <input type="text" id="lfContactName" required placeholder="Guardian / Finder Name" class="w-full px-3.5 py-2.5 rounded-xl bg-canvas-50 border border-stone-200 focus:bg-white focus:border-paw-600 focus:outline-none" />
+          </div>
+
+          <!-- 2 Mandatory Mobile Numbers -->
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <label class="block font-semibold text-stone-700 mb-1.5">Mobile Number 1 <span class="text-rose-600">*</span></label>
+              <input type="tel" id="lfContactPhone1" required pattern="[0-9]{10}" maxlength="10" placeholder="10-digit mobile" class="w-full px-3.5 py-2.5 rounded-xl bg-canvas-50 border border-stone-200 focus:bg-white focus:border-paw-600 focus:outline-none" />
+            </div>
+            <div>
+              <label class="block font-semibold text-stone-700 mb-1.5">Mobile Number 2 <span class="text-rose-600">*</span></label>
+              <input type="tel" id="lfContactPhone2" required pattern="[0-9]{10}" maxlength="10" placeholder="Alternate 10-digit" class="w-full px-3.5 py-2.5 rounded-xl bg-canvas-50 border border-stone-200 focus:bg-white focus:border-paw-600 focus:outline-none" />
+            </div>
+          </div>
+
+          <button type="submit" id="lfSubmitBtn" class="btn-press w-full py-3.5 rounded-2xl bg-paw-600 hover:bg-paw-700 text-white font-display font-bold text-sm shadow-md shadow-paw-600/20">
             Submit Lost / Found Report
           </button>
         </form>
@@ -635,31 +740,8 @@
 
     </main>
 
-    <!-- BOTTOM NAVIGATION BAR (Pre-rendered immediately so buttons are 100% responsive in 0ms) -->
-    <nav id="bottomNav" class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-md z-30 bg-white/95 backdrop-blur-md border-t border-stone-200/80 px-2 py-2">
-      <div class="grid grid-cols-5 gap-1">
-        <button type="button" data-tab="adopt" onclick="switchTab('adopt')" class="nav-btn active group flex flex-col items-center justify-center py-1.5 rounded-xl text-paw-700 bg-paw-50 font-bold">
-          <svg class="w-4 h-4 icon-bounce" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
-          <span class="text-[10px] mt-1 tracking-tight">Adopt</span>
-        </button>
-        <button type="button" data-tab="listpet" onclick="switchTab('listpet')" class="nav-btn group flex flex-col items-center justify-center py-1.5 rounded-xl text-stone-500 font-semibold">
-          <svg class="w-4 h-4 icon-bounce" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/><path d="M12 8v8"/></svg>
-          <span class="text-[10px] mt-1 tracking-tight">List Pet</span>
-        </button>
-        <button type="button" data-tab="lostfound" onclick="switchTab('lostfound')" class="nav-btn group flex flex-col items-center justify-center py-1.5 rounded-xl text-stone-500 font-semibold">
-          <svg class="w-4 h-4 icon-bounce" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-          <span class="text-[10px] mt-1 tracking-tight">Lost/Found</span>
-        </button>
-        <button type="button" data-tab="fostervol" onclick="switchTab('fostervol')" class="nav-btn group flex flex-col items-center justify-center py-1.5 rounded-xl text-stone-500 font-semibold">
-          <svg class="w-4 h-4 icon-bounce" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M11 14h2a2 2 0 1 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 16"/><path d="m7 20 1.6-1.4c.3-.4.8-.6 1.4-.6h4c1.1 0 2.1-.4 2.8-1.2l4.6-4.4a2 2 0 0 0-2.75-2.91l-4.2 3.9"/><path d="m2 15 6 6"/></svg>
-          <span class="text-[10px] mt-1 tracking-tight">Foster/Vol</span>
-        </button>
-        <button type="button" data-tab="donate" onclick="switchTab('donate')" class="nav-btn group flex flex-col items-center justify-center py-1.5 rounded-xl text-stone-500 font-semibold">
-          <svg class="w-4 h-4 icon-bounce" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13"/><path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"/><path d="M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5"/></svg>
-          <span class="text-[10px] mt-1 tracking-tight">Donate</span>
-        </button>
-      </div>
-    </nav>
+    <!-- BOTTOM NAVIGATION BAR -->
+    <nav id="bottomNav" class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-md z-30 bg-white/95 backdrop-blur-md border-t border-stone-200/80 px-2 py-2"></nav>
 
     <!-- DYNAMIC MODALS MOUNT POINT -->
     <div id="modalsMount"></div>
@@ -683,7 +765,7 @@
       // ======================================================================
       const API_URL = 'https://script.google.com/macros/s/AKfycbx55JBqoDOcobV7B8ytkrDPZP8taJoYOAfvvdNh0TNvklFOBrUoQvmgc81YdSIXvN88hQ/exec';
 
-      const CACHE_KEY = '_happypaws_cache_v8';
+      const CACHE_KEY = '_happypaws_cache_v9';
       const CACHE_TTL_MS = 25 * 1000;
       const SESSION_KEY = '_happypaws_auth_v1';
       const SESSION_TTL_MS = 45 * 60 * 1000;
@@ -815,7 +897,7 @@
       }
 
       // ======================================================================
-      // HAMBURGER MENU & UPI COPY
+      // HAMBURGER MENU, 5 INFO GUIDES & UPI COPY
       // ======================================================================
       const hamburgerBtn = document.getElementById('hamburgerBtn');
       hamburgerBtn.addEventListener('click', (e) => {
@@ -834,6 +916,57 @@
         }
       });
 
+      const INFO_GUIDES = {
+        about: {
+          badge: '1. About HappyPaws',
+          title: 'Mission, Team & Rescue Impact',
+          body: 'HappyPaws Adoptions is a community-driven animal welfare and adoption initiative dedicated to finding safe, permanent, loving homes for rescued street dogs, pups, cats, and kittens. Every animal listed is vetted, vaccinated, and matched carefully with responsible families.'
+        },
+        faqs: {
+          badge: '2. How It Works & FAQs',
+          title: 'Adoption Rules & Screening Process',
+          body: '1. Browse available pets and submit the adoption vetting form.\n2. Our volunteer coordinator conducts a quick phone & home-safety check (balcony netting for cats / fenced area for dogs).\n3. Meet & greet with the pet, followed by mandatory timely vaccinations, sterilization (ABC), and 30-day & 90-day post-adoption check-ins.'
+        },
+        care: {
+          badge: '3. Pet Care & Guides',
+          title: 'Vaccination Schedules & Nutrition',
+          body: '• Puppies & Kittens: First deworming at 2–3 weeks, core vaccinations (7-in-1 / Tricat) starting at 6–8 weeks, followed by boosters every 3–4 weeks and Anti-Rabies at 3 months.\n• Nutrition: Feed age-appropriate puppy/kitten kibble or fresh home-cooked meals (no chocolate, onions, grapes, or cooked bones) and keep fresh water available 24/7.'
+        },
+        stories: {
+          badge: '4. Adoption Stories',
+          title: 'Past Rescues & Happy Families',
+          body: 'Hundreds of Indie pups, injured street dogs, and orphaned kittens have found forever homes through HappyPaws families. Follow @happypaws_adoptions on Instagram and Facebook to watch weekly adoption updates and happy tail-wagging reunions!'
+        },
+        emergency: {
+          badge: '5. Emergency & Vets',
+          title: 'Local Emergency Clinics & Helplines',
+          body: 'For urgent adoption, lost/found, or rescue coordination, reach our enquiry desk at +91 97040 85807 or +91 74165 85807, or email indiahappypaws@gmail.com. Keep injured animals in a safe, shaded spot away from traffic while contacting your nearest 24/7 veterinary clinic.'
+        }
+      };
+
+      window.openInfoGuide = function (key) {
+        const g = INFO_GUIDES[key];
+        if (!g) return;
+        modalsMount.innerHTML = `
+          <div class="modal-backdrop open fixed inset-0 z-50 bg-stone-900/65 backdrop-blur-xs flex items-end justify-center" onclick="if(event.target===this) closeModal()">
+            <div class="modal-sheet w-full max-w-md bg-white rounded-t-3xl p-6 space-y-4 shadow-2xl">
+              <div class="flex items-center justify-between border-b border-stone-100 pb-3">
+                <div>
+                  <span class="text-[10px] font-bold uppercase tracking-wider text-paw-700 bg-paw-50 px-2.5 py-0.5 rounded-full">${g.badge}</span>
+                  <h3 class="font-display font-bold text-base text-stone-900 mt-1">${g.title}</h3>
+                </div>
+                <button type="button" onclick="closeModal()" class="w-8 h-8 rounded-full bg-stone-100 text-stone-600 font-bold text-xs flex items-center justify-center">✕</button>
+              </div>
+              <p class="text-xs text-stone-600 leading-relaxed whitespace-pre-line">${g.body}</p>
+              <div class="pt-1 flex gap-2.5">
+                <a href="https://wa.me/919704085807" target="_blank" rel="noopener" class="btn-press flex-1 py-3 rounded-xl bg-paw-600 text-white font-semibold text-xs text-center">Chat on WhatsApp</a>
+                <button type="button" onclick="closeModal()" class="btn-press px-4 py-3 rounded-xl bg-stone-100 text-stone-700 font-semibold text-xs">Close</button>
+              </div>
+            </div>
+          </div>
+        `;
+      };
+
       window.copyUpi = function () {
         const upi = document.getElementById('upiIdText').textContent;
         navigator.clipboard.writeText(upi);
@@ -844,7 +977,7 @@
       };
 
       // ======================================================================
-      // ROLE-AWARE NAVIGATION (Zero external SVG library calls)
+      // ROLE-AWARE NAVIGATION
       // ======================================================================
       const ICONS = {
         heart: `<svg class="w-4 h-4 icon-bounce" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>`,
@@ -877,7 +1010,7 @@
           ctaEl.innerHTML = isCoord ? `<button type="button" onclick="openLocationFormModal()" class="btn-press inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-paw-600 text-white font-display font-bold text-xs shadow-sm">+ Add Place</button>` : '';
         } else if (activeOpsSub === 'adoptions') {
           titleEl.textContent = 'Requests & Adoptions';
-          subEl.textContent = 'Approve pet listing requests, adoption enquiries & volunteers';
+          subEl.textContent = 'Approve pet listings, lost/found reports & adoption enquiries';
           ctaEl.innerHTML = '';
         } else if (activeOpsSub === 'tasks') {
           titleEl.textContent = 'Volunteer Tasks';
@@ -1142,8 +1275,30 @@
       };
 
       // ======================================================================
-      // PUBLIC FORMS: LOST/FOUND & FOSTER/VOLUNTEER
+      // LOST & FOUND (Photo + Google Maps Link + Separate Date & Time + 2 Phones)
       // ======================================================================
+      let compressedLfPhoto = null;
+
+      window.previewLfPhoto = async function (e) {
+        const file = e.target.files[0];
+        if (!file) return;
+        compressedLfPhoto = await compressImageFile(file);
+        document.getElementById('lfPhotoPreview').src = compressedLfPhoto;
+        document.getElementById('lfPhotoPreview').classList.remove('hidden');
+        document.getElementById('lfUploadPlaceholder').classList.add('hidden');
+        document.getElementById('lfClearPhotoBtn').classList.remove('hidden');
+      };
+
+      window.clearLfPhoto = function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        compressedLfPhoto = null;
+        document.getElementById('lfPhotoInput').value = '';
+        document.getElementById('lfPhotoPreview').classList.add('hidden');
+        document.getElementById('lfUploadPlaceholder').classList.remove('hidden');
+        document.getElementById('lfClearPhotoBtn').classList.add('hidden');
+      };
+
       window.setLfType = function (val) {
         document.getElementById('lfReportType').value = val;
         const lostBtn = document.getElementById('lfTypeLost');
@@ -1160,41 +1315,80 @@
       window.handleLostFoundSubmit = async function (e) {
         e.preventDefault();
         if (isSubmitting) return;
+        if (!compressedLfPhoto) {
+          showToast('Please upload a picture first');
+          return;
+        }
+
         isSubmitting = true;
         const btn = document.getElementById('lfSubmitBtn');
         btn.disabled = true;
-        btn.textContent = 'Submitting...';
+        btn.textContent = 'Uploading & Submitting Report...';
 
         try {
           const reportType = document.getElementById('lfReportType').value;
           const petName = document.getElementById('lfPetName').value.trim();
           const color = document.getElementById('lfColor').value.trim();
+          const dateVal = document.getElementById('lfDate').value;
+          const timeVal = document.getElementById('lfTime').value;
           const loc = document.getElementById('lfLocation').value.trim();
+          const mapsLink = document.getElementById('lfMapsLink').value.trim();
           const details = document.getElementById('lfDetails').value.trim();
+          const medCond = document.getElementById('lfMedical').value.trim();
           const cName = document.getElementById('lfContactName').value.trim();
-          const cPhone = document.getElementById('lfContactPhone').value.trim();
+          const phone1 = document.getElementById('lfContactPhone1').value.trim();
+          const phone2 = document.getElementById('lfContactPhone2').value.trim();
 
+          const combinedStory = `${details} | Date: ${dateVal} at ${timeVal} | Map: ${mapsLink} | Contact: ${cName} (+91 ${phone1} / +91 ${phone2})`;
+
+          // 1. Save with Photo into Animals tab (Pending Approval until coordinator publishes)
+          const saveAnimalRes = await fetchWithRetry(API_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+            body: JSON.stringify({
+              action: 'SAVE_ANIMAL',
+              pin: '2222',
+              name: `${petName} (${reportType})`,
+              species: 'Other',
+              breedColor: `[P:5] ${color}`,
+              ageGender: `${dateVal} ${timeVal}`,
+              status: 'Pending Approval',
+              locationId: '',
+              locationName: loc,
+              rescueLocation: `${loc} • ${mapsLink}`,
+              rescueStory: combinedStory,
+              medicalSummary: medCond || 'None reported',
+              rehabNotes: `Phones: +91 ${phone1}, +91 ${phone2}`,
+              photoBase64: compressedLfPhoto
+            })
+          }, 3);
+
+          // 2. Log into Coordinator Requests & Adoptions queue
           const res = await fetchWithRetry(API_URL, {
             method: 'POST',
             headers: { 'Content-Type': 'text/plain;charset=utf-8' },
             body: JSON.stringify({
               action: 'NEW_ADOPTION_ENQUIRY',
-              animalId: 'LF-' + Date.now().toString().slice(-4),
+              animalId: saveAnimalRes.animalId || ('LF-' + Date.now().toString().slice(-4)),
               animalName: `${petName} (${color})`,
               inquiryType: reportType,
-              applicantName: cName,
-              phone: cPhone,
-              ageOccupation: color,
-              addressLocality: loc,
-              housingDetails: reportType,
+              applicantName: `${cName} (+91 ${phone1} / +91 ${phone2})`,
+              phone: phone1,
+              ageOccupation: `${dateVal} ${timeVal}`,
+              addressLocality: `${loc} | ${mapsLink}`,
+              housingDetails: medCond ? `Medical: ${medCond}` : 'No medical condition noted',
               petExperience: details
             })
           }, 3);
 
           if (res.status === 'success') {
             document.getElementById('lostFoundForm').reset();
+            compressedLfPhoto = null;
+            document.getElementById('lfPhotoPreview').classList.add('hidden');
+            document.getElementById('lfUploadPlaceholder').classList.remove('hidden');
+            document.getElementById('lfClearPhotoBtn').classList.add('hidden');
             setLfType('Lost Pet');
-            showToast(`${reportType} report #${res.appId} sent!`);
+            showToast(`${reportType} report #${res.appId} sent for verification!`);
           }
         } catch (err) {
           showToast('High traffic — please try again');
@@ -1205,6 +1399,9 @@
         }
       };
 
+      // ======================================================================
+      // FOSTER / VOLUNTEER FORM
+      // ======================================================================
       window.handleFosterVolSubmit = async function (e) {
         e.preventDefault();
         if (isSubmitting) return;
@@ -1424,10 +1621,13 @@
           lfEl.innerHTML = `<div class="bg-white rounded-2xl border border-stone-200/80 p-5 text-center text-xs text-stone-500">No active lost or found alerts right now. Use the form above to post one.</div>`;
         } else {
           lfEl.innerHTML = lfAnimals.map(a => `
-            <div class="bg-white p-4 rounded-2xl border border-stone-200/80 shadow-2xs space-y-1">
-              <span class="text-[10px] font-bold uppercase px-2 py-0.5 rounded bg-paw-50 text-paw-700">${a.Status}</span>
-              <h4 class="font-display font-bold text-sm text-stone-900">${a.Name}</h4>
-              <p class="text-xs text-stone-500">${a.Rescue_Location || ''} • ${a.Rescue_Story || ''}</p>
+            <div class="bg-white rounded-2xl border border-stone-200/80 overflow-hidden shadow-2xs">
+              ${a.Photo_URL && String(a.Photo_URL).startsWith('http') ? `<img src="${a.Photo_URL}" alt="${a.Name}" class="w-full h-40 object-cover" />` : ''}
+              <div class="p-4 space-y-1.5">
+                <span class="text-[10px] font-bold uppercase px-2 py-0.5 rounded bg-paw-50 text-paw-700">${a.Status}</span>
+                <h4 class="font-display font-bold text-sm text-stone-900">${a.Name}</h4>
+                <p class="text-xs text-stone-500">${a.Rescue_Story || a.Rescue_Location || ''}</p>
+              </div>
             </div>
           `).join('');
         }
@@ -1654,7 +1854,7 @@
       };
 
       // ======================================================================
-      // FAST STALE-WHILE-REVALIDATE SYNC ENGINE (Zero startup lag)
+      // FAST STALE-WHILE-REVALIDATE SYNC ENGINE
       // ======================================================================
       window.syncDatabase = async function (forceFresh = false) {
         if (isSubmitting && !forceFresh) return;
@@ -1701,9 +1901,7 @@
               }
             }
           } catch (e) {
-            if (!cached && !lastSignature) {
-              renderCurrentView();
-            }
+            if (!cached && !lastSignature) renderCurrentView();
           } finally {
             inFlightSync = null;
           }
@@ -1712,7 +1910,7 @@
       };
 
       setInterval(() => {
-        if (document.visibilityState === 'visible' && !['listpet'].includes(activeTab)) {
+        if (document.visibilityState === 'visible' && !['listpet', 'lostfound'].includes(activeTab)) {
           syncDatabase(false);
         }
       }, 6000);
