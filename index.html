@@ -115,12 +115,8 @@
       flex-shrink: 0;
       transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
-    .brand-badge:hover svg {
-      animation: pawWiggle 0.55s ease;
-    }
-    .brand-badge:active {
-      transform: scale(0.92);
-    }
+    .brand-badge:hover svg { animation: pawWiggle 0.55s ease; }
+    .brand-badge:active { transform: scale(0.92); }
 
     @keyframes pawWiggle {
       0%, 100% { transform: rotate(0deg) scale(1); }
@@ -160,18 +156,11 @@
       transition: transform 0.24s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.2s ease;
       transform-origin: center;
     }
-    .icon-btn.is-open svg line:nth-child(1) {
-      transform: translateY(5px) rotate(45deg);
-    }
-    .icon-btn.is-open svg line:nth-child(2) {
-      opacity: 0;
-      transform: scaleX(0);
-    }
-    .icon-btn.is-open svg line:nth-child(3) {
-      transform: translateY(-5px) rotate(-45deg);
-    }
+    .icon-btn.is-open svg line:nth-child(1) { transform: translateY(5px) rotate(45deg); }
+    .icon-btn.is-open svg line:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .icon-btn.is-open svg line:nth-child(3) { transform: translateY(-5px) rotate(-45deg); }
 
-    /* Clean, Aligned Hamburger Dropdown */
+    /* Hamburger Dropdown */
     .dropdown-menu {
       position: absolute;
       right: 0;
@@ -236,29 +225,10 @@
       transition: background 0.15s ease, transform 0.15s ease;
     }
     .menu-item:last-child { margin-bottom: 0; }
-    .menu-item:hover {
-      background: var(--paw-50);
-      transform: translateX(2px);
-    }
-    .menu-item-num {
-      font-size: 12px;
-      font-weight: 800;
-      color: var(--paw-600);
-      line-height: 1.3;
-    }
-    .menu-item-title {
-      margin: 0;
-      font-size: 12.5px;
-      font-weight: 700;
-      color: var(--stone-900);
-      line-height: 1.3;
-    }
-    .menu-item-sub {
-      margin: 2px 0 0;
-      font-size: 10.5px;
-      color: var(--stone-500);
-      line-height: 1.35;
-    }
+    .menu-item:hover { background: var(--paw-50); transform: translateX(2px); }
+    .menu-item-num { font-size: 12px; font-weight: 800; color: var(--paw-600); line-height: 1.3; }
+    .menu-item-title { margin: 0; font-size: 12.5px; font-weight: 700; color: var(--stone-900); line-height: 1.3; }
+    .menu-item-sub { margin: 2px 0 0; font-size: 10.5px; color: var(--stone-500); line-height: 1.35; }
 
     .contact-card {
       display: flex;
@@ -275,11 +245,7 @@
     }
     .contact-card:last-child { margin-bottom: 0; }
     .contact-card:hover { transform: translateX(2px); }
-    .contact-card.whatsapp {
-      background: #ECFDF5;
-      border-color: #D1FAE5;
-      color: #064E3B;
-    }
+    .contact-card.whatsapp { background: #ECFDF5; border-color: #D1FAE5; color: #064E3B; }
     .contact-icon {
       width: 32px;
       height: 32px;
@@ -293,14 +259,8 @@
       color: var(--paw-600);
       transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
-    .contact-card:hover .contact-icon {
-      transform: scale(1.08) rotate(-4deg);
-    }
-    .contact-card.whatsapp .contact-icon {
-      background: #059669;
-      border: none;
-      color: #fff;
-    }
+    .contact-card:hover .contact-icon { transform: scale(1.08) rotate(-4deg); }
+    .contact-card.whatsapp .contact-icon { background: #059669; border: none; color: #fff; }
 
     .social-grid {
       display: grid;
@@ -394,10 +354,7 @@
       outline: none;
       transition: border-color 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
     }
-    textarea.input-ctrl {
-      min-height: 76px;
-      resize: vertical;
-    }
+    textarea.input-ctrl { min-height: 76px; resize: vertical; }
     .input-ctrl:focus {
       background: #fff;
       border-color: var(--paw-600);
@@ -421,23 +378,8 @@
       padding: 16px;
       transition: border-color 0.18s ease, background 0.18s ease;
     }
-    .upload-box:hover {
-      border-color: var(--paw-500);
-      background: var(--paw-50);
-    }
-    .upload-box svg {
-      transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
-    }
-    .upload-box:hover svg {
-      transform: translateY(-2px) scale(1.08);
-    }
-    .upload-preview {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      position: absolute;
-      inset: 0;
-    }
+    .upload-box:hover { border-color: var(--paw-500); background: var(--paw-50); }
+    .upload-preview { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; }
     .clear-photo-btn {
       position: absolute;
       top: 10px;
@@ -510,11 +452,7 @@
       transition: transform 0.14s ease, background 0.16s ease, color 0.16s ease;
     }
     .pill:active { transform: scale(0.96); }
-    .pill.active {
-      background: var(--paw-600);
-      border-color: var(--paw-600);
-      color: #fff;
-    }
+    .pill.active { background: var(--paw-600); border-color: var(--paw-600); color: #fff; }
 
     .seg-toggle {
       display: grid;
@@ -535,13 +473,8 @@
       font-size: 12px;
       font-weight: 600;
       cursor: pointer;
-      transition: background 0.16s ease, color 0.16s ease;
     }
-    .seg-btn.active {
-      background: var(--paw-600);
-      color: #fff;
-      font-weight: 700;
-    }
+    .seg-btn.active { background: var(--paw-600); color: #fff; font-weight: 700; }
 
     /* Animal Cards */
     .pet-card {
@@ -597,21 +530,39 @@
       cursor: pointer;
     }
 
-    /* Scrollable Terms & Conditions Box */
-    .terms-wrap {
-      margin-bottom: 16px;
+    /* Donation Detail Rows */
+    .pay-detail-box {
+      background: var(--canvas-50);
+      border: 1px solid var(--stone-200);
+      border-radius: 16px;
+      padding: 14px;
+      margin-bottom: 12px;
     }
-    .terms-head-bar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 6px;
-    }
-    .terms-hint {
-      font-size: 10.5px;
-      font-weight: 600;
+    .pay-detail-title {
+      margin: 0 0 8px;
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
       color: var(--paw-700);
     }
+    .pay-kv {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 0;
+      border-bottom: 1px dashed var(--stone-200);
+      font-size: 12px;
+    }
+    .pay-kv:last-child { border-bottom: none; padding-bottom: 0; }
+    .pay-k { color: var(--stone-500); font-weight: 500; }
+    .pay-v { color: var(--stone-900); font-weight: 700; text-align: right; word-break: break-all; }
+
+    /* Scrollable Terms & Conditions Box */
+    .terms-wrap { margin-bottom: 16px; }
+    .terms-head-bar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; }
+    .terms-hint { font-size: 10.5px; font-weight: 600; color: var(--paw-700); }
     .terms-container {
       background: var(--canvas-50);
       border: 1px solid var(--stone-200);
@@ -621,35 +572,12 @@
       overflow-y: auto;
       overscroll-behavior: contain;
     }
-    .terms-block {
-      border-left: 3px solid var(--paw-600);
-      padding-left: 12px;
-      margin-bottom: 14px;
-    }
-    .terms-block:last-child {
-      margin-bottom: 0;
-    }
-    .terms-block h4 {
-      margin: 0 0 8px;
-      font-size: 11.5px;
-      font-weight: 800;
-      color: var(--paw-800);
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-    }
-    .terms-list {
-      margin: 0;
-      padding-left: 16px;
-      font-size: 11.5px;
-      color: var(--stone-600);
-      line-height: 1.5;
-    }
-    .terms-list li {
-      margin-bottom: 7px;
-    }
-    .terms-list li:last-child {
-      margin-bottom: 0;
-    }
+    .terms-block { border-left: 3px solid var(--paw-600); padding-left: 12px; margin-bottom: 14px; }
+    .terms-block:last-child { margin-bottom: 0; }
+    .terms-block h4 { margin: 0 0 8px; font-size: 11.5px; font-weight: 800; color: var(--paw-800); text-transform: uppercase; letter-spacing: 0.04em; }
+    .terms-list { margin: 0; padding-left: 16px; font-size: 11.5px; color: var(--stone-600); line-height: 1.5; }
+    .terms-list li { margin-bottom: 7px; }
+    .terms-list li:last-child { margin-bottom: 0; }
     .agree-row {
       display: flex;
       align-items: flex-start;
@@ -686,23 +614,9 @@
       border-top: 1px solid var(--stone-200);
       padding: 6px 4px 8px;
     }
-    .nav-grid-5 {
-      display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
-      gap: 2px;
-    }
-    .nav-grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 6px;
-      padding: 0 8px;
-    }
-    .nav-grid-2 {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 8px;
-      padding: 0 12px;
-    }
+    .nav-grid-5 { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 2px; }
+    .nav-grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; padding: 0 8px; }
+    .nav-grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; padding: 0 12px; }
     .nav-btn {
       border: none;
       background: transparent;
@@ -718,16 +632,8 @@
       transition: background 0.18s ease, color 0.18s ease;
     }
     .nav-btn:active { transform: scale(0.94); }
-    .nav-btn.active {
-      background: var(--paw-50);
-      color: var(--paw-700);
-    }
-    .nav-btn svg {
-      transition: transform 0.24s cubic-bezier(0.34, 1.56, 0.64, 1);
-    }
-    .nav-btn.active svg {
-      animation: iconPop 0.36s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-    }
+    .nav-btn.active { background: var(--paw-50); color: var(--paw-700); }
+    .nav-btn.active svg { animation: iconPop 0.36s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
     @keyframes iconPop {
       0% { transform: scale(0.88) translateY(0); }
       55% { transform: scale(1.16) translateY(-3px); }
@@ -787,10 +693,7 @@
       gap: 8px;
       max-width: 90%;
     }
-    .toast.show {
-      opacity: 1;
-      transform: translate(-50%, 0);
-    }
+    .toast.show { opacity: 1; transform: translate(-50%, 0); }
 
     .hidden { display: none !important; }
   </style>
@@ -825,7 +728,7 @@
             </svg>
           </button>
 
-          <!-- HAMBURGER MENU -->
+          <!-- HAMBURGER MENU (Item 5 = Rescue Helpline & 24x7 Clinics) -->
           <div id="navDropdown" class="dropdown-menu no-scrollbar">
             <div class="menu-section">
               <p class="menu-label">Menu</p>
@@ -847,7 +750,7 @@
               </button>
               <button type="button" class="menu-item" onclick="closeMenu(); openInfoGuide('emergency');">
                 <span class="menu-item-num">5.</span>
-                <div><p class="menu-item-title">Emergency & Vets</p><p class="menu-item-sub">Local clinics & stray helplines</p></div>
+                <div><p class="menu-item-title">Rescue Helpline & 24x7 Clinics</p><p class="menu-item-sub">Emergency vet care & stray helplines</p></div>
               </button>
             </div>
 
@@ -934,7 +837,6 @@
         </div>
 
         <form id="publicListPetForm" onsubmit="handlePublicListPetSubmit(event)" class="card">
-          
           <div class="form-group">
             <label class="form-label">Pet Photo <span class="req">*</span></label>
             <label for="lpPhotoInput" class="upload-box">
@@ -1321,77 +1223,105 @@
       </section>
 
       <!-- ============================================================== -->
-      <!-- TAB 5: DONATE & PARTNERS                                       -->
+      <!-- TAB 5: DONATE & OUR PARTNERS (Blank Payment Details + Coordinator Edit) -->
       <!-- ============================================================== -->
       <section id="tab-donate" class="tab-pane">
+        
+        <!-- Fund Utilization Banner -->
         <div class="card">
-          <span style="font-size:10px;font-weight:800;text-transform:uppercase;background:var(--paw-50);color:var(--paw-700);padding:4px 10px;border-radius:999px;">Support HappyPaws</span>
-          <h3 style="margin:10px 0 4px;font-size:16px;font-weight:800;">HappyPaws Care Fund</h3>
-          <p style="margin:0 0 14px;font-size:12px;color:var(--stone-500);">Sponsor food, medicines, accessories or virtually adopt</p>
-
-          <div style="background:var(--canvas-50);border:1px solid var(--stone-200);border-radius:16px;padding:16px;text-align:center;margin-bottom:14px;">
-            <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=upi%3A%2F%2Fpay%3Fpa%3Dhappypaws%40upi%26pn%3DHappyPaws%26cu%3DINR" alt="UPI QR" style="width:160px;height:160px;border-radius:12px;background:#fff;padding:8px;" />
-            <p style="margin:8px 0 0;font-size:11px;font-weight:600;color:var(--stone-500);">GPay • PhonePe • Paytm • BHIM</p>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:8px;">
+            <span style="font-size:10px;font-weight:800;text-transform:uppercase;background:var(--paw-50);color:var(--paw-700);padding:4px 10px;border-radius:999px;">Support HappyPaws</span>
+            <div id="donateAdminBtnMount"></div>
           </div>
+          <h3 style="margin:0 0 6px;font-size:17px;font-weight:800;">How Your Contribution Helps</h3>
+          <p style="margin:0 0 14px;font-size:12.5px;color:var(--stone-600);line-height:1.5;">
+            Every contribution is utilized directly for <strong>transport, medical care, food, supplements, and safe stay for rescued animals until adoption</strong>.
+          </p>
 
-          <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;background:var(--canvas-50);border:1px solid var(--stone-200);border-radius:14px;padding:10px 14px;">
-            <code id="upiIdText" style="font-size:13px;font-weight:700;">happypaws@upi</code>
-            <button type="button" onclick="copyUpi()" class="btn-sm" id="copyText">Copy</button>
+          <div class="form-row-2" style="margin-bottom:0;align-items:stretch;">
+            <div style="background:var(--canvas-50);padding:11px 12px;border-radius:14px;border:1px solid var(--stone-100);">
+              <p style="margin:0 0 2px;font-size:12px;font-weight:700;">Medical &amp; Supplements</p>
+              <p style="margin:0;font-size:11px;color:var(--stone-500);">Treatments, vaccines, dewormers &amp; nutrition</p>
+            </div>
+            <div style="background:var(--canvas-50);padding:11px 12px;border-radius:14px;border:1px solid var(--stone-100);">
+              <p style="margin:0 0 2px;font-size:12px;font-weight:700;">Food, Transport &amp; Safe Stay</p>
+              <p style="margin:0;font-size:11px;color:var(--stone-500);">Daily meals, vet travel &amp; boarding until adoption</p>
+            </div>
           </div>
         </div>
 
+        <!-- Payment Methods Card (QR Code + UPI ID + Phone Number + Bank Account — Blank until Coordinator sets) -->
         <div class="card">
-          <h3 style="margin:0 0 4px;font-size:15px;font-weight:800;">In-Kind Donations & Virtual Adoption</h3>
-          <p style="margin:0 0 14px;font-size:11.5px;color:var(--stone-500);">Directly support nutrition, medical kits & monthly care</p>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:14px;">
+            <div>
+              <h3 style="margin:0;font-size:16px;font-weight:800;">Donation Payment Details</h3>
+              <p style="margin:2px 0 0;font-size:11.5px;color:var(--stone-500);">Direct transfer via QR, UPI, Phone, or Bank Account</p>
+            </div>
+            <div id="donateEditMount"></div>
+          </div>
 
-          <div class="form-row-2" style="margin-bottom:16px;align-items:stretch;">
-            <div style="background:var(--canvas-50);padding:12px;border-radius:14px;border:1px solid var(--stone-100);">
-              <p style="margin:0 0 4px;font-size:12px;font-weight:700;">Food & Kibble</p>
-              <p style="margin:0;font-size:11px;color:var(--stone-500);">Dry & wet food, rice, chicken</p>
-            </div>
-            <div style="background:var(--canvas-50);padding:12px;border-radius:14px;border:1px solid var(--stone-100);">
-              <p style="margin:0 0 4px;font-size:12px;font-weight:700;">Medicines & Care</p>
-              <p style="margin:0;font-size:11px;color:var(--stone-500);">Dewormers, tick sprays, gauze</p>
-            </div>
-            <div style="background:var(--canvas-50);padding:12px;border-radius:14px;border:1px solid var(--stone-100);">
-              <p style="margin:0 0 4px;font-size:12px;font-weight:700;">Accessories</p>
-              <p style="margin:0;font-size:11px;color:var(--stone-500);">Leashes, collars, bowls, bedding</p>
-            </div>
-            <div style="background:var(--canvas-50);padding:12px;border-radius:14px;border:1px solid var(--stone-100);">
-              <p style="margin:0 0 4px;font-size:12px;font-weight:700;">Virtual Adoption</p>
-              <p style="margin:0;font-size:11px;color:var(--stone-500);">Monthly care sponsorship</p>
+          <!-- 1. QR Code Section -->
+          <div id="donateQrSection" class="pay-detail-box" style="text-align:center;">
+            <p class="pay-detail-title" style="text-align:left;">Scan QR Code</p>
+            <div id="donateQrMount">
+              <div style="padding:22px 12px;border:1.5px dashed var(--stone-300);border-radius:12px;background:#fff;color:var(--stone-400);font-size:12px;">
+                QR Code not uploaded yet
+              </div>
             </div>
           </div>
 
-          <a href="https://wa.me/919704085807?text=Hi%20HappyPaws!%20I%20would%20like%20to%20donate%20supplies%20or%20virtually%20adopt%20a%20pet." target="_blank" rel="noopener" class="btn-primary">
+          <!-- 2. UPI ID & Phone Number Section -->
+          <div class="pay-detail-box">
+            <p class="pay-detail-title">UPI ID &amp; Phone Payment</p>
+            <div class="pay-kv">
+              <span class="pay-k">UPI ID</span>
+              <span class="pay-v" id="dispUpiId">—</span>
+            </div>
+            <div class="pay-kv">
+              <span class="pay-k">GPay / PhonePe / Paytm No.</span>
+              <span class="pay-v" id="dispPayPhone">—</span>
+            </div>
+          </div>
+
+          <!-- 3. Bank Account Details Section -->
+          <div class="pay-detail-box" style="margin-bottom:14px;">
+            <p class="pay-detail-title">Bank Account Details</p>
+            <div class="pay-kv">
+              <span class="pay-k">Account Holder Name</span>
+              <span class="pay-v" id="dispBankHolder">—</span>
+            </div>
+            <div class="pay-kv">
+              <span class="pay-k">Bank Name</span>
+              <span class="pay-v" id="dispBankName">—</span>
+            </div>
+            <div class="pay-kv">
+              <span class="pay-k">Account Number</span>
+              <span class="pay-v" id="dispBankAcc">—</span>
+            </div>
+            <div class="pay-kv">
+              <span class="pay-k">IFSC Code</span>
+              <span class="pay-v" id="dispBankIfsc">—</span>
+            </div>
+          </div>
+
+          <a href="https://wa.me/919704085807?text=Hi%20HappyPaws!%20I%20would%20like%20to%20contribute%20or%20donate%20supplies%20for%20the%20rescued%20animals." target="_blank" rel="noopener" class="btn-primary">
             Coordinate Supply Drop / Sponsorship
           </a>
         </div>
 
-        <h3 style="font-size:15px;font-weight:800;margin:0 0 10px;">Active Vet Bills & Sponsorships</h3>
+        <h3 style="font-size:15px;font-weight:800;margin:0 0 10px;">Active Vet Bills &amp; Sponsorships</h3>
         <div id="publicBillsList"></div>
 
+        <!-- Our Partners Section (Coordinator Editable) -->
         <div class="card">
-          <h3 style="margin:0 0 4px;font-size:15px;font-weight:800;">Partner Organizations & Brands</h3>
-          <p style="margin:0 0 12px;font-size:11.5px;color:var(--stone-500);">Supporting HappyPaws adoptions & care</p>
-          
-          <div style="background:var(--canvas-50);padding:13px;border-radius:14px;border:1px solid var(--stone-200);margin-bottom:10px;">
-            <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:4px;">
-              <p style="margin:0;font-size:13px;font-weight:800;color:var(--stone-900);">Dogato Pet Hospital</p>
-              <span style="font-size:10px;font-weight:700;padding:3px 8px;border-radius:999px;background:var(--paw-50);color:var(--paw-700);border:1px solid var(--paw-200);white-space:nowrap;">Vet Partner • 4.8★</span>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:12px;">
+            <div>
+              <h3 style="margin:0;font-size:16px;font-weight:800;">Our Partners</h3>
+              <p style="margin:2px 0 0;font-size:11.5px;color:var(--stone-500);">Supporting HappyPaws adoptions &amp; animal care</p>
             </div>
-            <p style="margin:0 0 8px;font-size:11px;color:var(--stone-500);line-height:1.4;">
-              Emergency Veterinarian Service • Plot No 37, SPF Academy Road, opp. Dhruv Valley Hills, Suraksha Colony, Bandam Kommu, Ameenpur, Hyderabad 502033
-            </p>
-            <a href="https://maps.app.goo.gl/mVA6oGgqkYZsi3kK9?g_st=ic" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;font-size:11.5px;font-weight:700;color:var(--paw-700);text-decoration:none;">
-              <span>📍 Open Location in Google Maps ➔</span>
-            </a>
+            <div id="partnerAddMount"></div>
           </div>
-
-          <div style="background:var(--canvas-50);padding:12px;border-radius:14px;border:1px solid var(--stone-100);">
-            <p style="margin:0 0 2px;font-size:12px;font-weight:700;">Pet Nutrition & Supply Supporters</p>
-            <p style="margin:0;font-size:11px;color:var(--stone-500);">Starter adoption kits, kibble drives & foster supplies</p>
-          </div>
+          <div id="partnersListMount"></div>
         </div>
       </section>
 
@@ -1401,16 +1331,16 @@
       <section id="tab-ops" class="tab-pane">
         <div class="section-head">
           <div>
-            <h2 id="opsTabTitle" class="section-title">Vet & Vaccinations</h2>
-            <p id="opsTabSub" class="section-sub">Treatments, booster reminders & bills</p>
+            <h2 id="opsTabTitle" class="section-title">Vet &amp; Vaccinations</h2>
+            <p id="opsTabSub" class="section-sub">Treatments, booster reminders &amp; bills</p>
           </div>
           <div id="opsCtaMount"></div>
         </div>
 
         <div id="opsSubNav" class="pill-row no-scrollbar">
-          <button type="button" data-sub="vet" onclick="switchOpsSubTab('vet')" class="ops-pill pill active">Vet & Vaccines (<span id="badge-vet">0</span>)</button>
-          <button type="button" data-sub="locations" onclick="switchOpsSubTab('locations')" class="ops-pill pill">Fosters & Clinics (<span id="badge-locations">0</span>)</button>
-          <button type="button" data-sub="adoptions" onclick="switchOpsSubTab('adoptions')" class="ops-pill coord-only-pill pill">Requests & Adoptions (<span id="badge-adoptions">0</span>)</button>
+          <button type="button" data-sub="vet" onclick="switchOpsSubTab('vet')" class="ops-pill pill active">Vet &amp; Vaccines (<span id="badge-vet">0</span>)</button>
+          <button type="button" data-sub="locations" onclick="switchOpsSubTab('locations')" class="ops-pill pill">Fosters &amp; Clinics (<span id="badge-locations">0</span>)</button>
+          <button type="button" data-sub="adoptions" onclick="switchOpsSubTab('adoptions')" class="ops-pill coord-only-pill pill">Requests &amp; Adoptions (<span id="badge-adoptions">0</span>)</button>
           <button type="button" data-sub="tasks" onclick="switchOpsSubTab('tasks')" class="ops-pill pill">Tasks (<span id="badge-tasks">0</span>)</button>
         </div>
 
@@ -1429,8 +1359,8 @@
       <section id="tab-finance" class="tab-pane">
         <div class="section-head">
           <div>
-            <h2 class="section-title">Donations & Finance</h2>
-            <p class="section-sub">Income, expenses & monthly financial reports</p>
+            <h2 class="section-title">Donations &amp; Finance</h2>
+            <p class="section-sub">Income, expenses &amp; monthly financial reports</p>
           </div>
           <div id="financeCtaMount"></div>
         </div>
@@ -1504,7 +1434,9 @@
 
       const API_URL = 'https://script.google.com/macros/s/AKfycbx55JBqoDOcobV7B8ytkrDPZP8taJoYOAfvvdNh0TNvklFOBrUoQvmgc81YdSIXvN88hQ/exec';
 
-      const CACHE_KEY = '_happypaws_cache_v14';
+      const CACHE_KEY = '_happypaws_cache_v15';
+      const DONATE_CFG_KEY = '_happypaws_donate_cfg_v1';
+      const PARTNERS_CFG_KEY = '_happypaws_partners_v1';
       const CACHE_TTL_MS = 25 * 1000;
       const SESSION_KEY = '_happypaws_auth_v1';
       const SESSION_TTL_MS = 45 * 60 * 1000;
@@ -1522,6 +1454,28 @@
         tasks: []
       };
 
+      // Default Donation Settings (Blank by default until Coordinator updates)
+      let donationConfig = {
+        upiId: '',
+        payPhone: '',
+        bankHolder: '',
+        bankName: '',
+        bankAcc: '',
+        bankIfsc: '',
+        qrUrl: ''
+      };
+
+      // Default Partners (Dogato Pet Hospital)
+      const DEFAULT_PARTNERS = [
+        {
+          id: 'PARTNER-DOGATO',
+          name: 'Dogato Pet Hospital',
+          badge: 'Vet Partner • 4.8★',
+          desc: 'Emergency Veterinarian Service • Plot No 37, SPF Academy Road, opp. Dhruv Valley Hills, Suraksha Colony, Bandam Kommu, Ameenpur, Hyderabad 502033',
+          mapUrl: 'https://maps.app.goo.gl/mVA6oGgqkYZsi3kK9?g_st=ic'
+        }
+      ];
+
       let activeTab = 'adopt';
       let activeOpsSub = 'vet';
       let animalFilter = 'ALL';
@@ -1531,6 +1485,38 @@
 
       const now = new Date();
       document.getElementById('financeMonthFilter').value = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}`;
+
+      // Load saved local configs if present
+      try {
+        const savedDonate = JSON.parse(localStorage.getItem(DONATE_CFG_KEY) || 'null');
+        if (savedDonate) donationConfig = { ...donationConfig, ...savedDonate };
+      } catch (e) {}
+
+      // ======================================================================
+      // FAST FETCH WITH STRICT 10s TIMEOUT (Never hangs Coordinator Login!)
+      // ======================================================================
+      async function fetchWithTimeout(url, options = {}, timeoutMs = 10000) {
+        const controller = new AbortController();
+        const timer = setTimeout(() => controller.abort(), timeoutMs);
+        try {
+          const res = await fetch(url, { ...options, signal: controller.signal });
+          if (!res.ok) throw new Error('HTTP ' + res.status);
+          return await res.json();
+        } finally {
+          clearTimeout(timer);
+        }
+      }
+
+      async function fetchWithRetry(url, options = {}, retries = 2) {
+        for (let attempt = 0; attempt <= retries; attempt++) {
+          try {
+            return await fetchWithTimeout(url, options, 11000);
+          } catch (err) {
+            if (attempt === retries) throw err;
+            await new Promise(r => setTimeout(r, 500 * Math.pow(2, attempt)));
+          }
+        }
+      }
 
       // ======================================================================
       // ANTI-ABSURD / ANTI-GIBBERISH INPUT VALIDATORS
@@ -1603,19 +1589,6 @@
 
       function writeCache(data) {
         try { localStorage.setItem(CACHE_KEY, JSON.stringify({ ts: Date.now(), data })); } catch (e) {}
-      }
-
-      async function fetchWithRetry(url, options = {}, retries = 3) {
-        for (let attempt = 0; attempt <= retries; attempt++) {
-          try {
-            const res = await fetch(url, options);
-            if (!res.ok) throw new Error('HTTP ' + res.status);
-            return await res.json();
-          } catch (err) {
-            if (attempt === retries) throw err;
-            await new Promise(r => setTimeout(r, 600 * Math.pow(2, attempt) + Math.floor(Math.random() * 350)));
-          }
-        }
       }
 
       function compressImageFile(file, maxWidth = 640, quality = 0.68) {
@@ -1699,9 +1672,9 @@
           body: 'Hundreds of Indie pups, dogs, and kittens have found forever homes through HappyPaws families. Follow @happypaws_adoptions on Instagram and Facebook to watch weekly adoption updates and happy reunions!'
         },
         emergency: {
-          badge: '5. Emergency & Vets',
-          title: 'Local Emergency Clinics & Helplines',
-          body: 'Our partner emergency veterinary hospital is Dogato Pet Hospital (Ameenpur, Hyderabad — 4.8★ Emergency Veterinarian Service). For general adoption or lost/found enquiries, message our team on WhatsApp or email indiahappypaws@gmail.com.'
+          badge: '5. Rescue Helpline & 24x7 Clinics',
+          title: 'Emergency Veterinary Clinics & Helplines',
+          body: '• Primary Rescue & Medical Enquiry: +91 97040 85807\n• Secondary Rescue Helpline: +91 74165 85807\n• Partner 24x7 Veterinary Clinic: Dogato Pet Hospital (Ameenpur, Hyderabad — 4.8★ Emergency Veterinarian Service)\n\nIf you spot an injured stray, move them gently to a shaded spot away from traffic and contact the nearest 24x7 clinic immediately.'
         }
       };
 
@@ -1726,14 +1699,6 @@
             </div>
           </div>
         `;
-      };
-
-      window.copyUpi = function () {
-        const upi = document.getElementById('upiIdText').textContent;
-        navigator.clipboard.writeText(upi);
-        document.getElementById('copyText').textContent = 'Copied!';
-        showToast('Copied UPI ID: ' + upi);
-        setTimeout(() => { document.getElementById('copyText').textContent = 'Copy'; }, 2000);
       };
 
       // Navigation
@@ -1825,11 +1790,12 @@
           if (!isCoord && activeOpsSub === 'adoptions') activeOpsSub = 'vet';
 
           bannerMount.innerHTML = `
-            <div style="background:var(--stone-900);color:#fff;padding:8px 16px;font-size:11px;display:flex;align-items:center;justify-content:space-between;">
+            <div style="background:var(--stone-900);color:#fff;padding:8px 16px;font-size:11px;display:flex;align-items:center;justify-content:space-between;gap:8px;">
               <span style="font-weight:700;color:#FDBA74;">${isCoord ? 'Coordinator Mode' : 'Volunteer Mode'}</span>
-              <div style="display:flex;gap:14px;">
+              <div style="display:flex;gap:12px;align-items:center;">
+                ${isCoord ? `<button type="button" onclick="switchTab('donate')" style="background:none;border:none;color:#FDBA74;font-weight:700;text-decoration:underline;cursor:pointer;padding:0;">Donate &amp; Partners</button>` : ''}
                 ${isCoord && appState.sheetUrl ? `<a href="${appState.sheetUrl}" target="_blank" rel="noopener" style="color:#FDBA74;font-weight:700;">Sheet</a>` : ''}
-                ${isCoord ? `<button type="button" onclick="openPinPrompt('set')" style="background:none;border:none;color:#FDBA74;font-weight:700;text-decoration:underline;cursor:pointer;padding:0;">Set/Update PIN</button>` : ''}
+                ${isCoord ? `<button type="button" onclick="openPinPrompt('set')" style="background:none;border:none;color:#FDBA74;font-weight:700;text-decoration:underline;cursor:pointer;padding:0;">PIN</button>` : ''}
                 <button type="button" onclick="logoutTeam()" style="background:none;border:none;color:#D6D3D1;font-weight:700;text-decoration:underline;cursor:pointer;padding:0;">Exit</button>
               </div>
             </div>
@@ -1840,8 +1806,8 @@
           document.getElementById('adoptCtaMount').innerHTML = `<button type="button" onclick="openAnimalFormModal()" class="btn-sm">+ Add Pet</button>`;
           document.getElementById('financeCtaMount').innerHTML = isCoord ? `<button type="button" onclick="openFinanceFormModal()" class="btn-sm">+ Log Txn</button>` : '';
 
-          if (!['adopt', 'ops', 'finance'].includes(activeTab)) activeTab = 'adopt';
-          if (!isCoord && activeTab === 'finance') activeTab = 'adopt';
+          if (!['adopt', 'ops', 'finance', 'donate'].includes(activeTab)) activeTab = 'adopt';
+          if (!isCoord && (activeTab === 'finance' || activeTab === 'donate')) activeTab = 'adopt';
 
           nav.innerHTML = isCoord ? `
             <div class="nav-grid-3">
@@ -1876,6 +1842,297 @@
           syncDatabase(false);
         }
         if (!skipScroll) window.scrollTo({ top: 0, behavior: 'smooth' });
+      };
+
+      // ======================================================================
+      // DONATION DETAILS & OUR PARTNERS (Coordinator Editable, Stored in Sheet)
+      // ======================================================================
+      function getSyncedDonationConfig() {
+        // Check if coordinator saved Donation_Config row in Locations_Fosters tab
+        const cfgRow = (appState.locations || []).find(l => String(l.Type) === 'Donation_Config');
+        if (cfgRow && cfgRow.Notes) {
+          try {
+            const parsed = JSON.parse(cfgRow.Notes);
+            return {
+              upiId: parsed.upiId || '',
+              payPhone: parsed.payPhone || '',
+              bankHolder: parsed.bankHolder || '',
+              bankName: parsed.bankName || '',
+              bankAcc: parsed.bankAcc || '',
+              bankIfsc: parsed.bankIfsc || '',
+              qrUrl: cfgRow.Area_Address && String(cfgRow.Area_Address).startsWith('http') ? cfgRow.Area_Address : (parsed.qrUrl || '')
+            };
+          } catch (e) {}
+        }
+        return donationConfig;
+      }
+
+      function getSyncedPartners() {
+        const sheetPartners = (appState.locations || [])
+          .filter(l => String(l.Type) === 'Our_Partner' && String(l.Status) !== 'Archived')
+          .map(l => ({
+            id: l.Location_ID,
+            name: l.Name,
+            badge: l.Contact_Person || 'Partner',
+            desc: l.Notes || '',
+            mapUrl: l.Area_Address || ''
+          }));
+
+        if (sheetPartners.length > 0) return sheetPartners;
+        try {
+          const localP = JSON.parse(localStorage.getItem(PARTNERS_CFG_KEY) || 'null');
+          if (Array.isArray(localP) && localP.length > 0) return localP;
+        } catch (e) {}
+        return DEFAULT_PARTNERS;
+      }
+
+      function renderDonateAndPartnersTab() {
+        const session = getSession();
+        const isCoord = session && session.role === 'COORDINATOR';
+        const cfg = getSyncedDonationConfig();
+
+        document.getElementById('donateEditMount').innerHTML = isCoord
+          ? `<button type="button" onclick="openEditDonationModal()" class="btn-sm">Edit Details</button>`
+          : '';
+
+        document.getElementById('partnerAddMount').innerHTML = isCoord
+          ? `<button type="button" onclick="openPartnerFormModal()" class="btn-sm">+ Add Partner</button>`
+          : '';
+
+        // QR Code Mount
+        const qrMount = document.getElementById('donateQrMount');
+        if (cfg.qrUrl && String(cfg.qrUrl).startsWith('http')) {
+          qrMount.innerHTML = `<img src="${cfg.qrUrl}" alt="HappyPaws Donation QR" style="width:176px;height:176px;object-fit:contain;border-radius:12px;background:#fff;padding:8px;border:1px solid var(--stone-200);" />`;
+        } else {
+          qrMount.innerHTML = `<div style="padding:20px 12px;border:1.5px dashed var(--stone-300);border-radius:12px;background:#fff;color:var(--stone-400);font-size:12px;">QR Code will appear here once uploaded by HappyPaws</div>`;
+        }
+
+        // Blank-friendly values
+        document.getElementById('dispUpiId').textContent = cfg.upiId || '—';
+        document.getElementById('dispPayPhone').textContent = cfg.payPhone || '—';
+        document.getElementById('dispBankHolder').textContent = cfg.bankHolder || '—';
+        document.getElementById('dispBankName').textContent = cfg.bankName || '—';
+        document.getElementById('dispBankAcc').textContent = cfg.bankAcc || '—';
+        document.getElementById('dispBankIfsc').textContent = cfg.bankIfsc || '—';
+
+        // Render Our Partners
+        const partners = getSyncedPartners();
+        document.getElementById('partnersListMount').innerHTML = partners.map(p => `
+          <div style="background:var(--canvas-50);padding:14px;border-radius:15px;border:1px solid var(--stone-200);margin-bottom:10px;">
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:5px;">
+              <p style="margin:0;font-size:13.5px;font-weight:800;color:var(--stone-900);">${p.name}</p>
+              <span style="font-size:10px;font-weight:700;padding:3px 9px;border-radius:999px;background:var(--paw-50);color:var(--paw-700);border:1px solid var(--paw-200);white-space:nowrap;">${p.badge}</span>
+            </div>
+            <p style="margin:0 0 8px;font-size:11.5px;color:var(--stone-600);line-height:1.45;">${p.desc}</p>
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;">
+              ${p.mapUrl ? `<a href="${p.mapUrl}" target="_blank" rel="noopener" style="font-size:11.5px;font-weight:700;color:var(--paw-700);text-decoration:none;">📍 Open Location / Link ➔</a>` : '<span></span>'}
+              ${isCoord && p.id && !String(p.id).startsWith('PARTNER-') ? `<button type="button" onclick="openPartnerFormModal('${p.id}')" style="background:none;border:none;color:var(--stone-700);font-size:11px;font-weight:700;text-decoration:underline;cursor:pointer;padding:0;">Edit</button>` : ''}
+            </div>
+          </div>
+        `).join('');
+      }
+
+      window.openEditDonationModal = function () {
+        const cfg = getSyncedDonationConfig();
+        modalsMount.innerHTML = `
+          <div class="modal-backdrop" onclick="if(event.target===this) closeModal()">
+            <div class="modal-sheet">
+              <div style="display:flex;justify-content:space-between;border-bottom:1px solid var(--stone-100);padding-bottom:12px;margin-bottom:14px;">
+                <h3 style="margin:0;font-size:16px;font-weight:800;">Update Donation Details</h3>
+                <button type="button" onclick="closeModal()" style="width:32px;height:32px;border-radius:50%;border:none;background:var(--stone-100);font-weight:700;cursor:pointer;">✕</button>
+              </div>
+              <form onsubmit="submitDonationConfig(event)">
+                <div class="form-group">
+                  <label class="form-label">Upload Payment QR Code Image</label>
+                  <input type="file" id="cfgQrFile" accept="image/*" class="input-ctrl" style="padding:8px;" />
+                </div>
+                <div class="form-row-2">
+                  <div>
+                    <label class="form-label">UPI ID</label>
+                    <input type="text" id="cfgUpi" value="${cfg.upiId}" placeholder="e.g., happypaws@okaxis" class="input-ctrl" />
+                  </div>
+                  <div>
+                    <label class="form-label">Phone Number (UPI)</label>
+                    <input type="tel" id="cfgPhone" value="${cfg.payPhone}" placeholder="10-digit number" class="input-ctrl" />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Account Holder Name</label>
+                  <input type="text" id="cfgBankHolder" value="${cfg.bankHolder}" placeholder="Account holder name" class="input-ctrl" />
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Bank Name &amp; Branch</label>
+                  <input type="text" id="cfgBankName" value="${cfg.bankName}" placeholder="e.g., HDFC Bank, Hyderabad" class="input-ctrl" />
+                </div>
+                <div class="form-row-2">
+                  <div>
+                    <label class="form-label">Account Number</label>
+                    <input type="text" id="cfgBankAcc" value="${cfg.bankAcc}" placeholder="Account number" class="input-ctrl" />
+                  </div>
+                  <div>
+                    <label class="form-label">IFSC Code</label>
+                    <input type="text" id="cfgBankIfsc" value="${cfg.bankIfsc}" placeholder="e.g., HDFC0001234" class="input-ctrl" />
+                  </div>
+                </div>
+                <button type="submit" id="saveDonateCfgBtn" class="btn-primary">Save Payment Details</button>
+              </form>
+            </div>
+          </div>
+        `;
+      };
+
+      window.submitDonationConfig = async function (e) {
+        e.preventDefault();
+        const session = getSession();
+        if (!session) return;
+        const btn = document.getElementById('saveDonateCfgBtn');
+        btn.disabled = true;
+        btn.textContent = 'Saving...';
+
+        try {
+          const existingCfg = getSyncedDonationConfig();
+          const fileInput = document.getElementById('cfgQrFile');
+          let qrUrl = existingCfg.qrUrl || '';
+
+          if (fileInput.files[0]) {
+            const qrBase64 = await compressImageFile(fileInput.files[0], 600, 0.82);
+            // Upload QR via SAVE_ANIMAL (Archived status) to get a permanent Google Drive image URL
+            const uploadRes = await fetchWithRetry(API_URL, {
+              method: 'POST',
+              headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+              body: JSON.stringify({
+                action: 'SAVE_ANIMAL',
+                pin: session.pin,
+                name: 'HappyPaws_Donation_QR',
+                species: 'Other',
+                status: 'Archived_Asset',
+                rescueLocation: 'Config',
+                photoBase64: qrBase64
+              })
+            }, 2);
+            if (uploadRes.status === 'success') {
+              const freshData = await fetchWithTimeout(`${API_URL}?pin=${encodeURIComponent(session.pin)}&fresh=1&t=${Date.now()}`, {}, 10000);
+              const qrRow = (freshData.animals || []).find(a => a.Animal_ID === uploadRes.animalId);
+              if (qrRow && qrRow.Photo_URL) qrUrl = qrRow.Photo_URL;
+            }
+          }
+
+          const updated = {
+            upiId: document.getElementById('cfgUpi').value.trim(),
+            payPhone: document.getElementById('cfgPhone').value.trim(),
+            bankHolder: document.getElementById('cfgBankHolder').value.trim(),
+            bankName: document.getElementById('cfgBankName').value.trim(),
+            bankAcc: document.getElementById('cfgBankAcc').value.trim(),
+            bankIfsc: document.getElementById('cfgBankIfsc').value.trim(),
+            qrUrl
+          };
+
+          donationConfig = updated;
+          localStorage.setItem(DONATE_CFG_KEY, JSON.stringify(updated));
+
+          // Persist to Google Sheet Locations_Fosters tab so every public visitor sees it
+          const existingRow = (appState.locations || []).find(l => String(l.Type) === 'Donation_Config');
+          await fetchWithRetry(API_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+            body: JSON.stringify({
+              action: 'SAVE_LOCATION',
+              pin: session.pin,
+              locationId: existingRow ? existingRow.Location_ID : undefined,
+              type: 'Donation_Config',
+              name: 'HappyPaws Official Donation Info',
+              contactPerson: updated.bankHolder || 'HappyPaws',
+              phone: updated.payPhone,
+              areaAddress: qrUrl,
+              capacity: 1,
+              notes: JSON.stringify(updated),
+              status: 'Active'
+            })
+          }, 2);
+
+          closeModal();
+          renderDonateAndPartnersTab();
+          syncDatabase(true);
+          showToast('Donation details updated!');
+        } catch (err) {
+          showToast('Saved locally — will sync shortly');
+          closeModal();
+          renderDonateAndPartnersTab();
+        }
+      };
+
+      window.openPartnerFormModal = function (editId = '') {
+        const existing = editId ? getSyncedPartners().find(p => String(p.id) === String(editId)) : null;
+        modalsMount.innerHTML = `
+          <div class="modal-backdrop" onclick="if(event.target===this) closeModal()">
+            <div class="modal-sheet">
+              <div style="display:flex;justify-content:space-between;border-bottom:1px solid var(--stone-100);padding-bottom:12px;margin-bottom:14px;">
+                <h3 style="margin:0;font-size:16px;font-weight:800;">${existing ? 'Edit Partner' : 'Add Partner Organization / Clinic'}</h3>
+                <button type="button" onclick="closeModal()" style="width:32px;height:32px;border-radius:50%;border:none;background:var(--stone-100);font-weight:700;cursor:pointer;">✕</button>
+              </div>
+              <form onsubmit="submitPartnerForm(event, '${editId}')">
+                <div class="form-group">
+                  <label class="form-label">Partner Name *</label>
+                  <input type="text" id="prtName" required value="${existing ? existing.name : ''}" placeholder="e.g., Dogato Pet Hospital" class="input-ctrl" />
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Category Badge *</label>
+                  <input type="text" id="prtBadge" required value="${existing ? existing.badge : ''}" placeholder="e.g., Vet Partner • 4.8★ or Nutrition Partner" class="input-ctrl" />
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Address &amp; Services Description *</label>
+                  <textarea id="prtDesc" required rows="3" placeholder="Address, specialty & support details..." class="input-ctrl">${existing ? existing.desc : ''}</textarea>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Google Maps / Website Link (Optional)</label>
+                  <input type="url" id="prtMap" value="${existing ? existing.mapUrl : ''}" placeholder="https://maps.app.goo.gl/..." class="input-ctrl" />
+                </div>
+                <button type="submit" id="savePartnerBtn" class="btn-primary">Save Partner</button>
+              </form>
+            </div>
+          </div>
+        `;
+      };
+
+      window.submitPartnerForm = async function (e, editId) {
+        e.preventDefault();
+        const session = getSession();
+        if (!session) return;
+        const btn = document.getElementById('savePartnerBtn');
+        btn.disabled = true;
+        btn.textContent = 'Saving...';
+
+        const name = document.getElementById('prtName').value.trim();
+        const badge = document.getElementById('prtBadge').value.trim();
+        const desc = document.getElementById('prtDesc').value.trim();
+        const mapUrl = document.getElementById('prtMap').value.trim();
+
+        try {
+          await fetchWithRetry(API_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+            body: JSON.stringify({
+              action: 'SAVE_LOCATION',
+              pin: session.pin,
+              locationId: editId || undefined,
+              type: 'Our_Partner',
+              name,
+              contactPerson: badge,
+              areaAddress: mapUrl,
+              capacity: 1,
+              notes: desc,
+              status: 'Active'
+            })
+          }, 2);
+
+          closeModal();
+          await syncDatabase(true);
+          showToast('Partner updated!');
+        } catch (err) {
+          showToast('Could not save partner — please retry');
+          btn.disabled = false;
+          btn.textContent = 'Save Partner';
+        }
       };
 
       // ======================================================================
@@ -1928,26 +2185,15 @@
         const ownerAge = parseInt(document.getElementById('lpOwnerAge').value, 10);
         const ownerPhone = document.getElementById('lpOwnerPhone').value.trim();
 
-        if (isNaN(ageMonths) || ageMonths < 0 || ageMonths > 240) {
-          return showToast('Please enter a valid pet age in months (0–240)');
-        }
-        if (isNaN(ownerAge) || ownerAge < 25 || ownerAge > 100) {
-          return showToast('Guardian age must be 25 years or older');
-        }
-        if (!isValidIndianMobile(ownerPhone)) {
-          return showToast('Please enter a valid 10-digit WhatsApp number');
-        }
+        if (isNaN(ageMonths) || ageMonths < 0 || ageMonths > 240) return showToast('Please enter a valid pet age in months (0–240)');
+        if (isNaN(ownerAge) || ownerAge < 25 || ownerAge > 100) return showToast('Guardian age must be 25 years or older');
+        if (!isValidIndianMobile(ownerPhone)) return showToast('Please enter a valid 10-digit WhatsApp number');
 
         const isClean = validateMandatoryFields([
-          ['Pet Name', petName, 2],
-          ['Breed / Coat Color', breed, 2],
-          ['Area / Locality', area, 3],
-          ['Health & Vaccination Disclosure', health, 3],
-          ['Nature / Behaviour', nature, 3],
-          ['Food Details', food, 3],
-          ['Reason for Adoption / Pet Story', story, 6],
-          ['Special Request / Needs', specialNeeds, 2],
-          ['Other Adoption Platforms', otherPlatforms, 2],
+          ['Pet Name', petName, 2], ['Breed / Coat Color', breed, 2], ['Area / Locality', area, 3],
+          ['Health & Vaccination Disclosure', health, 3], ['Nature / Behaviour', nature, 3],
+          ['Food Details', food, 3], ['Reason for Adoption / Pet Story', story, 6],
+          ['Special Request / Needs', specialNeeds, 2], ['Other Adoption Platforms', otherPlatforms, 2],
           ['Your Full Name', ownerName, 2]
         ]);
         if (!isClean) return;
@@ -1981,7 +2227,7 @@
               rehabNotes: fullRehabNotes,
               photoBase64: compressedLpPhoto
             })
-          }, 3);
+          }, 2);
 
           await fetchWithRetry(API_URL, {
             method: 'POST',
@@ -1998,7 +2244,7 @@
               housingDetails: `Potty Trained: ${houseTrained} | Leash: ${leash} | Handling: ${handling}`,
               petExperience: `Story: ${story} | Health: ${health} | Nature: ${nature} | Food: ${food} | Special Needs: ${specialNeeds} | Other Platforms: ${otherPlatforms}`
             })
-          }, 3);
+          }, 2);
 
           if (saveAnimalRes.status === 'success') {
             document.getElementById('publicListPetForm').reset();
@@ -2011,7 +2257,7 @@
             showToast(saveAnimalRes.message || 'Could not submit listing');
           }
         } catch (err) {
-          showToast('High traffic — please tap Submit again');
+          showToast('Network busy — please tap Submit again');
         } finally {
           isSubmitting = false;
           btn.disabled = false;
@@ -2069,27 +2315,17 @@
         const phone2 = document.getElementById('lfContactPhone2').value.trim();
 
         const isClean = validateMandatoryFields([
-          ['Pet Name / Breed', petName, 2],
-          ['Color / Collar / Marks', color, 2],
-          ['Area & Nearest Landmark', loc, 3],
-          ['Identification & Temperament Details', details, 4],
+          ['Pet Name / Breed', petName, 2], ['Color / Collar / Marks', color, 2],
+          ['Area & Nearest Landmark', loc, 3], ['Identification & Temperament Details', details, 4],
           ['Your Full Name', cName, 2]
         ]);
         if (!isClean) return;
 
-        if (medCond && isAbsurdText(medCond, 2)) {
-          return showToast('Please enter a valid Medical Condition or leave it blank');
-        }
-        if (!isValidIndianMobile(phone1)) {
-          return showToast('Please enter a valid 10-digit Primary Mobile number');
-        }
+        if (medCond && isAbsurdText(medCond, 2)) return showToast('Please enter a valid Medical Condition or leave it blank');
+        if (!isValidIndianMobile(phone1)) return showToast('Please enter a valid 10-digit Primary Mobile number');
         if (phone2) {
-          if (!isValidIndianMobile(phone2)) {
-            return showToast('Please enter a valid 10-digit Alternate Mobile number');
-          }
-          if (phone1 === phone2) {
-            return showToast('Alternate mobile number cannot be the same as Primary mobile');
-          }
+          if (!isValidIndianMobile(phone2)) return showToast('Please enter a valid 10-digit Alternate Mobile number');
+          if (phone1 === phone2) return showToast('Alternate mobile number cannot be the same as Primary mobile');
         }
 
         isSubmitting = true;
@@ -2119,7 +2355,7 @@
               rehabNotes: `Phones: ${phoneSummary}`,
               photoBase64: compressedLfPhoto
             })
-          }, 3);
+          }, 2);
 
           const res = await fetchWithRetry(API_URL, {
             method: 'POST',
@@ -2136,7 +2372,7 @@
               housingDetails: medCond ? `Medical: ${medCond}` : 'No medical condition noted',
               petExperience: details
             })
-          }, 3);
+          }, 2);
 
           if (res.status === 'success') {
             document.getElementById('lostFoundForm').reset();
@@ -2148,7 +2384,7 @@
             showToast(`${reportType} report #${res.appId} submitted!`);
           }
         } catch (err) {
-          showToast('High traffic — please try again');
+          showToast('Network busy — please try again');
         } finally {
           isSubmitting = false;
           btn.disabled = false;
@@ -2180,7 +2416,6 @@
       window.handleSeparateFosterSubmit = async function (e) {
         e.preventDefault();
         if (isSubmitting) return;
-
         const name = document.getElementById('fostName').value.trim();
         const phone = document.getElementById('fostPhone').value.trim();
         const area = document.getElementById('fostArea').value.trim();
@@ -2204,19 +2439,19 @@
               animalName: `Foster Parent (${document.getElementById('fostPetType').value})`,
               inquiryType: 'Foster Parent Application',
               applicantName: name,
-              phone: phone,
+              phone,
               ageOccupation: document.getElementById('fostPetType').value,
               addressLocality: area,
               housingDetails: document.getElementById('fostHousing').value,
               petExperience: notes
             })
-          }, 3);
+          }, 2);
           if (res.status === 'success') {
             document.getElementById('fosterOnlyForm').reset();
             showToast(`Foster application #${res.appId} received!`);
           }
         } catch (err) {
-          showToast('High traffic — please try again');
+          showToast('Network busy — please try again');
         } finally {
           isSubmitting = false;
           btn.disabled = false;
@@ -2227,7 +2462,6 @@
       window.handleSeparateVolunteerSubmit = async function (e) {
         e.preventDefault();
         if (isSubmitting) return;
-
         const name = document.getElementById('volName').value.trim();
         const phone = document.getElementById('volPhone').value.trim();
         const area = document.getElementById('volArea').value.trim();
@@ -2252,19 +2486,19 @@
               animalName: `Volunteer (${role})`,
               inquiryType: 'Volunteer Application',
               applicantName: name,
-              phone: phone,
+              phone,
               ageOccupation: role,
               addressLocality: area,
               housingDetails: role,
               petExperience: notes
             })
-          }, 3);
+          }, 2);
           if (res.status === 'success') {
             document.getElementById('volunteerOnlyForm').reset();
             showToast(`Volunteer application #${res.appId} received!`);
           }
         } catch (err) {
-          showToast('High traffic — please try again');
+          showToast('Network busy — please try again');
         } finally {
           isSubmitting = false;
           btn.disabled = false;
@@ -2290,6 +2524,7 @@
 
         const filtered = sortedAnimals.filter(a => {
           const st = String(a.Status || '').trim();
+          if (st === 'Archived_Asset') return false;
           if (!isTeam && st === 'Pending Approval') return false;
           const sp = String(a.Species || '').trim();
           const matchesFilter = animalFilter === 'ALL' || st === animalFilter || sp.toLowerCase() === animalFilter.toLowerCase();
@@ -2297,7 +2532,11 @@
           return matchesFilter && (!query || haystack.includes(query));
         });
 
-        const visibleTotal = isTeam ? sortedAnimals.length : sortedAnimals.filter(a => String(a.Status || '').trim() !== 'Pending Approval').length;
+        const visibleTotal = sortedAnimals.filter(a => {
+          const st = String(a.Status || '').trim();
+          if (st === 'Archived_Asset') return false;
+          return isTeam ? true : st !== 'Pending Approval';
+        }).length;
         document.getElementById('animalTotalCount').textContent = visibleTotal;
 
         if (filtered.length === 0) {
@@ -2347,7 +2586,7 @@
 
                 ${isTeam && isPending ? `
                   <div class="pet-actions">
-                    <button type="button" onclick="approvePendingAnimal('${id}', '${name.replace(/'/g, "\\'")}')" class="btn-primary" style="padding:10px;font-size:12px;background:#059669;box-shadow:none;">Approve & Publish</button>
+                    <button type="button" onclick="approvePendingAnimal('${id}', '${name.replace(/'/g, "\\'")}')" class="btn-primary" style="padding:10px;font-size:12px;background:#059669;box-shadow:none;">Approve &amp; Publish</button>
                     <button type="button" onclick="openAnimalFormModal('${id}')" class="btn-outline">Review / Edit</button>
                   </div>
                 ` : `
@@ -2371,7 +2610,7 @@
           method: 'POST',
           headers: { 'Content-Type': 'text/plain;charset=utf-8' },
           body: JSON.stringify({ action: 'SAVE_ANIMAL', pin: session.pin, animalId, name, status: 'Available for Adoption' })
-        }, 3);
+        }, 2);
         if (res.status === 'success') {
           await syncDatabase(true);
           showToast(`${name} is now live in Adopt a Pet!`);
@@ -2412,7 +2651,7 @@
         const billsEl = document.getElementById('publicBillsList');
         const bills = appState.vetBills || [];
         billsEl.innerHTML = bills.length === 0
-          ? `<div class="card" style="text-align:center;font-size:12px;color:var(--stone-500);">No pending vet bills listed right now. You can still sponsor food, medicines, or virtual adoptions above.</div>`
+          ? `<div class="card" style="text-align:center;font-size:12px;color:var(--stone-500);">No pending vet bills listed right now. You can still support rescued animals using the payment details above.</div>`
           : bills.map(r => `
             <div class="card" style="padding:16px;">
               <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px;">
@@ -2425,6 +2664,8 @@
               <p style="margin:4px 0 0;font-size:12px;color:var(--stone-500);">${r.Doctor_Notes || ''} (${r.Vet_Clinic || 'Partner Clinic'})</p>
             </div>
           `).join('');
+
+        renderDonateAndPartnersTab();
       }
 
       function renderTeamVetTab() {
@@ -2452,7 +2693,7 @@
       }
 
       function renderLocationsTab() {
-        const locs = appState.locations || [];
+        const locs = (appState.locations || []).filter(l => !['Donation_Config', 'Our_Partner'].includes(String(l.Type)));
         document.getElementById('badge-locations').textContent = locs.length;
         document.getElementById('locationsList').innerHTML = locs.length === 0
           ? `<div class="card" style="text-align:center;font-size:12px;color:var(--stone-500);">No foster homes, boarding facilities, or clinics added yet.</div>`
@@ -2493,7 +2734,7 @@
                 <div class="pet-actions">
                   <a href="https://wa.me/91${String(app.Phone || '').replace(/\D/g, '')}" target="_blank" rel="noopener" class="btn-outline" style="text-align:center;text-decoration:none;background:#ECFDF5;color:#047857;border-color:#A7F3D0;">WhatsApp</a>
                   ${isPendingListing
-                    ? `<button type="button" onclick="approvePendingAnimal('${linkedAnimal.Animal_ID}', '${String(linkedAnimal.Name).replace(/'/g, "\\'")}')" class="btn-primary" style="padding:10px;font-size:12px;background:#059669;box-shadow:none;">Approve & Publish</button>`
+                    ? `<button type="button" onclick="approvePendingAnimal('${linkedAnimal.Animal_ID}', '${String(linkedAnimal.Name).replace(/'/g, "\\'")}')" class="btn-primary" style="padding:10px;font-size:12px;background:#059669;box-shadow:none;">Approve &amp; Publish</button>`
                     : `<button type="button" onclick="openScreeningModal('${app.App_ID}')" class="btn-primary" style="padding:10px;font-size:12px;box-shadow:none;">Screen / Follow-Up</button>`}
                 </div>
               </div>
@@ -2577,7 +2818,9 @@
         }
       };
 
-      // Sync Engine
+      // ======================================================================
+      // FAST, NON-BLOCKING SYNC ENGINE
+      // ======================================================================
       window.syncDatabase = async function (forceFresh = false) {
         if (isSubmitting && !forceFresh) return;
         const cached = readCache();
@@ -2587,7 +2830,7 @@
           renderCurrentView();
         }
         if (cached && (Date.now() - cached.ts < CACHE_TTL_MS) && !forceFresh && !getSession() && lastSignature) return;
-        if (inFlightSync) return inFlightSync;
+        if (inFlightSync && !forceFresh) return inFlightSync;
 
         inFlightSync = (async () => {
           try {
@@ -2597,12 +2840,12 @@
             if (forceFresh) qs.set('fresh', '1');
             qs.set('t', Date.now());
 
-            const data = await fetchWithRetry(`${API_URL}?${qs.toString()}`, { cache: 'no-store' }, 3);
+            const data = await fetchWithTimeout(`${API_URL}?${qs.toString()}`, { cache: 'no-store' }, 11000);
             if (data && data.status === 'success') {
               const sig = JSON.stringify({ mode: data.mode, animals: data.animals, vetBills: data.vetBills, vetRecords: data.vetRecords, locations: data.locations, adoptions: data.adoptions, finance: data.finance, tasks: data.tasks });
               appState = { ...appState, ...data };
               writeCache(appState);
-              if (sig !== lastSignature) {
+              if (sig !== lastSignature || forceFresh) {
                 lastSignature = sig;
                 buildRoleChrome();
                 renderCurrentView();
@@ -2621,9 +2864,11 @@
         if (document.visibilityState === 'visible' && !['listpet', 'lostfound', 'fostervol'].includes(activeTab)) {
           syncDatabase(false);
         }
-      }, 6000);
+      }, 7000);
 
-      // Modals
+      // ======================================================================
+      // MODALS & INSTANT COORDINATOR LOGIN
+      // ======================================================================
       const modalsMount = document.getElementById('modalsMount');
       window.closeModal = function () { modalsMount.innerHTML = ''; };
 
@@ -2661,7 +2906,7 @@
                   <label class="form-label">Role to Update</label>
                   <select id="targetRoleSelect" class="input-ctrl">
                     <option value="COORDINATOR">Coordinator PIN (Full Access)</option>
-                    <option value="VOLUNTEER">Volunteer PIN (Field & Tasks)</option>
+                    <option value="VOLUNTEER">Volunteer PIN (Field &amp; Tasks)</option>
                   </select>
                 </div>
                 <div class="form-group">
@@ -2688,26 +2933,31 @@
         const btn = document.getElementById('loginSubmitBtn');
         btn.disabled = true;
         btn.textContent = 'Verifying...';
+
         try {
-          const res = await fetchWithRetry(API_URL, {
-            method: 'POST',
-            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-            body: JSON.stringify({ action: 'VERIFY_PIN', pin })
-          }, 2);
-          if (res.status === 'success' && res.authenticated) {
-            sessionStorage.setItem(SESSION_KEY, encodeSession(pin, res.role));
+          // Single fast GET call with pin verifies role AND fetches full workspace in one roundtrip!
+          const qs = new URLSearchParams({ pin, fresh: '1', t: Date.now() });
+          const data = await fetchWithTimeout(`${API_URL}?${qs.toString()}`, { cache: 'no-store' }, 12000);
+
+          if (data && data.status === 'success' && (data.mode === 'COORDINATOR' || data.mode === 'VOLUNTEER')) {
+            sessionStorage.setItem(SESSION_KEY, encodeSession(pin, data.mode));
+            appState = { ...appState, ...data };
+            writeCache(appState);
+            lastSignature = JSON.stringify({ mode: data.mode, animals: data.animals, vetBills: data.vetBills, vetRecords: data.vetRecords, locations: data.locations, adoptions: data.adoptions, finance: data.finance, tasks: data.tasks });
             closeModal();
-            lastSignature = '';
             activeTab = 'adopt';
-            await syncDatabase(true);
-            showToast(`Unlocked ${res.role} Mode`);
+            buildRoleChrome();
+            renderCurrentView();
+            showToast(`Unlocked ${data.mode} Mode`);
           } else {
-            showToast(res.message || 'Incorrect PIN');
+            showToast('Incorrect Team PIN');
+            btn.disabled = false;
+            btn.textContent = 'Login to HappyPaws';
           }
         } catch (err) {
-          showToast('Network error verifying PIN');
-        } finally {
-          if (btn) { btn.disabled = false; btn.textContent = 'Login to HappyPaws'; }
+          showToast('Connection slow — please tap Login again');
+          btn.disabled = false;
+          btn.textContent = 'Login to HappyPaws';
         }
       };
 
@@ -2729,7 +2979,7 @@
             if (targetRole === 'COORDINATOR') sessionStorage.setItem(SESSION_KEY, encodeSession(newPin, 'COORDINATOR'));
             closeModal();
             lastSignature = '';
-            await syncDatabase(true);
+            syncDatabase(true);
             showToast(`${targetRole} PIN updated!`);
           } else {
             showToast(res.message || 'Incorrect Coordinator PIN');
@@ -2763,11 +3013,11 @@
               </div>
               <div style="font-size:12.5px;color:var(--stone-600);line-height:1.5;">
                 <div style="background:var(--canvas-50);padding:12px;border-radius:14px;margin-bottom:10px;">
-                  <strong>1. Story & Area:</strong> ${animal.Rescue_Location || ''} — ${animal.Rescue_Story || ''}
+                  <strong>1. Story &amp; Area:</strong> ${animal.Rescue_Location || ''} — ${animal.Rescue_Story || ''}
                 </div>
                 <div style="background:var(--canvas-50);padding:12px;border-radius:14px;margin-bottom:10px;">
-                  <strong>2. Training & Health:</strong> ${animal.Medical_Summary || ''}<br/>
-                  ${animal.Rehab_Notes ? `<strong>3. Behaviour & Diet:</strong> ${animal.Rehab_Notes}` : ''}
+                  <strong>2. Training &amp; Health:</strong> ${animal.Medical_Summary || ''}<br/>
+                  ${animal.Rehab_Notes ? `<strong>3. Behaviour &amp; Diet:</strong> ${animal.Rehab_Notes}` : ''}
                 </div>
                 <strong>4. Veterinary Records (${vets.length}):</strong>
                 ${vets.length === 0 ? '<p style="color:var(--stone-400);">No individual vet visits logged yet.</p>' : vets.map(v => `<div style="padding:10px;border:1px solid var(--stone-200);border-radius:12px;margin-top:8px;"><strong>${v.Record_Type}: ${v.Title}</strong> (${v.Visit_Date || ''})<br/>${v.Doctor_Notes || ''}</div>`).join('')}
@@ -2781,7 +3031,7 @@
         const existing = editId ? (appState.animals || []).find(a => String(a.Animal_ID) === String(editId)) : null;
         const currentPriority = existing ? extractPriority(existing) : 1;
         const cleanBreed = existing ? stripPriorityTag(existing.Breed_Color) : '';
-        const locs = appState.locations || [];
+        const locs = (appState.locations || []).filter(l => !['Donation_Config', 'Our_Partner'].includes(String(l.Type)));
         modalsMount.innerHTML = `
           <div class="modal-backdrop" onclick="if(event.target===this) closeModal()">
             <div class="modal-sheet">
@@ -2801,7 +3051,7 @@
                 </div>
                 <div class="form-row-2">
                   <div><label class="form-label">Breed / Color</label><input type="text" id="aniBreed" value="${cleanBreed}" class="input-ctrl" /></div>
-                  <div><label class="form-label">Age & Gender *</label><input type="text" id="aniAge" required value="${existing ? existing.Age_Gender : ''}" placeholder="e.g., 4 Months • Male" class="input-ctrl" /></div>
+                  <div><label class="form-label">Age &amp; Gender *</label><input type="text" id="aniAge" required value="${existing ? existing.Age_Gender : ''}" placeholder="e.g., 4 Months • Male" class="input-ctrl" /></div>
                 </div>
                 <div class="form-row-2">
                   <div><label class="form-label">Status *</label><select id="aniStatus" class="input-ctrl">${['Available for Adoption', 'Pending Approval', 'Urgent Foster', 'Foster-to-Adopt', 'Under Treatment', 'In Rehab', 'Lost Pet', 'Found Rescue', 'Adopted'].map(s => `<option value="${s}" ${existing && existing.Status === s ? 'selected' : ''}>${s}</option>`).join('')}</select></div>
@@ -2809,8 +3059,8 @@
                 </div>
                 <div class="form-group"><label class="form-label">Locality / Area *</label><input type="text" id="aniRescueLoc" required value="${existing ? existing.Rescue_Location : ''}" class="input-ctrl" /></div>
                 <div class="form-group"><label class="form-label">Story</label><textarea id="aniStory" rows="2" class="input-ctrl">${existing ? existing.Rescue_Story : ''}</textarea></div>
-                <div class="form-group"><label class="form-label">Medical & Training Summary</label><input type="text" id="aniMedSum" value="${existing ? existing.Medical_Summary : ''}" class="input-ctrl" /></div>
-                <div class="form-group"><label class="form-label">Behaviour & Diet Notes</label><textarea id="aniRehab" rows="2" class="input-ctrl">${existing ? existing.Rehab_Notes : ''}</textarea></div>
+                <div class="form-group"><label class="form-label">Medical &amp; Training Summary</label><input type="text" id="aniMedSum" value="${existing ? existing.Medical_Summary : ''}" class="input-ctrl" /></div>
+                <div class="form-group"><label class="form-label">Behaviour &amp; Diet Notes</label><textarea id="aniRehab" rows="2" class="input-ctrl">${existing ? existing.Rehab_Notes : ''}</textarea></div>
                 <button type="submit" id="saveAniBtn" class="btn-primary">Save</button>
               </form>
             </div>
@@ -2852,13 +3102,13 @@
             rehabNotes: document.getElementById('aniRehab').value.trim(),
             photoBase64
           })
-        }, 3);
+        }, 2);
 
         if (res.status === 'success') { closeModal(); await syncDatabase(true); showToast(res.message); }
       };
 
       window.openVetFormModal = function () {
-        const animals = appState.animals || [];
+        const animals = (appState.animals || []).filter(a => a.Status !== 'Archived_Asset');
         modalsMount.innerHTML = `
           <div class="modal-backdrop" onclick="if(event.target===this) closeModal()">
             <div class="modal-sheet">
@@ -2904,7 +3154,7 @@
             expenseAmount: Number(document.getElementById('vetExpense').value) || 0, paymentStatus: document.getElementById('vetPayStatus').value,
             doctorNotes: document.getElementById('vetNotes').value.trim(), billPhotoBase64
           })
-        }, 3);
+        }, 2);
         if (res.status === 'success') { closeModal(); await syncDatabase(true); showToast(res.message); }
       };
 
@@ -2947,7 +3197,7 @@
             contactPerson: document.getElementById('locContact').value.trim(), phone: document.getElementById('locPhone').value.trim(),
             areaAddress: document.getElementById('locArea').value.trim()
           })
-        }, 3);
+        }, 2);
         if (res.status === 'success') { closeModal(); await syncDatabase(true); showToast('Location saved!'); }
       };
 
@@ -2965,7 +3215,7 @@
                   <input type="number" id="finAmount" required min="1" placeholder="Amount (₹) *" class="input-ctrl" />
                 </div>
                 <div class="form-row-2">
-                  <select id="finCategory" class="input-ctrl"><option value="Public Donation">Public Donation</option><option value="Foreign Breed Listing Fee (₹100)">Foreign Breed Fee (₹100)</option><option value="Food & Supplies">Food & Supplies</option><option value="Boarding Fee">Boarding Fee</option><option value="Transport">Transport</option><option value="Medicine & Kits">Medicine & Kits</option></select>
+                  <select id="finCategory" class="input-ctrl"><option value="Public Donation">Public Donation</option><option value="Foreign Breed Listing Fee (₹100)">Foreign Breed Fee (₹100)</option><option value="Food & Supplies">Food &amp; Supplies</option><option value="Boarding Fee">Safe Stay / Boarding</option><option value="Transport">Transport</option><option value="Medicine & Kits">Medical &amp; Supplements</option></select>
                   <select id="finMode" class="input-ctrl"><option value="UPI">UPI</option><option value="Bank Transfer">Bank Transfer</option><option value="Cash">Cash</option></select>
                 </div>
                 <div class="form-group"><input type="text" id="finParty" required placeholder="Donor or Vendor Name *" class="input-ctrl" /></div>
@@ -2990,7 +3240,7 @@
             paymentMode: document.getElementById('finMode').value, partyName: document.getElementById('finParty').value.trim(),
             notes: document.getElementById('finNotes').value.trim()
           })
-        }, 3);
+        }, 2);
         if (res.status === 'success') { closeModal(); await syncDatabase(true); showToast(res.message); }
       };
 
@@ -3009,7 +3259,7 @@
                   <input type="text" id="pubAppAgeJob" required placeholder="Age & Occupation *" class="input-ctrl" />
                 </div>
                 <div class="form-group"><textarea id="pubAppAddr" required rows="2" placeholder="Complete Address & Locality *" class="input-ctrl"></textarea></div>
-                <div class="form-group"><select id="pubAppHousing" required class="input-ctrl"><option value="">Select Home & Balcony Safety *</option><option value="Apartment (Fully Netted)">Apartment (Fully Netted)</option><option value="Apartment (Will Install Net)">Apartment (Will Install Net)</option><option value="Independent House (Fenced)">Independent House (Fenced)</option></select></div>
+                <div class="form-group"><select id="pubAppHousing" required class="input-ctrl"><option value="">Select Home &amp; Balcony Safety *</option><option value="Apartment (Fully Netted)">Apartment (Fully Netted)</option><option value="Apartment (Will Install Net)">Apartment (Will Install Net)</option><option value="Independent House (Fenced)">Independent House (Fenced)</option></select></div>
                 <div class="form-group"><textarea id="pubAppExp" required rows="2" placeholder="Existing pets, family agreement & care plan *" class="input-ctrl"></textarea></div>
                 <label class="agree-row" style="margin-bottom:14px;"><input type="checkbox" required /><span>I agree to vaccinations, sterilization, house checks, and 30D/90D post-adoption follow-ups.</span></label>
                 <button type="submit" class="btn-primary">Submit</button>
@@ -3039,7 +3289,7 @@
             ageOccupation: ageJob, addressLocality: addr,
             housingDetails: document.getElementById('pubAppHousing').value, petExperience: exp
           })
-        }, 3);
+        }, 2);
         if (res.status === 'success') { closeModal(); showToast(res.message); }
       };
 
@@ -3079,7 +3329,7 @@
             screeningStatus: document.getElementById('scrStatus').value, screeningNotes: document.getElementById('scrNotes').value.trim(),
             followup30D: document.getElementById('scr30d').value, followup90D: document.getElementById('scr90d').value
           })
-        }, 3);
+        }, 2);
         if (res.status === 'success') { closeModal(); await syncDatabase(true); showToast('Updated!'); }
       };
 
@@ -3118,7 +3368,7 @@
             category: document.getElementById('tskCat').value, priority: document.getElementById('tskPriority').value,
             areaLocation: document.getElementById('tskArea').value.trim(), assignedTo: document.getElementById('tskAssignee').value.trim() || 'Open'
           })
-        }, 3);
+        }, 2);
         if (res.status === 'success') { closeModal(); await syncDatabase(true); showToast('Task assigned!'); }
       };
 
@@ -3129,7 +3379,7 @@
           method: 'POST',
           headers: { 'Content-Type': 'text/plain;charset=utf-8' },
           body: JSON.stringify({ action: 'SAVE_TASK', pin: session.pin, taskId, status: 'Completed' })
-        }, 3);
+        }, 2);
         if (res.status === 'success') { await syncDatabase(true); showToast('Task completed!'); }
       };
 
