@@ -31,10 +31,7 @@
       --stone-900: #1C1917;
     }
 
-    * {
-      box-sizing: border-box;
-      -webkit-tap-highlight-color: transparent;
-    }
+    * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 
     html, body {
       margin: 0;
@@ -81,16 +78,11 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 12px;
+      gap: 10px;
       position: relative;
     }
 
-    .brand-wrap {
-      display: flex;
-      align-items: center;
-      gap: 11px;
-      user-select: none;
-    }
+    .brand-wrap { display: flex; align-items: center; gap: 11px; user-select: none; }
 
     .brand-badge {
       width: 40px;
@@ -115,13 +107,7 @@
       60% { transform: rotate(8deg) scale(1.08); }
     }
 
-    .brand-title {
-      margin: 0;
-      font-size: 20px;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      color: var(--stone-900);
-    }
+    .brand-title { margin: 0; font-size: 20px; font-weight: 800; letter-spacing: -0.02em; color: var(--stone-900); }
     .brand-title span { color: var(--paw-600); }
 
     .icon-btn {
@@ -135,17 +121,56 @@
       align-items: center;
       justify-content: center;
       cursor: pointer;
+      position: relative;
       transition: transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.18s ease, border-color 0.18s ease;
     }
     .icon-btn:hover { background: var(--paw-50); border-color: var(--paw-200); color: var(--paw-700); }
     .icon-btn:active { transform: scale(0.93); }
-    .icon-btn svg line {
-      transition: transform 0.24s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.2s ease;
-      transform-origin: center;
-    }
+    .icon-btn svg line { transition: transform 0.24s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.2s ease; transform-origin: center; }
     .icon-btn.is-open svg line:nth-child(1) { transform: translateY(5px) rotate(45deg); }
     .icon-btn.is-open svg line:nth-child(2) { opacity: 0; transform: scaleX(0); }
     .icon-btn.is-open svg line:nth-child(3) { transform: translateY(-5px) rotate(-45deg); }
+
+    .notif-badge {
+      position: absolute;
+      top: -4px;
+      right: -4px;
+      min-width: 18px;
+      height: 18px;
+      padding: 0 4px;
+      border-radius: 999px;
+      background: #E11D48;
+      color: #fff;
+      font-size: 10px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid #fff;
+    }
+
+    /* Live In-App Pop-up Alert Banner for Coordinators */
+    .inapp-alert {
+      position: fixed;
+      top: 14px;
+      left: 50%;
+      transform: translate(-50%, -130%);
+      width: calc(100% - 28px);
+      max-width: 420px;
+      z-index: 70;
+      background: var(--stone-900);
+      color: #fff;
+      border-radius: 18px;
+      padding: 13px 15px;
+      box-shadow: 0 18px 36px rgba(0,0,0,0.28);
+      border: 1px solid rgba(255,255,255,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .inapp-alert.show { transform: translate(-50%, 0); }
 
     /* Hamburger Dropdown */
     .dropdown-menu {
@@ -236,9 +261,7 @@
       background: #fff;
       border: 1px solid var(--stone-200);
       color: var(--paw-600);
-      transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
-    .contact-card:hover .contact-icon { transform: scale(1.08) rotate(-4deg); }
     .contact-card.whatsapp .contact-icon { background: #059669; border: none; color: #fff; }
 
     .social-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 10px; }
@@ -252,17 +275,12 @@
       font-size: 12px;
       font-weight: 700;
       text-decoration: none;
-      transition: transform 0.15s ease;
     }
-    .social-btn:active { transform: scale(0.96); }
     .social-ig { background: #FDF2F8; color: #BE185D; }
     .social-fb { background: #EFF6FF; color: #1D4ED8; }
 
     /* Main Workspace */
-    .main-area {
-      flex: 1;
-      padding: 20px 16px 104px;
-    }
+    .main-area { flex: 1; padding: 20px 16px 104px; }
 
     .tab-pane, .ops-subpane { display: none; }
     .tab-pane.active, .ops-subpane.active {
@@ -274,7 +292,7 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Typography & Cute Cards */
+    /* Typography & Cards */
     .section-head {
       display: flex;
       align-items: center;
@@ -364,9 +382,7 @@
       overflow: hidden;
       text-align: center;
       padding: 16px;
-      transition: border-color 0.18s ease, background 0.18s ease;
     }
-    .upload-box:hover { border-color: var(--paw-500); background: var(--paw-50); }
     .upload-preview { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; }
     .clear-photo-btn {
       position: absolute;
@@ -415,9 +431,7 @@
       font-size: 12px;
       font-weight: 700;
       cursor: pointer;
-      transition: transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
-    .btn-sm:active { transform: scale(0.94); }
 
     .btn-danger-soft {
       padding: 9px 12px;
@@ -428,10 +442,7 @@
       font-size: 12px;
       font-weight: 700;
       cursor: pointer;
-      transition: transform 0.14s ease, background 0.15s ease;
     }
-    .btn-danger-soft:hover { background: #FFE4E6; }
-    .btn-danger-soft:active { transform: scale(0.95); }
 
     .pill-row {
       display: flex;
@@ -451,9 +462,7 @@
       white-space: nowrap;
       cursor: pointer;
       flex-shrink: 0;
-      transition: transform 0.14s ease, background 0.16s ease, color 0.16s ease;
     }
-    .pill:active { transform: scale(0.95); }
     .pill.active { background: var(--paw-600); border-color: var(--paw-600); color: #fff; }
 
     .seg-toggle {
@@ -486,7 +495,6 @@
       overflow: hidden;
       margin-bottom: 16px;
       box-shadow: 0 3px 12px rgba(28, 25, 23, 0.03);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
     .pet-card.pending { border-color: #F59E0B; box-shadow: 0 0 0 3px #FEF3C7; }
     .pet-media { position: relative; height: 205px; background: var(--stone-100); }
@@ -516,18 +524,8 @@
       font-weight: 600;
     }
     .pet-body { padding: 18px; }
-    .pet-actions {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin-top: 14px;
-    }
-    .pet-actions-3 {
-      display: grid;
-      grid-template-columns: 1fr 1fr auto;
-      gap: 8px;
-      margin-top: 14px;
-    }
+    .pet-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px; }
+    .pet-actions-3 { display: grid; grid-template-columns: 1fr 1fr auto; gap: 8px; margin-top: 14px; }
     .btn-outline {
       padding: 10px 12px;
       border-radius: 12px;
@@ -547,14 +545,7 @@
       padding: 14px;
       margin-bottom: 12px;
     }
-    .pay-detail-title {
-      margin: 0 0 8px;
-      font-size: 11px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: var(--paw-700);
-    }
+    .pay-detail-title { margin: 0 0 8px; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; color: var(--paw-700); }
     .pay-kv {
       display: flex;
       justify-content: space-between;
@@ -711,6 +702,18 @@
 
   <div class="app-shell">
 
+    <!-- LIVE IN-APP COORDINATOR POP-UP NOTIFICATION BANNER -->
+    <div id="inAppAlertBanner" class="inapp-alert">
+      <div style="min-width:0;flex:1;">
+        <p id="inAppAlertTitle" style="margin:0;font-size:12px;font-weight:800;color:#FDBA74;">New HappyPaws Alert</p>
+        <p id="inAppAlertBody" style="margin:2px 0 0;font-size:11.5px;color:#E7E5E4;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">A new submission arrived.</p>
+      </div>
+      <div style="display:flex;gap:6px;shrink:0;">
+        <button type="button" id="inAppAlertViewBtn" class="btn-sm" style="padding:6px 10px;font-size:11px;">View</button>
+        <button type="button" onclick="dismissInAppAlert()" style="background:rgba(255,255,255,0.12);border:none;color:#fff;width:26px;height:26px;border-radius:8px;font-weight:700;cursor:pointer;">✕</button>
+      </div>
+    </div>
+
     <!-- STICKY HEADER -->
     <header class="app-header">
       <div class="header-row">
@@ -728,7 +731,13 @@
           <h1 class="brand-title">Happy<span>Paws</span></h1>
         </div>
 
-        <div style="position:relative;">
+        <div style="display:flex;align-items:center;gap:8px;position:relative;">
+          <!-- Coordinator Notification Bell (Visible when Coordinator unlocked) -->
+          <button type="button" id="coordBellBtn" onclick="openAlertsDrawer()" class="icon-btn hidden" aria-label="Notifications">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+            <span id="coordBellCount" class="notif-badge hidden">0</span>
+          </button>
+
           <button type="button" id="hamburgerBtn" class="icon-btn" aria-label="Open Menu">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
               <line x1="4" y1="7" x2="20" y2="7"></line>
@@ -737,7 +746,7 @@
             </svg>
           </button>
 
-          <!-- HAMBURGER MENU -->
+          <!-- HAMBURGER MENU (Items 1-4 Only, Item 5 Removed) -->
           <div id="navDropdown" class="dropdown-menu no-scrollbar">
             <div class="menu-section">
               <p class="menu-label">Menu</p>
@@ -747,7 +756,7 @@
               </button>
               <button type="button" class="menu-item" onclick="closeMenu(); openInfoGuide('faqs');">
                 <span class="menu-item-num">2.</span>
-                <div><p class="menu-item-title">How It Works &amp; FAQs</p><p class="menu-item-sub">Adoption rules &amp; screening process</p></div>
+                <div><p class="menu-item-title">How It Works &amp; FAQs</p><p class="menu-item-sub">Adoption journey &amp; common questions</p></div>
               </button>
               <button type="button" class="menu-item" onclick="closeMenu(); openInfoGuide('care');">
                 <span class="menu-item-num">3.</span>
@@ -756,10 +765,6 @@
               <button type="button" class="menu-item" onclick="closeMenu(); openInfoGuide('stories');">
                 <span class="menu-item-num">4.</span>
                 <div><p class="menu-item-title">Adoption Stories</p><p class="menu-item-sub">Past rescues &amp; happy families</p></div>
-              </button>
-              <button type="button" class="menu-item" onclick="closeMenu(); openInfoGuide('emergency');">
-                <span class="menu-item-num">5.</span>
-                <div><p class="menu-item-title">Rescue Helpline &amp; 24x7 Clinics</p><p class="menu-item-sub">Emergency vet care &amp; stray helplines</p></div>
               </button>
             </div>
 
@@ -804,7 +809,7 @@
     <main class="main-area">
 
       <!-- ============================================================== -->
-      <!-- TAB 1: ADOPT A PET                                             -->
+      <!-- TAB 1: ADOPT A PET / ANIMALS POOL                              -->
       <!-- ============================================================== -->
       <section id="tab-adopt" class="tab-pane active">
         <div class="section-head">
@@ -836,6 +841,7 @@
       <!-- ============================================================== -->
       <section id="tab-listpet" class="tab-pane">
         <div class="card">
+          <svg class="cute-paw-watermark" viewBox="0 0 24 24" fill="currentColor"><circle cx="11" cy="4" r="2"/><circle cx="18" cy="8" r="2"/><circle cx="20" cy="16" r="2"/><path d="M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.045Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10Z"/></svg>
           <h2 class="section-title" style="font-size:19px;">List Your Pet for Adoption</h2>
           <p style="font-size:12.5px;color:var(--stone-600);margin:8px 0 12px;">
             Please read the terms and conditions carefully before sharing the details to list your pet with us for adoption.
@@ -1236,7 +1242,6 @@
       <!-- ============================================================== -->
       <section id="tab-donate" class="tab-pane">
         
-        <!-- Fund Utilization Banner -->
         <div class="card">
           <svg class="cute-paw-watermark" viewBox="0 0 24 24" fill="currentColor"><circle cx="11" cy="4" r="2"/><circle cx="18" cy="8" r="2"/><circle cx="20" cy="16" r="2"/><path d="M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.045Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10Z"/></svg>
           <span style="font-size:10px;font-weight:800;text-transform:uppercase;background:var(--paw-50);color:var(--paw-700);padding:4px 10px;border-radius:999px;">Support HappyPaws 🐾</span>
@@ -1257,7 +1262,6 @@
           </div>
         </div>
 
-        <!-- Payment Methods Card (QR Code + UPI ID + Phone Number + Bank Account — Blank until Coordinator sets) -->
         <div class="card">
           <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:14px;">
             <div>
@@ -1291,7 +1295,6 @@
           </a>
         </div>
 
-        <!-- Current Supplies, Accessories & Nutrition Needed (Coordinator Managed) -->
         <div class="card">
           <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:12px;">
             <div>
@@ -1303,7 +1306,6 @@
           <div id="supplyNeedsList"></div>
         </div>
 
-        <!-- Active Vet Bills (Showing WHICH animal needs it & WHY) -->
         <div class="section-head" style="margin-bottom:10px;">
           <div>
             <h3 style="margin:0;font-size:16px;font-weight:800;">Active Vet Bills</h3>
@@ -1313,7 +1315,6 @@
         </div>
         <div id="publicBillsList"></div>
 
-        <!-- Our Partners Section (Coordinator Editable) -->
         <div class="card">
           <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:12px;">
             <div>
@@ -1327,30 +1328,33 @@
       </section>
 
       <!-- ============================================================== -->
-      <!-- TEAM TAB: OPERATIONS HUB                                       -->
+      <!-- TEAM TAB: OPERATIONS HUB (Cleanly Separated Pools)             -->
       <!-- ============================================================== -->
       <section id="tab-ops" class="tab-pane">
         <div class="section-head">
           <div>
-            <h2 id="opsTabTitle" class="section-title">Vet &amp; Vaccinations</h2>
-            <p id="opsTabSub" class="section-sub">Treatments, booster reminders &amp; bills</p>
+            <h2 id="opsTabTitle" class="section-title">Adopters Pool</h2>
+            <p id="opsTabSub" class="section-sub">Applicants who applied to adopt a pet</p>
           </div>
           <div id="opsCtaMount"></div>
         </div>
 
         <div id="opsSubNav" class="pill-row no-scrollbar">
-          <button type="button" data-sub="vet" onclick="switchOpsSubTab('vet')" class="ops-pill pill active">Vet &amp; Vaccines (<span id="badge-vet">0</span>)</button>
-          <button type="button" data-sub="locations" onclick="switchOpsSubTab('locations')" class="ops-pill pill">Fosters &amp; Clinics (<span id="badge-locations">0</span>)</button>
-          <button type="button" data-sub="adoptions" onclick="switchOpsSubTab('adoptions')" class="ops-pill coord-only-pill pill">Requests &amp; Adoptions (<span id="badge-adoptions">0</span>)</button>
+          <button type="button" data-sub="adoptions" onclick="switchOpsSubTab('adoptions')" class="ops-pill coord-only-pill pill active">Adopters Pool (<span id="badge-adoptions">0</span>)</button>
+          <button type="button" data-sub="vet" onclick="switchOpsSubTab('vet')" class="ops-pill pill">Vet &amp; Bills (<span id="badge-vet">0</span>)</button>
+          <button type="button" data-sub="locations" onclick="switchOpsSubTab('locations')" class="ops-pill pill">Fosters &amp; Vol (<span id="badge-locations">0</span>)</button>
           <button type="button" data-sub="tasks" onclick="switchOpsSubTab('tasks')" class="ops-pill pill">Tasks (<span id="badge-tasks">0</span>)</button>
         </div>
 
-        <div id="ops-vet" class="ops-subpane active">
+        <div id="ops-adoptions" class="ops-subpane active"><div id="adoptionsList"></div></div>
+        <div id="ops-vet" class="ops-subpane">
           <div id="vaccineAlertsMount"></div>
           <div id="vetRecordsList"></div>
         </div>
-        <div id="ops-locations" class="ops-subpane"><div id="locationsList"></div></div>
-        <div id="ops-adoptions" class="ops-subpane"><div id="adoptionsList"></div></div>
+        <div id="ops-locations" class="ops-subpane">
+          <div id="fosterVolLeadsMount"></div>
+          <div id="locationsList"></div>
+        </div>
         <div id="ops-tasks" class="ops-subpane"><div id="tasksList"></div></div>
       </section>
 
@@ -1435,8 +1439,9 @@
 
       const API_URL = 'https://script.google.com/macros/s/AKfycbx55JBqoDOcobV7B8ytkrDPZP8taJoYOAfvvdNh0TNvklFOBrUoQvmgc81YdSIXvN88hQ/exec';
 
-      const CACHE_KEY = '_happypaws_cache_v16';
+      const CACHE_KEY = '_happypaws_cache_v17';
       const DONATE_CFG_KEY = '_happypaws_donate_cfg_v2';
+      const SEEN_IDS_KEY = '_happypaws_seen_ids_v1';
       const CACHE_TTL_MS = 25 * 1000;
       const SESSION_KEY = '_happypaws_auth_v1';
       const SESSION_TTL_MS = 45 * 60 * 1000;
@@ -1475,11 +1480,12 @@
       ];
 
       let activeTab = 'adopt';
-      let activeOpsSub = 'vet';
+      let activeOpsSub = 'adoptions';
       let animalFilter = 'ALL';
       let lastSignature = '';
       let inFlightSync = null;
       let isSubmitting = false;
+      let coordinatorAlerts = [];
 
       const now = new Date();
       document.getElementById('financeMonthFilter').value = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}`;
@@ -1490,7 +1496,159 @@
       } catch (e) {}
 
       // ======================================================================
-      // NON-BLOCKING NETWORK HELPERS (Never stalls UI buttons!)
+      // REAL-TIME IN-APP COORDINATOR NOTIFICATIONS + WEB NOTIFICATION API
+      // ======================================================================
+      function playNotificationChime() {
+        try {
+          const ctx = new (window.AudioContext || window.webkitAudioContext)();
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(660, ctx.currentTime);
+          osc.frequency.exponentialRampToValueAtTime(880, ctx.currentTime + 0.14);
+          gain.gain.setValueAtTime(0.08, ctx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.28);
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start();
+          osc.stop(ctx.currentTime + 0.28);
+        } catch (e) {}
+      }
+
+      window.dismissInAppAlert = function () {
+        document.getElementById('inAppAlertBanner').classList.remove('show');
+      };
+
+      function triggerCoordinatorPopUp(title, body, targetTab, targetSub = '') {
+        document.getElementById('inAppAlertTitle').textContent = title;
+        document.getElementById('inAppAlertBody').textContent = body;
+        const viewBtn = document.getElementById('inAppAlertViewBtn');
+        viewBtn.onclick = function () {
+          dismissInAppAlert();
+          if (targetSub) activeOpsSub = targetSub;
+          if (targetTab === 'adopt' && targetSub === 'Pending Approval') {
+            animalFilter = 'Pending Approval';
+          }
+          buildRoleChrome();
+          switchTab(targetTab);
+          renderCurrentView();
+        };
+
+        document.getElementById('inAppAlertBanner').classList.add('show');
+        playNotificationChime();
+
+        if ('Notification' in window && Notification.permission === 'granted') {
+          try { new Notification(title, { body }); } catch (e) {}
+        }
+      }
+
+      function checkForNewSubmissions(data) {
+        const session = getSession();
+        if (!session || session.role !== 'COORDINATOR') return;
+
+        let seenSet = new Set();
+        try {
+          const raw = localStorage.getItem(SEEN_IDS_KEY);
+          if (raw) seenSet = new Set(JSON.parse(raw));
+        } catch (e) {}
+
+        const isFirstRun = seenSet.size === 0;
+        const freshAlerts = [];
+
+        // Check Pending Pet / Lost-Found Listings
+        (data.animals || []).forEach(a => {
+          const key = 'ANI_' + a.Animal_ID;
+          if (String(a.Status) === 'Pending Approval') {
+            if (!seenSet.has(key) && !isFirstRun) {
+              freshAlerts.push({
+                id: key,
+                title: 'New Pet Listing Pending Approval',
+                body: `${a.Name} (${a.Species}) submitted from ${a.Rescue_Location || 'Hyderabad'}`,
+                tab: 'adopt',
+                sub: 'Pending Approval'
+              });
+            }
+          }
+          seenSet.add(key);
+        });
+
+        // Check New Adoption / Foster / Volunteer Applications
+        (data.adoptions || []).forEach(app => {
+          const key = 'APP_' + app.App_ID;
+          if (!seenSet.has(key) && !isFirstRun) {
+            const isAdopter = String(app.Inquiry_Type) === 'Adoption';
+            freshAlerts.push({
+              id: key,
+              title: isAdopter ? 'New Adoption Application!' : `New ${app.Inquiry_Type}`,
+              body: `${app.Applicant_Name} applied for ${app.Animal_Name}`,
+              tab: 'ops',
+              sub: isAdopter ? 'adoptions' : 'locations'
+            });
+          }
+          seenSet.add(key);
+        });
+
+        try {
+          localStorage.setItem(SEEN_IDS_KEY, JSON.stringify([...seenSet].slice(-250)));
+        } catch (e) {}
+
+        if (freshAlerts.length > 0) {
+          coordinatorAlerts = [...freshAlerts, ...coordinatorAlerts].slice(0, 25);
+          const latest = freshAlerts[0];
+          triggerCoordinatorPopUp(latest.title, latest.body, latest.tab, latest.sub);
+        }
+
+        // Update bell badge count with unread alerts + pending approvals
+        const pendingCount = (data.animals || []).filter(a => String(a.Status) === 'Pending Approval').length;
+        const totalBadge = coordinatorAlerts.length + pendingCount;
+        const badgeEl = document.getElementById('coordBellCount');
+        if (badgeEl) {
+          badgeEl.textContent = totalBadge;
+          badgeEl.classList.toggle('hidden', totalBadge === 0);
+        }
+      }
+
+      window.openAlertsDrawer = function () {
+        const pendingAnimals = (appState.animals || []).filter(a => String(a.Status) === 'Pending Approval');
+        modalsMount.innerHTML = `
+          <div class="modal-backdrop" onclick="if(event.target===this) closeModal()">
+            <div class="modal-sheet">
+              <div style="display:flex;justify-content:space-between;border-bottom:1px solid var(--stone-100);padding-bottom:12px;margin-bottom:14px;">
+                <div>
+                  <span class="badge">Coordinator Inbox</span>
+                  <h3 style="margin:6px 0 0;font-size:16px;font-weight:800;">Live Form Alerts &amp; Approvals</h3>
+                </div>
+                <button type="button" onclick="closeModal()" style="width:32px;height:32px;border-radius:50%;border:none;background:var(--stone-100);font-weight:700;cursor:pointer;">✕</button>
+              </div>
+              ${pendingAnimals.length === 0 && coordinatorAlerts.length === 0
+                ? `<p style="font-size:12.5px;color:var(--stone-500);text-align:center;padding:20px 0;">All caught up! No pending approvals or new alerts right now.</p>`
+                : `
+                  ${pendingAnimals.map(a => `
+                    <div style="background:#FFFBEB;border:1px solid #FDE68A;border-radius:14px;padding:12px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center;gap:10px;">
+                      <div>
+                        <p style="margin:0;font-size:12px;font-weight:800;color:#92400E;">Pending Approval: ${a.Name}</p>
+                        <p style="margin:2px 0 0;font-size:11px;color:var(--stone-600);">${a.Species} • ${a.Rescue_Location || ''}</p>
+                      </div>
+                      <button type="button" onclick="closeModal(); animalFilter='Pending Approval'; switchTab('adopt'); renderAdoptTab();" class="btn-sm">Review</button>
+                    </div>
+                  `).join('')}
+                  ${coordinatorAlerts.map(al => `
+                    <div style="background:var(--canvas-50);border:1px solid var(--stone-200);border-radius:14px;padding:12px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center;gap:10px;">
+                      <div>
+                        <p style="margin:0;font-size:12px;font-weight:800;">${al.title}</p>
+                        <p style="margin:2px 0 0;font-size:11px;color:var(--stone-500);">${al.body}</p>
+                      </div>
+                      <button type="button" onclick="closeModal(); activeOpsSub='${al.sub}'; switchTab('${al.tab}'); buildRoleChrome(); renderCurrentView();" class="btn-outline" style="padding:6px 10px;">Open</button>
+                    </div>
+                  `).join('')}
+                `}
+            </div>
+          </div>
+        `;
+      };
+
+      // ======================================================================
+      // NETWORK HELPERS & VALIDATION
       // ======================================================================
       async function fetchWithTimeout(url, options = {}, timeoutMs = 10000) {
         const controller = new AbortController();
@@ -1583,7 +1741,6 @@
 
       function writeCache(data) {
         try {
-          // Strip any huge data:image strings before saving to localStorage so it never throws QuotaExceededError
           const cleanData = {
             ...data,
             animals: (data.animals || []).map(a => ({
@@ -1634,7 +1791,7 @@
         return [...(list || [])].sort((a, b) => extractPriority(a) - extractPriority(b));
       }
 
-      // Hamburger & Guides
+      // Hamburger & Guides (Exact Word-for-Word Copy)
       const hamburgerBtn = document.getElementById('hamburgerBtn');
       hamburgerBtn.addEventListener('click', (e) => {
         e.stopPropagation();
@@ -1657,13 +1814,104 @@
       const INFO_GUIDES = {
         about: {
           badge: '1. About HappyPaws',
-          title: 'Mission, Team & Impact',
-          body: 'HappyPaws Adoptions is a community-driven animal welfare initiative dedicated to finding safe, permanent, loving homes for dogs, pups, cats, and kittens. Every pet listed is vetted, vaccinated, and matched carefully with responsible families.'
+          title: 'About HappyPaws',
+          body: `Every animal deserves safety, care and a chance at a better life.
+
+HappyPaws is an independent animal welfare initiative based in Hyderabad, dedicated to helping abandoned, rescued and vulnerable animals find safety, care and loving homes.
+
+Our work goes beyond finding homes for animals. We believe every rescue deserves the opportunity to recover, receive appropriate medical care, experience compassion and eventually become part of a responsible family.
+
+Over the years, we have helped more than 50 dogs and cats through rescue, temporary care, rehabilitation and adoption efforts.
+
+What We Do
+
+• Rescue & Protection: We help animals who are abandoned, neglected, injured or in vulnerable situations by connecting them with the care and support they need.
+• Medical Care & Rehabilitation: From veterinary consultations and vaccinations to treatment, nutrition and recovery, we work towards ensuring that rescued animals receive appropriate care.
+• Fostering & Temporary Care: Not every rescued animal finds a home immediately. We facilitate temporary care and fostering arrangements to help animals stay safe while they wait for adoption.
+• Responsible Adoptions: We connect rescued animals with suitable families through an application, screening and adoption process that prioritises the animal’s long-term well-being.
+• Community Awareness: We encourage responsible pet parenting, compassion towards community animals, and informed decisions about animal welfare.
+
+Our Approach
+
+We believe adoption should be a thoughtful, lifelong commitment. Every animal has a different personality, background and set of needs. Our aim is to help adopters understand these needs and make informed decisions before welcoming a pet into their family.
+
+We also believe that animal welfare is a collective responsibility. Whether you adopt, foster, volunteer, donate or simply help spread the word, you can make a meaningful difference.
+
+Be Part of the Change
+
+You don’t have to adopt an animal to help one. You can support HappyPaws by:
+• Adopting a rescued dog or cat.
+• Providing a temporary foster home.
+• Virtually sponsoring an animal’s care.
+• Contributing towards food, medicines and veterinary expenses.
+• Sharing adoption profiles and helping rescued animals reach potential families.
+
+Together, we can give more animals a chance at a safer and happier life.`
         },
         faqs: {
           badge: '2. How It Works & FAQs',
-          title: 'Adoption Rules & Screening Process',
-          body: '1. Browse available pets and submit the adoption vetting form.\n2. Our volunteer coordinator conducts a quick phone & home-safety check (balcony netting for cats / fenced area for dogs).\n3. Meet & greet with the pet, followed by mandatory timely vaccinations, sterilization, and 30-day & 90-day post-adoption check-ins.'
+          title: 'How Adoption Works',
+          body: `Finding the right family is just as important as finding a home.
+
+At HappyPaws, we believe responsible adoption starts with understanding both the animal’s needs and the family’s expectations. Our adoption process is designed to help ensure that every rescued animal goes to a safe, suitable and committed home.
+
+The Adoption Journey
+
+Step 1: Explore Available Animals
+Browse our adoption profiles to learn about the dogs and cats currently looking for homes. Each profile provides information about the animal’s age, personality, background and other relevant details.
+
+Step 2: Submit an Adoption Application
+Found someone you’d like to welcome into your family? Complete our adoption application with details about your household, lifestyle, experience with pets and the kind of environment you can provide.
+
+Step 3: Application Review & Interaction
+Our team reviews your application and gets in touch to understand your expectations, answer questions and discuss the animal’s requirements.
+
+Step 4: Home & Background Assessment
+As part of our screening process, we may conduct a home assessment and request relevant information to understand the living environment, family circumstances and previous pet-parenting experience. This may include a home visit, an interaction with family members and other relevant background checks.
+
+Step 5: Meet & Connect
+Once the initial screening is complete, we arrange an opportunity for the prospective adopter and the animal to interact. This helps both sides become familiar with each other before making a decision.
+
+Step 6: Adoption Preparation
+Before the animal moves into its new home, we guide the family on essential preparations, including pet-proofing, basic supplies, veterinary requirements, grooming and settling-in arrangements.
+
+Step 7: Adoption & Follow-up
+After the adoption is finalised, we stay connected with the adopter through our follow-up process. Our aim is to support a smooth transition and ensure the animal is settling comfortably into its new environment.
+
+────────────────────
+Frequently Asked Questions
+
+1. Is there a fee to adopt an animal?
+Adoption is not a purchase. However, rescued animals may have incurred expenses related to medical treatment, vaccinations, deworming, grooming and other care. Any applicable costs or contributions will be explained transparently during the adoption discussion.
+
+2. Can I adopt if I have never had a pet before?
+Yes. Previous pet-parenting experience is helpful but not the only consideration. We look at your willingness to learn, ability to provide appropriate care, household environment and long-term commitment.
+
+3. Can I adopt if I live in an apartment?
+Yes. Apartment living does not automatically disqualify an applicant. Suitability depends on the individual animal’s temperament, activity requirements, living arrangements and the family’s ability to meet its needs.
+
+4. Can I adopt if I already have pets?
+Yes. We consider existing pets as part of the screening process. Where appropriate, we may recommend introductions and compatibility assessments before proceeding.
+
+5. Can I adopt a puppy or kitten?
+Yes, subject to the animal’s availability and the family’s ability to meet its specific care, supervision, vaccination and developmental needs.
+
+6. How long does the adoption process take?
+There is no fixed timeline. It depends on application review, interactions, home assessment and the suitability of the proposed match. We prioritise responsible placements over rushing the process.
+
+7. Can I meet the animal before adopting?
+Yes. An interaction is an important part of the adoption process and will be arranged after the initial screening.
+
+8. What happens if the adoption does not work out?
+We request adopters to communicate with HappyPaws if they encounter difficulties. An animal should never be abandoned, transferred or rehomed independently without informing us. We will discuss the situation and work towards a responsible solution.
+
+9. Can I adopt if I live outside Hyderabad?
+Please contact us with your location and details. Adoption feasibility will depend on the animal’s needs, travel arrangements and our ability to complete the necessary screening and follow-up.
+
+10. Can I help even if I cannot adopt?
+Absolutely! You can foster, sponsor an animal’s care, contribute towards food or medical expenses, volunteer your time or share adoption profiles to help rescued animals find homes.
+
+Not ready to adopt? You can still make a difference.`
         },
         care: {
           badge: '3. Pet Care & Guides',
@@ -1672,13 +1920,8 @@
         },
         stories: {
           badge: '4. Adoption Stories',
-          title: 'Past Adoptions & Happy Families',
-          body: 'Hundreds of Indie pups, dogs, and kittens have found forever homes through HappyPaws families. Follow @happypaws_adoptions on Instagram and Facebook to watch weekly adoption updates and happy reunions!'
-        },
-        emergency: {
-          badge: '5. Rescue Helpline & 24x7 Clinics',
-          title: 'Emergency Veterinary Clinics & Helplines',
-          body: '• Primary Rescue & Medical Enquiry: +91 97040 85807\n• Secondary Rescue Helpline: +91 74165 85807\n• Partner 24x7 Veterinary Clinic: Dogato Pet Hospital (Ameenpur, Hyderabad — 4.8★ Emergency Veterinarian Service)\n\nIf you spot an injured stray, move them gently to a shaded spot away from traffic and contact the nearest 24x7 clinic immediately.'
+          title: 'Past Rescues & Happy Families',
+          body: 'Over 50 rescued dogs and cats have found safe, loving forever homes through HappyPaws Hyderabad. Follow @happypaws_adoptions on Instagram and Facebook to watch weekly adoption updates and happy reunions!'
         }
       };
 
@@ -1691,11 +1934,11 @@
               <div style="display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--stone-100);padding-bottom:12px;margin-bottom:14px;">
                 <div>
                   <span style="font-size:10px;font-weight:700;text-transform:uppercase;color:var(--paw-700);background:var(--paw-50);padding:3px 9px;border-radius:999px;">${g.badge}</span>
-                  <h3 style="margin:6px 0 0;font-size:16px;font-weight:800;">${g.title}</h3>
+                  <h3 style="margin:6px 0 0;font-size:17px;font-weight:800;">${g.title}</h3>
                 </div>
                 <button type="button" onclick="closeModal()" style="width:32px;height:32px;border-radius:50%;border:none;background:var(--stone-100);font-weight:700;cursor:pointer;">✕</button>
               </div>
-              <p style="font-size:12.5px;color:var(--stone-600);line-height:1.55;white-space:pre-line;margin:0 0 18px;">${g.body}</p>
+              <div style="font-size:12.5px;color:var(--stone-700);line-height:1.6;white-space:pre-line;margin:0 0 18px;">${g.body}</div>
               <div style="display:flex;gap:10px;">
                 <a href="https://wa.me/919704085807" target="_blank" rel="noopener" class="btn-primary" style="flex:1;padding:12px;font-size:12px;">Chat on WhatsApp</a>
                 <button type="button" onclick="closeModal()" class="btn-outline" style="padding:12px 16px;">Close</button>
@@ -1725,18 +1968,18 @@
         const subEl = document.getElementById('opsTabSub');
         const ctaEl = document.getElementById('opsCtaMount');
 
-        if (activeOpsSub === 'vet') {
-          titleEl.textContent = 'Vet & Vaccinations';
-          subEl.textContent = 'Treatments, booster reminders & bills';
-          ctaEl.innerHTML = `<button type="button" onclick="openVetFormModal()" class="btn-sm">+ Log Vet</button>`;
-        } else if (activeOpsSub === 'locations') {
-          titleEl.textContent = 'Fosters & Facilities';
-          subEl.textContent = 'Foster homes, boarding centers & clinics';
-          ctaEl.innerHTML = isCoord ? `<button type="button" onclick="openLocationFormModal()" class="btn-sm">+ Add Place</button>` : '';
-        } else if (activeOpsSub === 'adoptions') {
-          titleEl.textContent = 'Requests & Adoptions';
-          subEl.textContent = 'Adoption applications, foster & volunteer signups';
+        if (activeOpsSub === 'adoptions') {
+          titleEl.textContent = 'Adopters Pool';
+          subEl.textContent = 'Separate pool of applicants who applied to adopt';
           ctaEl.innerHTML = '';
+        } else if (activeOpsSub === 'vet') {
+          titleEl.textContent = 'Vet & Active Bills';
+          subEl.textContent = 'Treatments, booster reminders & medical bills';
+          ctaEl.innerHTML = `<button type="button" onclick="openVetFormModal()" class="btn-sm">+ Log Vet / Bill</button>`;
+        } else if (activeOpsSub === 'locations') {
+          titleEl.textContent = 'Fosters & Volunteers';
+          subEl.textContent = 'Foster homes, clinics & foster/volunteer signups';
+          ctaEl.innerHTML = isCoord ? `<button type="button" onclick="openLocationFormModal()" class="btn-sm">+ Add Place</button>` : '';
         } else if (activeOpsSub === 'tasks') {
           titleEl.textContent = 'Volunteer Tasks';
           subEl.textContent = 'Transport, vet visits & adoption drives';
@@ -1763,11 +2006,16 @@
           const role = session ? session.role : 'PUBLIC';
           const nav = document.getElementById('bottomNav');
           const bannerMount = document.getElementById('roleBannerMount');
+          const bellBtn = document.getElementById('coordBellBtn');
 
           document.querySelectorAll('.team-filter').forEach(el => {
             if (role !== 'PUBLIC') el.classList.remove('hidden');
             else el.classList.add('hidden');
           });
+
+          if (bellBtn) {
+            bellBtn.classList.toggle('hidden', role !== 'COORDINATOR');
+          }
 
           if (role === 'PUBLIC') {
             bannerMount.innerHTML = '';
@@ -1806,8 +2054,8 @@
               </div>
             `;
 
-            document.getElementById('adoptTabTitle').textContent = 'Animal Profiles & Approvals';
-            document.getElementById('adoptTabSub').textContent = 'Approve, disapprove, remove or set priority (#1 first)';
+            document.getElementById('adoptTabTitle').textContent = 'Animals Pool';
+            document.getElementById('adoptTabSub').textContent = 'Add, edit, approve, remove or set priority (#1 first)';
             document.getElementById('adoptCtaMount').innerHTML = `<button type="button" onclick="openAnimalFormModal()" class="btn-sm">+ Add Pet</button>`;
             document.getElementById('financeCtaMount').innerHTML = isCoord ? `<button type="button" onclick="openFinanceFormModal()" class="btn-sm">+ Log Txn</button>` : '';
 
@@ -1816,8 +2064,8 @@
 
             nav.innerHTML = isCoord ? `
               <div class="nav-grid-3">
-                <button type="button" data-tab="adopt" onclick="switchTab('adopt')" class="nav-btn ${activeTab === 'adopt' ? 'active' : ''}">${ICONS.paw}<span class="nav-label">Animals</span></button>
-                <button type="button" data-tab="ops" onclick="switchTab('ops')" class="nav-btn ${activeTab === 'ops' ? 'active' : ''}">${ICONS.layers}<span class="nav-label">Operations</span></button>
+                <button type="button" data-tab="adopt" onclick="switchTab('adopt')" class="nav-btn ${activeTab === 'adopt' ? 'active' : ''}">${ICONS.paw}<span class="nav-label">Animals Pool</span></button>
+                <button type="button" data-tab="ops" onclick="switchTab('ops')" class="nav-btn ${activeTab === 'ops' ? 'active' : ''}">${ICONS.layers}<span class="nav-label">Adopters &amp; Ops</span></button>
                 <button type="button" data-tab="finance" onclick="switchTab('finance')" class="nav-btn ${activeTab === 'finance' ? 'active' : ''}">${ICONS.wallet}<span class="nav-label">Finance</span></button>
               </div>
             ` : `
@@ -1918,7 +2166,6 @@
           ? `<button type="button" onclick="openPartnerFormModal()" class="btn-sm">+ Add Partner</button>`
           : '';
 
-        // QR Code
         const qrMount = document.getElementById('donateQrMount');
         if (cfg.qrUrl && String(cfg.qrUrl).startsWith('http')) {
           qrMount.innerHTML = `<img src="${cfg.qrUrl}" alt="HappyPaws Donation QR" style="width:176px;height:176px;object-fit:contain;border-radius:12px;background:#fff;padding:8px;border:1px solid var(--stone-200);" />`;
@@ -1933,7 +2180,6 @@
         document.getElementById('dispBankAcc').textContent = cfg.bankAcc || '—';
         document.getElementById('dispBankIfsc').textContent = cfg.bankIfsc || '—';
 
-        // Render Supplies & Nutrition Needed
         const supplies = getSyncedSupplyNeeds();
         const supEl = document.getElementById('supplyNeedsList');
         if (supplies.length === 0) {
@@ -1963,7 +2209,6 @@
           `).join('');
         }
 
-        // Render Our Partners
         const partners = getSyncedPartners();
         document.getElementById('partnersListMount').innerHTML = partners.map(p => `
           <div style="background:var(--canvas-50);padding:14px;border-radius:15px;border:1px solid var(--stone-200);margin-bottom:10px;">
@@ -1994,29 +2239,12 @@
                 <button type="button" onclick="closeModal()" style="width:32px;height:32px;border-radius:50%;border:none;background:var(--stone-100);font-weight:700;cursor:pointer;">✕</button>
               </div>
               <form onsubmit="submitSupplyNeed(event)">
-                <div class="form-group">
-                  <label class="form-label">Item Needed *</label>
-                  <input type="text" id="supItem" required placeholder="e.g., Puppy Starter Kibble / Leashes & Collars" class="input-ctrl" />
-                </div>
+                <div class="form-group"><label class="form-label">Item Needed *</label><input type="text" id="supItem" required placeholder="e.g., Puppy Starter Kibble / Leashes & Collars" class="input-ctrl" /></div>
                 <div class="form-row-2">
-                  <div>
-                    <label class="form-label">Category *</label>
-                    <select id="supCat" class="input-ctrl">
-                      <option value="Food & Nutrition">Food &amp; Nutrition</option>
-                      <option value="Supplements">Supplements</option>
-                      <option value="Physical Accessories">Physical Accessories</option>
-                      <option value="Medical Supplies">Medical Supplies</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label class="form-label">Quantity / Size *</label>
-                    <input type="text" id="supQty" required placeholder="e.g., 10 kg / 5 Medium" class="input-ctrl" />
-                  </div>
+                  <div><label class="form-label">Category *</label><select id="supCat" class="input-ctrl"><option value="Food & Nutrition">Food &amp; Nutrition</option><option value="Supplements">Supplements</option><option value="Physical Accessories">Physical Accessories</option><option value="Medical Supplies">Medical Supplies</option></select></div>
+                  <div><label class="form-label">Quantity / Size *</label><input type="text" id="supQty" required placeholder="e.g., 10 kg / 5 Medium" class="input-ctrl" /></div>
                 </div>
-                <div class="form-group">
-                  <label class="form-label">Which Animal / Reason Needed *</label>
-                  <input type="text" id="supWhy" required placeholder="e.g., For 4 foster pups recovering from parvo" class="input-ctrl" />
-                </div>
+                <div class="form-group"><label class="form-label">Which Animal / Reason Needed *</label><input type="text" id="supWhy" required placeholder="e.g., For 4 foster pups recovering from parvo" class="input-ctrl" /></div>
                 <button type="submit" id="saveSupBtn" class="btn-primary">Publish Requirement</button>
               </form>
             </div>
@@ -2033,7 +2261,6 @@
         const qty = document.getElementById('supQty').value.trim();
         const why = document.getElementById('supWhy').value.trim();
 
-        // Optimistic immediate UI update (0ms wait)
         const tempId = 'SUP-' + Date.now().toString().slice(-4);
         appState.locations = [{
           Location_ID: tempId,
@@ -2098,10 +2325,7 @@
                 <button type="button" onclick="closeModal()" style="width:32px;height:32px;border-radius:50%;border:none;background:var(--stone-100);font-weight:700;cursor:pointer;">✕</button>
               </div>
               <form onsubmit="submitDonationConfig(event)">
-                <div class="form-group">
-                  <label class="form-label">Upload Payment QR Code Image</label>
-                  <input type="file" id="cfgQrFile" accept="image/*" class="input-ctrl" style="padding:8px;" />
-                </div>
+                <div class="form-group"><label class="form-label">Upload Payment QR Code Image</label><input type="file" id="cfgQrFile" accept="image/*" class="input-ctrl" style="padding:8px;" /></div>
                 <div class="form-row-2">
                   <div><label class="form-label">UPI ID</label><input type="text" id="cfgUpi" value="${cfg.upiId}" placeholder="e.g., happypaws@okaxis" class="input-ctrl" /></div>
                   <div><label class="form-label">Phone Number (UPI)</label><input type="tel" id="cfgPhone" value="${cfg.payPhone}" placeholder="10-digit number" class="input-ctrl" /></div>
@@ -2147,7 +2371,6 @@
         renderDonateAndPartnersTab();
         showToast('Payment details saved!');
 
-        // Background sync to Sheet & Drive
         (async () => {
           try {
             if (qrBase64) {
@@ -2224,7 +2447,6 @@
         const desc = document.getElementById('prtDesc').value.trim();
         const mapUrl = document.getElementById('prtMap').value.trim();
 
-        // Optimistic immediate UI update
         if (editId) {
           appState.locations = (appState.locations || []).map(l =>
             String(l.Location_ID) === String(editId)
@@ -2266,7 +2488,7 @@
       };
 
       // ======================================================================
-      // LIST PET FORM (Single Clean Submission — No Duplicate Coordinator Card!)
+      // LIST PET FORM (Strictly Single Submission — Zero Duplicates)
       // ======================================================================
       let compressedLpPhoto = null;
 
@@ -2338,8 +2560,8 @@
           const fullMedicalSummary = `Neutered: ${neutered} | House/Potty Trained: ${houseTrained} | Leash Trained: ${leash} | Health/Vaccines: ${health}`;
           const fullRehabNotes = `Nature: ${nature} | Diet: ${food} | Special Needs: ${specialNeeds} | Other Platforms: ${otherPlatforms} | Handling: ${handling} | Guardian: ${ownerName} (Age ${ownerAge}, +91 ${ownerPhone})`;
 
-          // Single clean SAVE_ANIMAL call so Coordinators see it ONCE under Pending Approval
-          const saveAnimalRes = await fetchWithRetry(API_URL, {
+          // Single POST (no retries on write to guarantee zero duplicate rows in Google Sheets!)
+          const saveAnimalRes = await fetchWithTimeout(API_URL, {
             method: 'POST',
             headers: { 'Content-Type': 'text/plain;charset=utf-8' },
             body: JSON.stringify({
@@ -2358,7 +2580,7 @@
               rehabNotes: fullRehabNotes,
               photoBase64: compressedLpPhoto
             })
-          }, 2);
+          }, 15000);
 
           if (saveAnimalRes.status === 'success') {
             document.getElementById('publicListPetForm').reset();
@@ -2371,7 +2593,7 @@
             showToast(saveAnimalRes.message || 'Could not submit listing');
           }
         } catch (err) {
-          showToast('Network busy — please tap Submit again');
+          showToast('Request sent — please wait a moment before resubmitting');
         } finally {
           isSubmitting = false;
           btn.disabled = false;
@@ -2380,7 +2602,7 @@
       };
 
       // ======================================================================
-      // LOST & FOUND FORM (Single Clean Submission)
+      // LOST & FOUND FORM (Strictly Single Submission)
       // ======================================================================
       let compressedLfPhoto = null;
 
@@ -2450,7 +2672,7 @@
         try {
           const phoneSummary = phone2 ? `+91 ${phone1} / +91 ${phone2}` : `+91 ${phone1}`;
 
-          const saveAnimalRes = await fetchWithRetry(API_URL, {
+          const saveAnimalRes = await fetchWithTimeout(API_URL, {
             method: 'POST',
             headers: { 'Content-Type': 'text/plain;charset=utf-8' },
             body: JSON.stringify({
@@ -2469,7 +2691,7 @@
               rehabNotes: `Phones: ${phoneSummary}`,
               photoBase64: compressedLfPhoto
             })
-          }, 2);
+          }, 15000);
 
           if (saveAnimalRes.status === 'success') {
             document.getElementById('lostFoundForm').reset();
@@ -2481,7 +2703,7 @@
             showToast(`${reportType} report submitted for verification!`);
           }
         } catch (err) {
-          showToast('Network busy — please try again');
+          showToast('Report sent — please wait a moment before resubmitting');
         } finally {
           isSubmitting = false;
           btn.disabled = false;
@@ -2527,7 +2749,7 @@
         btn.textContent = 'Submitting...';
 
         try {
-          const res = await fetchWithRetry(API_URL, {
+          const res = await fetchWithTimeout(API_URL, {
             method: 'POST',
             headers: { 'Content-Type': 'text/plain;charset=utf-8' },
             body: JSON.stringify({
@@ -2542,7 +2764,7 @@
               housingDetails: document.getElementById('fostHousing').value,
               petExperience: notes
             })
-          }, 2);
+          }, 12000);
           if (res.status === 'success') {
             document.getElementById('fosterOnlyForm').reset();
             showToast(`Foster application #${res.appId} received!`);
@@ -2574,7 +2796,7 @@
 
         try {
           const role = document.getElementById('volRole').value;
-          const res = await fetchWithRetry(API_URL, {
+          const res = await fetchWithTimeout(API_URL, {
             method: 'POST',
             headers: { 'Content-Type': 'text/plain;charset=utf-8' },
             body: JSON.stringify({
@@ -2589,7 +2811,7 @@
               housingDetails: role,
               petExperience: notes
             })
-          }, 2);
+          }, 12000);
           if (res.status === 'success') {
             document.getElementById('volunteerOnlyForm').reset();
             showToast(`Volunteer application #${res.appId} received!`);
@@ -2604,7 +2826,7 @@
       };
 
       // ======================================================================
-      // RENDERING VIEWS (With Approve, Disapprove & Remove Pet Controls)
+      // RENDERING VIEWS (Deduplicated Animals Pool + Separated Adopters Pool)
       // ======================================================================
       window.setAnimalFilter = function (filterVal, btnEl) {
         animalFilter = filterVal;
@@ -2619,11 +2841,20 @@
         const isTeam = Boolean(session);
         const isCoord = session && session.role === 'COORDINATOR';
         const query = String(document.getElementById('animalSearchInput').value || '').toLowerCase().trim();
-        const sortedAnimals = sortAnimalsByPriority(appState.animals || []);
 
-        const filtered = sortedAnimals.filter(a => {
+        // Deduplicate by Animal_ID so a listing is never shown twice
+        const seenKeys = new Set();
+        const uniqueAnimals = sortAnimalsByPriority(appState.animals || []).filter(a => {
           const st = String(a.Status || '').trim();
           if (st === 'Archived_Asset' || st === 'Disapproved') return false;
+          const dedupKey = `${String(a.Animal_ID).trim()}`;
+          if (seenKeys.has(dedupKey)) return false;
+          seenKeys.add(dedupKey);
+          return true;
+        });
+
+        const filtered = uniqueAnimals.filter(a => {
+          const st = String(a.Status || '').trim();
           if (!isTeam && st === 'Pending Approval') return false;
           const sp = String(a.Species || '').trim();
           const matchesFilter = animalFilter === 'ALL' || st === animalFilter || sp.toLowerCase() === animalFilter.toLowerCase();
@@ -2631,9 +2862,8 @@
           return matchesFilter && (!query || haystack.includes(query));
         });
 
-        const visibleTotal = sortedAnimals.filter(a => {
+        const visibleTotal = uniqueAnimals.filter(a => {
           const st = String(a.Status || '').trim();
-          if (st === 'Archived_Asset' || st === 'Disapproved') return false;
           return isTeam ? true : st !== 'Pending Approval';
         }).length;
         document.getElementById('animalTotalCount').textContent = visibleTotal;
@@ -2706,7 +2936,6 @@
         }).join('');
       };
 
-      // Optimistic Approve (0ms UI update + background Sheet sync)
       window.approvePendingAnimal = function (animalId, name) {
         const session = getSession();
         if (!session) return showToast('Coordinator PIN required');
@@ -2726,7 +2955,6 @@
         }, 2).then(() => syncDatabase(true)).catch(() => {});
       };
 
-      // Optimistic Disapprove or Remove Pet (0ms UI update + background Sheet sync)
       window.removeOrDisapproveAnimal = function (animalId, name, isDisapprove = false) {
         const session = getSession();
         if (!session) return showToast('Coordinator PIN required');
@@ -2747,9 +2975,6 @@
       };
 
       function renderSecondaryPublicViews() {
-        const session = getSession();
-        const isCoord = session && session.role === 'COORDINATOR';
-
         const fosterEl = document.getElementById('urgentFosterList');
         const urgentAnimals = sortAnimalsByPriority(appState.animals || []).filter(a => String(a.Status || '').trim() === 'Urgent Foster');
         fosterEl.innerHTML = urgentAnimals.length === 0
@@ -2780,7 +3005,6 @@
             </div>
           `).join('');
 
-        // Active Vet Bills (Displays WHICH animal needs it & WHY)
         const billsEl = document.getElementById('publicBillsList');
         const bills = appState.vetBills || [];
         billsEl.innerHTML = bills.length === 0
@@ -2830,10 +3054,36 @@
       }
 
       function renderLocationsTab() {
+        // Separated Foster & Volunteer Leads + Physical Foster Homes
+        const fvLeads = (appState.adoptions || []).filter(app =>
+          ['Foster', 'Foster Parent Application', 'Volunteer Application'].includes(String(app.Inquiry_Type).trim())
+        );
+
+        document.getElementById('fosterVolLeadsMount').innerHTML = fvLeads.length > 0 ? `
+          <h4 style="margin:0 0 10px;font-size:13px;font-weight:800;color:var(--stone-700);">Foster &amp; Volunteer Applications (${fvLeads.length})</h4>
+          ${fvLeads.map(app => `
+            <div class="card" style="padding:16px;">
+              <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px;">
+                <div>
+                  <span class="badge">${app.Inquiry_Type}</span>
+                  <h4 style="margin:6px 0 2px;font-size:14px;font-weight:800;">${app.Applicant_Name}</h4>
+                  <p style="margin:0;font-size:11.5px;color:var(--stone-500);">${app.Address_Locality || ''} • ${app.Housing_Details || ''}</p>
+                  <p style="margin:4px 0 0;font-size:11.5px;color:var(--stone-600);">${app.Pet_Experience || ''}</p>
+                </div>
+                <span class="badge amber">${app.Screening_Status}</span>
+              </div>
+              <div class="pet-actions">
+                <a href="https://wa.me/91${String(app.Phone || '').replace(/\D/g, '')}" target="_blank" rel="noopener" class="btn-outline" style="text-align:center;text-decoration:none;background:#ECFDF5;color:#047857;border-color:#A7F3D0;">WhatsApp</a>
+                <button type="button" onclick="openScreeningModal('${app.App_ID}')" class="btn-primary" style="padding:10px;font-size:12px;box-shadow:none;">Update Status</button>
+              </div>
+            </div>
+          `).join('')}
+        ` : '';
+
         const locs = (appState.locations || []).filter(l => !['Donation_Config', 'Our_Partner', 'Supply_Need'].includes(String(l.Type)) && String(l.Status) !== 'Archived');
-        document.getElementById('badge-locations').textContent = locs.length;
-        document.getElementById('locationsList').innerHTML = locs.length === 0
-          ? `<div class="card" style="text-align:center;font-size:12px;color:var(--stone-500);">No foster homes, boarding facilities, or clinics added yet.</div>`
+        document.getElementById('badge-locations').textContent = locs.length + fvLeads.length;
+        document.getElementById('locationsList').innerHTML = locs.length === 0 && fvLeads.length === 0
+          ? `<div class="card" style="text-align:center;font-size:12px;color:var(--stone-500);">No foster homes, clinics, or foster/volunteer signups yet.</div>`
           : locs.map(l => {
             const assigned = (appState.animals || []).filter(a => String(a.Current_Location_ID) === String(l.Location_ID));
             return `
@@ -2847,19 +3097,22 @@
           }).join('');
       }
 
+      // Dedicated Adopters Pool (Strictly people who applied to adopt a pet!)
       function renderAdoptionsTab() {
-        const apps = appState.adoptions || [];
-        document.getElementById('badge-adoptions').textContent = apps.length;
-        document.getElementById('adoptionsList').innerHTML = apps.length === 0
-          ? `<div class="card" style="text-align:center;font-size:12px;color:var(--stone-500);">No adoption, foster, or volunteer enquiries logged yet.</div>`
-          : apps.map(app => `
+        const adoptersPool = (appState.adoptions || []).filter(app =>
+          String(app.Inquiry_Type).trim() === 'Adoption'
+        );
+        document.getElementById('badge-adoptions').textContent = adoptersPool.length;
+        document.getElementById('adoptionsList').innerHTML = adoptersPool.length === 0
+          ? `<div class="card" style="text-align:center;font-size:12px;color:var(--stone-500);">No adoption applications in the Adopters Pool yet.</div>`
+          : adoptersPool.map(app => `
             <div class="card" style="padding:16px;">
               <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px;">
                 <div>
-                  <span class="badge">${app.Inquiry_Type} • ${app.App_ID}</span>
+                  <span class="badge">Adopter • ${app.App_ID}</span>
                   <h4 style="margin:6px 0 2px;font-size:14px;font-weight:800;">${app.Applicant_Name} ➔ ${app.Animal_Name}</h4>
-                  <p style="margin:0;font-size:11.5px;color:var(--stone-500);">${app.Address_Locality || ''}</p>
-                  ${app.Housing_Details ? `<p style="margin:4px 0 0;font-size:11.5px;font-weight:600;">${app.Housing_Details}</p>` : ''}
+                  <p style="margin:0;font-size:11.5px;color:var(--stone-500);">${app.Age_Occupation || ''} • ${app.Address_Locality || ''}</p>
+                  ${app.Housing_Details ? `<p style="margin:4px 0 0;font-size:11.5px;font-weight:600;">Housing: ${app.Housing_Details}</p>` : ''}
                   ${app.Pet_Experience ? `<p style="margin:4px 0 0;font-size:11.5px;color:var(--stone-600);">${app.Pet_Experience}</p>` : ''}
                 </div>
                 <span class="badge amber">${app.Screening_Status}</span>
@@ -2953,7 +3206,7 @@
       };
 
       // ======================================================================
-      // NON-BLOCKING BACKGROUND SYNC ENGINE
+      // NON-BLOCKING BACKGROUND SYNC ENGINE + LIVE COORDINATOR NOTIFICATIONS
       // ======================================================================
       window.syncDatabase = async function (forceFresh = false) {
         if (isSubmitting && !forceFresh) return;
@@ -2976,6 +3229,7 @@
 
             const data = await fetchWithTimeout(`${API_URL}?${qs.toString()}`, { cache: 'no-store' }, 11000);
             if (data && data.status === 'success') {
+              checkForNewSubmissions(data);
               const sig = JSON.stringify({ mode: data.mode, animals: data.animals, vetBills: data.vetBills, vetRecords: data.vetRecords, locations: data.locations, adoptions: data.adoptions, finance: data.finance, tasks: data.tasks });
               appState = { ...appState, ...data };
               writeCache(appState);
@@ -3001,7 +3255,7 @@
       }, 8000);
 
       // ======================================================================
-      // MODALS & INSTANT ROLE SWITCHING (Zero Freeze Guarantee)
+      // MODALS & INSTANT ROLE SWITCHING
       // ======================================================================
       const modalsMount = document.getElementById('modalsMount');
       window.closeModal = function () { modalsMount.innerHTML = ''; };
@@ -3068,8 +3322,12 @@
         btn.disabled = true;
         btn.textContent = 'Verifying...';
 
+        // Ask browser permission for real desktop/mobile web notifications
+        if ('Notification' in window && Notification.permission === 'default') {
+          try { Notification.requestPermission(); } catch (err) {}
+        }
+
         try {
-          // Fast cached GET without ?fresh=1 so Apps Script returns from CacheService in ~50ms!
           const qs = new URLSearchParams({ pin, t: Date.now() });
           const data = await fetchWithTimeout(`${API_URL}?${qs.toString()}`, { cache: 'no-store' }, 10000);
 
@@ -3080,6 +3338,7 @@
             lastSignature = JSON.stringify({ mode: data.mode, animals: data.animals, vetBills: data.vetBills, vetRecords: data.vetRecords, locations: data.locations, adoptions: data.adoptions, finance: data.finance, tasks: data.tasks });
             closeModal();
             activeTab = 'adopt';
+            checkForNewSubmissions(data);
             buildRoleChrome();
             renderCurrentView();
             showToast(`Unlocked ${data.mode} Mode`);
@@ -3123,11 +3382,11 @@
         }
       };
 
-      // Instant 0ms Exit to Public View (Never freezes buttons!)
       window.logoutTeam = function () {
         sessionStorage.removeItem(SESSION_KEY);
         closeModal();
         closeMenu();
+        dismissInAppAlert();
         inFlightSync = null;
         isSubmitting = false;
         lastSignature = '';
@@ -3159,10 +3418,10 @@
                 </div>
                 <div style="background:var(--canvas-50);padding:12px;border-radius:14px;margin-bottom:10px;">
                   <strong>2. Training &amp; Health:</strong> ${animal.Medical_Summary || ''}<br/>
-                  ${animal.Rehab_Notes ? `<strong>3. Behaviour &amp; Diet:</strong> ${animal.Rehab_Notes}` : ''}
+                  ${animal.Rehab_Notes ? `<strong>3. Behaviour, Diet &amp; Guardian:</strong> ${animal.Rehab_Notes}` : ''}
                 </div>
-                <strong>4. Veterinary Records (${vets.length}):</strong>
-                ${vets.length === 0 ? '<p style="color:var(--stone-400);">No individual vet visits logged yet.</p>' : vets.map(v => `<div style="padding:10px;border:1px solid var(--stone-200);border-radius:12px;margin-top:8px;"><strong>${v.Record_Type}: ${v.Title}</strong> (${v.Visit_Date || ''})<br/>${v.Doctor_Notes || ''}</div>`).join('')}
+                <strong>4. Veterinary Records &amp; Expenses (${vets.length}):</strong>
+                ${vets.length === 0 ? '<p style="color:var(--stone-400);">No individual vet visits logged yet.</p>' : vets.map(v => `<div style="padding:10px;border:1px solid var(--stone-200);border-radius:12px;margin-top:8px;"><strong>${v.Record_Type}: ${v.Title}</strong> (${v.Visit_Date || ''}) — ₹${Number(v.Expense_Amount || 0).toLocaleString('en-IN')}<br/>${v.Doctor_Notes || ''}</div>`).join('')}
               </div>
             </div>
           </div>
@@ -3211,7 +3470,6 @@
         `;
       };
 
-      // Optimistic 0ms Animal Save + Non-Blocking Background Sync
       window.submitAnimalForm = async function (e, editId) {
         e.preventDefault();
         const session = getSession();
@@ -3241,7 +3499,6 @@
           photoBase64
         };
 
-        // Update UI instantaneously (0ms) so buttons remain 100% responsive
         if (editId) {
           appState.animals = (appState.animals || []).map(a =>
             String(a.Animal_ID) === String(editId)
@@ -3285,7 +3542,6 @@
         renderCurrentView();
         showToast(editId ? `${payload.name} updated!` : `${payload.name} published!`);
 
-        // Sync to Google Sheet in background without locking UI
         fetchWithRetry(API_URL, {
           method: 'POST',
           headers: { 'Content-Type': 'text/plain;charset=utf-8' },
@@ -3536,7 +3792,7 @@
         if (!validateMandatoryFields([['Full Name', appName, 2], ['Age & Occupation', ageJob, 3], ['Complete Address', addr, 5], ['Care Plan & Experience', exp, 4]])) return;
         if (!isValidIndianMobile(appPhone)) return showToast('Please enter a valid 10-digit WhatsApp number');
 
-        const res = await fetchWithRetry(API_URL, {
+        const res = await fetchWithTimeout(API_URL, {
           method: 'POST',
           headers: { 'Content-Type': 'text/plain;charset=utf-8' },
           body: JSON.stringify({
@@ -3545,7 +3801,7 @@
             ageOccupation: ageJob, addressLocality: addr,
             housingDetails: document.getElementById('pubAppHousing').value, petExperience: exp
           })
-        }, 2);
+        }, 12000);
         if (res.status === 'success') { closeModal(); showToast(res.message); }
       };
 
