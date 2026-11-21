@@ -48,19 +48,10 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    input, textarea, select, button {
-      font-family: inherit;
-    }
+    input, textarea, select, button { font-family: inherit; }
 
-    .no-scrollbar {
-      -ms-overflow-style: none;
-      scrollbar-width: none;
-    }
-    .no-scrollbar::-webkit-scrollbar {
-      display: none;
-      width: 0;
-      height: 0;
-    }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    .no-scrollbar::-webkit-scrollbar { display: none; width: 0; height: 0; }
 
     .app-shell {
       max-width: 448px;
@@ -104,7 +95,7 @@
     .brand-badge {
       width: 40px;
       height: 40px;
-      border-radius: 14px;
+      border-radius: 15px;
       background: linear-gradient(135deg, var(--paw-500), var(--paw-700));
       color: #fff;
       display: flex;
@@ -113,15 +104,15 @@
       box-shadow: 0 4px 12px rgba(194, 99, 40, 0.25);
       cursor: pointer;
       flex-shrink: 0;
-      transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+      transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
     .brand-badge:hover svg { animation: pawWiggle 0.55s ease; }
     .brand-badge:active { transform: scale(0.92); }
 
     @keyframes pawWiggle {
       0%, 100% { transform: rotate(0deg) scale(1); }
-      25% { transform: rotate(-10deg) scale(1.06); }
-      60% { transform: rotate(8deg) scale(1.06); }
+      25% { transform: rotate(-10deg) scale(1.08); }
+      60% { transform: rotate(8deg) scale(1.08); }
     }
 
     .brand-title {
@@ -136,7 +127,7 @@
     .icon-btn {
       width: 40px;
       height: 40px;
-      border-radius: 14px;
+      border-radius: 15px;
       background: var(--canvas-50);
       border: 1px solid var(--stone-200);
       color: var(--stone-800);
@@ -146,11 +137,7 @@
       cursor: pointer;
       transition: transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.18s ease, border-color 0.18s ease;
     }
-    .icon-btn:hover {
-      background: var(--paw-50);
-      border-color: var(--paw-200);
-      color: var(--paw-700);
-    }
+    .icon-btn:hover { background: var(--paw-50); border-color: var(--paw-200); color: var(--paw-700); }
     .icon-btn:active { transform: scale(0.93); }
     .icon-btn svg line {
       transition: transform 0.24s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.2s ease;
@@ -181,22 +168,14 @@
       transition: opacity 0.18s ease, transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
       transform-origin: top right;
     }
-    .dropdown-menu.open {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-      pointer-events: auto;
-    }
+    .dropdown-menu.open { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; }
 
     .menu-section {
       padding-bottom: 12px;
       margin-bottom: 12px;
       border-bottom: 1px solid var(--stone-100);
     }
-    .menu-section:last-child {
-      padding-bottom: 0;
-      margin-bottom: 0;
-      border-bottom: none;
-    }
+    .menu-section:last-child { padding-bottom: 0; margin-bottom: 0; border-bottom: none; }
 
     .menu-label {
       margin: 0 0 8px 2px;
@@ -262,12 +241,7 @@
     .contact-card:hover .contact-icon { transform: scale(1.08) rotate(-4deg); }
     .contact-card.whatsapp .contact-icon { background: #059669; border: none; color: #fff; }
 
-    .social-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px;
-      margin-bottom: 10px;
-    }
+    .social-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 10px; }
     .social-btn {
       display: flex;
       align-items: center;
@@ -293,14 +267,14 @@
     .tab-pane, .ops-subpane { display: none; }
     .tab-pane.active, .ops-subpane.active {
       display: block;
-      animation: fadeUp 0.18s ease forwards;
+      animation: fadeUp 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(5px); }
+      from { opacity: 0; transform: translateY(6px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Typography & Cards */
+    /* Typography & Cute Cards */
     .section-head {
       display: flex;
       align-items: center;
@@ -314,10 +288,24 @@
     .card {
       background: #fff;
       border: 1px solid var(--stone-200);
-      border-radius: 22px;
+      border-radius: 24px;
       padding: 20px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+      box-shadow: 0 3px 12px rgba(28, 25, 23, 0.03);
       margin-bottom: 18px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cute-paw-watermark {
+      position: absolute;
+      right: -10px;
+      bottom: -10px;
+      width: 68px;
+      height: 68px;
+      color: var(--paw-600);
+      opacity: 0.05;
+      pointer-events: none;
+      transform: rotate(-18deg);
     }
 
     /* Uniform Form Spacing & Alignment */
@@ -345,7 +333,7 @@
       width: 100%;
       min-height: 44px;
       padding: 11px 13px;
-      border-radius: 13px;
+      border-radius: 14px;
       background: var(--canvas-50);
       border: 1px solid var(--stone-200);
       font-size: 13px;
@@ -369,7 +357,7 @@
       justify-content: center;
       width: 100%;
       height: 148px;
-      border-radius: 16px;
+      border-radius: 18px;
       border: 2px dashed var(--stone-300);
       background: var(--canvas-50);
       cursor: pointer;
@@ -411,25 +399,39 @@
       justify-content: center;
       gap: 8px;
       box-shadow: 0 6px 16px rgba(194, 99, 40, 0.22);
-      transition: transform 0.14s ease, background 0.15s ease;
+      transition: transform 0.16s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.15s ease;
       text-decoration: none;
     }
     .btn-primary:hover { background: var(--paw-700); }
-    .btn-primary:active { transform: scale(0.97); }
+    .btn-primary:active { transform: scale(0.96); }
     .btn-primary:disabled { opacity: 0.65; cursor: not-allowed; }
 
     .btn-sm {
       padding: 8px 13px;
-      border-radius: 12px;
+      border-radius: 13px;
       border: none;
       background: var(--paw-600);
       color: #fff;
       font-size: 12px;
       font-weight: 700;
       cursor: pointer;
-      transition: transform 0.14s ease;
+      transition: transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
-    .btn-sm:active { transform: scale(0.95); }
+    .btn-sm:active { transform: scale(0.94); }
+
+    .btn-danger-soft {
+      padding: 9px 12px;
+      border-radius: 12px;
+      border: 1px solid #FECDD3;
+      background: #FFF1F2;
+      color: #BE123C;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.14s ease, background 0.15s ease;
+    }
+    .btn-danger-soft:hover { background: #FFE4E6; }
+    .btn-danger-soft:active { transform: scale(0.95); }
 
     .pill-row {
       display: flex;
@@ -451,7 +453,7 @@
       flex-shrink: 0;
       transition: transform 0.14s ease, background 0.16s ease, color 0.16s ease;
     }
-    .pill:active { transform: scale(0.96); }
+    .pill:active { transform: scale(0.95); }
     .pill.active { background: var(--paw-600); border-color: var(--paw-600); color: #fff; }
 
     .seg-toggle {
@@ -480,10 +482,11 @@
     .pet-card {
       background: #fff;
       border: 1px solid var(--stone-200);
-      border-radius: 22px;
+      border-radius: 24px;
       overflow: hidden;
       margin-bottom: 16px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+      box-shadow: 0 3px 12px rgba(28, 25, 23, 0.03);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
     .pet-card.pending { border-color: #F59E0B; box-shadow: 0 0 0 3px #FEF3C7; }
     .pet-media { position: relative; height: 205px; background: var(--stone-100); }
@@ -505,8 +508,8 @@
       position: absolute;
       bottom: 10px;
       right: 10px;
-      padding: 4px 9px;
-      border-radius: 8px;
+      padding: 4px 10px;
+      border-radius: 999px;
       background: rgba(28,25,23,0.78);
       color: #fff;
       font-size: 11px;
@@ -517,6 +520,12 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 10px;
+      margin-top: 14px;
+    }
+    .pet-actions-3 {
+      display: grid;
+      grid-template-columns: 1fr 1fr auto;
+      gap: 8px;
       margin-top: 14px;
     }
     .btn-outline {
@@ -620,7 +629,7 @@
     .nav-btn {
       border: none;
       background: transparent;
-      border-radius: 12px;
+      border-radius: 14px;
       padding: 6px 2px;
       display: flex;
       flex-direction: column;
@@ -728,29 +737,29 @@
             </svg>
           </button>
 
-          <!-- HAMBURGER MENU (Item 5 = Rescue Helpline & 24x7 Clinics) -->
+          <!-- HAMBURGER MENU -->
           <div id="navDropdown" class="dropdown-menu no-scrollbar">
             <div class="menu-section">
               <p class="menu-label">Menu</p>
               <button type="button" class="menu-item" onclick="closeMenu(); openInfoGuide('about');">
                 <span class="menu-item-num">1.</span>
-                <div><p class="menu-item-title">About HappyPaws</p><p class="menu-item-sub">Mission, team & rescue impact</p></div>
+                <div><p class="menu-item-title">About HappyPaws</p><p class="menu-item-sub">Mission, team &amp; rescue impact</p></div>
               </button>
               <button type="button" class="menu-item" onclick="closeMenu(); openInfoGuide('faqs');">
                 <span class="menu-item-num">2.</span>
-                <div><p class="menu-item-title">How It Works & FAQs</p><p class="menu-item-sub">Adoption rules & screening process</p></div>
+                <div><p class="menu-item-title">How It Works &amp; FAQs</p><p class="menu-item-sub">Adoption rules &amp; screening process</p></div>
               </button>
               <button type="button" class="menu-item" onclick="closeMenu(); openInfoGuide('care');">
                 <span class="menu-item-num">3.</span>
-                <div><p class="menu-item-title">Pet Care & Guides</p><p class="menu-item-sub">Vaccination schedules & nutrition</p></div>
+                <div><p class="menu-item-title">Pet Care &amp; Guides</p><p class="menu-item-sub">Vaccination schedules &amp; nutrition</p></div>
               </button>
               <button type="button" class="menu-item" onclick="closeMenu(); openInfoGuide('stories');">
                 <span class="menu-item-num">4.</span>
-                <div><p class="menu-item-title">Adoption Stories</p><p class="menu-item-sub">Past rescues & happy families</p></div>
+                <div><p class="menu-item-title">Adoption Stories</p><p class="menu-item-sub">Past rescues &amp; happy families</p></div>
               </button>
               <button type="button" class="menu-item" onclick="closeMenu(); openInfoGuide('emergency');">
                 <span class="menu-item-num">5.</span>
-                <div><p class="menu-item-title">Rescue Helpline & 24x7 Clinics</p><p class="menu-item-sub">Emergency vet care & stray helplines</p></div>
+                <div><p class="menu-item-title">Rescue Helpline &amp; 24x7 Clinics</p><p class="menu-item-sub">Emergency vet care &amp; stray helplines</p></div>
               </button>
             </div>
 
@@ -801,7 +810,7 @@
         <div class="section-head">
           <div>
             <h2 id="adoptTabTitle" class="section-title">Adopt a Pet</h2>
-            <p id="adoptTabSub" class="section-sub">Find your lifelong companion</p>
+            <p id="adoptTabSub" class="section-sub">Find your lifelong companion 🐾</p>
           </div>
           <div id="adoptCtaMount"></div>
         </div>
@@ -812,8 +821,8 @@
 
         <div class="pill-row no-scrollbar">
           <button type="button" onclick="setAnimalFilter('ALL', this)" class="animal-filter-btn pill active">All (<span id="animalTotalCount">0</span>)</button>
-          <button type="button" onclick="setAnimalFilter('Dog', this)" class="animal-filter-btn pill">Dogs & Pups</button>
-          <button type="button" onclick="setAnimalFilter('Cat', this)" class="animal-filter-btn pill">Cats & Kittens</button>
+          <button type="button" onclick="setAnimalFilter('Dog', this)" class="animal-filter-btn pill">Dogs &amp; Pups</button>
+          <button type="button" onclick="setAnimalFilter('Cat', this)" class="animal-filter-btn pill">Cats &amp; Kittens</button>
           <button type="button" onclick="setAnimalFilter('Urgent Foster', this)" class="animal-filter-btn pill">Urgent Foster</button>
           <button type="button" onclick="setAnimalFilter('Pending Approval', this)" class="team-filter pill hidden">Pending Approval</button>
           <button type="button" onclick="setAnimalFilter('Adopted', this)" class="team-filter pill hidden">Adopted</button>
@@ -843,7 +852,7 @@
               <div id="lpUploadPlaceholder">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--paw-600)" stroke-width="2" style="margin-bottom:6px;"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
                 <p style="margin:0;font-size:13px;font-weight:700;color:var(--stone-800);">Tap to upload a clear photo *</p>
-                <p style="margin:4px 0 0;font-size:11px;color:var(--stone-400);">Helps adopters & coordinators review your pet</p>
+                <p style="margin:4px 0 0;font-size:11px;color:var(--stone-400);">Helps adopters &amp; coordinators review your pet</p>
               </div>
               <img id="lpPhotoPreview" class="upload-preview hidden" alt="Pet Preview" />
               <button type="button" id="lpClearPhotoBtn" onclick="clearLpPhoto(event)" class="clear-photo-btn hidden">✕</button>
@@ -922,7 +931,7 @@
           </div>
 
           <div class="form-group">
-            <label class="form-label">Past & Current Health Status + Vaccination Disclosure <span class="req">*</span></label>
+            <label class="form-label">Past &amp; Current Health Status + Vaccination Disclosure <span class="req">*</span></label>
             <input type="text" id="lpHealth" required placeholder="Disclose vaccinations completed, misses, or health issues..." class="input-ctrl" />
           </div>
 
@@ -955,7 +964,7 @@
             <label class="form-label">Adoption Handling Preference <span class="req">*</span></label>
             <select id="lpHandling" required class="input-ctrl">
               <option value="">Choose how you want leads handled...</option>
-              <option value="HappyPaws Team Assistance (Filter & verify leads)">HappyPaws Team Assistance (Filter & verify leads)</option>
+              <option value="HappyPaws Team Assistance (Filter & verify leads)">HappyPaws Team Assistance (Filter &amp; verify leads)</option>
               <option value="Handle Adoption Myself">Handle Adoption Myself</option>
             </select>
           </div>
@@ -1024,8 +1033,8 @@
       <section id="tab-lostfound" class="tab-pane">
         <div class="section-head">
           <div>
-            <h2 class="section-title">Lost & Found Pets</h2>
-            <p class="section-sub">Report a missing pet or a found animal with photo & location</p>
+            <h2 class="section-title">Lost &amp; Found Pets</h2>
+            <p class="section-sub">Report a missing pet or a found animal with photo &amp; location</p>
           </div>
         </div>
 
@@ -1042,7 +1051,7 @@
               <div id="lfUploadPlaceholder">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--paw-600)" stroke-width="2" style="margin-bottom:6px;"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
                 <p style="margin:0;font-size:13px;font-weight:700;color:var(--stone-800);">Tap to upload picture *</p>
-                <p style="margin:4px 0 0;font-size:11px;color:var(--stone-400);">Helps identify collar, coat & markings</p>
+                <p style="margin:4px 0 0;font-size:11px;color:var(--stone-400);">Helps identify collar, coat &amp; markings</p>
               </div>
               <img id="lfPhotoPreview" class="upload-preview hidden" alt="Lost/Found Preview" />
               <button type="button" id="lfClearPhotoBtn" onclick="clearLfPhoto(event)" class="clear-photo-btn hidden">✕</button>
@@ -1073,7 +1082,7 @@
           </div>
 
           <div class="form-group">
-            <label class="form-label">Area & Nearest Landmark <span class="req">*</span></label>
+            <label class="form-label">Area &amp; Nearest Landmark <span class="req">*</span></label>
             <input type="text" id="lfLocation" required placeholder="e.g., Gachibowli Circle, near DLF Gate 2" class="input-ctrl" />
           </div>
 
@@ -1083,7 +1092,7 @@
           </div>
 
           <div class="form-group">
-            <label class="form-label">Identification & Temperament Details <span class="req">*</span></label>
+            <label class="form-label">Identification &amp; Temperament Details <span class="req">*</span></label>
             <textarea id="lfDetails" required rows="2" placeholder="Friendly or shy, responds to name, last direction headed..." class="input-ctrl"></textarea>
           </div>
 
@@ -1111,7 +1120,7 @@
           <button type="submit" id="lfSubmitBtn" class="btn-primary">Submit</button>
         </form>
 
-        <h3 style="font-size:14px;font-weight:800;margin:0 0 12px;">Verified Lost & Found Board</h3>
+        <h3 style="font-size:14px;font-weight:800;margin:0 0 12px;">Verified Lost &amp; Found Board</h3>
         <div id="lostFoundList"></div>
       </section>
 
@@ -1121,7 +1130,7 @@
       <section id="tab-fostervol" class="tab-pane">
         <div class="section-head">
           <div>
-            <h2 class="section-title">Foster & Volunteer</h2>
+            <h2 class="section-title">Foster &amp; Volunteer</h2>
             <p class="section-sub">Choose how you would like to support HappyPaws</p>
           </div>
         </div>
@@ -1162,7 +1171,7 @@
           </div>
 
           <div class="form-group">
-            <label class="form-label">Home Setup & Balcony Safety <span class="req">*</span></label>
+            <label class="form-label">Home Setup &amp; Balcony Safety <span class="req">*</span></label>
             <select id="fostHousing" required class="input-ctrl">
               <option value="">Select Home Setup...</option>
               <option value="Apartment (Fully Netted)">Apartment (Fully Netted)</option>
@@ -1172,7 +1181,7 @@
           </div>
 
           <div class="form-group">
-            <label class="form-label">Fostering Duration & Experience <span class="req">*</span></label>
+            <label class="form-label">Fostering Duration &amp; Experience <span class="req">*</span></label>
             <textarea id="fostNotes" required rows="2" placeholder="How many days/weeks can you foster? Any existing pets at home?" class="input-ctrl"></textarea>
           </div>
 
@@ -1181,7 +1190,7 @@
 
         <form id="volunteerOnlyForm" onsubmit="handleSeparateVolunteerSubmit(event)" class="card hidden">
           <h3 style="margin:0 0 4px;font-size:15px;font-weight:800;">Join as a HappyPaws Volunteer</h3>
-          <p style="margin:0 0 18px;font-size:12px;color:var(--stone-500);">Help with adoption drives, home checks, transport & content.</p>
+          <p style="margin:0 0 18px;font-size:12px;color:var(--stone-500);">Help with adoption drives, home checks, transport &amp; content.</p>
 
           <div class="form-row-2">
             <div>
@@ -1205,13 +1214,13 @@
                 <option value="Adoption Drives">Adoption Drives</option>
                 <option value="Home Checks">Adopter Home Checks</option>
                 <option value="Pet Transport / Vet Runs">Pet Transport / Vet Runs</option>
-                <option value="Social Media & Photography">Social Media & Photography</option>
+                <option value="Social Media & Photography">Social Media &amp; Photography</option>
               </select>
             </div>
           </div>
 
           <div class="form-group">
-            <label class="form-label">Availability & Vehicle Access <span class="req">*</span></label>
+            <label class="form-label">Availability &amp; Vehicle Access <span class="req">*</span></label>
             <textarea id="volNotes" required rows="2" placeholder="Weekends or weekdays? Do you have a 2-wheeler/4-wheeler for transport?" class="input-ctrl"></textarea>
           </div>
 
@@ -1223,17 +1232,15 @@
       </section>
 
       <!-- ============================================================== -->
-      <!-- TAB 5: DONATE & OUR PARTNERS (Blank Payment Details + Coordinator Edit) -->
+      <!-- TAB 5: DONATE, SUPPLIES/VET NEEDS & OUR PARTNERS               -->
       <!-- ============================================================== -->
       <section id="tab-donate" class="tab-pane">
         
         <!-- Fund Utilization Banner -->
         <div class="card">
-          <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:8px;">
-            <span style="font-size:10px;font-weight:800;text-transform:uppercase;background:var(--paw-50);color:var(--paw-700);padding:4px 10px;border-radius:999px;">Support HappyPaws</span>
-            <div id="donateAdminBtnMount"></div>
-          </div>
-          <h3 style="margin:0 0 6px;font-size:17px;font-weight:800;">How Your Contribution Helps</h3>
+          <svg class="cute-paw-watermark" viewBox="0 0 24 24" fill="currentColor"><circle cx="11" cy="4" r="2"/><circle cx="18" cy="8" r="2"/><circle cx="20" cy="16" r="2"/><path d="M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.045Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10Z"/></svg>
+          <span style="font-size:10px;font-weight:800;text-transform:uppercase;background:var(--paw-50);color:var(--paw-700);padding:4px 10px;border-radius:999px;">Support HappyPaws 🐾</span>
+          <h3 style="margin:10px 0 6px;font-size:17px;font-weight:800;">How Your Contribution Helps</h3>
           <p style="margin:0 0 14px;font-size:12.5px;color:var(--stone-600);line-height:1.5;">
             Every contribution is utilized directly for <strong>transport, medical care, food, supplements, and safe stay for rescued animals until adoption</strong>.
           </p>
@@ -1260,48 +1267,23 @@
             <div id="donateEditMount"></div>
           </div>
 
-          <!-- 1. QR Code Section -->
-          <div id="donateQrSection" class="pay-detail-box" style="text-align:center;">
+          <div class="pay-detail-box" style="text-align:center;">
             <p class="pay-detail-title" style="text-align:left;">Scan QR Code</p>
-            <div id="donateQrMount">
-              <div style="padding:22px 12px;border:1.5px dashed var(--stone-300);border-radius:12px;background:#fff;color:var(--stone-400);font-size:12px;">
-                QR Code not uploaded yet
-              </div>
-            </div>
+            <div id="donateQrMount"></div>
           </div>
 
-          <!-- 2. UPI ID & Phone Number Section -->
           <div class="pay-detail-box">
             <p class="pay-detail-title">UPI ID &amp; Phone Payment</p>
-            <div class="pay-kv">
-              <span class="pay-k">UPI ID</span>
-              <span class="pay-v" id="dispUpiId">—</span>
-            </div>
-            <div class="pay-kv">
-              <span class="pay-k">GPay / PhonePe / Paytm No.</span>
-              <span class="pay-v" id="dispPayPhone">—</span>
-            </div>
+            <div class="pay-kv"><span class="pay-k">UPI ID</span><span class="pay-v" id="dispUpiId">—</span></div>
+            <div class="pay-kv"><span class="pay-k">GPay / PhonePe / Paytm No.</span><span class="pay-v" id="dispPayPhone">—</span></div>
           </div>
 
-          <!-- 3. Bank Account Details Section -->
           <div class="pay-detail-box" style="margin-bottom:14px;">
             <p class="pay-detail-title">Bank Account Details</p>
-            <div class="pay-kv">
-              <span class="pay-k">Account Holder Name</span>
-              <span class="pay-v" id="dispBankHolder">—</span>
-            </div>
-            <div class="pay-kv">
-              <span class="pay-k">Bank Name</span>
-              <span class="pay-v" id="dispBankName">—</span>
-            </div>
-            <div class="pay-kv">
-              <span class="pay-k">Account Number</span>
-              <span class="pay-v" id="dispBankAcc">—</span>
-            </div>
-            <div class="pay-kv">
-              <span class="pay-k">IFSC Code</span>
-              <span class="pay-v" id="dispBankIfsc">—</span>
-            </div>
+            <div class="pay-kv"><span class="pay-k">Account Holder Name</span><span class="pay-v" id="dispBankHolder">—</span></div>
+            <div class="pay-kv"><span class="pay-k">Bank Name</span><span class="pay-v" id="dispBankName">—</span></div>
+            <div class="pay-kv"><span class="pay-k">Account Number</span><span class="pay-v" id="dispBankAcc">—</span></div>
+            <div class="pay-kv"><span class="pay-k">IFSC Code</span><span class="pay-v" id="dispBankIfsc">—</span></div>
           </div>
 
           <a href="https://wa.me/919704085807?text=Hi%20HappyPaws!%20I%20would%20like%20to%20contribute%20or%20donate%20supplies%20for%20the%20rescued%20animals." target="_blank" rel="noopener" class="btn-primary">
@@ -1309,7 +1291,26 @@
           </a>
         </div>
 
-        <h3 style="font-size:15px;font-weight:800;margin:0 0 10px;">Active Vet Bills &amp; Sponsorships</h3>
+        <!-- Current Supplies, Accessories & Nutrition Needed (Coordinator Managed) -->
+        <div class="card">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:12px;">
+            <div>
+              <h3 style="margin:0;font-size:16px;font-weight:800;">Supplies &amp; Nutrition Needed</h3>
+              <p style="margin:2px 0 0;font-size:11.5px;color:var(--stone-500);">Physical accessories, kibble &amp; supplements needed right now</p>
+            </div>
+            <div id="supplyAddMount"></div>
+          </div>
+          <div id="supplyNeedsList"></div>
+        </div>
+
+        <!-- Active Vet Bills (Showing WHICH animal needs it & WHY) -->
+        <div class="section-head" style="margin-bottom:10px;">
+          <div>
+            <h3 style="margin:0;font-size:16px;font-weight:800;">Active Vet Bills</h3>
+            <p style="margin:2px 0 0;font-size:11.5px;color:var(--stone-500);">Which rescued animal needs treatment &amp; why</p>
+          </div>
+          <div id="vetBillAddMount"></div>
+        </div>
         <div id="publicBillsList"></div>
 
         <!-- Our Partners Section (Coordinator Editable) -->
@@ -1434,9 +1435,8 @@
 
       const API_URL = 'https://script.google.com/macros/s/AKfycbx55JBqoDOcobV7B8ytkrDPZP8taJoYOAfvvdNh0TNvklFOBrUoQvmgc81YdSIXvN88hQ/exec';
 
-      const CACHE_KEY = '_happypaws_cache_v15';
-      const DONATE_CFG_KEY = '_happypaws_donate_cfg_v1';
-      const PARTNERS_CFG_KEY = '_happypaws_partners_v1';
+      const CACHE_KEY = '_happypaws_cache_v16';
+      const DONATE_CFG_KEY = '_happypaws_donate_cfg_v2';
       const CACHE_TTL_MS = 25 * 1000;
       const SESSION_KEY = '_happypaws_auth_v1';
       const SESSION_TTL_MS = 45 * 60 * 1000;
@@ -1454,7 +1454,6 @@
         tasks: []
       };
 
-      // Default Donation Settings (Blank by default until Coordinator updates)
       let donationConfig = {
         upiId: '',
         payPhone: '',
@@ -1465,7 +1464,6 @@
         qrUrl: ''
       };
 
-      // Default Partners (Dogato Pet Hospital)
       const DEFAULT_PARTNERS = [
         {
           id: 'PARTNER-DOGATO',
@@ -1486,14 +1484,13 @@
       const now = new Date();
       document.getElementById('financeMonthFilter').value = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}`;
 
-      // Load saved local configs if present
       try {
         const savedDonate = JSON.parse(localStorage.getItem(DONATE_CFG_KEY) || 'null');
         if (savedDonate) donationConfig = { ...donationConfig, ...savedDonate };
       } catch (e) {}
 
       // ======================================================================
-      // FAST FETCH WITH STRICT 10s TIMEOUT (Never hangs Coordinator Login!)
+      // NON-BLOCKING NETWORK HELPERS (Never stalls UI buttons!)
       // ======================================================================
       async function fetchWithTimeout(url, options = {}, timeoutMs = 10000) {
         const controller = new AbortController();
@@ -1518,9 +1515,6 @@
         }
       }
 
-      // ======================================================================
-      // ANTI-ABSURD / ANTI-GIBBERISH INPUT VALIDATORS
-      // ======================================================================
       function isAbsurdText(val, minChars = 2) {
         const s = String(val || '').trim();
         if (s.length < minChars) return true;
@@ -1588,7 +1582,17 @@
       }
 
       function writeCache(data) {
-        try { localStorage.setItem(CACHE_KEY, JSON.stringify({ ts: Date.now(), data })); } catch (e) {}
+        try {
+          // Strip any huge data:image strings before saving to localStorage so it never throws QuotaExceededError
+          const cleanData = {
+            ...data,
+            animals: (data.animals || []).map(a => ({
+              ...a,
+              Photo_URL: String(a.Photo_URL || '').startsWith('data:') ? '' : a.Photo_URL
+            }))
+          };
+          localStorage.setItem(CACHE_KEY, JSON.stringify({ ts: Date.now(), data: cleanData }));
+        } catch (e) {}
       }
 
       function compressImageFile(file, maxWidth = 640, quality = 0.68) {
@@ -1731,7 +1735,7 @@
           ctaEl.innerHTML = isCoord ? `<button type="button" onclick="openLocationFormModal()" class="btn-sm">+ Add Place</button>` : '';
         } else if (activeOpsSub === 'adoptions') {
           titleEl.textContent = 'Requests & Adoptions';
-          subEl.textContent = 'Approve pet listings, lost/found & enquiries';
+          subEl.textContent = 'Adoption applications, foster & volunteer signups';
           ctaEl.innerHTML = '';
         } else if (activeOpsSub === 'tasks') {
           titleEl.textContent = 'Volunteer Tasks';
@@ -1754,77 +1758,81 @@
       };
 
       function buildRoleChrome() {
-        const session = getSession();
-        const role = session ? session.role : 'PUBLIC';
-        const nav = document.getElementById('bottomNav');
-        const bannerMount = document.getElementById('roleBannerMount');
+        try {
+          const session = getSession();
+          const role = session ? session.role : 'PUBLIC';
+          const nav = document.getElementById('bottomNav');
+          const bannerMount = document.getElementById('roleBannerMount');
 
-        document.querySelectorAll('.team-filter').forEach(el => {
-          if (role !== 'PUBLIC') el.classList.remove('hidden');
-          else el.classList.add('hidden');
-        });
-
-        if (role === 'PUBLIC') {
-          bannerMount.innerHTML = '';
-          document.getElementById('adoptTabTitle').textContent = 'Adopt a Pet';
-          document.getElementById('adoptTabSub').textContent = 'Find your lifelong companion';
-          document.getElementById('adoptCtaMount').innerHTML = '';
-
-          if (!['adopt', 'listpet', 'lostfound', 'fostervol', 'donate'].includes(activeTab)) activeTab = 'adopt';
-
-          nav.innerHTML = `
-            <div class="nav-grid-5">
-              <button type="button" data-tab="adopt" onclick="switchTab('adopt')" class="nav-btn ${activeTab === 'adopt' ? 'active' : ''}">${ICONS.heart}<span class="nav-label">Adopt</span></button>
-              <button type="button" data-tab="listpet" onclick="switchTab('listpet')" class="nav-btn ${activeTab === 'listpet' ? 'active' : ''}">${ICONS.plusCircle}<span class="nav-label">List Pet</span></button>
-              <button type="button" data-tab="lostfound" onclick="switchTab('lostfound')" class="nav-btn ${activeTab === 'lostfound' ? 'active' : ''}">${ICONS.search}<span class="nav-label">Lost/Found</span></button>
-              <button type="button" data-tab="fostervol" onclick="switchTab('fostervol')" class="nav-btn ${activeTab === 'fostervol' ? 'active' : ''}">${ICONS.handHeart}<span class="nav-label">Foster/Vol</span></button>
-              <button type="button" data-tab="donate" onclick="switchTab('donate')" class="nav-btn ${activeTab === 'donate' ? 'active' : ''}">${ICONS.gift}<span class="nav-label">Donate</span></button>
-            </div>
-          `;
-        } else {
-          const isCoord = role === 'COORDINATOR';
-          document.querySelectorAll('.coord-only-pill').forEach(el => {
-            if (isCoord) el.classList.remove('hidden');
+          document.querySelectorAll('.team-filter').forEach(el => {
+            if (role !== 'PUBLIC') el.classList.remove('hidden');
             else el.classList.add('hidden');
           });
-          if (!isCoord && activeOpsSub === 'adoptions') activeOpsSub = 'vet';
 
-          bannerMount.innerHTML = `
-            <div style="background:var(--stone-900);color:#fff;padding:8px 16px;font-size:11px;display:flex;align-items:center;justify-content:space-between;gap:8px;">
-              <span style="font-weight:700;color:#FDBA74;">${isCoord ? 'Coordinator Mode' : 'Volunteer Mode'}</span>
-              <div style="display:flex;gap:12px;align-items:center;">
-                ${isCoord ? `<button type="button" onclick="switchTab('donate')" style="background:none;border:none;color:#FDBA74;font-weight:700;text-decoration:underline;cursor:pointer;padding:0;">Donate &amp; Partners</button>` : ''}
-                ${isCoord && appState.sheetUrl ? `<a href="${appState.sheetUrl}" target="_blank" rel="noopener" style="color:#FDBA74;font-weight:700;">Sheet</a>` : ''}
-                ${isCoord ? `<button type="button" onclick="openPinPrompt('set')" style="background:none;border:none;color:#FDBA74;font-weight:700;text-decoration:underline;cursor:pointer;padding:0;">PIN</button>` : ''}
-                <button type="button" onclick="logoutTeam()" style="background:none;border:none;color:#D6D3D1;font-weight:700;text-decoration:underline;cursor:pointer;padding:0;">Exit</button>
+          if (role === 'PUBLIC') {
+            bannerMount.innerHTML = '';
+            document.getElementById('adoptTabTitle').textContent = 'Adopt a Pet';
+            document.getElementById('adoptTabSub').textContent = 'Find your lifelong companion 🐾';
+            document.getElementById('adoptCtaMount').innerHTML = '';
+
+            if (!['adopt', 'listpet', 'lostfound', 'fostervol', 'donate'].includes(activeTab)) activeTab = 'adopt';
+
+            nav.innerHTML = `
+              <div class="nav-grid-5">
+                <button type="button" data-tab="adopt" onclick="switchTab('adopt')" class="nav-btn ${activeTab === 'adopt' ? 'active' : ''}">${ICONS.heart}<span class="nav-label">Adopt</span></button>
+                <button type="button" data-tab="listpet" onclick="switchTab('listpet')" class="nav-btn ${activeTab === 'listpet' ? 'active' : ''}">${ICONS.plusCircle}<span class="nav-label">List Pet</span></button>
+                <button type="button" data-tab="lostfound" onclick="switchTab('lostfound')" class="nav-btn ${activeTab === 'lostfound' ? 'active' : ''}">${ICONS.search}<span class="nav-label">Lost/Found</span></button>
+                <button type="button" data-tab="fostervol" onclick="switchTab('fostervol')" class="nav-btn ${activeTab === 'fostervol' ? 'active' : ''}">${ICONS.handHeart}<span class="nav-label">Foster/Vol</span></button>
+                <button type="button" data-tab="donate" onclick="switchTab('donate')" class="nav-btn ${activeTab === 'donate' ? 'active' : ''}">${ICONS.gift}<span class="nav-label">Donate</span></button>
               </div>
-            </div>
-          `;
+            `;
+          } else {
+            const isCoord = role === 'COORDINATOR';
+            document.querySelectorAll('.coord-only-pill').forEach(el => {
+              if (isCoord) el.classList.remove('hidden');
+              else el.classList.add('hidden');
+            });
+            if (!isCoord && activeOpsSub === 'adoptions') activeOpsSub = 'vet';
 
-          document.getElementById('adoptTabTitle').textContent = 'Animal Profiles & Approvals';
-          document.getElementById('adoptTabSub').textContent = 'Approve listings & set Display Priority (#1 first)';
-          document.getElementById('adoptCtaMount').innerHTML = `<button type="button" onclick="openAnimalFormModal()" class="btn-sm">+ Add Pet</button>`;
-          document.getElementById('financeCtaMount').innerHTML = isCoord ? `<button type="button" onclick="openFinanceFormModal()" class="btn-sm">+ Log Txn</button>` : '';
+            bannerMount.innerHTML = `
+              <div style="background:var(--stone-900);color:#fff;padding:8px 16px;font-size:11px;display:flex;align-items:center;justify-content:space-between;gap:8px;">
+                <span style="font-weight:700;color:#FDBA74;">${isCoord ? 'Coordinator Mode' : 'Volunteer Mode'}</span>
+                <div style="display:flex;gap:12px;align-items:center;">
+                  ${isCoord ? `<button type="button" onclick="switchTab('donate')" style="background:none;border:none;color:#FDBA74;font-weight:700;text-decoration:underline;cursor:pointer;padding:0;">Donate &amp; Partners</button>` : ''}
+                  ${isCoord && appState.sheetUrl ? `<a href="${appState.sheetUrl}" target="_blank" rel="noopener" style="color:#FDBA74;font-weight:700;">Sheet</a>` : ''}
+                  ${isCoord ? `<button type="button" onclick="openPinPrompt('set')" style="background:none;border:none;color:#FDBA74;font-weight:700;text-decoration:underline;cursor:pointer;padding:0;">PIN</button>` : ''}
+                  <button type="button" onclick="logoutTeam()" style="background:none;border:none;color:#D6D3D1;font-weight:700;text-decoration:underline;cursor:pointer;padding:0;">Exit</button>
+                </div>
+              </div>
+            `;
 
-          if (!['adopt', 'ops', 'finance', 'donate'].includes(activeTab)) activeTab = 'adopt';
-          if (!isCoord && (activeTab === 'finance' || activeTab === 'donate')) activeTab = 'adopt';
+            document.getElementById('adoptTabTitle').textContent = 'Animal Profiles & Approvals';
+            document.getElementById('adoptTabSub').textContent = 'Approve, disapprove, remove or set priority (#1 first)';
+            document.getElementById('adoptCtaMount').innerHTML = `<button type="button" onclick="openAnimalFormModal()" class="btn-sm">+ Add Pet</button>`;
+            document.getElementById('financeCtaMount').innerHTML = isCoord ? `<button type="button" onclick="openFinanceFormModal()" class="btn-sm">+ Log Txn</button>` : '';
 
-          nav.innerHTML = isCoord ? `
-            <div class="nav-grid-3">
-              <button type="button" data-tab="adopt" onclick="switchTab('adopt')" class="nav-btn ${activeTab === 'adopt' ? 'active' : ''}">${ICONS.paw}<span class="nav-label">Animals</span></button>
-              <button type="button" data-tab="ops" onclick="switchTab('ops')" class="nav-btn ${activeTab === 'ops' ? 'active' : ''}">${ICONS.layers}<span class="nav-label">Operations</span></button>
-              <button type="button" data-tab="finance" onclick="switchTab('finance')" class="nav-btn ${activeTab === 'finance' ? 'active' : ''}">${ICONS.wallet}<span class="nav-label">Finance</span></button>
-            </div>
-          ` : `
-            <div class="nav-grid-2">
-              <button type="button" data-tab="adopt" onclick="switchTab('adopt')" class="nav-btn ${activeTab === 'adopt' ? 'active' : ''}">${ICONS.paw}<span class="nav-label">Animals</span></button>
-              <button type="button" data-tab="ops" onclick="switchTab('ops')" class="nav-btn ${activeTab === 'ops' ? 'active' : ''}">${ICONS.layers}<span class="nav-label">Operations</span></button>
-            </div>
-          `;
+            if (!['adopt', 'ops', 'finance', 'donate'].includes(activeTab)) activeTab = 'adopt';
+            if (!isCoord && (activeTab === 'finance' || activeTab === 'donate')) activeTab = 'adopt';
+
+            nav.innerHTML = isCoord ? `
+              <div class="nav-grid-3">
+                <button type="button" data-tab="adopt" onclick="switchTab('adopt')" class="nav-btn ${activeTab === 'adopt' ? 'active' : ''}">${ICONS.paw}<span class="nav-label">Animals</span></button>
+                <button type="button" data-tab="ops" onclick="switchTab('ops')" class="nav-btn ${activeTab === 'ops' ? 'active' : ''}">${ICONS.layers}<span class="nav-label">Operations</span></button>
+                <button type="button" data-tab="finance" onclick="switchTab('finance')" class="nav-btn ${activeTab === 'finance' ? 'active' : ''}">${ICONS.wallet}<span class="nav-label">Finance</span></button>
+              </div>
+            ` : `
+              <div class="nav-grid-2">
+                <button type="button" data-tab="adopt" onclick="switchTab('adopt')" class="nav-btn ${activeTab === 'adopt' ? 'active' : ''}">${ICONS.paw}<span class="nav-label">Animals</span></button>
+                <button type="button" data-tab="ops" onclick="switchTab('ops')" class="nav-btn ${activeTab === 'ops' ? 'active' : ''}">${ICONS.layers}<span class="nav-label">Operations</span></button>
+              </div>
+            `;
+          }
+
+          switchOpsSubTab(activeOpsSub);
+          switchTab(activeTab, true);
+        } catch (err) {
+          console.error(err);
         }
-
-        switchOpsSubTab(activeOpsSub);
-        switchTab(activeTab, true);
       }
 
       window.switchTab = function (tabId, skipScroll = false) {
@@ -1838,18 +1846,14 @@
           else btn.classList.remove('active');
         });
 
-        if (['adopt', 'lostfound', 'fostervol', 'donate', 'ops', 'finance'].includes(tabId)) {
-          syncDatabase(false);
-        }
         if (!skipScroll) window.scrollTo({ top: 0, behavior: 'smooth' });
       };
 
       // ======================================================================
-      // DONATION DETAILS & OUR PARTNERS (Coordinator Editable, Stored in Sheet)
+      // DONATION DETAILS, SUPPLY/NUTRITION NEEDS, ACTIVE VET BILLS & PARTNERS
       // ======================================================================
       function getSyncedDonationConfig() {
-        // Check if coordinator saved Donation_Config row in Locations_Fosters tab
-        const cfgRow = (appState.locations || []).find(l => String(l.Type) === 'Donation_Config');
+        const cfgRow = (appState.locations || []).find(l => String(l.Type) === 'Donation_Config' && String(l.Status) !== 'Archived');
         if (cfgRow && cfgRow.Notes) {
           try {
             const parsed = JSON.parse(cfgRow.Notes);
@@ -1867,6 +1871,18 @@
         return donationConfig;
       }
 
+      function getSyncedSupplyNeeds() {
+        return (appState.locations || [])
+          .filter(l => String(l.Type) === 'Supply_Need' && String(l.Status) !== 'Archived')
+          .map(l => ({
+            id: l.Location_ID,
+            item: l.Name,
+            category: l.Contact_Person || 'Nutrition & Accessories',
+            qty: l.Area_Address || '',
+            why: l.Notes || ''
+          }));
+      }
+
       function getSyncedPartners() {
         const sheetPartners = (appState.locations || [])
           .filter(l => String(l.Type) === 'Our_Partner' && String(l.Status) !== 'Archived')
@@ -1878,12 +1894,7 @@
             mapUrl: l.Area_Address || ''
           }));
 
-        if (sheetPartners.length > 0) return sheetPartners;
-        try {
-          const localP = JSON.parse(localStorage.getItem(PARTNERS_CFG_KEY) || 'null');
-          if (Array.isArray(localP) && localP.length > 0) return localP;
-        } catch (e) {}
-        return DEFAULT_PARTNERS;
+        return sheetPartners.length > 0 ? sheetPartners : DEFAULT_PARTNERS;
       }
 
       function renderDonateAndPartnersTab() {
@@ -1895,11 +1906,19 @@
           ? `<button type="button" onclick="openEditDonationModal()" class="btn-sm">Edit Details</button>`
           : '';
 
+        document.getElementById('supplyAddMount').innerHTML = isCoord
+          ? `<button type="button" onclick="openSupplyNeedModal()" class="btn-sm">+ Add Need</button>`
+          : '';
+
+        document.getElementById('vetBillAddMount').innerHTML = isCoord
+          ? `<button type="button" onclick="openVetFormModal()" class="btn-sm">+ Add Vet Bill</button>`
+          : '';
+
         document.getElementById('partnerAddMount').innerHTML = isCoord
           ? `<button type="button" onclick="openPartnerFormModal()" class="btn-sm">+ Add Partner</button>`
           : '';
 
-        // QR Code Mount
+        // QR Code
         const qrMount = document.getElementById('donateQrMount');
         if (cfg.qrUrl && String(cfg.qrUrl).startsWith('http')) {
           qrMount.innerHTML = `<img src="${cfg.qrUrl}" alt="HappyPaws Donation QR" style="width:176px;height:176px;object-fit:contain;border-radius:12px;background:#fff;padding:8px;border:1px solid var(--stone-200);" />`;
@@ -1907,13 +1926,42 @@
           qrMount.innerHTML = `<div style="padding:20px 12px;border:1.5px dashed var(--stone-300);border-radius:12px;background:#fff;color:var(--stone-400);font-size:12px;">QR Code will appear here once uploaded by HappyPaws</div>`;
         }
 
-        // Blank-friendly values
         document.getElementById('dispUpiId').textContent = cfg.upiId || '—';
         document.getElementById('dispPayPhone').textContent = cfg.payPhone || '—';
         document.getElementById('dispBankHolder').textContent = cfg.bankHolder || '—';
         document.getElementById('dispBankName').textContent = cfg.bankName || '—';
         document.getElementById('dispBankAcc').textContent = cfg.bankAcc || '—';
         document.getElementById('dispBankIfsc').textContent = cfg.bankIfsc || '—';
+
+        // Render Supplies & Nutrition Needed
+        const supplies = getSyncedSupplyNeeds();
+        const supEl = document.getElementById('supplyNeedsList');
+        if (supplies.length === 0) {
+          supEl.innerHTML = `
+            <div class="form-row-2" style="margin-bottom:0;align-items:stretch;">
+              <div style="background:var(--canvas-50);padding:12px;border-radius:14px;border:1px solid var(--stone-100);">
+                <p style="margin:0 0 4px;font-size:12px;font-weight:700;">Food &amp; Supplements</p>
+                <p style="margin:0;font-size:11px;color:var(--stone-500);">Dry &amp; wet kibble, rice, calcium &amp; multivitamins</p>
+              </div>
+              <div style="background:var(--canvas-50);padding:12px;border-radius:14px;border:1px solid var(--stone-100);">
+                <p style="margin:0 0 4px;font-size:12px;font-weight:700;">Physical Accessories</p>
+                <p style="margin:0;font-size:11px;color:var(--stone-500);">Leashes, collars, harnesses, bowls &amp; bedding</p>
+              </div>
+            </div>
+          `;
+        } else {
+          supEl.innerHTML = supplies.map(s => `
+            <div style="background:var(--canvas-50);padding:13px;border-radius:14px;border:1px solid var(--stone-200);margin-bottom:10px;">
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:4px;">
+                <p style="margin:0;font-size:13px;font-weight:800;color:var(--stone-900);">${s.item}</p>
+                <span style="font-size:10px;font-weight:700;padding:3px 8px;border-radius:999px;background:var(--paw-50);color:var(--paw-700);border:1px solid var(--paw-200);">${s.category}</span>
+              </div>
+              ${s.qty ? `<p style="margin:0 0 3px;font-size:11.5px;font-weight:700;color:var(--paw-800);">Qty / Pack: ${s.qty}</p>` : ''}
+              ${s.why ? `<p style="margin:0;font-size:11.5px;color:var(--stone-600);">For: ${s.why}</p>` : ''}
+              ${isCoord ? `<div style="margin-top:8px;text-align:right;"><button type="button" onclick="archiveLocationRecord('${s.id}', 'Supply item removed')" class="btn-danger-soft" style="padding:5px 10px;font-size:11px;">Remove</button></div>` : ''}
+            </div>
+          `).join('');
+        }
 
         // Render Our Partners
         const partners = getSyncedPartners();
@@ -1926,11 +1974,119 @@
             <p style="margin:0 0 8px;font-size:11.5px;color:var(--stone-600);line-height:1.45;">${p.desc}</p>
             <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;">
               ${p.mapUrl ? `<a href="${p.mapUrl}" target="_blank" rel="noopener" style="font-size:11.5px;font-weight:700;color:var(--paw-700);text-decoration:none;">📍 Open Location / Link ➔</a>` : '<span></span>'}
-              ${isCoord && p.id && !String(p.id).startsWith('PARTNER-') ? `<button type="button" onclick="openPartnerFormModal('${p.id}')" style="background:none;border:none;color:var(--stone-700);font-size:11px;font-weight:700;text-decoration:underline;cursor:pointer;padding:0;">Edit</button>` : ''}
+              ${isCoord && p.id && !String(p.id).startsWith('PARTNER-') ? `
+                <div style="display:flex;gap:10px;">
+                  <button type="button" onclick="openPartnerFormModal('${p.id}')" style="background:none;border:none;color:var(--stone-700);font-size:11px;font-weight:700;text-decoration:underline;cursor:pointer;padding:0;">Edit</button>
+                  <button type="button" onclick="archiveLocationRecord('${p.id}', 'Partner removed')" style="background:none;border:none;color:#BE123C;font-size:11px;font-weight:700;text-decoration:underline;cursor:pointer;padding:0;">Remove</button>
+                </div>
+              ` : ''}
             </div>
           </div>
         `).join('');
       }
+
+      window.openSupplyNeedModal = function () {
+        modalsMount.innerHTML = `
+          <div class="modal-backdrop" onclick="if(event.target===this) closeModal()">
+            <div class="modal-sheet">
+              <div style="display:flex;justify-content:space-between;border-bottom:1px solid var(--stone-100);padding-bottom:12px;margin-bottom:14px;">
+                <h3 style="margin:0;font-size:16px;font-weight:800;">Add Supply / Accessory Need</h3>
+                <button type="button" onclick="closeModal()" style="width:32px;height:32px;border-radius:50%;border:none;background:var(--stone-100);font-weight:700;cursor:pointer;">✕</button>
+              </div>
+              <form onsubmit="submitSupplyNeed(event)">
+                <div class="form-group">
+                  <label class="form-label">Item Needed *</label>
+                  <input type="text" id="supItem" required placeholder="e.g., Puppy Starter Kibble / Leashes & Collars" class="input-ctrl" />
+                </div>
+                <div class="form-row-2">
+                  <div>
+                    <label class="form-label">Category *</label>
+                    <select id="supCat" class="input-ctrl">
+                      <option value="Food & Nutrition">Food &amp; Nutrition</option>
+                      <option value="Supplements">Supplements</option>
+                      <option value="Physical Accessories">Physical Accessories</option>
+                      <option value="Medical Supplies">Medical Supplies</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label class="form-label">Quantity / Size *</label>
+                    <input type="text" id="supQty" required placeholder="e.g., 10 kg / 5 Medium" class="input-ctrl" />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Which Animal / Reason Needed *</label>
+                  <input type="text" id="supWhy" required placeholder="e.g., For 4 foster pups recovering from parvo" class="input-ctrl" />
+                </div>
+                <button type="submit" id="saveSupBtn" class="btn-primary">Publish Requirement</button>
+              </form>
+            </div>
+          </div>
+        `;
+      };
+
+      window.submitSupplyNeed = function (e) {
+        e.preventDefault();
+        const session = getSession();
+        if (!session) return;
+        const item = document.getElementById('supItem').value.trim();
+        const category = document.getElementById('supCat').value;
+        const qty = document.getElementById('supQty').value.trim();
+        const why = document.getElementById('supWhy').value.trim();
+
+        // Optimistic immediate UI update (0ms wait)
+        const tempId = 'SUP-' + Date.now().toString().slice(-4);
+        appState.locations = [{
+          Location_ID: tempId,
+          Type: 'Supply_Need',
+          Name: item,
+          Contact_Person: category,
+          Area_Address: qty,
+          Notes: why,
+          Status: 'Active'
+        }, ...(appState.locations || [])];
+        writeCache(appState);
+        closeModal();
+        renderCurrentView();
+        showToast('Requirement added!');
+
+        fetchWithRetry(API_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+          body: JSON.stringify({
+            action: 'SAVE_LOCATION',
+            pin: session.pin,
+            type: 'Supply_Need',
+            name: item,
+            contactPerson: category,
+            areaAddress: qty,
+            capacity: 1,
+            notes: why,
+            status: 'Active'
+          })
+        }, 2).then(() => syncDatabase(true)).catch(() => {});
+      };
+
+      window.archiveLocationRecord = function (locId, toastMsg) {
+        const session = getSession();
+        if (!session) return;
+        appState.locations = (appState.locations || []).map(l =>
+          String(l.Location_ID) === String(locId) ? { ...l, Status: 'Archived' } : l
+        );
+        writeCache(appState);
+        renderCurrentView();
+        showToast(toastMsg || 'Removed!');
+
+        fetchWithRetry(API_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+          body: JSON.stringify({
+            action: 'SAVE_LOCATION',
+            pin: session.pin,
+            locationId: locId,
+            status: 'Archived'
+          })
+        }, 2).then(() => syncDatabase(true)).catch(() => {});
+      };
 
       window.openEditDonationModal = function () {
         const cfg = getSyncedDonationConfig();
@@ -1947,32 +2103,14 @@
                   <input type="file" id="cfgQrFile" accept="image/*" class="input-ctrl" style="padding:8px;" />
                 </div>
                 <div class="form-row-2">
-                  <div>
-                    <label class="form-label">UPI ID</label>
-                    <input type="text" id="cfgUpi" value="${cfg.upiId}" placeholder="e.g., happypaws@okaxis" class="input-ctrl" />
-                  </div>
-                  <div>
-                    <label class="form-label">Phone Number (UPI)</label>
-                    <input type="tel" id="cfgPhone" value="${cfg.payPhone}" placeholder="10-digit number" class="input-ctrl" />
-                  </div>
+                  <div><label class="form-label">UPI ID</label><input type="text" id="cfgUpi" value="${cfg.upiId}" placeholder="e.g., happypaws@okaxis" class="input-ctrl" /></div>
+                  <div><label class="form-label">Phone Number (UPI)</label><input type="tel" id="cfgPhone" value="${cfg.payPhone}" placeholder="10-digit number" class="input-ctrl" /></div>
                 </div>
-                <div class="form-group">
-                  <label class="form-label">Account Holder Name</label>
-                  <input type="text" id="cfgBankHolder" value="${cfg.bankHolder}" placeholder="Account holder name" class="input-ctrl" />
-                </div>
-                <div class="form-group">
-                  <label class="form-label">Bank Name &amp; Branch</label>
-                  <input type="text" id="cfgBankName" value="${cfg.bankName}" placeholder="e.g., HDFC Bank, Hyderabad" class="input-ctrl" />
-                </div>
+                <div class="form-group"><label class="form-label">Account Holder Name</label><input type="text" id="cfgBankHolder" value="${cfg.bankHolder}" placeholder="Account holder name" class="input-ctrl" /></div>
+                <div class="form-group"><label class="form-label">Bank Name &amp; Branch</label><input type="text" id="cfgBankName" value="${cfg.bankName}" placeholder="e.g., HDFC Bank, Hyderabad" class="input-ctrl" /></div>
                 <div class="form-row-2">
-                  <div>
-                    <label class="form-label">Account Number</label>
-                    <input type="text" id="cfgBankAcc" value="${cfg.bankAcc}" placeholder="Account number" class="input-ctrl" />
-                  </div>
-                  <div>
-                    <label class="form-label">IFSC Code</label>
-                    <input type="text" id="cfgBankIfsc" value="${cfg.bankIfsc}" placeholder="e.g., HDFC0001234" class="input-ctrl" />
-                  </div>
+                  <div><label class="form-label">Account Number</label><input type="text" id="cfgBankAcc" value="${cfg.bankAcc}" placeholder="Account number" class="input-ctrl" /></div>
+                  <div><label class="form-label">IFSC Code</label><input type="text" id="cfgBankIfsc" value="${cfg.bankIfsc}" placeholder="e.g., HDFC0001234" class="input-ctrl" /></div>
                 </div>
                 <button type="submit" id="saveDonateCfgBtn" class="btn-primary">Save Payment Details</button>
               </form>
@@ -1989,76 +2127,70 @@
         btn.disabled = true;
         btn.textContent = 'Saving...';
 
-        try {
-          const existingCfg = getSyncedDonationConfig();
-          const fileInput = document.getElementById('cfgQrFile');
-          let qrUrl = existingCfg.qrUrl || '';
+        const existingCfg = getSyncedDonationConfig();
+        const fileInput = document.getElementById('cfgQrFile');
+        const qrBase64 = fileInput.files[0] ? await compressImageFile(fileInput.files[0], 600, 0.82) : null;
 
-          if (fileInput.files[0]) {
-            const qrBase64 = await compressImageFile(fileInput.files[0], 600, 0.82);
-            // Upload QR via SAVE_ANIMAL (Archived status) to get a permanent Google Drive image URL
-            const uploadRes = await fetchWithRetry(API_URL, {
+        const updated = {
+          upiId: document.getElementById('cfgUpi').value.trim(),
+          payPhone: document.getElementById('cfgPhone').value.trim(),
+          bankHolder: document.getElementById('cfgBankHolder').value.trim(),
+          bankName: document.getElementById('cfgBankName').value.trim(),
+          bankAcc: document.getElementById('cfgBankAcc').value.trim(),
+          bankIfsc: document.getElementById('cfgBankIfsc').value.trim(),
+          qrUrl: existingCfg.qrUrl || ''
+        };
+
+        donationConfig = updated;
+        localStorage.setItem(DONATE_CFG_KEY, JSON.stringify(updated));
+        closeModal();
+        renderDonateAndPartnersTab();
+        showToast('Payment details saved!');
+
+        // Background sync to Sheet & Drive
+        (async () => {
+          try {
+            if (qrBase64) {
+              const uploadRes = await fetchWithRetry(API_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                body: JSON.stringify({
+                  action: 'SAVE_ANIMAL',
+                  pin: session.pin,
+                  name: 'HappyPaws_Donation_QR',
+                  species: 'Other',
+                  status: 'Archived_Asset',
+                  rescueLocation: 'Config',
+                  photoBase64: qrBase64
+                })
+              }, 2);
+              if (uploadRes.status === 'success') {
+                const freshData = await fetchWithTimeout(`${API_URL}?pin=${encodeURIComponent(session.pin)}&fresh=1&t=${Date.now()}`, {}, 10000);
+                const qrRow = (freshData.animals || []).find(a => a.Animal_ID === uploadRes.animalId);
+                if (qrRow && qrRow.Photo_URL) updated.qrUrl = qrRow.Photo_URL;
+              }
+            }
+            const existingRow = (appState.locations || []).find(l => String(l.Type) === 'Donation_Config');
+            await fetchWithRetry(API_URL, {
               method: 'POST',
               headers: { 'Content-Type': 'text/plain;charset=utf-8' },
               body: JSON.stringify({
-                action: 'SAVE_ANIMAL',
+                action: 'SAVE_LOCATION',
                 pin: session.pin,
-                name: 'HappyPaws_Donation_QR',
-                species: 'Other',
-                status: 'Archived_Asset',
-                rescueLocation: 'Config',
-                photoBase64: qrBase64
+                locationId: existingRow ? existingRow.Location_ID : undefined,
+                type: 'Donation_Config',
+                name: 'HappyPaws Official Donation Info',
+                contactPerson: updated.bankHolder || 'HappyPaws',
+                phone: updated.payPhone,
+                areaAddress: updated.qrUrl,
+                capacity: 1,
+                notes: JSON.stringify(updated),
+                status: 'Active'
               })
             }, 2);
-            if (uploadRes.status === 'success') {
-              const freshData = await fetchWithTimeout(`${API_URL}?pin=${encodeURIComponent(session.pin)}&fresh=1&t=${Date.now()}`, {}, 10000);
-              const qrRow = (freshData.animals || []).find(a => a.Animal_ID === uploadRes.animalId);
-              if (qrRow && qrRow.Photo_URL) qrUrl = qrRow.Photo_URL;
-            }
-          }
-
-          const updated = {
-            upiId: document.getElementById('cfgUpi').value.trim(),
-            payPhone: document.getElementById('cfgPhone').value.trim(),
-            bankHolder: document.getElementById('cfgBankHolder').value.trim(),
-            bankName: document.getElementById('cfgBankName').value.trim(),
-            bankAcc: document.getElementById('cfgBankAcc').value.trim(),
-            bankIfsc: document.getElementById('cfgBankIfsc').value.trim(),
-            qrUrl
-          };
-
-          donationConfig = updated;
-          localStorage.setItem(DONATE_CFG_KEY, JSON.stringify(updated));
-
-          // Persist to Google Sheet Locations_Fosters tab so every public visitor sees it
-          const existingRow = (appState.locations || []).find(l => String(l.Type) === 'Donation_Config');
-          await fetchWithRetry(API_URL, {
-            method: 'POST',
-            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-            body: JSON.stringify({
-              action: 'SAVE_LOCATION',
-              pin: session.pin,
-              locationId: existingRow ? existingRow.Location_ID : undefined,
-              type: 'Donation_Config',
-              name: 'HappyPaws Official Donation Info',
-              contactPerson: updated.bankHolder || 'HappyPaws',
-              phone: updated.payPhone,
-              areaAddress: qrUrl,
-              capacity: 1,
-              notes: JSON.stringify(updated),
-              status: 'Active'
-            })
-          }, 2);
-
-          closeModal();
-          renderDonateAndPartnersTab();
-          syncDatabase(true);
-          showToast('Donation details updated!');
-        } catch (err) {
-          showToast('Saved locally — will sync shortly');
-          closeModal();
-          renderDonateAndPartnersTab();
-        }
+            syncDatabase(true);
+          } catch (err) {}
+        })();
       };
 
       window.openPartnerFormModal = function (editId = '') {
@@ -2071,22 +2203,10 @@
                 <button type="button" onclick="closeModal()" style="width:32px;height:32px;border-radius:50%;border:none;background:var(--stone-100);font-weight:700;cursor:pointer;">✕</button>
               </div>
               <form onsubmit="submitPartnerForm(event, '${editId}')">
-                <div class="form-group">
-                  <label class="form-label">Partner Name *</label>
-                  <input type="text" id="prtName" required value="${existing ? existing.name : ''}" placeholder="e.g., Dogato Pet Hospital" class="input-ctrl" />
-                </div>
-                <div class="form-group">
-                  <label class="form-label">Category Badge *</label>
-                  <input type="text" id="prtBadge" required value="${existing ? existing.badge : ''}" placeholder="e.g., Vet Partner • 4.8★ or Nutrition Partner" class="input-ctrl" />
-                </div>
-                <div class="form-group">
-                  <label class="form-label">Address &amp; Services Description *</label>
-                  <textarea id="prtDesc" required rows="3" placeholder="Address, specialty & support details..." class="input-ctrl">${existing ? existing.desc : ''}</textarea>
-                </div>
-                <div class="form-group">
-                  <label class="form-label">Google Maps / Website Link (Optional)</label>
-                  <input type="url" id="prtMap" value="${existing ? existing.mapUrl : ''}" placeholder="https://maps.app.goo.gl/..." class="input-ctrl" />
-                </div>
+                <div class="form-group"><label class="form-label">Partner Name *</label><input type="text" id="prtName" required value="${existing ? existing.name : ''}" placeholder="e.g., Dogato Pet Hospital" class="input-ctrl" /></div>
+                <div class="form-group"><label class="form-label">Category Badge *</label><input type="text" id="prtBadge" required value="${existing ? existing.badge : ''}" placeholder="e.g., Vet Partner • 4.8★ or Nutrition Partner" class="input-ctrl" /></div>
+                <div class="form-group"><label class="form-label">Address &amp; Services Description *</label><textarea id="prtDesc" required rows="3" placeholder="Address, specialty &amp; support details..." class="input-ctrl">${existing ? existing.desc : ''}</textarea></div>
+                <div class="form-group"><label class="form-label">Google Maps / Website Link (Optional)</label><input type="url" id="prtMap" value="${existing ? existing.mapUrl : ''}" placeholder="https://maps.app.goo.gl/..." class="input-ctrl" /></div>
                 <button type="submit" id="savePartnerBtn" class="btn-primary">Save Partner</button>
               </form>
             </div>
@@ -2094,49 +2214,59 @@
         `;
       };
 
-      window.submitPartnerForm = async function (e, editId) {
+      window.submitPartnerForm = function (e, editId) {
         e.preventDefault();
         const session = getSession();
         if (!session) return;
-        const btn = document.getElementById('savePartnerBtn');
-        btn.disabled = true;
-        btn.textContent = 'Saving...';
 
         const name = document.getElementById('prtName').value.trim();
         const badge = document.getElementById('prtBadge').value.trim();
         const desc = document.getElementById('prtDesc').value.trim();
         const mapUrl = document.getElementById('prtMap').value.trim();
 
-        try {
-          await fetchWithRetry(API_URL, {
-            method: 'POST',
-            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-            body: JSON.stringify({
-              action: 'SAVE_LOCATION',
-              pin: session.pin,
-              locationId: editId || undefined,
-              type: 'Our_Partner',
-              name,
-              contactPerson: badge,
-              areaAddress: mapUrl,
-              capacity: 1,
-              notes: desc,
-              status: 'Active'
-            })
-          }, 2);
-
-          closeModal();
-          await syncDatabase(true);
-          showToast('Partner updated!');
-        } catch (err) {
-          showToast('Could not save partner — please retry');
-          btn.disabled = false;
-          btn.textContent = 'Save Partner';
+        // Optimistic immediate UI update
+        if (editId) {
+          appState.locations = (appState.locations || []).map(l =>
+            String(l.Location_ID) === String(editId)
+              ? { ...l, Name: name, Contact_Person: badge, Notes: desc, Area_Address: mapUrl }
+              : l
+          );
+        } else {
+          appState.locations = [{
+            Location_ID: 'PRT-' + Date.now().toString().slice(-4),
+            Type: 'Our_Partner',
+            Name: name,
+            Contact_Person: badge,
+            Area_Address: mapUrl,
+            Notes: desc,
+            Status: 'Active'
+          }, ...(appState.locations || [])];
         }
+        writeCache(appState);
+        closeModal();
+        renderCurrentView();
+        showToast('Partner saved!');
+
+        fetchWithRetry(API_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+          body: JSON.stringify({
+            action: 'SAVE_LOCATION',
+            pin: session.pin,
+            locationId: editId || undefined,
+            type: 'Our_Partner',
+            name,
+            contactPerson: badge,
+            areaAddress: mapUrl,
+            capacity: 1,
+            notes: desc,
+            status: 'Active'
+          })
+        }, 2).then(() => syncDatabase(true)).catch(() => {});
       };
 
       // ======================================================================
-      // LIST PET FORM
+      // LIST PET FORM (Single Clean Submission — No Duplicate Coordinator Card!)
       // ======================================================================
       let compressedLpPhoto = null;
 
@@ -2208,6 +2338,7 @@
           const fullMedicalSummary = `Neutered: ${neutered} | House/Potty Trained: ${houseTrained} | Leash Trained: ${leash} | Health/Vaccines: ${health}`;
           const fullRehabNotes = `Nature: ${nature} | Diet: ${food} | Special Needs: ${specialNeeds} | Other Platforms: ${otherPlatforms} | Handling: ${handling} | Guardian: ${ownerName} (Age ${ownerAge}, +91 ${ownerPhone})`;
 
+          // Single clean SAVE_ANIMAL call so Coordinators see it ONCE under Pending Approval
           const saveAnimalRes = await fetchWithRetry(API_URL, {
             method: 'POST',
             headers: { 'Content-Type': 'text/plain;charset=utf-8' },
@@ -2226,23 +2357,6 @@
               medicalSummary: fullMedicalSummary,
               rehabNotes: fullRehabNotes,
               photoBase64: compressedLpPhoto
-            })
-          }, 2);
-
-          await fetchWithRetry(API_URL, {
-            method: 'POST',
-            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-            body: JSON.stringify({
-              action: 'NEW_ADOPTION_ENQUIRY',
-              animalId: saveAnimalRes.animalId || 'PENDING',
-              animalName: `${petName} (${species} • ${breed})`,
-              inquiryType: 'Approve Pet Listing',
-              applicantName: `${ownerName} (Age ${ownerAge})`,
-              phone: ownerPhone,
-              ageOccupation: `${ageGenderCombined} • Neutered: ${neutered}`,
-              addressLocality: area,
-              housingDetails: `Potty Trained: ${houseTrained} | Leash: ${leash} | Handling: ${handling}`,
-              petExperience: `Story: ${story} | Health: ${health} | Nature: ${nature} | Food: ${food} | Special Needs: ${specialNeeds} | Other Platforms: ${otherPlatforms}`
             })
           }, 2);
 
@@ -2266,7 +2380,7 @@
       };
 
       // ======================================================================
-      // LOST & FOUND FORM
+      // LOST & FOUND FORM (Single Clean Submission)
       // ======================================================================
       let compressedLfPhoto = null;
 
@@ -2357,31 +2471,14 @@
             })
           }, 2);
 
-          const res = await fetchWithRetry(API_URL, {
-            method: 'POST',
-            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-            body: JSON.stringify({
-              action: 'NEW_ADOPTION_ENQUIRY',
-              animalId: saveAnimalRes.animalId || ('LF-' + Date.now().toString().slice(-4)),
-              animalName: `${petName} (${color})`,
-              inquiryType: reportType,
-              applicantName: `${cName} (${phoneSummary})`,
-              phone: phone1,
-              ageOccupation: `${dateVal} ${timeVal}`,
-              addressLocality: `${loc} | ${mapsLink}`,
-              housingDetails: medCond ? `Medical: ${medCond}` : 'No medical condition noted',
-              petExperience: details
-            })
-          }, 2);
-
-          if (res.status === 'success') {
+          if (saveAnimalRes.status === 'success') {
             document.getElementById('lostFoundForm').reset();
             compressedLfPhoto = null;
             document.getElementById('lfPhotoPreview').classList.add('hidden');
             document.getElementById('lfUploadPlaceholder').classList.remove('hidden');
             document.getElementById('lfClearPhotoBtn').classList.add('hidden');
             setLfType('Lost Pet');
-            showToast(`${reportType} report #${res.appId} submitted!`);
+            showToast(`${reportType} report submitted for verification!`);
           }
         } catch (err) {
           showToast('Network busy — please try again');
@@ -2507,7 +2604,7 @@
       };
 
       // ======================================================================
-      // RENDERING VIEWS
+      // RENDERING VIEWS (With Approve, Disapprove & Remove Pet Controls)
       // ======================================================================
       window.setAnimalFilter = function (filterVal, btnEl) {
         animalFilter = filterVal;
@@ -2518,13 +2615,15 @@
 
       window.renderAdoptTab = function () {
         const container = document.getElementById('animalsList');
-        const isTeam = Boolean(getSession());
+        const session = getSession();
+        const isTeam = Boolean(session);
+        const isCoord = session && session.role === 'COORDINATOR';
         const query = String(document.getElementById('animalSearchInput').value || '').toLowerCase().trim();
         const sortedAnimals = sortAnimalsByPriority(appState.animals || []);
 
         const filtered = sortedAnimals.filter(a => {
           const st = String(a.Status || '').trim();
-          if (st === 'Archived_Asset') return false;
+          if (st === 'Archived_Asset' || st === 'Disapproved') return false;
           if (!isTeam && st === 'Pending Approval') return false;
           const sp = String(a.Species || '').trim();
           const matchesFilter = animalFilter === 'ALL' || st === animalFilter || sp.toLowerCase() === animalFilter.toLowerCase();
@@ -2534,7 +2633,7 @@
 
         const visibleTotal = sortedAnimals.filter(a => {
           const st = String(a.Status || '').trim();
-          if (st === 'Archived_Asset') return false;
+          if (st === 'Archived_Asset' || st === 'Disapproved') return false;
           return isTeam ? true : st !== 'Pending Approval';
         }).length;
         document.getElementById('animalTotalCount').textContent = visibleTotal;
@@ -2552,6 +2651,7 @@
         container.innerHTML = filtered.map(a => {
           const id = String(a.Animal_ID || '').trim();
           const name = String(a.Name || 'Unnamed').trim();
+          const safeName = name.replace(/'/g, "\\'");
           const species = String(a.Species || 'Dog').trim();
           const breedClean = stripPriorityTag(a.Breed_Color);
           const priorityNum = extractPriority(a);
@@ -2562,7 +2662,7 @@
           const fallbackImg = species.toLowerCase() === 'cat'
             ? 'https://images.unsplash.com/photo-1595433707802-6b2626ef1c91?auto=format&fit=crop&w=800&q=80'
             : 'https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&fit=crop&w=800&q=80';
-          const photo = (a.Photo_URL && String(a.Photo_URL).startsWith('http')) ? a.Photo_URL : fallbackImg;
+          const photo = (a.Photo_URL && (String(a.Photo_URL).startsWith('http') || String(a.Photo_URL).startsWith('data:'))) ? a.Photo_URL : fallbackImg;
           const isAdoptable = ['Available for Adoption', 'Urgent Foster', 'Foster-to-Adopt'].includes(status);
 
           return `
@@ -2585,15 +2685,19 @@
                 </div>
 
                 ${isTeam && isPending ? `
-                  <div class="pet-actions">
-                    <button type="button" onclick="approvePendingAnimal('${id}', '${name.replace(/'/g, "\\'")}')" class="btn-primary" style="padding:10px;font-size:12px;background:#059669;box-shadow:none;">Approve &amp; Publish</button>
-                    <button type="button" onclick="openAnimalFormModal('${id}')" class="btn-outline">Review / Edit</button>
+                  <div style="margin-top:12px;">
+                    <div class="pet-actions" style="margin-top:0;">
+                      <button type="button" onclick="approvePendingAnimal('${id}', '${safeName}')" class="btn-primary" style="padding:10px;font-size:12px;background:#059669;box-shadow:none;">Approve &amp; Publish</button>
+                      <button type="button" onclick="removeOrDisapproveAnimal('${id}', '${safeName}', true)" class="btn-danger-soft">Disapprove</button>
+                    </div>
+                    <button type="button" onclick="openAnimalTimelineModal('${id}')" class="btn-outline" style="width:100%;margin-top:8px;">Inspect Full Submission Details</button>
                   </div>
                 ` : `
-                  <div class="pet-actions" style="${!isTeam && !isAdoptable ? 'grid-template-columns:1fr;' : ''}">
+                  <div class="${isCoord ? 'pet-actions-3' : 'pet-actions'}">
                     <button type="button" onclick="openAnimalTimelineModal('${id}')" class="btn-outline">Full Profile</button>
                     ${isTeam ? `<button type="button" onclick="openAnimalFormModal('${id}')" class="btn-primary" style="padding:10px;font-size:12px;background:var(--stone-900);box-shadow:none;">Edit / Priority</button>` :
-                      (isAdoptable ? `<button type="button" onclick="openAdoptionApplyModal('${id}', '${name.replace(/'/g, "\\'")}', '${status.includes('Foster') ? 'Foster' : 'Adoption'}')" class="btn-primary" style="padding:10px;font-size:12px;box-shadow:none;">${status.includes('Foster') ? 'Apply Foster' : 'Apply Adopt'}</button>` : '')}
+                      (isAdoptable ? `<button type="button" onclick="openAdoptionApplyModal('${id}', '${safeName}', '${status.includes('Foster') ? 'Foster' : 'Adoption'}')" class="btn-primary" style="padding:10px;font-size:12px;box-shadow:none;">${status.includes('Foster') ? 'Apply Foster' : 'Apply Adopt'}</button>` : '')}
+                    ${isCoord ? `<button type="button" onclick="removeOrDisapproveAnimal('${id}', '${safeName}', false)" class="btn-danger-soft" title="Remove Pet">Remove</button>` : ''}
                   </div>
                 `}
               </div>
@@ -2602,22 +2706,50 @@
         }).join('');
       };
 
-      window.approvePendingAnimal = async function (animalId, name) {
+      // Optimistic Approve (0ms UI update + background Sheet sync)
+      window.approvePendingAnimal = function (animalId, name) {
         const session = getSession();
         if (!session) return showToast('Coordinator PIN required');
-        showToast(`Approving ${name}...`);
-        const res = await fetchWithRetry(API_URL, {
+
+        const target = (appState.animals || []).find(a => String(a.Animal_ID) === String(animalId));
+        const nextStatus = name.includes('(Lost Pet)') ? 'Lost Pet' : (name.includes('(Found Rescue)') ? 'Found Rescue' : 'Available for Adoption');
+
+        if (target) target.Status = nextStatus;
+        writeCache(appState);
+        renderCurrentView();
+        showToast(`${name} approved & published!`);
+
+        fetchWithRetry(API_URL, {
           method: 'POST',
           headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-          body: JSON.stringify({ action: 'SAVE_ANIMAL', pin: session.pin, animalId, name, status: 'Available for Adoption' })
-        }, 2);
-        if (res.status === 'success') {
-          await syncDatabase(true);
-          showToast(`${name} is now live in Adopt a Pet!`);
-        }
+          body: JSON.stringify({ action: 'SAVE_ANIMAL', pin: session.pin, animalId, name, status: nextStatus })
+        }, 2).then(() => syncDatabase(true)).catch(() => {});
+      };
+
+      // Optimistic Disapprove or Remove Pet (0ms UI update + background Sheet sync)
+      window.removeOrDisapproveAnimal = function (animalId, name, isDisapprove = false) {
+        const session = getSession();
+        if (!session) return showToast('Coordinator PIN required');
+
+        appState.animals = (appState.animals || []).map(a =>
+          String(a.Animal_ID) === String(animalId) ? { ...a, Status: 'Archived_Asset' } : a
+        );
+        writeCache(appState);
+        closeModal();
+        renderCurrentView();
+        showToast(isDisapprove ? `${name} disapproved & removed.` : `${name} removed from listings.`);
+
+        fetchWithRetry(API_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+          body: JSON.stringify({ action: 'SAVE_ANIMAL', pin: session.pin, animalId, name, status: 'Archived_Asset' })
+        }, 2).then(() => syncDatabase(true)).catch(() => {});
       };
 
       function renderSecondaryPublicViews() {
+        const session = getSession();
+        const isCoord = session && session.role === 'COORDINATOR';
+
         const fosterEl = document.getElementById('urgentFosterList');
         const urgentAnimals = sortAnimalsByPriority(appState.animals || []).filter(a => String(a.Status || '').trim() === 'Urgent Foster');
         fosterEl.innerHTML = urgentAnimals.length === 0
@@ -2648,6 +2780,7 @@
             </div>
           `).join('');
 
+        // Active Vet Bills (Displays WHICH animal needs it & WHY)
         const billsEl = document.getElementById('publicBillsList');
         const bills = appState.vetBills || [];
         billsEl.innerHTML = bills.length === 0
@@ -2657,11 +2790,15 @@
               <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px;">
                 <div>
                   <span class="badge">${r.Record_Type || 'Medical'}</span>
-                  <h4 style="margin:6px 0 4px;font-size:14px;font-weight:800;">${r.Animal_Name} — ${r.Title}</h4>
+                  <h4 style="margin:6px 0 3px;font-size:14.5px;font-weight:800;">Animal: ${r.Animal_Name}</h4>
+                  <p style="margin:0 0 4px;font-size:12px;font-weight:700;color:var(--paw-800);">Treatment: ${r.Title}</p>
                 </div>
-                <strong style="color:var(--paw-700);">₹${Number(r.Expense_Amount || 0).toLocaleString('en-IN')}</strong>
+                <strong style="font-size:14px;color:var(--paw-700);white-space:nowrap;">₹${Number(r.Expense_Amount || 0).toLocaleString('en-IN')}</strong>
               </div>
-              <p style="margin:4px 0 0;font-size:12px;color:var(--stone-500);">${r.Doctor_Notes || ''} (${r.Vet_Clinic || 'Partner Clinic'})</p>
+              <p style="margin:4px 0 0;font-size:12px;color:var(--stone-600);line-height:1.45;">
+                <strong>Why needed:</strong> ${r.Doctor_Notes || 'Urgent veterinary treatment & recovery care'}
+              </p>
+              <p style="margin:6px 0 0;font-size:11px;color:var(--stone-400);">Clinic: ${r.Vet_Clinic || 'Dogato Pet Hospital'}</p>
             </div>
           `).join('');
 
@@ -2693,7 +2830,7 @@
       }
 
       function renderLocationsTab() {
-        const locs = (appState.locations || []).filter(l => !['Donation_Config', 'Our_Partner'].includes(String(l.Type)));
+        const locs = (appState.locations || []).filter(l => !['Donation_Config', 'Our_Partner', 'Supply_Need'].includes(String(l.Type)) && String(l.Status) !== 'Archived');
         document.getElementById('badge-locations').textContent = locs.length;
         document.getElementById('locationsList').innerHTML = locs.length === 0
           ? `<div class="card" style="text-align:center;font-size:12px;color:var(--stone-500);">No foster homes, boarding facilities, or clinics added yet.</div>`
@@ -2714,32 +2851,25 @@
         const apps = appState.adoptions || [];
         document.getElementById('badge-adoptions').textContent = apps.length;
         document.getElementById('adoptionsList').innerHTML = apps.length === 0
-          ? `<div class="card" style="text-align:center;font-size:12px;color:var(--stone-500);">No enquiries or listing requests logged yet.</div>`
-          : apps.map(app => {
-            const linkedAnimal = (appState.animals || []).find(a => String(a.Animal_ID) === String(app.Animal_ID));
-            const isPendingListing = linkedAnimal && String(linkedAnimal.Status).trim() === 'Pending Approval';
-            return `
-              <div class="card" style="padding:16px;${isPendingListing ? 'border-color:#F59E0B;' : ''}">
-                <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px;">
-                  <div>
-                    <span class="badge">${app.Inquiry_Type} • ${app.App_ID}</span>
-                    <h4 style="margin:6px 0 2px;font-size:14px;font-weight:800;">${app.Applicant_Name} ➔ ${app.Animal_Name}</h4>
-                    <p style="margin:0;font-size:11.5px;color:var(--stone-500);">${app.Address_Locality || ''}</p>
-                    ${app.Housing_Details ? `<p style="margin:4px 0 0;font-size:11.5px;font-weight:600;">${app.Housing_Details}</p>` : ''}
-                    ${app.Pet_Experience ? `<p style="margin:4px 0 0;font-size:11.5px;color:var(--stone-600);">${app.Pet_Experience}</p>` : ''}
-                  </div>
-                  <span class="badge amber">${app.Screening_Status}</span>
+          ? `<div class="card" style="text-align:center;font-size:12px;color:var(--stone-500);">No adoption, foster, or volunteer enquiries logged yet.</div>`
+          : apps.map(app => `
+            <div class="card" style="padding:16px;">
+              <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px;">
+                <div>
+                  <span class="badge">${app.Inquiry_Type} • ${app.App_ID}</span>
+                  <h4 style="margin:6px 0 2px;font-size:14px;font-weight:800;">${app.Applicant_Name} ➔ ${app.Animal_Name}</h4>
+                  <p style="margin:0;font-size:11.5px;color:var(--stone-500);">${app.Address_Locality || ''}</p>
+                  ${app.Housing_Details ? `<p style="margin:4px 0 0;font-size:11.5px;font-weight:600;">${app.Housing_Details}</p>` : ''}
+                  ${app.Pet_Experience ? `<p style="margin:4px 0 0;font-size:11.5px;color:var(--stone-600);">${app.Pet_Experience}</p>` : ''}
                 </div>
-                ${linkedAnimal && linkedAnimal.Photo_URL && String(linkedAnimal.Photo_URL).startsWith('http') ? `<img src="${linkedAnimal.Photo_URL}" alt="${linkedAnimal.Name}" style="width:100%;height:140px;object-fit:cover;border-radius:12px;margin-top:10px;" />` : ''}
-                <div class="pet-actions">
-                  <a href="https://wa.me/91${String(app.Phone || '').replace(/\D/g, '')}" target="_blank" rel="noopener" class="btn-outline" style="text-align:center;text-decoration:none;background:#ECFDF5;color:#047857;border-color:#A7F3D0;">WhatsApp</a>
-                  ${isPendingListing
-                    ? `<button type="button" onclick="approvePendingAnimal('${linkedAnimal.Animal_ID}', '${String(linkedAnimal.Name).replace(/'/g, "\\'")}')" class="btn-primary" style="padding:10px;font-size:12px;background:#059669;box-shadow:none;">Approve &amp; Publish</button>`
-                    : `<button type="button" onclick="openScreeningModal('${app.App_ID}')" class="btn-primary" style="padding:10px;font-size:12px;box-shadow:none;">Screen / Follow-Up</button>`}
-                </div>
+                <span class="badge amber">${app.Screening_Status}</span>
               </div>
-            `;
-          }).join('');
+              <div class="pet-actions">
+                <a href="https://wa.me/91${String(app.Phone || '').replace(/\D/g, '')}" target="_blank" rel="noopener" class="btn-outline" style="text-align:center;text-decoration:none;background:#ECFDF5;color:#047857;border-color:#A7F3D0;">WhatsApp</a>
+                <button type="button" onclick="openScreeningModal('${app.App_ID}')" class="btn-primary" style="padding:10px;font-size:12px;box-shadow:none;">Screen / Follow-Up</button>
+              </div>
+            </div>
+          `).join('');
       }
 
       window.renderFinanceTab = function () {
@@ -2807,19 +2937,23 @@
       }
 
       window.renderCurrentView = function () {
-        renderAdoptTab();
-        renderSecondaryPublicViews();
-        if (getSession()) {
-          renderTeamVetTab();
-          renderLocationsTab();
-          renderAdoptionsTab();
-          renderFinanceTab();
-          renderTasksTab();
+        try {
+          renderAdoptTab();
+          renderSecondaryPublicViews();
+          if (getSession()) {
+            renderTeamVetTab();
+            renderLocationsTab();
+            renderAdoptionsTab();
+            renderFinanceTab();
+            renderTasksTab();
+          }
+        } catch (err) {
+          console.error(err);
         }
       };
 
       // ======================================================================
-      // FAST, NON-BLOCKING SYNC ENGINE
+      // NON-BLOCKING BACKGROUND SYNC ENGINE
       // ======================================================================
       window.syncDatabase = async function (forceFresh = false) {
         if (isSubmitting && !forceFresh) return;
@@ -2864,10 +2998,10 @@
         if (document.visibilityState === 'visible' && !['listpet', 'lostfound', 'fostervol'].includes(activeTab)) {
           syncDatabase(false);
         }
-      }, 7000);
+      }, 8000);
 
       // ======================================================================
-      // MODALS & INSTANT COORDINATOR LOGIN
+      // MODALS & INSTANT ROLE SWITCHING (Zero Freeze Guarantee)
       // ======================================================================
       const modalsMount = document.getElementById('modalsMount');
       window.closeModal = function () { modalsMount.innerHTML = ''; };
@@ -2935,9 +3069,9 @@
         btn.textContent = 'Verifying...';
 
         try {
-          // Single fast GET call with pin verifies role AND fetches full workspace in one roundtrip!
-          const qs = new URLSearchParams({ pin, fresh: '1', t: Date.now() });
-          const data = await fetchWithTimeout(`${API_URL}?${qs.toString()}`, { cache: 'no-store' }, 12000);
+          // Fast cached GET without ?fresh=1 so Apps Script returns from CacheService in ~50ms!
+          const qs = new URLSearchParams({ pin, t: Date.now() });
+          const data = await fetchWithTimeout(`${API_URL}?${qs.toString()}`, { cache: 'no-store' }, 10000);
 
           if (data && data.status === 'success' && (data.mode === 'COORDINATOR' || data.mode === 'VOLUNTEER')) {
             sessionStorage.setItem(SESSION_KEY, encodeSession(pin, data.mode));
@@ -2989,12 +3123,20 @@
         }
       };
 
+      // Instant 0ms Exit to Public View (Never freezes buttons!)
       window.logoutTeam = function () {
         sessionStorage.removeItem(SESSION_KEY);
+        closeModal();
+        closeMenu();
+        inFlightSync = null;
+        isSubmitting = false;
         lastSignature = '';
         activeTab = 'adopt';
-        syncDatabase(true);
+        animalFilter = 'ALL';
+        buildRoleChrome();
+        renderCurrentView();
         showToast('Switched to Public View');
+        syncDatabase(false);
       };
 
       window.openAnimalTimelineModal = function (animalId) {
@@ -3031,7 +3173,7 @@
         const existing = editId ? (appState.animals || []).find(a => String(a.Animal_ID) === String(editId)) : null;
         const currentPriority = existing ? extractPriority(existing) : 1;
         const cleanBreed = existing ? stripPriorityTag(existing.Breed_Color) : '';
-        const locs = (appState.locations || []).filter(l => !['Donation_Config', 'Our_Partner'].includes(String(l.Type)));
+        const locs = (appState.locations || []).filter(l => !['Donation_Config', 'Our_Partner', 'Supply_Need'].includes(String(l.Type)) && String(l.Status) !== 'Archived');
         modalsMount.innerHTML = `
           <div class="modal-backdrop" onclick="if(event.target===this) closeModal()">
             <div class="modal-sheet">
@@ -3062,19 +3204,18 @@
                 <div class="form-group"><label class="form-label">Medical &amp; Training Summary</label><input type="text" id="aniMedSum" value="${existing ? existing.Medical_Summary : ''}" class="input-ctrl" /></div>
                 <div class="form-group"><label class="form-label">Behaviour &amp; Diet Notes</label><textarea id="aniRehab" rows="2" class="input-ctrl">${existing ? existing.Rehab_Notes : ''}</textarea></div>
                 <button type="submit" id="saveAniBtn" class="btn-primary">Save</button>
+                ${existing ? `<button type="button" onclick="removeOrDisapproveAnimal('${existing.Animal_ID}', '${String(existing.Name).replace(/'/g, "\\'")}', false)" class="btn-danger-soft" style="width:100%;margin-top:10px;padding:12px;">Remove Pet Listing</button>` : ''}
               </form>
             </div>
           </div>
         `;
       };
 
+      // Optimistic 0ms Animal Save + Non-Blocking Background Sync
       window.submitAnimalForm = async function (e, editId) {
         e.preventDefault();
         const session = getSession();
         if (!session) return;
-        const btn = document.getElementById('saveAniBtn');
-        btn.disabled = true;
-        btn.textContent = 'Saving...';
 
         const fileInput = document.getElementById('aniPhotoFile');
         const photoBase64 = fileInput.files[0] ? await compressImageFile(fileInput.files[0]) : null;
@@ -3082,29 +3223,74 @@
         const priorityVal = parseInt(document.getElementById('aniPriority').value, 10) || 10;
         const breedWithPriority = `[P:${priorityVal}] ${document.getElementById('aniBreed').value.trim()}`.trim();
 
-        const res = await fetchWithRetry(API_URL, {
+        const payload = {
+          action: 'SAVE_ANIMAL',
+          pin: session.pin,
+          animalId: editId || undefined,
+          name: document.getElementById('aniName').value.trim(),
+          species: document.getElementById('aniSpecies').value,
+          breedColor: breedWithPriority,
+          ageGender: document.getElementById('aniAge').value.trim(),
+          status: document.getElementById('aniStatus').value,
+          locationId,
+          locationName,
+          rescueLocation: document.getElementById('aniRescueLoc').value.trim(),
+          rescueStory: document.getElementById('aniStory').value.trim(),
+          medicalSummary: document.getElementById('aniMedSum').value.trim(),
+          rehabNotes: document.getElementById('aniRehab').value.trim(),
+          photoBase64
+        };
+
+        // Update UI instantaneously (0ms) so buttons remain 100% responsive
+        if (editId) {
+          appState.animals = (appState.animals || []).map(a =>
+            String(a.Animal_ID) === String(editId)
+              ? {
+                  ...a,
+                  Name: payload.name,
+                  Species: payload.species,
+                  Breed_Color: payload.breedColor,
+                  Age_Gender: payload.ageGender,
+                  Status: payload.status,
+                  Current_Location_ID: locationId,
+                  Current_Location_Name: locationName,
+                  Rescue_Location: payload.rescueLocation,
+                  Rescue_Story: payload.rescueStory,
+                  Medical_Summary: payload.medicalSummary,
+                  Rehab_Notes: payload.rehabNotes,
+                  Photo_URL: photoBase64 || a.Photo_URL
+                }
+              : a
+          );
+        } else {
+          appState.animals = [{
+            Animal_ID: 'HP-' + Date.now().toString().slice(-3),
+            Name: payload.name,
+            Species: payload.species,
+            Breed_Color: payload.breedColor,
+            Age_Gender: payload.ageGender,
+            Status: payload.status,
+            Current_Location_ID: locationId,
+            Current_Location_Name: locationName,
+            Rescue_Location: payload.rescueLocation,
+            Rescue_Story: payload.rescueStory,
+            Medical_Summary: payload.medicalSummary,
+            Rehab_Notes: payload.rehabNotes,
+            Photo_URL: photoBase64 || ''
+          }, ...(appState.animals || [])];
+        }
+
+        writeCache(appState);
+        closeModal();
+        renderCurrentView();
+        showToast(editId ? `${payload.name} updated!` : `${payload.name} published!`);
+
+        // Sync to Google Sheet in background without locking UI
+        fetchWithRetry(API_URL, {
           method: 'POST',
           headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-          body: JSON.stringify({
-            action: 'SAVE_ANIMAL',
-            pin: session.pin,
-            animalId: editId || undefined,
-            name: document.getElementById('aniName').value.trim(),
-            species: document.getElementById('aniSpecies').value,
-            breedColor: breedWithPriority,
-            ageGender: document.getElementById('aniAge').value.trim(),
-            status: document.getElementById('aniStatus').value,
-            locationId,
-            locationName,
-            rescueLocation: document.getElementById('aniRescueLoc').value.trim(),
-            rescueStory: document.getElementById('aniStory').value.trim(),
-            medicalSummary: document.getElementById('aniMedSum').value.trim(),
-            rehabNotes: document.getElementById('aniRehab').value.trim(),
-            photoBase64
-          })
-        }, 2);
-
-        if (res.status === 'success') { closeModal(); await syncDatabase(true); showToast(res.message); }
+          body: JSON.stringify(payload)
+        }, 2).then(() => syncDatabase(true)).catch(() => {});
       };
 
       window.openVetFormModal = function () {
@@ -3113,23 +3299,32 @@
           <div class="modal-backdrop" onclick="if(event.target===this) closeModal()">
             <div class="modal-sheet">
               <div style="display:flex;justify-content:space-between;border-bottom:1px solid var(--stone-100);padding-bottom:12px;margin-bottom:14px;">
-                <h3 style="margin:0;font-size:16px;font-weight:800;">Log Vet Visit / Vaccination</h3>
+                <h3 style="margin:0;font-size:16px;font-weight:800;">Log Vet Visit / Active Vet Bill</h3>
                 <button type="button" onclick="closeModal()" style="width:32px;height:32px;border-radius:50%;border:none;background:var(--stone-100);font-weight:700;cursor:pointer;">✕</button>
               </div>
               <form onsubmit="submitVetForm(event)">
-                <div class="form-group"><select id="vetAnimalSelect" required class="input-ctrl">${animals.map(a => `<option value="${a.Animal_ID}|${a.Name}">${a.Animal_ID} — ${a.Name}</option>`).join('')}</select></div>
-                <div class="form-row-2">
-                  <select id="vetType" class="input-ctrl"><option value="Vaccination">Vaccination</option><option value="Treatment">Treatment</option><option value="Surgery">Surgery</option><option value="Sterilization">Sterilization</option><option value="Deworming">Deworming</option></select>
-                  <input type="date" id="vetNextDate" class="input-ctrl" />
+                <div class="form-group">
+                  <label class="form-label">Select Rescued Animal *</label>
+                  <select id="vetAnimalSelect" required class="input-ctrl">${animals.map(a => `<option value="${a.Animal_ID}|${a.Name}">${a.Animal_ID} — ${a.Name}</option>`).join('')}</select>
                 </div>
-                <div class="form-group"><input type="text" id="vetTitle" required placeholder="Treatment / Vaccine Title *" class="input-ctrl" /></div>
                 <div class="form-row-2">
-                  <input type="text" id="vetClinic" required placeholder="Vet Clinic *" class="input-ctrl" />
-                  <input type="number" id="vetExpense" min="0" value="0" placeholder="Expense (₹)" class="input-ctrl" />
+                  <div><label class="form-label">Type *</label><select id="vetType" class="input-ctrl"><option value="Treatment">Treatment</option><option value="Vaccination">Vaccination</option><option value="Surgery">Surgery</option><option value="Sterilization">Sterilization</option><option value="Deworming">Deworming</option></select></div>
+                  <div><label class="form-label">Next Due Date</label><input type="date" id="vetNextDate" class="input-ctrl" /></div>
                 </div>
-                <div class="form-group"><select id="vetPayStatus" class="input-ctrl"><option value="Paid">Paid (Auto-logs to Expense Ledger)</option><option value="Pending Funding">Pending Funding (Shows on Donate Tab)</option></select></div>
-                <div class="form-group"><input type="file" id="vetBillFile" accept="image/*" /></div>
-                <div class="form-group"><textarea id="vetNotes" rows="2" placeholder="Doctor instructions..." class="input-ctrl"></textarea></div>
+                <div class="form-group"><label class="form-label">Treatment / Bill Title *</label><input type="text" id="vetTitle" required placeholder="e.g., Fracture Splint & X-Ray" class="input-ctrl" /></div>
+                <div class="form-row-2">
+                  <div><label class="form-label">Vet Clinic *</label><input type="text" id="vetClinic" required value="Dogato Pet Hospital" class="input-ctrl" /></div>
+                  <div><label class="form-label">Amount (₹) *</label><input type="number" id="vetExpense" min="0" value="0" class="input-ctrl" /></div>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Status *</label>
+                  <select id="vetPayStatus" class="input-ctrl">
+                    <option value="Pending Funding">Pending Funding (Displays on Donate Tab)</option>
+                    <option value="Paid">Paid (Logs to Finance Ledger)</option>
+                  </select>
+                </div>
+                <div class="form-group"><label class="form-label">Upload Bill / Prescription (Optional)</label><input type="file" id="vetBillFile" accept="image/*" /></div>
+                <div class="form-group"><label class="form-label">Why Needed / Medical Reason *</label><textarea id="vetNotes" required rows="2" placeholder="Explain the injury/illness and why treatment is needed..." class="input-ctrl"></textarea></div>
                 <button type="submit" id="saveVetBtn" class="btn-primary">Save Vet Record</button>
               </form>
             </div>
@@ -3144,18 +3339,49 @@
         const [animalId, animalName] = document.getElementById('vetAnimalSelect').value.split('|');
         const billFile = document.getElementById('vetBillFile').files[0];
         const billPhotoBase64 = billFile ? await compressImageFile(billFile) : null;
-        const res = await fetchWithRetry(API_URL, {
+
+        const payload = {
+          action: 'ADD_VET_RECORD',
+          pin: session.pin,
+          animalId,
+          animalName,
+          recordType: document.getElementById('vetType').value,
+          nextDueDate: document.getElementById('vetNextDate').value,
+          title: document.getElementById('vetTitle').value.trim(),
+          vetClinic: document.getElementById('vetClinic').value.trim(),
+          expenseAmount: Number(document.getElementById('vetExpense').value) || 0,
+          paymentStatus: document.getElementById('vetPayStatus').value,
+          doctorNotes: document.getElementById('vetNotes').value.trim(),
+          billPhotoBase64
+        };
+
+        const newRec = {
+          Vet_ID: 'VET-' + Date.now().toString().slice(-4),
+          Visit_Date: new Date().toISOString().slice(0, 10),
+          Animal_ID: animalId,
+          Animal_Name: animalName,
+          Record_Type: payload.recordType,
+          Title: payload.title,
+          Vet_Clinic: payload.vetClinic,
+          Next_Due_Date: payload.nextDueDate,
+          Expense_Amount: payload.expenseAmount,
+          Payment_Status: payload.paymentStatus,
+          Doctor_Notes: payload.doctorNotes
+        };
+        appState.vetRecords = [newRec, ...(appState.vetRecords || [])];
+        if (payload.paymentStatus === 'Pending Funding') {
+          appState.vetBills = [newRec, ...(appState.vetBills || [])];
+        }
+        writeCache(appState);
+        closeModal();
+        renderCurrentView();
+        showToast('Vet record saved!');
+
+        fetchWithRetry(API_URL, {
           method: 'POST',
           headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-          body: JSON.stringify({
-            action: 'ADD_VET_RECORD', pin: session.pin, animalId, animalName,
-            recordType: document.getElementById('vetType').value, nextDueDate: document.getElementById('vetNextDate').value,
-            title: document.getElementById('vetTitle').value.trim(), vetClinic: document.getElementById('vetClinic').value.trim(),
-            expenseAmount: Number(document.getElementById('vetExpense').value) || 0, paymentStatus: document.getElementById('vetPayStatus').value,
-            doctorNotes: document.getElementById('vetNotes').value.trim(), billPhotoBase64
-          })
-        }, 2);
-        if (res.status === 'success') { closeModal(); await syncDatabase(true); showToast(res.message); }
+          body: JSON.stringify(payload)
+        }, 2).then(() => syncDatabase(true)).catch(() => {});
       };
 
       window.openLocationFormModal = function () {
@@ -3184,21 +3410,36 @@
         `;
       };
 
-      window.submitLocationForm = async function (e) {
+      window.submitLocationForm = function (e) {
         e.preventDefault();
         const session = getSession();
         if (!session) return;
-        const res = await fetchWithRetry(API_URL, {
+        const payload = {
+          action: 'SAVE_LOCATION', pin: session.pin, type: document.getElementById('locType').value,
+          capacity: Number(document.getElementById('locCap').value), name: document.getElementById('locName').value.trim(),
+          contactPerson: document.getElementById('locContact').value.trim(), phone: document.getElementById('locPhone').value.trim(),
+          areaAddress: document.getElementById('locArea').value.trim()
+        };
+        appState.locations = [{
+          Location_ID: 'LOC-' + Date.now().toString().slice(-4),
+          Type: payload.type,
+          Name: payload.name,
+          Contact_Person: payload.contactPerson,
+          Phone: payload.phone,
+          Area_Address: payload.areaAddress,
+          Capacity: payload.capacity,
+          Status: 'Active'
+        }, ...(appState.locations || [])];
+        writeCache(appState);
+        closeModal();
+        renderCurrentView();
+        showToast('Location saved!');
+
+        fetchWithRetry(API_URL, {
           method: 'POST',
           headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-          body: JSON.stringify({
-            action: 'SAVE_LOCATION', pin: session.pin, type: document.getElementById('locType').value,
-            capacity: Number(document.getElementById('locCap').value), name: document.getElementById('locName').value.trim(),
-            contactPerson: document.getElementById('locContact').value.trim(), phone: document.getElementById('locPhone').value.trim(),
-            areaAddress: document.getElementById('locArea').value.trim()
-          })
-        }, 2);
-        if (res.status === 'success') { closeModal(); await syncDatabase(true); showToast('Location saved!'); }
+          body: JSON.stringify(payload)
+        }, 2).then(() => syncDatabase(true)).catch(() => {});
       };
 
       window.openFinanceFormModal = function () {
@@ -3227,21 +3468,36 @@
         `;
       };
 
-      window.submitFinanceForm = async function (e) {
+      window.submitFinanceForm = function (e) {
         e.preventDefault();
         const session = getSession();
         if (!session) return;
-        const res = await fetchWithRetry(API_URL, {
+        const payload = {
+          action: 'ADD_FINANCE_TXN', pin: session.pin, type: document.getElementById('finType').value,
+          amount: Number(document.getElementById('finAmount').value), category: document.getElementById('finCategory').value,
+          paymentMode: document.getElementById('finMode').value, partyName: document.getElementById('finParty').value.trim(),
+          notes: document.getElementById('finNotes').value.trim()
+        };
+        appState.finance = [{
+          Txn_ID: 'TXN-' + Date.now().toString().slice(-4),
+          Txn_Date: new Date().toISOString().slice(0, 10),
+          Type: payload.type,
+          Category: payload.category,
+          Party_Name: payload.partyName,
+          Amount: payload.amount,
+          Payment_Mode: payload.paymentMode,
+          Notes: payload.notes
+        }, ...(appState.finance || [])];
+        writeCache(appState);
+        closeModal();
+        renderCurrentView();
+        showToast('Transaction recorded!');
+
+        fetchWithRetry(API_URL, {
           method: 'POST',
           headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-          body: JSON.stringify({
-            action: 'ADD_FINANCE_TXN', pin: session.pin, type: document.getElementById('finType').value,
-            amount: Number(document.getElementById('finAmount').value), category: document.getElementById('finCategory').value,
-            paymentMode: document.getElementById('finMode').value, partyName: document.getElementById('finParty').value.trim(),
-            notes: document.getElementById('finNotes').value.trim()
-          })
-        }, 2);
-        if (res.status === 'success') { closeModal(); await syncDatabase(true); showToast(res.message); }
+          body: JSON.stringify(payload)
+        }, 2).then(() => syncDatabase(true)).catch(() => {});
       };
 
       window.openAdoptionApplyModal = function (animalId, animalName, inquiryType) {
@@ -3317,20 +3573,33 @@
         `;
       };
 
-      window.submitScreeningUpdate = async function (e, appId, animalId, applicantName) {
+      window.submitScreeningUpdate = function (e, appId, animalId, applicantName) {
         e.preventDefault();
         const session = getSession();
         if (!session) return;
-        const res = await fetchWithRetry(API_URL, {
+        const st = document.getElementById('scrStatus').value;
+        const notes = document.getElementById('scrNotes').value.trim();
+        const f30 = document.getElementById('scr30d').value;
+        const f90 = document.getElementById('scr90d').value;
+
+        appState.adoptions = (appState.adoptions || []).map(a =>
+          String(a.App_ID) === String(appId)
+            ? { ...a, Screening_Status: st, Screening_Notes: notes, Followup_30D_Status: f30, Followup_90D_Status: f90 }
+            : a
+        );
+        writeCache(appState);
+        closeModal();
+        renderCurrentView();
+        showToast('Pipeline updated!');
+
+        fetchWithRetry(API_URL, {
           method: 'POST',
           headers: { 'Content-Type': 'text/plain;charset=utf-8' },
           body: JSON.stringify({
             action: 'UPDATE_ADOPTION_STAGE', pin: session.pin, appId, animalId, applicantName,
-            screeningStatus: document.getElementById('scrStatus').value, screeningNotes: document.getElementById('scrNotes').value.trim(),
-            followup30D: document.getElementById('scr30d').value, followup90D: document.getElementById('scr90d').value
+            screeningStatus: st, screeningNotes: notes, followup30D: f30, followup90D: f90
           })
-        }, 2);
-        if (res.status === 'success') { closeModal(); await syncDatabase(true); showToast('Updated!'); }
+        }, 2).then(() => syncDatabase(true)).catch(() => {});
       };
 
       window.openTaskFormModal = function () {
@@ -3356,31 +3625,51 @@
         `;
       };
 
-      window.submitTaskForm = async function (e) {
+      window.submitTaskForm = function (e) {
         e.preventDefault();
         const session = getSession();
         if (!session) return;
-        const res = await fetchWithRetry(API_URL, {
+        const payload = {
+          action: 'SAVE_TASK', pin: session.pin, title: document.getElementById('tskTitle').value.trim(),
+          category: document.getElementById('tskCat').value, priority: document.getElementById('tskPriority').value,
+          areaLocation: document.getElementById('tskArea').value.trim(), assignedTo: document.getElementById('tskAssignee').value.trim() || 'Open'
+        };
+        appState.tasks = [{
+          Task_ID: 'TSK-' + Date.now().toString().slice(-4),
+          Title: payload.title,
+          Category: payload.category,
+          Priority: payload.priority,
+          Area_Location: payload.areaLocation,
+          Assigned_To: payload.assignedTo,
+          Status: 'Open'
+        }, ...(appState.tasks || [])];
+        writeCache(appState);
+        closeModal();
+        renderCurrentView();
+        showToast('Task assigned!');
+
+        fetchWithRetry(API_URL, {
           method: 'POST',
           headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-          body: JSON.stringify({
-            action: 'SAVE_TASK', pin: session.pin, title: document.getElementById('tskTitle').value.trim(),
-            category: document.getElementById('tskCat').value, priority: document.getElementById('tskPriority').value,
-            areaLocation: document.getElementById('tskArea').value.trim(), assignedTo: document.getElementById('tskAssignee').value.trim() || 'Open'
-          })
-        }, 2);
-        if (res.status === 'success') { closeModal(); await syncDatabase(true); showToast('Task assigned!'); }
+          body: JSON.stringify(payload)
+        }, 2).then(() => syncDatabase(true)).catch(() => {});
       };
 
-      window.quickCompleteTask = async function (taskId) {
+      window.quickCompleteTask = function (taskId) {
         const session = getSession();
         if (!session) return;
-        const res = await fetchWithRetry(API_URL, {
+        appState.tasks = (appState.tasks || []).map(t =>
+          String(t.Task_ID) === String(taskId) ? { ...t, Status: 'Completed' } : t
+        );
+        writeCache(appState);
+        renderCurrentView();
+        showToast('Task completed!');
+
+        fetchWithRetry(API_URL, {
           method: 'POST',
           headers: { 'Content-Type': 'text/plain;charset=utf-8' },
           body: JSON.stringify({ action: 'SAVE_TASK', pin: session.pin, taskId, status: 'Completed' })
-        }, 2);
-        if (res.status === 'success') { await syncDatabase(true); showToast('Task completed!'); }
+        }, 2).then(() => syncDatabase(true)).catch(() => {});
       };
 
       let tapCount = 0, tapTimer = null;
